@@ -20,9 +20,9 @@ public class StageManager
 
     public PlayerUnit SpawnPlayer(UnitData data, CombatResourceData resourceData)
     {
-        if (playerAnchor == null)
+        if (data == null || playerAnchor == null || data.prefab == null)
         {
-            Debug.LogError("[StageManager] Player Anchor is missing!");
+            Debug.LogError("Something wrong");
             return null;
         }
 

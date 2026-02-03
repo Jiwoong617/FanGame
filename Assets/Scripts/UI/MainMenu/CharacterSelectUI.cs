@@ -83,6 +83,7 @@ public class CharacterSelectUI : UI_Base
     private void OnClickStart()
     {
         Debug.Log("Start;");
+        GameManager.Scene.LoadScene(SceneType.Game);
     }
 
     private void OnClickBack()

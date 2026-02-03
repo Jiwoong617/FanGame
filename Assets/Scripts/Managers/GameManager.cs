@@ -17,19 +17,27 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get { return instance; } }
 
     #region Managers
+    public static MySceneManager Scene { get; private set; }
     public static BattleManager Battle { get; private set; }
     public static RewardManager Reward { get; private set; }
     public static StageManager Stage { get; private set; }
+    public static MapManager Map { get; private set; }
     #endregion
 
-    private GameState state;
+    private GameState state = GameState.MainMenu;
     
     // Selected Data
     private UnitData selectedPlayerClass;
     private CombatResourceData selectedPlayerResource;
 
+    //TEST 용
+    [SerializeField] private UnitData testUnitData;
+    [SerializeField] private CombatResourceData testSelectedPlayerResource;
+
     private void Awake()
     {
+        SetPlayerData(testUnitData, testSelectedPlayerResource);
+
         Init();
         Application.targetFrameRate = 60;
     }
@@ -56,6 +64,8 @@ public class GameManager : MonoBehaviour
 
     public void SetPlayerData(UnitData playerUnit, CombatResourceData playerResource)
     {
+        if (playerUnit == null || playerResource == null) return;
+
         selectedPlayerClass = playerUnit;
         selectedPlayerResource = playerResource;
     }
@@ -78,31 +88,32 @@ public class GameManager : MonoBehaviour
             {
                 Debug.LogError("[GameManager] Anchors not found in GameScene!");
             }
+
+            ChangeState(GameState.MapSelect);
         }
     }
 
     private void Init()
     {
-        if (instance != null) return;
-
-        GameObject go = GameObject.Find("GameManager");
-        if (go == null)
+        if (instance != null && instance != this)
         {
-            go = new GameObject { name = "GameManager" };
-            go.AddComponent<GameManager>();
+            Destroy(gameObject);
+            return;
         }
 
-        DontDestroyOnLoad(go);
-        instance = go.GetComponent<GameManager>();
+        instance = this;
+        DontDestroyOnLoad(gameObject);
 
         InitializeManagers();
     }
 
     private void InitializeManagers()
     {
+        Scene = new MySceneManager();
         Battle = new BattleManager();
         Reward = new RewardManager();
         Stage = new StageManager();
+        Map = new MapManager();
 
         
         // 전투 -> (승리) -> 보상
@@ -139,6 +150,9 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.MapSelect:
+                if (Map.mapGrid == null)
+                    Map.GenerateMap();
+                Map.ShowMapUI();
                 break;
 
             case GameState.GameOver:
