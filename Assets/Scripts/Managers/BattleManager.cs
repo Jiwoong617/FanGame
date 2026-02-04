@@ -14,18 +14,61 @@ public class BattleManager
     public event Action OnPlayerDead;
     public event Action OnBattleWon;
 
+
     private PlayerUnit player;
     private List<EnemyUnit> enemies = new();
+    private Transform enemyAnchor;
 
     private BattleState state = BattleState.None;
+    private float spawnSpacing = 5f;
 
-    public void SetupBattle(PlayerUnit p, List<EnemyUnit> eList)
+    public void SetEnemyAnchor()
+    {
+        GameObject eAnchorObj = GameObject.Find("EnemyAnchor");
+        enemyAnchor = eAnchorObj.transform;
+    }
+
+    public void SetupBattle(PlayerUnit p, List<UnitData> enemyDataList)
     {
         player = p;
         enemies.Clear();
-        if (eList != null) enemies.AddRange(eList);
+
+        if (enemyAnchor == null)
+        {
+            Debug.LogError("[BattleManager] Enemy Anchor is null!");
+            return;
+        }
+
+        if (enemyDataList != null && enemyDataList.Count > 0)
+        {
+            SpawnEnemies(enemyDataList);
+        }
         
         Debug.Log($"[BattleManager] Setup Complete. Player: {(player ? player.name : "null")}, Enemies: {enemies.Count}");
+    }
+
+    private void SpawnEnemies(List<UnitData> dataList)
+    {
+        int count = dataList.Count;
+        float startX = -(count - 1) * 0.5f * spawnSpacing;
+
+        for (int i = 0; i < count; i++)
+        {
+            if (dataList[i] == null || dataList[i].prefab == null) continue;
+
+            float xOffset = startX + (i * spawnSpacing);
+            Vector3 spawnPos = enemyAnchor.position + (enemyAnchor.right * xOffset);
+
+            // 적 생성
+            GameObject go = UnityEngine.Object.Instantiate(dataList[i].prefab, spawnPos, enemyAnchor.rotation);
+            EnemyUnit enemy = go.GetComponent<EnemyUnit>();
+            
+            if (enemy != null)
+            {
+                enemy.Init(dataList[i]);
+                enemies.Add(enemy);
+            }
+        }
     }
 
     public void CleanupBattle()
