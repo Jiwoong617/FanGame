@@ -23,6 +23,7 @@ public class MapNode
     public int y; // 세로 위치 (층, Floor)
     public NodeType nodeType;
     public NodeStatus status;
+    public NodeContent content;
 
     public List<MapNode> incoming = new List<MapNode>(); //이전
     public List<MapNode> outgoing = new List<MapNode>(); //다음

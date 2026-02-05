@@ -14,7 +14,7 @@ public class MapManager
 
     private MapUI mapUI;
     
-    public void GenerateMap()
+    public void GenerateMap(StageData stageData)
     {
         //Walker 알고리즘 사용
         mapGrid = new List<List<MapNode>>();
@@ -138,25 +138,63 @@ public class MapManager
         foreach (var walker in currentWalkers)
             Connect(walker, bossNode);
 
-        // 노드 정렬
+        // 노드 정렬 및 컨텐츠 할당
         for (int y = 0; y < FLOORS; y++)
         {
             // x 좌표 순 정렬
             mapGrid[y] = mapGrid[y].OrderBy(n => n.x).ToList();
-            // 타입 지정 (1층과 보스층 제외)
-            if (y > 0 && y < FLOORS - 1)
+            
+            foreach (var node in mapGrid[y])
             {
-                foreach (var node in mapGrid[y])
-                {
+                if (y > 0 && y < FLOORS - 1)
                     node.nodeType = GetRandomNodeType(y);
-                }
+
+                // 컨텐츠 할당
+                AssignNodeContent(node, stageData);
             }
         }
 
         // 1층 활성화
         foreach(var node in mapGrid[0])
-        {
             node.status = NodeStatus.Available;
+    }
+
+    private void AssignNodeContent(MapNode node, StageData stageData)
+    {
+        if (stageData == null) return;
+
+        switch (node.nodeType)
+        {
+            case NodeType.Monster:
+                List<UnitData> enemies = new List<UnitData>();
+                if (stageData.normalEnemyPool != null && stageData.normalEnemyPool.Count > 0)
+                    enemies = stageData.normalEnemyPool[Random.Range(0, stageData.normalEnemyPool.Count)].enemies;
+                node.content = new BattleContent(enemies);
+                break;
+            case NodeType.Elite:
+                List<UnitData> elites = new List<UnitData>();
+                if (stageData.eliteEnemyPool != null && stageData.eliteEnemyPool.Count > 0)
+                {
+                    var elite = stageData.eliteEnemyPool[Random.Range(0, stageData.eliteEnemyPool.Count)];
+                    elites.Add(elite);
+                }
+                node.content = new BattleContent(elites);
+                break;
+            case NodeType.Boss:
+                List<UnitData> bosses = new List<UnitData>();
+                if (stageData.bossPool != null && stageData.bossPool.Count > 0)
+                {
+                    var boss = stageData.bossPool[Random.Range(0, stageData.bossPool.Count)];
+                    bosses.Add(boss);
+                }
+                node.content = new BattleContent(bosses);
+                break;
+            case NodeType.Event:
+                node.content = new EventContent();
+                break;
+            case NodeType.Rest:
+                node.content = new RestContent();
+                break;
         }
     }
 
@@ -209,8 +247,10 @@ public class MapManager
                 }
             }
         }
+
+        GameManager.Instance.ProcessNode(node);
     }
-    
+
     // 스테이지 클리어 후 호출
     public void OnClearMap()
     {

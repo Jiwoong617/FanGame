@@ -172,16 +172,8 @@ public class MapUI : UI_Base
         UpdateMapUI();
 
         Hide();
-
-        //TEST
-        Invoke("fortest", 0.5f);
     }
 
-    //TODO : 이거 삭제해야 됨
-    private void fortest()
-    {
-        GameManager.Map.OnClearMap();
-    }
 
     private void ClearMap()
     {

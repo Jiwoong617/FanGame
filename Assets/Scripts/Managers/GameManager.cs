@@ -22,7 +22,6 @@ public class GameManager : MonoBehaviour
     public static MySceneManager Scene { get; private set; }
     public static BattleManager Battle { get; private set; }
     public static RewardManager Reward { get; private set; }
-    // public static StageManager Stage { get; private set; } // 제거됨 (코드 이관)
     public static MapManager Map { get; private set; }
     public static EventManager Event { get; private set; }
     public static RestManager Rest { get; private set; }
@@ -38,9 +37,12 @@ public class GameManager : MonoBehaviour
     private PlayerUnit playerUnitInstance;
     private Transform playerAnchor;
 
+
     //TEST 용
     [SerializeField] private UnitData testUnitData;
     [SerializeField] private CombatResourceData testSelectedPlayerResource;
+    [SerializeField] private StageData currentStageData;
+
 
     private void Awake()
     {
@@ -96,7 +98,7 @@ public class GameManager : MonoBehaviour
 
 
         // 전투 -> (승리) -> 보상
-        Battle.OnBattleWon += () => ChangeState(GameState.Reward);
+        Battle.OnBattleWon += () => ChangeState(GameState.MapSelect);
         // 전투 -> (패배) -> 게임오버
         Battle.OnPlayerDead += () => ChangeState(GameState.GameOver);
 
@@ -129,6 +131,7 @@ public class GameManager : MonoBehaviour
             {
                 playerAnchor = pAnchorObj.transform;
                 SpawnPlayer();
+                Battle.SetEnemyAnchor();
             }
             else
             {
@@ -154,21 +157,36 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log($"[GameManager] ProcessNode: {node.nodeType} at Floor {node.y}");
 
-        switch (node.nodeType)
+        if (node.content is BattleContent battleContent)
         {
-            case NodeType.Monster:
-            case NodeType.Elite:
-            case NodeType.Boss:
-                ChangeState(GameState.Battle);
-                break;
-
-            case NodeType.Rest:
-                ChangeState(GameState.Rest);
-                break;
-
-            case NodeType.Event:
-                ChangeState(GameState.Event);
-                break;
+            Battle.SetupBattle(playerUnitInstance, battleContent.enemies);
+            ChangeState(GameState.Battle);
+        }
+        else if (node.content is EventContent eventContent)
+        {
+            ChangeState(GameState.Event);
+        }
+        else if (node.content is RestContent restContent)
+        {
+            ChangeState(GameState.Rest);
+        }
+        else
+        {
+            switch (node.nodeType)
+            {
+                case NodeType.Monster:
+                case NodeType.Elite:
+                case NodeType.Boss:
+                    Debug.LogWarning("Battle node but no BattleContent found.");
+                    ChangeState(GameState.Battle);
+                    break;
+                case NodeType.Rest:
+                    ChangeState(GameState.Rest);
+                    break;
+                case NodeType.Event:
+                    ChangeState(GameState.Event);
+                    break;
+            }
         }
     }
 
@@ -194,7 +212,8 @@ public class GameManager : MonoBehaviour
             case GameState.MapSelect:
                 Battle.CleanupBattle(); // 전투 정리
                 if (Map.mapGrid == null)
-                    Map.GenerateMap();
+                    Map.GenerateMap(currentStageData);
+                Map.OnClearMap();
                 Map.ShowMapUI();
                 break;
             

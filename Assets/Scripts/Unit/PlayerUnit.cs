@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum PlayerState
 {
@@ -43,9 +44,9 @@ public class PlayerUnit : CombatUnit
         if (state != PlayerState.Idle) return;
 
         // TODO: 입력 매핑 수정
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Keyboard.current.spaceKey.wasPressedThisFrame)
             TryDodge();
-        else if (Input.GetKeyDown(KeyCode.LeftShift))
+        else if (Keyboard.current.qKey.wasPressedThisFrame)
             TryParry();
     }
 

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum BattleState
 {
@@ -151,6 +152,7 @@ public class BattleManager
             enemy.OnUnitDead -= HandleEnemyDead;
             
             enemies.Remove(enemy);
+            GameObject.Destroy(enemy.gameObject);
         }
     }
 
@@ -158,10 +160,10 @@ public class BattleManager
     {
         if (player == null) return;
 
-        // 수동 타겟 변경
-        if (Input.GetMouseButtonDown(0))
+        // 수동 타겟 변경 (New Input System)
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
         {
-            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
             if (hit.collider != null)
