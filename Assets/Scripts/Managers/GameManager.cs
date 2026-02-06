@@ -15,10 +15,10 @@ public enum GameState
 
 public class GameManager : MonoBehaviour
 {
+    #region Managers
+
     private static GameManager instance = null;
     public static GameManager Instance { get { return instance; } }
-
-    #region Managers
     public static MySceneManager Scene { get; private set; }
     public static BattleManager Battle { get; private set; }
     public static RewardManager Reward { get; private set; }
@@ -30,23 +30,21 @@ public class GameManager : MonoBehaviour
     private GameState state = GameState.MainMenu;
     
     // Selected Data
-    private UnitData selectedPlayerClass;
-    private CombatResourceData selectedPlayerResource;
+    private PlayerData selectedPlayerClass;
 
     // In-Game Objects
-    private PlayerUnit playerUnitInstance;
+    public PlayerUnit Player { get; private set; }
     private Transform playerAnchor;
 
 
     //TEST 용
-    [SerializeField] private UnitData testUnitData;
-    [SerializeField] private CombatResourceData testSelectedPlayerResource;
+    [SerializeField] private PlayerData testUnitData;
     [SerializeField] private StageData currentStageData;
 
 
     private void Awake()
     {
-        SetPlayerData(testUnitData, testSelectedPlayerResource);
+        SetPlayerData(testUnitData);
 
         Init();
         Application.targetFrameRate = 60;
@@ -98,7 +96,7 @@ public class GameManager : MonoBehaviour
 
 
         // 전투 -> (승리) -> 보상
-        Battle.OnBattleWon += () => ChangeState(GameState.MapSelect);
+        Battle.OnBattleWon += () => ChangeState(GameState.Reward);
         // 전투 -> (패배) -> 게임오버
         Battle.OnPlayerDead += () => ChangeState(GameState.GameOver);
 
@@ -111,12 +109,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-    public void SetPlayerData(UnitData playerUnit, CombatResourceData playerResource)
+    public void SetPlayerData(PlayerData playerData)
     {
-        if (playerUnit == null || playerResource == null) return;
+        if (playerData == null) return;
 
-        selectedPlayerClass = playerUnit;
-        selectedPlayerResource = playerResource;
+        selectedPlayerClass = playerData;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -148,8 +145,8 @@ public class GameManager : MonoBehaviour
         if (playerAnchor == null) return;
 
         GameObject go = Instantiate(selectedPlayerClass.prefab, playerAnchor.position, playerAnchor.rotation);
-        playerUnitInstance = go.GetComponent<PlayerUnit>();
-        playerUnitInstance.Init(selectedPlayerClass, selectedPlayerResource);
+        Player = go.GetComponent<PlayerUnit>();
+        Player.Init(selectedPlayerClass);
     }
 
     // MapManager에서 노드 선택 시 호출
@@ -159,7 +156,7 @@ public class GameManager : MonoBehaviour
 
         if (node.content is BattleContent battleContent)
         {
-            Battle.SetupBattle(playerUnitInstance, battleContent.enemies);
+            Battle.SetupBattle(Player, battleContent.enemies);
             ChangeState(GameState.Battle);
         }
         else if (node.content is EventContent eventContent)
@@ -206,7 +203,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.Reward:
-                Reward.ShowRewardUI();
+                Reward.ShowRewardUI(currentStageData); 
                 break;
 
             case GameState.MapSelect:

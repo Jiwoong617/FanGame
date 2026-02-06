@@ -262,7 +262,7 @@ public class MapManager
             nextNode.status = NodeStatus.Available;
         }
 
-        mapUI.Show();
+        ShowMapUI();
     }
 
     public void SetMapUI(MapUI ui)

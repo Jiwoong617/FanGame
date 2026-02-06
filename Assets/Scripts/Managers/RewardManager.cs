@@ -1,22 +1,97 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RewardManager
 {
     public event Action OnRewardSelected;
 
-    public void ShowRewardUI()
+    private RewardUI rewardUI;
+    private List<RewardBase> currentRewards = new List<RewardBase>();
+
+    public void SetUI(RewardUI ui)
     {
-        Debug.Log("[RewardManager] Showing Reward UI...");
-        // TODO: UI 띄우기 (카드 3장 등)
+        rewardUI = ui;
     }
 
-    // UI 버튼 등에서 호출될 메서드
-    public void SelectReward(int rewardIndex)
+    public void ShowRewardUI(StageData stageData)
     {
-        Debug.Log($"[RewardManager] Reward {rewardIndex} selected.");
-        // TODO: 보상 적용 로직 (아이템 획득, 스텟 증가 등)
+        if (rewardUI == null)
+        {
+            Debug.LogError("[RewardManager] RewardUI is not set!");
+            return;
+        }
+
+        if (stageData == null || stageData.rewards == null || stageData.rewards.Count == 0)
+        {
+            Debug.LogError("[RewardManager] No rewards available in StageData!");
+
+            rewardUI.SetRewards(new List<RewardBase>());
+            rewardUI.Show();
+            return;
+        }
+
+        GetRandomRewards(stageData, 3);
+        rewardUI.SetRewards(currentRewards);
+        rewardUI.Show();
+    }
+
+    // UI 버튼 클릭 시 호출 (0, 1, 2)
+    public void SelectReward(int index)
+    {
+        if (index < 0 || index >= currentRewards.Count)
+        {
+            rewardUI.Hide();
+            OnRewardSelected?.Invoke();
+            return;
+        }
+
+        RewardBase selected = currentRewards[index];
+        Debug.Log($"[RewardManager] Selected: {selected.RewardName}");
+
+        if (GameManager.Instance.Player != null)
+            selected.Apply(GameManager.Instance.Player);
+        else
+            Debug.LogWarning("[RewardManager] Player instance not found!");
         
+        rewardUI.Hide();
         OnRewardSelected?.Invoke();
+    }
+
+    private void GetRandomRewards(StageData stageData, int count)
+    {
+        currentRewards.Clear();
+
+        if (stageData.rewards == null) return;
+
+        int n = stageData.rewards.Count;
+        if (n <= count)
+        {
+            currentRewards.AddRange(stageData.rewards);
+            return;
+        }
+
+        HashSet<int> selectedIndices = new HashSet<int>();
+        for (int j = n - count; j < n; j++)
+        {
+            int t = UnityEngine.Random.Range(0, j + 1);
+            
+            if (!selectedIndices.Add(t))
+            {
+                selectedIndices.Add(j);
+            }
+        }
+
+        foreach (int index in selectedIndices)
+        {
+            currentRewards.Add(stageData.rewards[index]);
+        }
+
+        //FisherYates - 필요없을듯
+        //for (int i = 0; i < currentRewards.Count; i++)
+        //{
+        //    int rnd = UnityEngine.Random.Range(i, currentRewards.Count);
+        //    (currentRewards[i], currentRewards[rnd]) = (currentRewards[rnd], currentRewards[i]);
+        //}
     }
 }

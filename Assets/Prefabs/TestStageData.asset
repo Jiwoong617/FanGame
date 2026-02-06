@@ -20,3 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
   bossPool:
   - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
+  rewards:
+  - {fileID: 11400000, guid: a8c4c1804be343e41a2a4a5c9f3e6cbe, type: 2}
+  - {fileID: 11400000, guid: 51271036519008a4fad399da9793012d, type: 2}
+  - {fileID: 11400000, guid: ab8ece28b1520af47a93e544ba4bf43d, type: 2}

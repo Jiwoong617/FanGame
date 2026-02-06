@@ -6,9 +6,7 @@ public abstract class CombatUnit : MonoBehaviour
     public Action<CombatUnit> OnUnitDead;
 
 
-    [SerializeField]
     protected UnitStats stats;
-
     protected CombatUnit target;
 
     protected float attackTimer = 0f;
@@ -36,6 +34,8 @@ public abstract class CombatUnit : MonoBehaviour
         target = inTarget;
         attackTimer = 0f;
     }
+
+    public abstract void Init(UnitData unitData);
     public abstract void OnDead();
     public abstract void Attack();
     public abstract void TakeDamage(float damage);

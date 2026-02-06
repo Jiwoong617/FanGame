@@ -9,14 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
-  m_Name: Hashiyo_UnitData
-  m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  unitName: Hashiyo
+  m_Script: {fileID: 11500000, guid: 918701c1b9799df47bcf2e0f07b68113, type: 3}
+  m_Name: Popo
+  m_EditorClassIdentifier: Assembly-CSharp::CombatResourceData
+  unitName: Popo
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
   unitSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   hp: 100
-  defense: 1
+  defense: 0
   attackDamage: 10
   attackInterval: 1
-  unitDescription: "\uD558\uC2DC\uC694\n"
+  unitDescription: Popo
+  stamina: 100
+  staminaRegen: 1
+  fp: 100
+  dodgeCost: 20
+  parryCost: 10

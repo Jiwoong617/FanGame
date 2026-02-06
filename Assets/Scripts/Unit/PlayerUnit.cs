@@ -13,17 +13,23 @@ public class PlayerUnit : CombatUnit
     private const float DODGE_DURATION = 0.7f;
     private const float PARRY_DURATION = 0.2f;
 
-
-    protected CombatResources combatResources;
+    protected PlayerStats playerStats;
 
     protected PlayerState state = PlayerState.Idle;
     protected float stateTimer = 0f;
 
 
-    public void Init(UnitData unitData, CombatResourceData combatResourceData)
+    public override void Init(UnitData unitData)
     {
-        stats = new UnitStats(unitData);
-        combatResources = new CombatResources(combatResourceData);
+        if(unitData is PlayerData playerData)
+        {
+            playerStats = new PlayerStats(playerData);
+            base.stats = playerStats;
+        }
+        else
+        {
+            Debug.LogError("PlayerData 형식 아님");
+        }
     }
 
 
@@ -61,9 +67,9 @@ public class PlayerUnit : CombatUnit
 
     private void TryDodge()
     {
-        if (combatResources.stamina >= combatResources.dodgeCost)
+        if (playerStats.stamina >= playerStats.dodgeCost)
         {
-            combatResources.stamina -= combatResources.dodgeCost;
+            playerStats.stamina -= playerStats.dodgeCost;
             state = PlayerState.Dodging;
             stateTimer = DODGE_DURATION;
             Debug.Log("Dodge");
@@ -76,9 +82,9 @@ public class PlayerUnit : CombatUnit
 
     private void TryParry()
     {
-        if (combatResources.stamina >= combatResources.parryCost)
+        if (playerStats.stamina >= playerStats.parryCost)
         {
-            combatResources.stamina -= combatResources.parryCost;
+            playerStats.stamina -= playerStats.parryCost;
             state = PlayerState.Parrying;
             stateTimer = PARRY_DURATION;
         }
@@ -95,7 +101,7 @@ public class PlayerUnit : CombatUnit
 
     void RegenerateStamina(float delta)
     {
-        combatResources.stamina = Mathf.Min(combatResources.maxStamina, combatResources.stamina + combatResources.staminaRegen * delta);
+        playerStats.stamina = Mathf.Min(playerStats.maxStamina, playerStats.stamina + playerStats.staminaRegen * delta);
     }
 
     public override void Attack()
@@ -118,7 +124,7 @@ public class PlayerUnit : CombatUnit
         if (state == PlayerState.Parrying)
         {
             Debug.Log("Parry Success! Stamina Refunded.");
-            combatResources.stamina = Mathf.Min(combatResources.maxStamina, combatResources.stamina + combatResources.parryCost * 0.5f);
+            playerStats.stamina = Mathf.Min(playerStats.maxStamina, playerStats.stamina + playerStats.parryCost * 0.5f);
 
            // TODO : 뭐 카운터같은거 추가할거면 추가
            // TODO : 이펙트 등

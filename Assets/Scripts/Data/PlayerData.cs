@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
-[CreateAssetMenu(fileName = "CombatResourceData", menuName = "Scriptable Objects/CombatResourceData")]
-public class CombatResourceData : ScriptableObject
+[CreateAssetMenu(fileName = "PlayerData", menuName = "Scriptable Objects/PlayerData")]
+public class PlayerData : UnitData
 {
     [Header("Combat Resource")]
     public float stamina;
@@ -13,7 +13,7 @@ public class CombatResourceData : ScriptableObject
 }
 
 [System.Serializable]
-public class CombatResources
+public class PlayerStats : UnitStats
 {
     public float maxStamina;
     public float stamina;
@@ -25,7 +25,7 @@ public class CombatResources
     public float dodgeCost;
     public float parryCost;
 
-    public CombatResources(CombatResourceData data)
+    public PlayerStats(PlayerData data) : base(data)
     {
         maxStamina = data.stamina;
         stamina = data.stamina;

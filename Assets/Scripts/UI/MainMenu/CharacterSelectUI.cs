@@ -36,9 +36,7 @@ public class CharacterSelectUI : UI_Base
     #endregion
 
     [Header("Data")]
-    [SerializeField] private List<UnitData> characterDatas;
-    [SerializeField] private List<CombatResourceData> combatDatas;
-
+    [SerializeField] private List<PlayerData> characterDatas;
     [SerializeField] private GameObject slotPrefab;
 
     private Transform slotContainer;
@@ -93,7 +91,7 @@ public class CharacterSelectUI : UI_Base
 
     private void OnClickCharacterButton(int idx)
     {
-        GameManager.Instance.SetPlayerData(characterDatas[idx], combatDatas[idx]);
+        GameManager.Instance.SetPlayerData(characterDatas[idx]);
 
         Get<Image>(Images.CharacterSprite).sprite = characterDatas[idx].unitSprite;
 
@@ -102,7 +100,7 @@ public class CharacterSelectUI : UI_Base
         Get<TMP_Text>(Texts.Hp).text = characterDatas[idx].hp.ToString();
         Get<TMP_Text>(Texts.Attack).text = characterDatas[idx].attackDamage.ToString();
         Get<TMP_Text>(Texts.AttackInterval).text = characterDatas[idx].attackInterval.ToString();
-        Get<TMP_Text>(Texts.Stamina).text = combatDatas[idx].stamina.ToString();
-        Get<TMP_Text>(Texts.Fp).text = combatDatas[idx].fp.ToString();
+        Get<TMP_Text>(Texts.Stamina).text = characterDatas[idx].stamina.ToString();
+        Get<TMP_Text>(Texts.Fp).text = characterDatas[idx].fp.ToString();
     }
 }

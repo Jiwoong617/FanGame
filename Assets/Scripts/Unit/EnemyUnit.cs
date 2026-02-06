@@ -3,14 +3,9 @@ using UnityEngine;
 
 public class EnemyUnit : CombatUnit
 {
-    public void Init(UnitData unitData)
+    public override void Init(UnitData unitData)
     {
         stats = new UnitStats(unitData);
-    }
-
-    public override void OnUpdate(float delta)
-    {
-        ProcessAttackLoop(delta);
     }
 
     public override void OnDead()
