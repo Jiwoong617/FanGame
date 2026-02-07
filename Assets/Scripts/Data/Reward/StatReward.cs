@@ -18,5 +18,26 @@ public class StatReward : RewardBase
     {
         if (player == null) return;
 
+        UnitStats stats = player.GetStat<UnitStats>();
+        if (stats == null) return;
+
+        switch (targetStat)
+        {
+            case StatType.MaxHP:
+                stats.maxHp += amount;
+                stats.hp += amount;
+                break;
+            case StatType.AttackDamage:
+                stats.attackDamage += amount;
+                break;
+            case StatType.Defense:
+                stats.defense += amount;
+                break;
+            case StatType.AttackSpeed:
+                stats.attackSpeed += amount;
+                break;
+        }
+        
+        Debug.Log($"[StatReward] Applied {targetStat} {((amount >= 0) ? "+" : "")}{amount}");
     }
 }

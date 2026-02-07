@@ -100,10 +100,8 @@ public class GameManager : MonoBehaviour
         // 전투 -> (패배) -> 게임오버
         Battle.OnPlayerDead += () => ChangeState(GameState.GameOver);
 
-        // 보상 선택 완료 -> 맵 선택
-        Reward.OnRewardSelected += () => ChangeState(GameState.MapSelect);
 
-        // 휴식/이벤트 완료 -> 맵 선택
+        Reward.OnRewardSelected += () => ChangeState(GameState.MapSelect);
         Rest.OnRestFinished += () => ChangeState(GameState.MapSelect);
         Event.OnEventFinished += () => ChangeState(GameState.MapSelect);
     }
@@ -147,6 +145,8 @@ public class GameManager : MonoBehaviour
         GameObject go = Instantiate(SelectedPlayerClass.prefab, playerAnchor.position, playerAnchor.rotation);
         Player = go.GetComponent<PlayerUnit>();
         Player.Init(SelectedPlayerClass);
+
+        Event.LoadEvents(SelectedPlayerClass.unitName);
     }
 
     // MapManager에서 노드 선택 시 호출

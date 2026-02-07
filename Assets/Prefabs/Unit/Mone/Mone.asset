@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918701c1b9799df47bcf2e0f07b68113, type: 3}
   m_Name: Mone
   m_EditorClassIdentifier: Assembly-CSharp::CombatResourceData
-  unitName: mone
+  unitName: Mone
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
   unitSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   hp: 100

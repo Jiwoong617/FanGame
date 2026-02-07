@@ -68,7 +68,7 @@ public class RewardUI : UI_Base
         Get<Button>(Buttons.Skip_Button).onClick.AddListener(() => OnSlotClick(-1));
 
         GameManager.Reward.SetUI(this);
-        gameObject.SetActive(false);
+        Hide();
     }
 
     public void SetRewards(List<RewardBase> rewards)
