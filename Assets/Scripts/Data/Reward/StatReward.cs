@@ -5,7 +5,7 @@ public enum StatType
     MaxHP,
     AttackDamage,
     Defense,
-    AttackInterval
+    AttackSpeed
 }
 
 [CreateAssetMenu(fileName = "NewStatReward", menuName = "Reward/Stat Reward")]

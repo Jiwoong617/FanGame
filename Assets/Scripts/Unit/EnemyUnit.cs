@@ -35,4 +35,9 @@ public class EnemyUnit : CombatUnit
             OnDead();
         }
     }
+
+    public override T GetStat<T>()
+    {
+        return stats as T;
+    }
 }

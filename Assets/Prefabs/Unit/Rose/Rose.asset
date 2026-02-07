@@ -18,7 +18,7 @@ MonoBehaviour:
   hp: 100
   defense: 0
   attackDamage: 10
-  attackInterval: 1
+  attackSpeed: 2
   unitDescription: Rose
   stamina: 100
   staminaRegen: 1

@@ -28,43 +28,42 @@ public class RewardUI : UI_Base
         Skip_Button
     }
 
-    private List<TextMeshProUGUI> _names = new List<TextMeshProUGUI>();
-    private List<TextMeshProUGUI> _descs = new List<TextMeshProUGUI>();
-    private List<Image> _icons = new List<Image>();
-    private List<Button> _buttons = new List<Button>();
+    private List<TMP_Text> names = new List<TMP_Text>();
+    private List<TMP_Text> descs = new List<TMP_Text>();
+    private List<Image> icons = new List<Image>();
+    private List<Button> buttons = new List<Button>();
 
     protected override void Init()
     {
-        _names.Clear();
-        _descs.Clear();
-        _icons.Clear();
-        _buttons.Clear();
+        names.Clear();
+        descs.Clear();
+        icons.Clear();
+        buttons.Clear();
 
-        Bind<TextMeshProUGUI>(typeof(Texts));
+        Bind<TMP_Text>(typeof(Texts));
         Bind<Image>(typeof(Images));
         Bind<Button>(typeof(Buttons));
 
-        // 리스트 초기화 (Enum 순서에 의존)
-        _names.Add(Get<TextMeshProUGUI>(Texts.Slot1_Name));
-        _names.Add(Get<TextMeshProUGUI>(Texts.Slot2_Name));
-        _names.Add(Get<TextMeshProUGUI>(Texts.Slot3_Name));
+        names.Add(Get<TMP_Text>(Texts.Slot1_Name));
+        names.Add(Get<TMP_Text>(Texts.Slot2_Name));
+        names.Add(Get<TMP_Text>(Texts.Slot3_Name));
 
-        _descs.Add(Get<TextMeshProUGUI>(Texts.Slot1_Desc));
-        _descs.Add(Get<TextMeshProUGUI>(Texts.Slot2_Desc));
-        _descs.Add(Get<TextMeshProUGUI>(Texts.Slot3_Desc));
+        descs.Add(Get<TMP_Text>(Texts.Slot1_Desc));
+        descs.Add(Get<TMP_Text>(Texts.Slot2_Desc));
+        descs.Add(Get<TMP_Text>(Texts.Slot3_Desc));
 
-        _icons.Add(Get<Image>(Images.Slot1_Icon));
-        _icons.Add(Get<Image>(Images.Slot2_Icon));
-        _icons.Add(Get<Image>(Images.Slot3_Icon));
+        icons.Add(Get<Image>(Images.Slot1_Icon));
+        icons.Add(Get<Image>(Images.Slot2_Icon));
+        icons.Add(Get<Image>(Images.Slot3_Icon));
 
-        _buttons.Add(Get<Button>(Buttons.Slot1_Button));
-        _buttons.Add(Get<Button>(Buttons.Slot2_Button));
-        _buttons.Add(Get<Button>(Buttons.Slot3_Button));
+        buttons.Add(Get<Button>(Buttons.Slot1_Button));
+        buttons.Add(Get<Button>(Buttons.Slot2_Button));
+        buttons.Add(Get<Button>(Buttons.Slot3_Button));
 
-        for (int i = 0; i < _buttons.Count; i++)
+        for (int i = 0; i < buttons.Count; i++)
         {
             int index = i;
-            _buttons[i].onClick.AddListener(() => OnSlotClick(index));
+            buttons[i].onClick.AddListener(() => OnSlotClick(index));
         }
         Get<Button>(Buttons.Skip_Button).onClick.AddListener(() => OnSlotClick(-1));
 
@@ -74,19 +73,19 @@ public class RewardUI : UI_Base
 
     public void SetRewards(List<RewardBase> rewards)
     {
-        for (int i = 0; i < _buttons.Count; i++)
+        for (int i = 0; i < buttons.Count; i++)
         {
             if (i >= rewards.Count)
             {
-                _buttons[i].gameObject.SetActive(false);
+                buttons[i].gameObject.SetActive(false);
                 continue;
             }
 
-            _names[i].text = rewards[i].RewardName;
-            _descs[i].text = rewards[i].Description;
-            _icons[i].sprite = rewards[i].Icon;
+            names[i].text = rewards[i].RewardName;
+            descs[i].text = rewards[i].Description;
+            icons[i].sprite = rewards[i].Icon;
             
-            _buttons[i].gameObject.SetActive(true);
+            buttons[i].gameObject.SetActive(true);
         }
     }
 

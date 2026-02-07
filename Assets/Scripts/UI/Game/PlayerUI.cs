@@ -1,0 +1,155 @@
+using System;
+using TMPro;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PlayerUI : UI_Base
+{
+    #region enums
+    enum Texts
+    {
+        HpText,
+        StaminaText,
+        FpText,
+        Attack,
+        AttackSpeed,
+        Defense,
+        StRegen
+    }
+
+    enum Sliders
+    {
+        HpBar,
+        StaminaBar,
+        FpBar,
+    }
+
+    enum Images
+    {
+        Icon,
+    }
+    #endregion
+
+    private PlayerUnit Player;
+
+    private Slider HpBar;
+    private Slider StaminaBar;
+    private Slider FpBar;
+    private TMP_Text HpText;
+    private TMP_Text StaminaText;
+    private TMP_Text FpText;
+
+    private TMP_Text AttackText;
+    private TMP_Text AttackSpeedText;
+    private TMP_Text DefenseText;
+    private TMP_Text StRegenText;
+
+    protected override void Init()
+    {
+        Bind<TMP_Text>(typeof(Texts));
+        Bind<Slider>(typeof(Sliders));
+        Bind<Image>(typeof(Images));
+
+        HpBar = Get<Slider>(Sliders.HpBar);
+        StaminaBar = Get<Slider>(Sliders.StaminaBar);
+        FpBar = Get<Slider>(Sliders.FpBar);
+
+        HpText = Get<TMP_Text>(Texts.HpText);
+        StaminaText = Get<TMP_Text>(Texts.StaminaText);
+        FpText = Get<TMP_Text>(Texts.FpText);
+
+        AttackText = Get<TMP_Text>(Texts.Attack);
+        AttackSpeedText = Get<TMP_Text>(Texts.AttackSpeed);
+        DefenseText = Get<TMP_Text>(Texts.Defense);
+        StRegenText = Get<TMP_Text>(Texts.StRegen);
+
+        Get<Image>(Images.Icon).sprite = GameManager.Instance.SelectedPlayerClass.unitSprite;
+    }
+
+    private void Start()
+    {
+        Player = GameManager.Instance.Player;
+        var stats = Player.GetStat<PlayerStats>();
+        if (stats == null) return;
+
+        stats.OnHpChanged += UpdateHp;
+        stats.OnStaminaChanged += UpdateStamina;
+        stats.OnFpChanged += UpdateFp;
+        
+        stats.OnAttackDamageChanged += UpdateAttack;
+        stats.OnDefenseChanged += UpdateDefense;
+        stats.OnAttackSpeedChanged += UpdateAttackSpeed;
+        stats.OnStaminaRegenChanged += UpdateStaminaRegen;
+
+        RefreshAll();
+    }
+
+    private void OnDestroy()
+    {
+        if (Player == null) return;
+        var stats = Player.GetStat<PlayerStats>();
+        if (stats == null) return;
+
+        stats.OnHpChanged -= UpdateHp;
+        stats.OnStaminaChanged -= UpdateStamina;
+        stats.OnFpChanged -= UpdateFp;
+
+        stats.OnAttackDamageChanged -= UpdateAttack;
+        stats.OnDefenseChanged -= UpdateDefense;
+        stats.OnAttackSpeedChanged -= UpdateAttackSpeed;
+        stats.OnStaminaRegenChanged -= UpdateStaminaRegen;
+    }
+
+    private void RefreshAll()
+    {
+        var stats = Player.GetStat<PlayerStats>();
+        if (stats == null) return;
+
+        UpdateHp(stats.hp, stats.maxHp);
+        UpdateStamina(stats.stamina, stats.maxStamina);
+        UpdateFp(stats.fp, stats.maxFp);
+
+        UpdateAttack(stats.attackDamage);
+        UpdateDefense(stats.defense);
+        UpdateAttackSpeed(stats.attackSpeed);
+        UpdateStaminaRegen(stats.staminaRegen);
+    }
+
+    private void UpdateHp(float current, float max)
+    {
+        HpBar.value = Math.Max(max > 0 ? current / max : 0, 0);
+        HpText.text = $"{current:F0} / {max:F0}";
+    }
+
+    private void UpdateStamina(float current, float max)
+    {
+        StaminaBar.value = Math.Max(max > 0 ? current / max : 0, 0);
+        StaminaText.text = $"{current:F0} / {max:F0}";
+    }
+
+    private void UpdateFp(float current, float max)
+    {
+        FpBar.value = Math.Max(max > 0 ? current / max : 0, 0);
+        FpText.text = $"{current:F0} / {max:F0}";
+    }
+
+    private void UpdateAttack(float value)
+    {
+        AttackText.text = $"{value:F0}";
+    }
+
+    private void UpdateDefense(float value)
+    {
+        DefenseText.text = $"{value:F0}";
+    }
+
+    private void UpdateAttackSpeed(float value)
+    {
+        AttackSpeedText.text = $"{value:F2}";
+    }
+
+    private void UpdateStaminaRegen(float value)
+    {
+        StRegenText.text = $"{value:F2}";
+    }
+}

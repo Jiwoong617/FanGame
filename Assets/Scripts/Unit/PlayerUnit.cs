@@ -138,4 +138,9 @@ public class PlayerUnit : CombatUnit
     }
 
     public CombatUnit GetTarget() => target;
+
+    public override T GetStat<T>()
+    {
+        return playerStats as T;
+    }
 }

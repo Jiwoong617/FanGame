@@ -23,7 +23,7 @@ public abstract class CombatUnit : MonoBehaviour
         if (IsDead || target == null || target.IsDead) return;
 
         attackTimer += delta;
-        if (attackTimer >= stats.attackInterval)
+        if (attackTimer >= 1f / stats.attackSpeed)
         {
             Attack();
             attackTimer = 0f;
@@ -39,4 +39,5 @@ public abstract class CombatUnit : MonoBehaviour
     public abstract void OnDead();
     public abstract void Attack();
     public abstract void TakeDamage(float damage);
+    public abstract T GetStat<T>() where T : UnitStats;
 }

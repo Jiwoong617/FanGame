@@ -23,7 +23,7 @@ public class CharacterSelectUI : UI_Base
         Description,
         Hp,
         Attack,
-        AttackInterval,
+        AttackSpeed,
         Stamina,
         Fp
     }
@@ -99,7 +99,7 @@ public class CharacterSelectUI : UI_Base
         Get<TMP_Text>(Texts.Description).text = characterDatas[idx].unitDescription;
         Get<TMP_Text>(Texts.Hp).text = characterDatas[idx].hp.ToString();
         Get<TMP_Text>(Texts.Attack).text = characterDatas[idx].attackDamage.ToString();
-        Get<TMP_Text>(Texts.AttackInterval).text = characterDatas[idx].attackInterval.ToString();
+        Get<TMP_Text>(Texts.AttackSpeed).text = characterDatas[idx].attackSpeed.ToString();
         Get<TMP_Text>(Texts.Stamina).text = characterDatas[idx].stamina.ToString();
         Get<TMP_Text>(Texts.Fp).text = characterDatas[idx].fp.ToString();
     }

@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     private GameState state = GameState.MainMenu;
     
     // Selected Data
-    private PlayerData selectedPlayerClass;
+    public PlayerData SelectedPlayerClass { get; private set; }
 
     // In-Game Objects
     public PlayerUnit Player { get; private set; }
@@ -113,7 +113,7 @@ public class GameManager : MonoBehaviour
     {
         if (playerData == null) return;
 
-        selectedPlayerClass = playerData;
+        SelectedPlayerClass = playerData;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -141,12 +141,12 @@ public class GameManager : MonoBehaviour
 
     private void SpawnPlayer()
     {
-        if (selectedPlayerClass == null || selectedPlayerClass.prefab == null) return;
+        if (SelectedPlayerClass == null || SelectedPlayerClass.prefab == null) return;
         if (playerAnchor == null) return;
 
-        GameObject go = Instantiate(selectedPlayerClass.prefab, playerAnchor.position, playerAnchor.rotation);
+        GameObject go = Instantiate(SelectedPlayerClass.prefab, playerAnchor.position, playerAnchor.rotation);
         Player = go.GetComponent<PlayerUnit>();
-        Player.Init(selectedPlayerClass);
+        Player.Init(SelectedPlayerClass);
     }
 
     // MapManager에서 노드 선택 시 호출

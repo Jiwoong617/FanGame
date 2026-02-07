@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 4398096599066762751}
   - component: {fileID: 4048772096591445205}
   m_Layer: 5
-  m_Name: AttackInterval
+  m_Name: AttackSpeed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
