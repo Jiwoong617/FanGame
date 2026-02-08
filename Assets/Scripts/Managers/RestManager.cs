@@ -4,24 +4,28 @@ using UnityEngine;
 public class RestManager
 {
     public event Action OnRestFinished;
+    private RestUI restUI;
+
+    public void SetUI(RestUI ui)
+    {
+        restUI = ui;
+    }
 
     public void StartRest()
     {
-        Debug.Log("[RestManager] Resting at Campfire...");
-        // TODO: 휴식 UI 표시 (회복/강화 선택)
-        
-        // 임시 자동 완료 (테스트용)
-        HealPlayer();
+        if (restUI == null)
+        {
+            Debug.LogError("[RestManager] RestUI is not set!");
+            CompleteRest();
+            return;
+        }
+
+        restUI.ShowRest();
     }
 
-    public void HealPlayer()
+    public void CompleteRest()
     {
-        Debug.Log("[RestManager] Player Healed.");
-        FinishRest();
-    }
-
-    private void FinishRest()
-    {
+        Debug.Log("[RestManager] Rest Completed.");
         OnRestFinished?.Invoke();
     }
 }
