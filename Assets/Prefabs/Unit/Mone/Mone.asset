@@ -12,14 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918701c1b9799df47bcf2e0f07b68113, type: 3}
   m_Name: Mone
   m_EditorClassIdentifier: Assembly-CSharp::CombatResourceData
-  unitName: Mone
+  unitName: "\uB124\uBAA8"
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
-  unitSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  unitSprite: {fileID: 7955080341527372920, guid: 5acf57bee6ae0474d8b11bf14b7e6bc9, type: 3}
   hp: 100
   defense: 0
   attackDamage: 10
   attackSpeed: 2
-  unitDescription: mone
+  unitDescription: "\uC785\uC695\uC81C\uC758 \uC694\uC815 '\uBE44\uC62C\uB808\uD0C0
+    \uBAA8\uB124'\uD55C\uD14C\uC11C \uD0DC\uC5B4\uB09C \uBE44\uB217\uBC29\uC6B8 \uC694\uC815\uC774\uB2E4.
+    \uD3C9\uC18C\uC5D0\uB3C4 \uC9C0\uC2DD\uC5D0 \uB300\uD55C \uAC08\uB9DD\uC774 \uC788\uB358
+    '\uBAA8\uB124'\uB294 \uC78A\uD600\uC9C4 \uACE0\uB300\uC758 \uCC45 '\uBB38\uC81C\uC801
+    \uB0A8\uC8FC'\uC758 \uC874\uC7AC\uB97C \uC54C\uAC8C \uB418\uC5C8\uACE0 \uD589\uBC29\uC744
+    \uCC3E\uAE30 \uC2DC\uC791\uD588\uB2E4. \uB124\uBAA8\uB294 '\uBAA8\uB124'\uAC00
+    \uBD80\uD0C1\uC744 \uD558\uC9C0 \uC54A\uC744 \uAC83\uC744 \uC54C\uAE30\uC5D0
+    \uD55C \uBC1C \uBA3C\uC800 \uCC45\uC744 \uCC3E\uB294 \uC5EC\uC815\uC744 \uB5A0\uB09C\uB2E4."
   stamina: 100
   staminaRegen: 1
   fp: 100

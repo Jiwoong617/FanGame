@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918701c1b9799df47bcf2e0f07b68113, type: 3}
   m_Name: Hasiyo
   m_EditorClassIdentifier: Assembly-CSharp::CombatResourceData
-  unitName: Hasiyo
+  unitName: "\uBC14\uBC14"
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
-  unitSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  unitSprite: {fileID: -7954620618086645965, guid: 927caa84d79950b479dc5442efa22dcb, type: 3}
   hp: 100
   defense: 0
   attackDamage: 100
   attackSpeed: 2
-  unitDescription: hashiyo
+  unitDescription: "\uBD81\uADF9\uC5EC\uC6B0 \uB9C8\uB140 '\uD558\uC2DC\uC694' \uBC11\uC5D0\uC11C
+    \uB9C8\uB140\uC758 \uC9D1\uC744 \uAC74\uC124\uD558\uB294 \uB300\uC2E0 \uBCF4\uC218\uB85C
+    \uB9C8\uBC95\uC744 \uBC30\uC6B4 \uBC14\uBC14 \uBC18\uC7A5\uC774\uB2E4. 2\uB300
+    \uB9C8\uB140\uC778 '\uC090\uC57D\uC774'\uB97C \uC18C\uD658\uD560 \uC218 \uC788\uB294
+    \uB9C8\uBC95 \uC7AC\uB8CC\uC778 '\uD669\uAE08 \uC62C\uB77C\uD504 \uCE58\uD0A8'\uC744
+    \uCC3E\uC544\uB2EC\uB77C\uB294 '\uD558\uC2DC\uC694'\uC758 \uBD80\uD0C1\uC73C\uB85C
+    \uC5EC\uD589\uC744 \uB5A0\uB09C\uB2E4."
   stamina: 100
   staminaRegen: 1
   fp: 100
