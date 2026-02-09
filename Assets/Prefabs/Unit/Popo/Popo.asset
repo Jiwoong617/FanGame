@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918701c1b9799df47bcf2e0f07b68113, type: 3}
   m_Name: Popo
   m_EditorClassIdentifier: Assembly-CSharp::CombatResourceData
-  unitName: "\uD3EC\uB9AC"
+  unitName: "\uD574\uD3EC\uB9AC"
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
   unitSprite: {fileID: 2903746670860312822, guid: 416fc2df813dc34468d71e23e608e2de, type: 3}
   hp: 100
