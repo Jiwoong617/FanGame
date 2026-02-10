@@ -123,6 +123,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5414222863511463277}
+  - {fileID: 5367338263420693290}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6897106492336476068
@@ -183,9 +184,162 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2f24948f54a6e4a834a40e7812a865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  stats:
-    maxHp: 0
-    hp: 0
-    defense: 0
-    attackDamage: 0
-    attackInterval: 0
+  enemyUI: {fileID: 6162710147832715274}
+  basicAttackSprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  patterns:
+  - rid: 8549445310020845640
+  - rid: 8549445310020845641
+  references:
+    version: 2
+    RefIds:
+    - rid: 8549445310020845640
+      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: Pattern
+        cooldown: 5
+        patternSprite: {fileID: -7954620618086645965, guid: 927caa84d79950b479dc5442efa22dcb, type: 3}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        comboSteps:
+        - damagePercent: 0.7
+          delayBeforeAttack: 0
+        - damagePercent: 0.7
+          delayBeforeAttack: 0.5
+        - damagePercent: 0.7
+          delayBeforeAttack: 1.5
+    - rid: 8549445310020845641
+      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: Pattern
+        cooldown: 5
+        patternSprite: {fileID: 5943091342570826787, guid: 5acf57bee6ae0474d8b11bf14b7e6bc9, type: 3}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        comboSteps:
+        - damagePercent: 0.7
+          delayBeforeAttack: 0
+        - damagePercent: 0.8
+          delayBeforeAttack: 1
+        - damagePercent: 0.5
+          delayBeforeAttack: 2
+--- !u!1001 &2928070518551628694
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 8156299736801096019}
+    m_Modifications:
+    - target: {fileID: 3837743707018266951, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_Name
+      value: EnemyUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268117758376135377, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176886128381870345, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+--- !u!224 &5367338263420693290 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+  m_PrefabInstance: {fileID: 2928070518551628694}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6162710147832715274 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9017544169355465628, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+  m_PrefabInstance: {fileID: 2928070518551628694}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6103627056632ab4eaaeafeb5371cd0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyUI

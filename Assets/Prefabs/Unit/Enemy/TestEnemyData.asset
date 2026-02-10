@@ -17,6 +17,6 @@ MonoBehaviour:
   unitSprite: {fileID: 0}
   hp: 50
   defense: 0
-  attackDamage: 0
-  attackInterval: 10
+  attackDamage: 1
+  attackSpeed: 1
   unitDescription: adf

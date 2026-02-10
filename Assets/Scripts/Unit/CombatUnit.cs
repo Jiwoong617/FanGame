@@ -13,10 +13,6 @@ public abstract class CombatUnit : MonoBehaviour
     
     public bool IsDead => stats.hp <= 0;
 
-    public virtual void OnUpdate(float delta)
-    {
-        ProcessAttackLoop(delta);
-    }
 
     protected void ProcessAttackLoop(float delta)
     {
@@ -29,12 +25,17 @@ public abstract class CombatUnit : MonoBehaviour
             attackTimer = 0f;
         }
     }
-    public void SetTarget(CombatUnit inTarget)
+    public virtual void SetTarget(CombatUnit inTarget)
     {
         target = inTarget;
-        attackTimer = 0f;
     }
 
+    public CombatUnit GetTarget()
+    {
+        return target;
+    }
+
+    public abstract void OnUpdate(float delta);
     public abstract void Init(UnitData unitData);
     public abstract void OnDead();
     public abstract void Attack();

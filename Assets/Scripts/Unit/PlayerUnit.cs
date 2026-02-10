@@ -137,10 +137,14 @@ public class PlayerUnit : CombatUnit
         Debug.Log($"[Player] Took {finalDamage} damage. HP: {stats.hp}");
     }
 
-    public CombatUnit GetTarget() => target;
-
     public override T GetStat<T>()
     {
         return playerStats as T;
+    }
+
+    public override void SetTarget(CombatUnit inTarget)
+    {
+        base.SetTarget(inTarget);
+        attackTimer = 0f;
     }
 }
