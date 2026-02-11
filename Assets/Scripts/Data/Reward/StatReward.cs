@@ -3,41 +3,72 @@ using UnityEngine;
 public enum StatType
 {
     MaxHP,
-    AttackDamage,
     Defense,
-    AttackSpeed
+    AttackDamage,
+    AttackSpeed,
+    Stamina,
+    StaminaRegen,
+    MaxFp,
 }
 
 [CreateAssetMenu(fileName = "NewStatReward", menuName = "Reward/Stat Reward")]
 public class StatReward : RewardBase
 {
     public StatType targetStat;
+    public StatModType modType = StatModType.Flat;
     public float amount;
 
     public override void Apply(PlayerUnit player)
     {
         if (player == null) return;
 
-        UnitStats stats = player.GetStat<UnitStats>();
+        PlayerStats stats = player.GetStat<PlayerStats>();
         if (stats == null) return;
+
+        StatModifier mod = new StatModifier(amount, modType);
 
         switch (targetStat)
         {
             case StatType.MaxHP:
-                stats.maxHp += amount;
-                stats.hp += amount;
+                float oldMaxHp = stats.maxHp.GetValue();
+                stats.maxHp.AddModifier(mod);
+                
+                // 증가 후 값 확인하여 차이만큼 현재 체력 회복
+                float newMaxHp = stats.maxHp.GetValue();
+                if (newMaxHp > oldMaxHp)
+                    stats.hp += (newMaxHp - oldMaxHp);
                 break;
+
             case StatType.AttackDamage:
-                stats.attackDamage += amount;
+                stats.attackDamage.AddModifier(mod);
                 break;
+
             case StatType.Defense:
-                stats.defense += amount;
+                stats.defense.AddModifier(mod);
                 break;
+
             case StatType.AttackSpeed:
-                stats.attackSpeed += amount;
+                stats.attackSpeed.AddModifier(mod);
+                break;
+
+            case StatType.Stamina:
+                stats.maxStamina.AddModifier(mod);
+                break;
+
+            case StatType.StaminaRegen:
+                stats.staminaRegen.AddModifier(mod);
+                break;
+
+            case StatType.MaxFp:
+                float oldFp = stats.maxFp.GetValue();
+                stats.maxFp.AddModifier(mod);
+
+                float newFp = stats.maxFp.GetValue();
+                if(newFp >  oldFp)
+                    stats.fp += (newFp - oldFp);
                 break;
         }
         
-        Debug.Log($"[StatReward] Applied {targetStat} {((amount >= 0) ? "+" : "")}{amount}");
+        Debug.Log($"[StatReward] Applied {targetStat} Value:{amount} Type:{modType}");
     }
 }

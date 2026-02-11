@@ -24,10 +24,10 @@ public class EnemyUnit : CombatUnit
             pattern.lastExecutionTime = -9999f;
 
         stats.OnHpChanged += enemyUI.UpdateHp;
-        enemyUI.UpdateHp(stats.hp, stats.maxHp);
+        enemyUI.UpdateHp(stats.hp, stats.maxHp.GetValue());
 
         attackTimer = 0f;
-        targetTime = stats.attackSpeed > 0 ? 1f / stats.attackSpeed : 1f;
+        targetTime = stats.attackSpeed.GetValue() > 0 ? 1f / stats.attackSpeed.GetValue() : 1f;
         //같은몹 여러마리일 때 초기 딜레이 줄거면 이거 주석 해제
         //attackTimer = -Random.Range(0, targetTime * 0.5f);
     }
@@ -75,7 +75,7 @@ public class EnemyUnit : CombatUnit
     private void PerformBasicAttack()
     {
         if (target != null)
-            target.TakeDamage(stats.attackDamage);
+            target.TakeDamage(stats.attackDamage.GetValue());
 
         ResetTimer();
     }
@@ -83,7 +83,7 @@ public class EnemyUnit : CombatUnit
     private void ResetTimer()
     {
         attackTimer = 0f;
-        targetTime = stats.attackSpeed > 0 ? 1f / stats.attackSpeed : 1f;
+        targetTime = stats.attackSpeed.GetValue() > 0 ? 1f / stats.attackSpeed.GetValue() : 1f;
 
         DecideNextAction();
     }
@@ -155,7 +155,7 @@ public class EnemyUnit : CombatUnit
     public override void OnDead() { StopAllCoroutines(); isActing = false; }
     public override void TakeDamage(float damage)
     {
-        stats.hp -= Mathf.Max(1, damage - stats.defense);
+        stats.hp -= Mathf.Max(1, damage - stats.defense.GetValue());
         if (stats.hp <= 0)
         {
             stats.hp = 0;

@@ -105,14 +105,14 @@ public class PlayerUI : UI_Base
         var stats = Player.GetStat<PlayerStats>();
         if (stats == null) return;
 
-        UpdateHp(stats.hp, stats.maxHp);
-        UpdateStamina(stats.stamina, stats.maxStamina);
-        UpdateFp(stats.fp, stats.maxFp);
+        UpdateHp(stats.hp, stats.maxHp.GetValue());
+        UpdateStamina(stats.stamina, stats.maxStamina.GetValue());
+        UpdateFp(stats.fp, stats.maxFp.GetValue());
 
-        UpdateAttack(stats.attackDamage);
-        UpdateDefense(stats.defense);
-        UpdateAttackSpeed(stats.attackSpeed);
-        UpdateStaminaRegen(stats.staminaRegen);
+        UpdateAttack(stats.attackDamage.GetValue());
+        UpdateDefense(stats.defense.GetValue());
+        UpdateAttackSpeed(stats.attackSpeed.GetValue());
+        UpdateStaminaRegen(stats.staminaRegen.GetValue());
     }
 
     private void UpdateHp(float current, float max)

@@ -44,7 +44,7 @@ public class SequentialAttackPattern : EnemyPattern
                 yield return unit.StartCoroutine(unit.WaitAndUpdateUI(duration));
             }
 
-            float finalDamage = stats.attackDamage * step.damagePercent;
+            float finalDamage = stats.attackDamage.GetValue() * step.damagePercent;
             target.TakeDamage(finalDamage);
         }
     }

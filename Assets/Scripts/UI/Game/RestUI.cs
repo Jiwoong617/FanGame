@@ -69,9 +69,9 @@ public class RestUI : UI_Base
         ProcessAction("휴식", () =>
         {
             var stats = GameManager.Instance.Player.GetStat<PlayerStats>();
-            float healAmount = stats.maxHp * 0.3f;
+            float healAmount = stats.maxHp.GetValue() * 0.3f;
             float beforeHp = stats.hp;
-            stats.hp = Mathf.Min(stats.hp + healAmount, stats.maxHp);
+            stats.hp = Mathf.Min(stats.hp + healAmount, stats.maxHp.GetValue());
             
             return $"체력을 회복했습니다.\n(HP : {beforeHp:F0} -> {stats.hp:F0})";
         });
@@ -84,7 +84,7 @@ public class RestUI : UI_Base
         {
             var stats = GameManager.Instance.Player.GetStat<PlayerStats>();
             float beforeFp = stats.fp;
-            stats.fp = stats.maxFp;
+            stats.fp = stats.maxFp.GetValue();
 
             return $"정신을 집중하여 FP를 모두 회복했습니다.\n(FP : {beforeFp:F0} -> {stats.fp:F0})";
         });
@@ -96,26 +96,37 @@ public class RestUI : UI_Base
         ProcessAction("훈련", () =>
         {
             var stats = GameManager.Instance.Player.GetStat<PlayerStats>();
-            int rand = Random.Range(0, 3);
+            int rand = Random.Range(0, 4);
             string resultMsg = "";
 
             switch (rand)
             {
                 case 0: // 공격력
-                    float damageUp = Random.Range(1, 5);
-                    stats.attackDamage += damageUp;
-                    resultMsg = $"공격 훈련을 수행했습니다.\n공격력이 {damageUp} 상승했습니다.";
+                    float randAtk = Random.Range(1, 5);
+                    StatModifier atkmod = new StatModifier(randAtk, StatModType.Flat);
+                    stats.attackDamage.AddModifier(atkmod);
+                    resultMsg = $"공격 훈련을 수행했습니다.\n공격력이 {randAtk} 상승했습니다.";
                     break;
+
                 case 1: // 공격속도
-                    float speedUp = Random.Range(0.1f, 0.3f);
-                    stats.attackSpeed += speedUp;
-                    resultMsg = $"민첩성 훈련을 수행했습니다.\n공격 속도가 {speedUp:F2} 상승했습니다.";
+                    float randAtkSpeed = Random.Range(0.1f, 0.3f);
+                    StatModifier asmod = new StatModifier(randAtkSpeed, StatModType.Flat);
+                    stats.attackSpeed.AddModifier(asmod);
+                    resultMsg = $"민첩성 훈련을 수행했습니다.\n공격 속도가 {randAtkSpeed:F2} 상승했습니다.";
                     break;
+
                 case 2: // 스태미나
-                    float staminaUp = Random.Range(10, 20);
-                    stats.maxStamina += staminaUp;
-                    stats.stamina = stats.maxStamina;
-                    resultMsg = $"지구력 훈련을 수행했습니다.\n최대 스태미나가 {staminaUp:F0} 상승했습니다.";
+                    float randSt = Random.Range(10, 20);
+                    StatModifier stmod = new StatModifier(randSt, StatModType.Flat);
+                    stats.maxStamina.AddModifier(stmod);
+                    resultMsg = $"지구력 훈련을 수행했습니다.\n최대 스태미나가 {randSt:F0} 상승했습니다.";
+                    break;
+
+                case 3: // 방어력
+                    float randDf = Random.Range(10, 20);
+                    StatModifier dfmod = new StatModifier(randDf, StatModType.Flat);
+                    stats.defense.AddModifier(dfmod);
+                    resultMsg = $"맷집 훈련을 수행했습니다.\n방어력이 {dfmod:F0} 상승했습니다.";
                     break;
             }
             return resultMsg;

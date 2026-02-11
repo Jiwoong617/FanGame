@@ -101,15 +101,15 @@ public class PlayerUnit : CombatUnit
 
     void RegenerateStamina(float delta)
     {
-        playerStats.stamina = Mathf.Min(playerStats.maxStamina, playerStats.stamina + playerStats.staminaRegen * delta);
+        playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.staminaRegen.GetValue() * delta);
     }
 
     public override void Attack()
     {
         if (target != null)
         {
-            Debug.Log($"[Player] Attacks {target.name} for {stats.attackDamage} damage!");
-            target.TakeDamage(stats.attackDamage);
+            Debug.Log($"[Player] Attacks {target.name} for {stats.attackDamage.GetValue()} damage!");
+            target.TakeDamage(stats.attackDamage.GetValue());
         }
     }
 
@@ -124,7 +124,7 @@ public class PlayerUnit : CombatUnit
         if (state == PlayerState.Parrying)
         {
             Debug.Log("Parry Success! Stamina Refunded.");
-            playerStats.stamina = Mathf.Min(playerStats.maxStamina, playerStats.stamina + playerStats.parryCost * 0.5f);
+            playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost * 0.5f);
 
            // TODO : 뭐 카운터같은거 추가할거면 추가
            // TODO : 이펙트 등
@@ -132,7 +132,7 @@ public class PlayerUnit : CombatUnit
             return;
         }
 
-        float finalDamage = Mathf.Max(1, damage - stats.defense);
+        float finalDamage = Mathf.Max(1, damage - stats.defense.GetValue());
         stats.hp -= finalDamage;
         Debug.Log($"[Player] Took {finalDamage} damage. HP: {stats.hp}");
     }

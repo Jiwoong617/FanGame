@@ -20,53 +20,25 @@ public class PlayerStats : UnitStats
     public event Action<float, float> OnFpChanged;
     public event Action<float> OnStaminaRegenChanged;
 
-    private float _maxStamina;
-    private float _stamina;
-    private float _staminaRegen;
+    // Stat 시스템 적용
+    public Stat maxStamina;
+    public Stat staminaRegen;
+    public Stat maxFp;
 
-    private float _maxFp;
+    // 현재 상태 (단순 변수)
+    private float _stamina;
     private float _fp;
 
     public float dodgeCost { get; private set; }
     public float parryCost { get; private set; }
-
-    public float maxStamina
-    {
-        get => _maxStamina;
-        set
-        {
-            _maxStamina = value;
-            OnStaminaChanged?.Invoke(_stamina, _maxStamina);
-        }
-    }
 
     public float stamina
     {
         get => _stamina;
         set
         {
-            _stamina = value;
-            OnStaminaChanged?.Invoke(_stamina, _maxStamina);
-        }
-    }
-
-    public float staminaRegen
-    {
-        get => _staminaRegen;
-        set
-        {
-            _staminaRegen = value;
-            OnStaminaRegenChanged?.Invoke(_staminaRegen);
-        }
-    }
-
-    public float maxFp
-    {
-        get => _maxFp;
-        set
-        {
-            _maxFp = value;
-            OnFpChanged?.Invoke(_fp, _maxFp);
+            _stamina = Mathf.Clamp(value, 0, maxStamina.GetValue());
+            OnStaminaChanged?.Invoke(_stamina, maxStamina.GetValue());
         }
     }
 
@@ -75,20 +47,25 @@ public class PlayerStats : UnitStats
         get => _fp;
         set
         {
-            _fp = value;
-            OnFpChanged?.Invoke(_fp, _maxFp);
+            _fp = Mathf.Clamp(value, 0, maxFp.GetValue());
+            OnFpChanged?.Invoke(_fp, maxFp.GetValue());
         }
     }
 
 
     public PlayerStats(PlayerData data) : base(data)
     {
-        _maxStamina = data.stamina;
+        maxStamina = new Stat(data.stamina);
+        staminaRegen = new Stat(data.staminaRegen);
+        maxFp = new Stat(data.fp);
+
         _stamina = data.stamina;
-        _staminaRegen = data.staminaRegen;
-        _maxFp = data.fp;
         _fp = data.fp;
         dodgeCost = data.dodgeCost;
         parryCost = data.parryCost;
+
+        maxStamina.OnStatChanged += () => OnStaminaChanged?.Invoke(_stamina, maxStamina.GetValue());
+        staminaRegen.OnStatChanged += () => OnStaminaRegenChanged?.Invoke(staminaRegen.GetValue());
+        maxFp.OnStatChanged += () => OnFpChanged?.Invoke(_fp, maxFp.GetValue());
     }
 }
