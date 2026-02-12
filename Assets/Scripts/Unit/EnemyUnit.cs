@@ -28,12 +28,17 @@ public class EnemyUnit : CombatUnit
 
         attackTimer = 0f;
         targetTime = stats.attackSpeed.GetValue() > 0 ? 1f / stats.attackSpeed.GetValue() : 1f;
+
         //같은몹 여러마리일 때 초기 딜레이 줄거면 이거 주석 해제
         //attackTimer = -Random.Range(0, targetTime * 0.5f);
+
+        InitializeAbilities(unitData);
     }
 
     public override void OnUpdate(float delta)
     {
+        base.OnUpdate(delta);
+
         if (target == null || target.IsDead || IsDead) return;
         if (isActing) return;
 
@@ -56,7 +61,10 @@ public class EnemyUnit : CombatUnit
         if (nextPattern != null)
             StartCoroutine(ExecutePatternRoutine(nextPattern));
         else
-            PerformBasicAttack();
+        {
+            base.Attack();
+            ResetTimer();
+        }
     }
 
     private IEnumerator ExecutePatternRoutine(EnemyPattern pattern)
@@ -69,14 +77,6 @@ public class EnemyUnit : CombatUnit
         pattern.lastExecutionTime = Time.time;
 
         isActing = false;
-        ResetTimer();
-    }
-
-    private void PerformBasicAttack()
-    {
-        if (target != null)
-            target.TakeDamage(stats.attackDamage.GetValue());
-
         ResetTimer();
     }
 
@@ -153,16 +153,23 @@ public class EnemyUnit : CombatUnit
 
 
     public override void OnDead() { StopAllCoroutines(); isActing = false; }
-    public override void TakeDamage(float damage)
+
+    public override float TakeDamage(CombatUnit attacker, float damage)
     {
-        stats.hp -= Mathf.Max(1, damage - stats.defense.GetValue());
+        float finalDamage = Mathf.Max(1, damage - stats.defense.GetValue());
+        stats.hp -= finalDamage;
+
         if (stats.hp <= 0)
         {
             stats.hp = 0;
             OnUnitDead?.Invoke(this);
             OnDead();
         }
+
+        TriggerAbility(CombatEvent.OnTakeDamage, damage);
+        return damage;
     }
+
     public override T GetStat<T>() => stats as T;
 
     public float GetActionProgress()

@@ -9,9 +9,7 @@ public abstract class EnemyPattern
     public float cooldown = 5.0f;
     public Sprite patternSprite;
 
-    //실행 확률
     [Range(0, 100)] public int triggerChance = 30;
-    //마지막 실행시간
     [HideInInspector] public float lastExecutionTime = -9999f;
 
     public abstract IEnumerator Execute(EnemyUnit unit);
@@ -45,7 +43,7 @@ public class SequentialAttackPattern : EnemyPattern
             }
 
             float finalDamage = stats.attackDamage.GetValue() * step.damagePercent;
-            target.TakeDamage(finalDamage);
+            target.TakeDamage(unit, finalDamage);
         }
     }
 }

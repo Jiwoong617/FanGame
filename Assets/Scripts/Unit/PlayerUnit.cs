@@ -25,16 +25,20 @@ public class PlayerUnit : CombatUnit
         {
             playerStats = new PlayerStats(playerData);
             base.stats = playerStats;
+            
+            InitializeAbilities(unitData);
         }
         else
         {
-            Debug.LogError("PlayerData Çü½Ä ¾Æ´Ô");
+            Debug.LogError("PlayerData ê°€ ì•„ë‹˜");
         }
     }
 
 
     public override void OnUpdate(float delta)
     {
+        base.OnUpdate(delta);
+
         HandleInput();
         HandleState(delta);
 
@@ -49,11 +53,14 @@ public class PlayerUnit : CombatUnit
     {
         if (state != PlayerState.Idle) return;
 
-        // TODO: ÀÔ·Â ¸ÅÇÎ ¼öÁ¤
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            TryDodge();
-        else if (Keyboard.current.qKey.wasPressedThisFrame)
-            TryParry();
+        // TODO: ì…ë ¥ ë§¤ë‹ˆì € ì—°ë™
+        if (Keyboard.current != null)
+        {
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                TryDodge();
+            else if (Keyboard.current.qKey.wasPressedThisFrame)
+                TryParry();
+        }
     }
 
     private void HandleState(float delta)
@@ -104,37 +111,37 @@ public class PlayerUnit : CombatUnit
         playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.staminaRegen.GetValue() * delta);
     }
 
-    public override void Attack()
-    {
-        if (target != null)
-        {
-            Debug.Log($"[Player] Attacks {target.name} for {stats.attackDamage.GetValue()} damage!");
-            target.TakeDamage(stats.attackDamage.GetValue());
-        }
-    }
 
-    public override void TakeDamage(float damage)
+    public override float TakeDamage(CombatUnit attacker, float damage)
     {
         if (state == PlayerState.Dodging)
         {
             Debug.Log("Dodge Success");
-            return;
+            return 0;
         }
-
         if (state == PlayerState.Parrying)
         {
             Debug.Log("Parry Success! Stamina Refunded.");
             playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost * 0.5f);
 
-           // TODO : ¹¹ Ä«¿îÅÍ°°Àº°Å Ãß°¡ÇÒ°Å¸é Ãß°¡
-           // TODO : ÀÌÆåÆ® µî
+            TriggerAbility(CombatEvent.OnParrySuccess, damage);
 
-            return;
+            return 0;
         }
 
+        // ë°ë¯¸ì§€ ì ìš©
         float finalDamage = Mathf.Max(1, damage - stats.defense.GetValue());
         stats.hp -= finalDamage;
         Debug.Log($"[Player] Took {finalDamage} damage. HP: {stats.hp}");
+        
+        if (stats.hp <= 0)
+        {
+            OnDead();
+            return 0;
+        }
+
+        TriggerAbility(CombatEvent.OnTakeDamage, damage);
+        return damage;
     }
 
     public override T GetStat<T>()

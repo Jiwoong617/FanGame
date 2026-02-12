@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Sciptable Objects
@@ -18,6 +19,9 @@ public class UnitData : ScriptableObject
     public float defense;
     public float attackDamage;
     public float attackSpeed;
+
+    [Header("Abilities")]
+    public List<AbilityData> startingAbilities = new List<AbilityData>();
 
     [Header("Description"), TextArea]
     public string unitDescription;
