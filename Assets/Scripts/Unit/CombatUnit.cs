@@ -6,6 +6,8 @@ using UnityEngine;
 
 public abstract class CombatUnit : MonoBehaviour
 {
+    protected const float ATTACK_THRESHOLD = 1f;
+
     public Action<CombatUnit> OnUnitDead;
 
     protected UnitStats stats;
@@ -22,7 +24,7 @@ public abstract class CombatUnit : MonoBehaviour
         if (IsDead || target == null || target.IsDead) return;
 
         attackTimer += (delta * stats.attackSpeed.GetValue());
-        if (attackTimer >= 1f)
+        if (attackTimer >= ATTACK_THRESHOLD)
         {
             Attack();
             attackTimer = 0f;
