@@ -124,7 +124,8 @@ public class PlayerUnit : CombatUnit
             Debug.Log("Parry Success! Stamina Refunded.");
             playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost * 0.5f);
 
-            TriggerAbility(CombatEvent.OnParrySuccess, damage);
+            //공격한 적에게 돌려줌, 적의 공격 데미지 적용
+            TriggerAbility(CombatEvent.OnParrySuccess, new CombatEventContext(this, attacker, damage));
 
             return 0;
         }
@@ -140,7 +141,7 @@ public class PlayerUnit : CombatUnit
             return 0;
         }
 
-        TriggerAbility(CombatEvent.OnTakeDamage, damage);
+        TriggerAbility(CombatEvent.OnTakeDamage, new CombatEventContext(this, attacker, damage));
         return damage;
     }
 

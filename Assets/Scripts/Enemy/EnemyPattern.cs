@@ -66,7 +66,7 @@ public class SequentialAttackPattern : EnemyPattern
             float isTargetHit = target.TakeDamage(unit, finalDamage);
             if (isTargetHit > 0)
             {
-                unit.TriggerAbility(CombatEvent.OnAttack, finalDamage);
+                unit.TriggerAbility(CombatEvent.OnAttack, new CombatEventContext(unit, target, finalDamage));
             }
 
             currentStepIndex++;

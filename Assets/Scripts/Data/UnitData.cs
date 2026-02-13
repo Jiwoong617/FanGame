@@ -20,11 +20,12 @@ public class UnitData : ScriptableObject
     public float attackDamage;
     public float attackSpeed;
 
-    [Header("Abilities")]
-    public List<AbilityData> startingAbilities = new List<AbilityData>();
-
     [Header("Description"), TextArea]
     public string unitDescription;
+
+    [Header("Abilities")]
+    [SerializeReference, SerializeReferenceDropdown]
+    public List<Ability> startingAbilities = new List<Ability>();
 }
 
 

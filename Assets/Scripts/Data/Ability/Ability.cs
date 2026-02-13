@@ -23,10 +23,11 @@ public class CombatEventContext
     }
 }
 
+[System.Serializable]
 public abstract class Ability
 {
     protected CombatUnit owner;
-    protected CombatEvent combatEvent;
+    [SerializeField] protected CombatEvent combatEvent;
 
     public bool IsFinished { get; protected set; } 
 
@@ -34,6 +35,11 @@ public abstract class Ability
     {
         this.owner = owner;
         OnAdded();
+    }
+
+    public virtual Ability Clone()
+    {
+        return (Ability)this.MemberwiseClone();
     }
 
     public virtual void OnAdded() { }

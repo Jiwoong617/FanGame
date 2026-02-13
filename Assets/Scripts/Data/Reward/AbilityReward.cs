@@ -1,14 +1,25 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewAbilityReward", menuName = "Reward/Ability Reward")]
 public class AbilityReward : RewardBase
 {
-    public float value; 
+    [Header("Ability Settings")]
+    [SerializeReference, SerializeReferenceDropdown]
+    public List<Ability> abilities = new List<Ability>();
 
     public override void Apply(PlayerUnit player)
     {
         if (player == null) return;
+        if (abilities == null || abilities.Count == 0) return;
 
-        // TODO: 플레이어의 버프/패시브 시스템에 능력 등록
+        foreach (var ability in abilities)
+        {
+            if (ability != null)
+            {
+                Ability newAbility = ability.Clone();
+                player.AddAbility(newAbility);
+            }
+        }
     }
 }

@@ -41,6 +41,16 @@ public abstract class CombatUnit : MonoBehaviour
         return target;
     }
 
+    public virtual void OnBattleStart()
+    {
+        TriggerAbility(CombatEvent.OnBattleStart, new CombatEventContext(this, target, 0));
+    }
+
+    public virtual void OnBattleEnd()
+    {
+        TriggerAbility(CombatEvent.OnBattleEnd, new CombatEventContext(this, target, 0));
+    }
+
     public virtual void OnUpdate(float delta)
     {
         if (IsDead) return;
@@ -71,7 +81,7 @@ public abstract class CombatUnit : MonoBehaviour
         float isTargetHit = target.TakeDamage(this, damage);
         if(isTargetHit > 0)
         {
-            TriggerAbility(CombatEvent.OnAttack, damage);
+            TriggerAbility(CombatEvent.OnAttack, new CombatEventContext(this, target, damage));
         }
     }
 
@@ -80,11 +90,11 @@ public abstract class CombatUnit : MonoBehaviour
         abilities.Clear();
         if (data.startingAbilities != null)
         {
-            foreach (var abilityData in data.startingAbilities)
+            foreach (var ability in data.startingAbilities)
             {
-                if (abilityData != null)
+                if (ability != null)
                 {
-                    AddAbility(abilityData.CreateAbility());
+                    AddAbility(ability.Clone());
                 }
             }
         }
@@ -98,9 +108,10 @@ public abstract class CombatUnit : MonoBehaviour
         abilities.Add(newAbility);
     }
 
-    public void TriggerAbility(CombatEvent type, float damage = 0)
+    public void TriggerAbility(CombatEvent type, CombatEventContext cec)
     {
-        CombatEventContext cec = new CombatEventContext(this, target, damage);
+        if (type == CombatEvent.OnParrySuccess)
+            Debug.Log("ParrySuccess");
 
         for (int i = 0; i < abilities.Count; i++)
             abilities[i].OnEvent(type, cec);

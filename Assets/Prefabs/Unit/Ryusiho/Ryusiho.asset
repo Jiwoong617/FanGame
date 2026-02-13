@@ -18,7 +18,7 @@ MonoBehaviour:
   hp: 100
   defense: 0
   attackDamage: 10
-  attackSpeed: 2
+  attackSpeed: 0.1
   unitDescription: "\uCE74\uC624\uC2A4\uC758 \uC2E0\uC744 \uC12C\uAE30\uB294 '\uB958\uC2DC\uD638'
     \uC131\uB140 \uC544\uB798 \uC131\uB140\uB97C \uB530\uB974\uB294 \uC2E0\uC790\uC774\uB2E4.
     \uC2E0\uD654\uC18D \uC874\uC7AC\uC778 '\uC0AC\uC790\uBB34'\uB97C \uBCF4\uACE0\uC2F6\uB2E4\uB294
@@ -27,8 +27,18 @@ MonoBehaviour:
     \uC131\uB140\uB294 \uBF40\uAD50\uB2E8 \uBC16\uC744 \uB098\uC11C\uC9C0 \uBABB\uD558\uACE0
     \uC2E0\uC790\uB294 '\uC0AC\uC790\uBB34'\uB97C \uCC3E\uAE30 \uC704\uD574 \uD640\uB85C
     \uBC1C\uAC78\uC74C\uC744 \uC62E\uACBC\uB2E4."
+  startingAbilities:
+  - rid: 8549445380324196423
   stamina: 100
   staminaRegen: 1
   fp: 100
   dodgeCost: 20
   parryCost: 10
+  references:
+    version: 2
+    RefIds:
+    - rid: 8549445380324196423
+      type: {class: ParryReflectAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 4
+        reflectMultiplier: 1

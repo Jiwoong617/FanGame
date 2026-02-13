@@ -161,7 +161,7 @@ public class EnemyUnit : CombatUnit
             OnDead();
         }
 
-        TriggerAbility(CombatEvent.OnTakeDamage, damage);
+        TriggerAbility(CombatEvent.OnTakeDamage, new CombatEventContext(this, attacker, damage));
         return damage;
     }
 
