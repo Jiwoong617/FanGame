@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class PlayerUI : UI_Base
@@ -27,6 +28,8 @@ public class PlayerUI : UI_Base
     enum Images
     {
         Icon,
+        BackGround,
+        InventoryUI,
     }
     #endregion
 
@@ -43,6 +46,12 @@ public class PlayerUI : UI_Base
     private TMP_Text AttackSpeedText;
     private TMP_Text DefenseText;
     private TMP_Text StRegenText;
+
+    private GameObject PlayerPanel; 
+    private GameObject InventoryPanel;
+    private bool isShowingPlayer = true;
+
+    private InputAction tabAction;
 
     protected override void Init()
     {
@@ -64,6 +73,12 @@ public class PlayerUI : UI_Base
         StRegenText = Get<TMP_Text>(Texts.StRegen);
 
         Get<Image>(Images.Icon).sprite = GameManager.Instance.SelectedPlayerClass.unitSprite;
+        PlayerPanel = Get<Image>(Images.BackGround).gameObject;
+        InventoryPanel = Get<Image>(Images.InventoryUI).gameObject;
+
+        tabAction = new InputAction(binding: "<Keyboard>/tab");
+        tabAction.performed += OnTabPressed;
+        tabAction.Enable();
     }
 
     private void Start()
@@ -98,6 +113,13 @@ public class PlayerUI : UI_Base
         stats.OnDefenseChanged -= UpdateDefense;
         stats.OnAttackSpeedChanged -= UpdateAttackSpeed;
         stats.OnStaminaRegenChanged -= UpdateStaminaRegen;
+
+        if (tabAction != null)
+        {
+            tabAction.performed -= OnTabPressed;
+            tabAction.Disable();
+            tabAction.Dispose();
+        }
     }
 
     private void RefreshAll()
@@ -151,5 +173,13 @@ public class PlayerUI : UI_Base
     private void UpdateStaminaRegen(float value)
     {
         StRegenText.text = $"{value:F2}";
+    }
+
+    private void OnTabPressed(InputAction.CallbackContext context)
+    {
+        isShowingPlayer = !isShowingPlayer;
+
+        PlayerPanel.SetActive(isShowingPlayer);
+        InventoryPanel.SetActive(!isShowingPlayer);
     }
 }

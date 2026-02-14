@@ -15,5 +15,7 @@ MonoBehaviour:
   Icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
   RewardName: test3
   Description: setasetaetatad
+  isItem: 1
   targetStat: 0
+  modType: 0
   amount: 0

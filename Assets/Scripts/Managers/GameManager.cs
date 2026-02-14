@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public static MapManager Map { get; private set; }
     public static EventManager Event { get; private set; }
     public static RestManager Rest { get; private set; }
+    public static InventoryManager Inventory { get; private set; }
     #endregion
 
     private GameState state = GameState.MainMenu;
@@ -93,6 +94,7 @@ public class GameManager : MonoBehaviour
         Map = new MapManager();
         Event = new EventManager();
         Rest = new RestManager();
+        Inventory = new InventoryManager();
 
 
         // 전투 -> (승리) -> 보상

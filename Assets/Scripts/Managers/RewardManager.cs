@@ -50,9 +50,13 @@ public class RewardManager
         Debug.Log($"[RewardManager] Selected: {selected.RewardName}");
 
         if (GameManager.Instance.Player != null)
+        {
             selected.Apply(GameManager.Instance.Player);
-        else
-            Debug.LogWarning("[RewardManager] Player instance not found!");
+            if (selected.isItem)
+            {
+                GameManager.Inventory.AddItem(selected);
+            }
+        }
         
         rewardUI.Hide();
         OnRewardSelected?.Invoke();
