@@ -13,11 +13,9 @@ public class MapNodeUI : MonoBehaviour
     // 실제로는 ResourceManger나 Atlas에서 가져오는 게 좋음
     [SerializeField] private Sprite monsterSprite;
     [SerializeField] private Sprite eliteSprite;
-    [SerializeField] private Sprite shopSprite;
     [SerializeField] private Sprite restSprite;
     [SerializeField] private Sprite eventSprite;
     [SerializeField] private Sprite bossSprite;
-    [SerializeField] private Sprite unknownSprite;
 
     private MapNode nodeData;
     private Action<MapNode> onClickCallback;
@@ -74,7 +72,7 @@ public class MapNodeUI : MonoBehaviour
             case NodeType.Rest: return restSprite;
             case NodeType.Event: return eventSprite;
             case NodeType.Boss: return bossSprite;
-            default: return unknownSprite;
+            default: return null;
         }
     }
 }
