@@ -133,10 +133,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8a647e90cadea4a93b92785e88c099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapIconUI
-  monsterSprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  eliteSprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  shopSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-  restSprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  eventSprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+  monsterSprite: {fileID: -1538216131050100205, guid: 443d74a6c57a1784686a77a623ff97ef, type: 3}
+  eliteSprite: {fileID: 7465851344183582018, guid: 86493d7e8e9a4f34499b715ff1f5b601, type: 3}
+  shopSprite: {fileID: -230212805086525623, guid: df3d9526d4a67d84290b44278b4d3fd1, type: 3}
+  restSprite: {fileID: 5696234589234851955, guid: 500705bbaf23f224ca7c31a6d4864cc0, type: 3}
+  eventSprite: {fileID: 21300000, guid: 9e7987042c7bf3a41bcefeeb077acc66, type: 3}
   bossSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
   unknownSprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
