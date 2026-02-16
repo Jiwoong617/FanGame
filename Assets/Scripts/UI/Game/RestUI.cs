@@ -26,14 +26,9 @@ public class RestUI : UI_Base
         ResultText
     }
 
-    enum ResultSprites
-    {
-        SleepResultImage_0,
-        TrainingResultImage_0,
-        MeditationResultImage_0
-    }
-
     private bool _isProcessing = false;
+
+    //0 - sleep, 1 - training, 2 - meditate
     [SerializeField] private List<Sprite> resultSpriteList;
 
     protected override void Init()
@@ -81,7 +76,7 @@ public class RestUI : UI_Base
             float beforeHp = stats.hp;
 
             stats.hp = Mathf.Min(stats.hp + healAmount, stats.maxHp.GetValue());
-            Get<Image>(Images.Result).sprite = resultSpriteList.Find(x => x.name == ResultSprites.SleepResultImage_0.ToString());
+            Get<Image>(Images.Result).sprite = resultSpriteList[0];
 
             return $"체력을 회복했습니다.\n(HP : {beforeHp:F0} -> {stats.hp:F0})";
         });
@@ -95,7 +90,7 @@ public class RestUI : UI_Base
             var stats = GameManager.Instance.Player.GetStat<PlayerStats>();
             float beforeFp = stats.fp;
             stats.fp = stats.maxFp.GetValue();
-            Get<Image>(Images.Result).sprite = resultSpriteList.Find(x => x.name == ResultSprites.MeditationResultImage_0.ToString());
+            Get<Image>(Images.Result).sprite = resultSpriteList[2];
 
             return $"정신을 집중하여 FP를 모두 회복했습니다.\n(FP : {beforeFp:F0} -> {stats.fp:F0})";
         });
@@ -140,7 +135,7 @@ public class RestUI : UI_Base
                     resultMsg = $"맷집 훈련을 수행했습니다.\n방어력이 {dfmod:F0} 상승했습니다.";
                     break;
             }
-            Get<Image>(Images.Result).sprite = resultSpriteList.Find(x => x.name == ResultSprites.TrainingResultImage_0.ToString());
+            Get<Image>(Images.Result).sprite = resultSpriteList[1];
 
             return resultMsg;
         });

@@ -29,11 +29,19 @@ MonoBehaviour:
     \uBC1C\uAC78\uC74C\uC744 \uC62E\uACBC\uB2E4."
   startingAbilities:
   - rid: 8549445380324196423
+  - rid: 8549445450257924181
+  - rid: 8549445450257924183
   stamina: 100
   staminaRegen: 1
   fp: 100
+  skillCost: 0
+  skillCoolTime: 0
   dodgeCost: 20
   parryCost: 10
+  dodgeDuration: 1
+  parryDuration: 1
+  dodgeCoolTime: 3
+  parrayCoolTime: 3
   references:
     version: 2
     RefIds:
@@ -42,3 +50,15 @@ MonoBehaviour:
       data:
         combatEvent: 4
         reflectMultiplier: 1
+    - rid: 8549445450257924181
+      type: {class: ParryAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        actionType: 2
+        skillIcon: {fileID: -7954620618086645965, guid: 927caa84d79950b479dc5442efa22dcb, type: 3}
+    - rid: 8549445450257924183
+      type: {class: DodgeAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        actionType: 1
+        skillIcon: {fileID: 7465851344183582018, guid: 86493d7e8e9a4f34499b715ff1f5b601, type: 3}

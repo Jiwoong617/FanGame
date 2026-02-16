@@ -100,7 +100,7 @@ public abstract class CombatUnit : MonoBehaviour
         }
     }
 
-    public void AddAbility(Ability newAbility)
+    public virtual void AddAbility(Ability newAbility)
     {
         if (newAbility == null) return;
 
@@ -110,9 +110,6 @@ public abstract class CombatUnit : MonoBehaviour
 
     public void TriggerAbility(CombatEvent type, CombatEventContext cec)
     {
-        if (type == CombatEvent.OnParrySuccess)
-            Debug.Log("ParrySuccess");
-
         for (int i = 0; i < abilities.Count; i++)
             abilities[i].OnEvent(type, cec);
     }

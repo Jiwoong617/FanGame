@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,13 +12,13 @@ public enum PlayerState
 
 public class PlayerUnit : CombatUnit
 {
-    private const float DODGE_DURATION = 0.7f;
-    private const float PARRY_DURATION = 0.2f;
-
     protected PlayerStats playerStats;
-
-    protected PlayerState state = PlayerState.Idle;
     protected float stateTimer = 0f;
+
+    public PlayerState state { get; private set; } = PlayerState.Idle;
+
+    public event Action<ActionType, float> OnCooldownTriggered;
+    private Dictionary<ActionType, ActiveAbility> actionMap = new Dictionary<ActionType, ActiveAbility>();
 
 
     public override void Init(UnitData unitData)
@@ -31,6 +33,15 @@ public class PlayerUnit : CombatUnit
         else
         {
             Debug.LogError("PlayerData 가 아님");
+        }
+    }
+
+    public override void AddAbility(Ability newAbility)
+    {
+        base.AddAbility(newAbility);
+        if (newAbility is ActiveAbility active && active.actionType != ActionType.None)
+        {
+            actionMap[active.actionType] = active;
         }
     }
 
@@ -57,10 +68,18 @@ public class PlayerUnit : CombatUnit
         if (Keyboard.current != null)
         {
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
-                TryDodge();
+                UseAbility(ActionType.Dodge);
             else if (Keyboard.current.qKey.wasPressedThisFrame)
-                TryParry();
+                UseAbility(ActionType.Parry);
+            else if (Keyboard.current.fKey.wasPressedThisFrame)
+                UseAbility(ActionType.Skill);
         }
+    }
+
+    private void UseAbility(ActionType type)
+    {
+        if (actionMap.TryGetValue(type, out ActiveAbility ability))
+            ability.TryUseSkill();
     }
 
     private void HandleState(float delta)
@@ -72,61 +91,43 @@ public class PlayerUnit : CombatUnit
             state = PlayerState.Idle;
     }
 
-    private void TryDodge()
+
+    public void ResetCooldown(ActionType type)
     {
-        if (playerStats.stamina >= playerStats.dodgeCost)
+        if (actionMap.TryGetValue(type, out ActiveAbility ability))
         {
-            playerStats.stamina -= playerStats.dodgeCost;
-            state = PlayerState.Dodging;
-            stateTimer = DODGE_DURATION;
-            Debug.Log("Dodge");
-        }
-        else
-        {
-            Debug.Log("[Player] Not enough stamina to Dodge!");
+            ability.ResetCooldown();
+            NotifyCooldownStarted(type, 0f);
         }
     }
 
-    private void TryParry()
+    public bool CheckAbilityCooldown(ActionType type)
     {
-        if (playerStats.stamina >= playerStats.parryCost)
+        if (actionMap.TryGetValue(type, out ActiveAbility ability))
         {
-            playerStats.stamina -= playerStats.parryCost;
-            state = PlayerState.Parrying;
-            stateTimer = PARRY_DURATION;
+            return ability.IsOnCooldown();
         }
-        else
-        {
-            Debug.Log("[Player] Not enough stamina to Parry!");
-        }
+        return false;
     }
+
 
     public override void OnDead()
     {
         Debug.Log("Player Dead");
     }
 
-    void RegenerateStamina(float delta)
-    {
-        playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.staminaRegen.GetValue() * delta);
-    }
-
 
     public override float TakeDamage(CombatUnit attacker, float damage)
     {
         if (state == PlayerState.Dodging)
-        {
-            Debug.Log("Dodge Success");
             return 0;
-        }
+
         if (state == PlayerState.Parrying)
         {
-            Debug.Log("Parry Success! Stamina Refunded.");
-            playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost * 0.5f);
+            ResetCooldown(ActionType.Parry);
+            playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost.GetValue() * 0.5f);
 
-            //공격한 적에게 돌려줌, 적의 공격 데미지 적용
             TriggerAbility(CombatEvent.OnParrySuccess, new CombatEventContext(this, attacker, damage));
-
             return 0;
         }
 
@@ -145,6 +146,17 @@ public class PlayerUnit : CombatUnit
         return damage;
     }
 
+    public void ChangeState(PlayerState newState, float duration)
+    {
+        state = newState;
+        stateTimer = duration;
+    }
+
+    public void NotifyCooldownStarted(ActionType type, float duration)
+    {
+        OnCooldownTriggered?.Invoke(type, duration);
+    }
+
     public override T GetStat<T>()
     {
         return playerStats as T;
@@ -154,5 +166,15 @@ public class PlayerUnit : CombatUnit
     {
         base.SetTarget(inTarget);
         attackTimer = 0f;
+    }
+
+    public IEnumerable<ActiveAbility> GetActiveAbilities()
+    {
+        return actionMap.Values;
+    }
+
+    private void RegenerateStamina(float delta)
+    {
+        playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.staminaRegen.GetValue() * delta);
     }
 }

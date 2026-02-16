@@ -9,6 +9,9 @@ public enum StatType
     Stamina,
     StaminaRegen,
     MaxFp,
+    SkillCoolTime,
+    DodgeCost,
+    ParryCost
 }
 
 [CreateAssetMenu(fileName = "NewStatReward", menuName = "Reward/Stat Reward")]
@@ -66,6 +69,18 @@ public class StatReward : RewardBase
                 float newFp = stats.maxFp.GetValue();
                 if(newFp >  oldFp)
                     stats.fp += (newFp - oldFp);
+                break;
+
+            case StatType.SkillCoolTime:
+                stats.skillCoolTime.AddModifier(mod);
+                break;
+
+            case StatType.DodgeCost:
+                stats.dodgeCost.AddModifier(mod);
+                break;
+
+            case StatType.ParryCost:
+                stats.parryCost.AddModifier(mod);
                 break;
         }
         

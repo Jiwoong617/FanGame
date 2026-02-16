@@ -9,8 +9,17 @@ public class PlayerData : UnitData
     public float staminaRegen;
     public float fp;
 
+    public float skillCost;
+    public float skillCoolTime;
+
     public float dodgeCost;
     public float parryCost;
+
+    public float dodgeDuration;
+    public float parryDuration;
+
+    public float dodgeCoolTime;
+    public float parrayCoolTime;
 }
 
 [System.Serializable]
@@ -25,12 +34,20 @@ public class PlayerStats : UnitStats
     public Stat staminaRegen;
     public Stat maxFp;
 
+    public Stat skillCoolTime;
+    public Stat dodgeCost;
+    public Stat parryCost;
+
     // 현재 상태 (단순 변수)
     private float _stamina;
     private float _fp;
 
-    public float dodgeCost { get; private set; }
-    public float parryCost { get; private set; }
+    public float skillCost { get; private set; }
+    public float dodgeDuration { get; private set; }
+    public float parryDuration { get; private set; }
+    public float dodgeCoolTime { get; private set; }
+    public float parrayCoolTime { get; private set; }
+
 
     public float stamina
     {
@@ -58,14 +75,21 @@ public class PlayerStats : UnitStats
         maxStamina = new Stat(data.stamina);
         staminaRegen = new Stat(data.staminaRegen);
         maxFp = new Stat(data.fp);
+        skillCoolTime = new Stat(data.skillCoolTime);
+        dodgeCost = new Stat(data.dodgeCost);
+        parryCost = new Stat(data.parryCost);
 
         _stamina = data.stamina;
         _fp = data.fp;
-        dodgeCost = data.dodgeCost;
-        parryCost = data.parryCost;
+        dodgeDuration = data.dodgeDuration;
+        parryDuration = data.parryDuration;
+        dodgeCoolTime = data.dodgeCoolTime;
+        parrayCoolTime = data.parrayCoolTime;
+        skillCost = data.skillCost;
 
         maxStamina.OnStatChanged += () => OnStaminaChanged?.Invoke(_stamina, maxStamina.GetValue());
         staminaRegen.OnStatChanged += () => OnStaminaRegenChanged?.Invoke(staminaRegen.GetValue());
         maxFp.OnStatChanged += () => OnFpChanged?.Invoke(_fp, maxFp.GetValue());
+
     }
 }
