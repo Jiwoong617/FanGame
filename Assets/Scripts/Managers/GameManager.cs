@@ -155,37 +155,23 @@ public class GameManager : MonoBehaviour
     public void ProcessNode(MapNode node)
     {
         Debug.Log($"[GameManager] ProcessNode: {node.nodeType} at Floor {node.y}");
-
-        if (node.content is BattleContent battleContent)
+        switch (node.nodeType)
         {
-            Battle.SetupBattle(Player, battleContent.enemies);
-            ChangeState(GameState.Battle);
-        }
-        else if (node.content is EventContent eventContent)
-        {
-            ChangeState(GameState.Event);
-        }
-        else if (node.content is RestContent restContent)
-        {
-            ChangeState(GameState.Rest);
-        }
-        else
-        {
-            switch (node.nodeType)
-            {
-                case NodeType.Monster:
-                case NodeType.Elite:
-                case NodeType.Boss:
-                    Debug.LogWarning("Battle node but no BattleContent found.");
-                    ChangeState(GameState.Battle);
-                    break;
-                case NodeType.Rest:
-                    ChangeState(GameState.Rest);
-                    break;
-                case NodeType.Event:
-                    ChangeState(GameState.Event);
-                    break;
-            }
+            case NodeType.Monster:
+            case NodeType.Elite:
+            case NodeType.Boss:
+                if (node.content is BattleContent battleContent)
+                    Battle.SetupBattle(Player, battleContent.enemies);
+                ChangeState(GameState.Battle);
+                break;
+            case NodeType.Event:
+                if (node.content is EventContent eventContent)
+                    Event.SetupEvent(eventContent.eventData);
+                ChangeState(GameState.Event);
+                break;
+            case NodeType.Rest:
+                ChangeState(GameState.Rest);
+                break;
         }
     }
 

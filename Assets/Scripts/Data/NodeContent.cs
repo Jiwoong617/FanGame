@@ -14,10 +14,10 @@ public class BattleContent : NodeContent
 
 public class EventContent : NodeContent
 {
-    // TODO: 이벤트 관련 데이터 추가
-}
+    public EventData eventData;
 
-public class RestContent : NodeContent
-{
-    // TODO: 휴식 관련 데이터 추가
+    public EventContent(EventData evnetData)
+    {
+        this.eventData = evnetData;
+    }
 }
