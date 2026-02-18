@@ -7,7 +7,7 @@ public class RewardManager
     public event Action OnRewardSelected;
 
     private RewardUI rewardUI;
-    private List<RewardBase> currentRewards = new List<RewardBase>();
+    private List<RewardData> currentRewards = new List<RewardData>();
 
     public void SetUI(RewardUI ui)
     {
@@ -26,7 +26,7 @@ public class RewardManager
         {
             Debug.LogError("[RewardManager] No rewards available in StageData!");
 
-            rewardUI.SetRewards(new List<RewardBase>());
+            rewardUI.SetRewards(new List<RewardData>());
             rewardUI.Show();
             return;
         }
@@ -46,7 +46,7 @@ public class RewardManager
             return;
         }
 
-        RewardBase selected = currentRewards[index];
+        RewardData selected = currentRewards[index];
         Debug.Log($"[RewardManager] Selected: {selected.RewardName}");
 
         if (GameManager.Instance.Player != null)

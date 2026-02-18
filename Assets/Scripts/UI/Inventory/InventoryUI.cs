@@ -31,7 +31,7 @@ public class InventoryUI : UI_Base
         }
     }
 
-    private void AddItemSlot(RewardBase item)
+    private void AddItemSlot(RewardData item)
     {
         GameObject go = Instantiate(slotPrefab, slotContainer);
         InventorySlotUI slotUI = go.GetComponent<InventorySlotUI>();

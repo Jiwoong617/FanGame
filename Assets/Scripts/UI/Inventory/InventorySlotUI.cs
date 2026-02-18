@@ -4,10 +4,10 @@ using UnityEngine.EventSystems;
 
 public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private RewardBase itemData;
+    private RewardData itemData;
     private Image icon;
 
-    public void Init(RewardBase item)
+    public void Init(RewardData item)
     {
         icon = GetComponent<Image>();
 

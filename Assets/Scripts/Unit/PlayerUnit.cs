@@ -45,6 +45,35 @@ public class PlayerUnit : CombatUnit
         }
     }
 
+    public override void OnBattleStart()
+    {
+        base.OnBattleStart();
+
+        if (playerStats != null)
+            playerStats.stamina = playerStats.maxStamina.GetValue();
+
+        foreach (var a in actionMap)
+            if (a.Value != null)
+                a.Value.ResetCooldown();
+
+        state = PlayerState.Idle;
+        stateTimer = 0f;
+    }
+
+    public override void OnBattleEnd()
+    {
+        base.OnBattleEnd();
+
+        if (playerStats != null)
+            playerStats.stamina = playerStats.maxStamina.GetValue();
+
+        foreach (var a in actionMap)
+            if (a.Value != null)
+                a.Value.ResetCooldown();
+
+        state = PlayerState.Idle;
+        stateTimer = 0f;
+    }
 
     public override void OnUpdate(float delta)
     {

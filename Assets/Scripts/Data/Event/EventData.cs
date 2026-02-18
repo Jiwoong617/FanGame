@@ -19,5 +19,5 @@ public class EventOption
     public string buttonText;
     [TextArea] public string resultText;
     
-    public List<RewardBase> outcomes; 
+    public List<RewardData> outcomes; 
 }

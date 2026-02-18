@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class InventoryManager
 {
-    public event Action<RewardBase> OnItemAdded;
+    public event Action<RewardData> OnItemAdded;
 
-    private List<RewardBase> Items = new List<RewardBase>();
+    private List<RewardData> Items = new List<RewardData>();
 
-    public void AddItem(RewardBase item)
+    public void AddItem(RewardData item)
     {
         if (item == null || !item.isItem) return;
 

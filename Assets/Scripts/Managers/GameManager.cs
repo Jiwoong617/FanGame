@@ -148,7 +148,7 @@ public class GameManager : MonoBehaviour
         Player = go.GetComponent<PlayerUnit>();
         Player.Init(SelectedPlayerClass);
 
-        Event.LoadEvents(SelectedPlayerClass.unitName);
+        Event.LoadEvents(SelectedPlayerClass.name);
     }
 
     // MapManager에서 노드 선택 시 호출
