@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -146,33 +147,50 @@ public class PlayerUnit : CombatUnit
     }
 
 
-    public override float TakeDamage(CombatUnit attacker, float damage)
+    public override float TakeDamage(CombatEventContext ctx)
     {
-        if (state == PlayerState.Dodging)
-            return 0;
+        if(IsDead)
+            return 0f;
 
-        if (state == PlayerState.Parrying)
+        if (!ctx.isReflectDamage)
         {
-            ResetCooldown(ActionType.Parry);
-            playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost.GetValue() * 0.5f);
+            if (state == PlayerState.Dodging)
+                return 0;
+            if (state == PlayerState.Parrying)
+            {
+                ResetCooldown(ActionType.Parry);
+                playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost.GetValue() * 0.5f);
 
-            TriggerAbility(CombatEvent.OnParrySuccess, new CombatEventContext(this, attacker, damage));
-            return 0;
+                TriggerAbility(CombatEvent.OnParrySuccess, ctx);
+                return 0;
+            }
         }
 
+        //피격 전 이벤트
+        TriggerAbility(CombatEvent.OnBeforeTakeDamage, ctx);
+        if (ctx.value <= 0)
+            return 0;
+
+        //방어력 계산
+        float finalDamage = ctx.value;
+        if (ctx.damageType == DamageType.Normal)
+            finalDamage = Mathf.Max(1, finalDamage - stats.defense.GetValue());
+
         // 데미지 적용
-        float finalDamage = Mathf.Max(1, damage - stats.defense.GetValue());
         stats.hp -= finalDamage;
         Debug.Log($"[Player] Took {finalDamage} damage. HP: {stats.hp}");
-        
+
+        // 피격 후 이벤트
+        ctx.value = finalDamage;
+        TriggerAbility(CombatEvent.OnTakeDamage, ctx);
+
         if (stats.hp <= 0)
         {
             OnDead();
             return 0;
         }
 
-        TriggerAbility(CombatEvent.OnTakeDamage, new CombatEventContext(this, attacker, damage));
-        return damage;
+        return finalDamage;
     }
 
     public void ChangeState(PlayerState newState, float duration)

@@ -45,7 +45,7 @@ public class Stat
             else if (mod.Type == StatModType.PercentAdd)
                 sumPercentAdd += mod.Value;
             else
-                sumPercentMult *= (mod.Value < 1 ? (1-mod.Value) : mod.Value);
+                sumPercentMult *= mod.Value;
         }
 
         //스텟 계산
@@ -53,7 +53,7 @@ public class Stat
         finalValue *= (1 + sumPercentAdd); //합연산 퍼센트
         finalValue *= sumPercentMult; //곱연산 퍼센트
 
-        return (float)Math.Round(finalValue, 4);
+        return (float)Math.Round(Mathf.Max(0f, finalValue), 4);
     }
 
     public void AddModifier(StatModifier mod)

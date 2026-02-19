@@ -5,8 +5,15 @@ public enum CombatEvent
     OnBattleStart,
     OnBattleEnd,
     OnAttack,
+    OnBeforeTakeDamage,
     OnTakeDamage,
     OnParrySuccess,
+}
+
+public enum DamageType
+{
+    Normal,
+    Fixed
 }
 
 public class CombatEventContext
@@ -14,12 +21,17 @@ public class CombatEventContext
     public CombatUnit source;
     public CombatUnit target;
     public float value;
+    
+    public DamageType damageType;
+    public bool isReflectDamage;
 
-    public CombatEventContext(CombatUnit source, CombatUnit target, float value)
+    public CombatEventContext(CombatUnit source, CombatUnit target, float value, DamageType damageType = DamageType.Normal, bool isReflectDamage = false)
     {
         this.source = source;
         this.target = target;
         this.value = value;
+        this.damageType = damageType;
+        this.isReflectDamage = isReflectDamage;
     }
 }
 
@@ -42,7 +54,7 @@ public abstract class Ability
         return (Ability)this.MemberwiseClone();
     }
 
-    public virtual void OnAdded() { }
+    protected virtual void OnAdded() { }
     public virtual void OnRemoved() { }
     public virtual void OnUpdate(float delta) { }
     public virtual void OnEvent(CombatEvent eventType, CombatEventContext context) { }

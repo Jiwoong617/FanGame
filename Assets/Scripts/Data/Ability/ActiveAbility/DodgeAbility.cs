@@ -3,11 +3,6 @@
 [System.Serializable]
 public class DodgeAbility : ActiveAbility
 {
-    public override void OnAdded()
-    {
-        actionType = ActionType.Dodge;
-    }
-
     protected override bool CheckAndConsumeCost(PlayerUnit player)
     {
         var stats = player.GetStat<PlayerStats>();

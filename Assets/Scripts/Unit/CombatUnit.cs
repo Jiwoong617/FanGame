@@ -49,6 +49,18 @@ public abstract class CombatUnit : MonoBehaviour
     public virtual void OnBattleEnd()
     {
         TriggerAbility(CombatEvent.OnBattleEnd, new CombatEventContext(this, target, 0));
+
+        for (int i = abilities.Count - 1; i >= 0; i--)
+        {
+            if (abilities[i] is StatusEffect status)
+            {
+                if (status.duration > 0 || status.IsFinished)
+                {
+                    status.OnRemoved();
+                    abilities.RemoveAt(i);
+                }
+            }
+        }
     }
 
     public virtual void OnUpdate(float delta)
@@ -70,18 +82,22 @@ public abstract class CombatUnit : MonoBehaviour
 
     public abstract void Init(UnitData unitData);
     public abstract void OnDead();
-    public abstract float TakeDamage(CombatUnit attacker, float damage);
+    public abstract float TakeDamage(CombatEventContext info);
     public abstract T GetStat<T>() where T : UnitStats;
 
     public virtual void Attack()
     {
-        if (target == null) return;
+        if (target == null || IsDead) return;
 
         float damage = stats.attackDamage.GetValue();
-        float isTargetHit = target.TakeDamage(this, damage);
-        if(isTargetHit > 0)
+        CombatEventContext attackCtx = new CombatEventContext(this, target, damage, DamageType.Normal, false);
+        float actualDamage = target.TakeDamage(attackCtx);
+
+        if (actualDamage > 0 && !IsDead)
         {
-            TriggerAbility(CombatEvent.OnAttack, new CombatEventContext(this, target, damage));
+            //이거 방어력 깎인 최종 데미지로 교체
+            attackCtx.value = actualDamage;
+            TriggerAbility(CombatEvent.OnAttack, attackCtx);
         }
     }
 
@@ -103,6 +119,20 @@ public abstract class CombatUnit : MonoBehaviour
     public virtual void AddAbility(Ability newAbility)
     {
         if (newAbility == null) return;
+
+        if (newAbility is StatusEffect newStatus)
+        {
+            foreach (var ability in abilities)
+            {
+                if (ability is StatusEffect existingStatus &&
+                    existingStatus.effectType == newStatus.effectType &&
+                    existingStatus.isPermanent == newStatus.isPermanent)
+                {
+                    existingStatus.AddStack(newStatus.stacks, newStatus.duration);
+                    return;
+                }
+            }
+        }
 
         newAbility.Init(this);
         abilities.Add(newAbility);

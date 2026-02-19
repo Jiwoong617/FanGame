@@ -3,15 +3,10 @@
 [System.Serializable]
 public class ParryAbility : ActiveAbility
 {
-    public override void OnAdded()
-    {
-        actionType = ActionType.Parry;
-    }
-
     protected override bool CheckAndConsumeCost(PlayerUnit player)
     {
         var stats = player.GetStat<PlayerStats>();
-        float cost = stats.parryCost.GetValue(); // Stat 패시브 자동 적용됨!
+        float cost = stats.parryCost.GetValue();
 
         if (stats.stamina >= cost)
         {
@@ -31,5 +26,15 @@ public class ParryAbility : ActiveAbility
         var stats = player.GetStat<PlayerStats>();
         player.ChangeState(PlayerState.Parrying, stats.parryDuration);
         Debug.Log("패링 발동!");
+    }
+
+    public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
+    {
+        // OnParrySuccess
+        if (eventType == CombatEvent.OnParrySuccess && ctx.target == owner)
+        {
+            DisarmEffect disarm = new DisarmEffect(0.5f, 1, false);
+            ctx.source.AddAbility(disarm);
+        }
     }
 }

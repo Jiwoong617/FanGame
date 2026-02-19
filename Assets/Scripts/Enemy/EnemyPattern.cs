@@ -62,11 +62,15 @@ public class SequentialAttackPattern : EnemyPattern
 
         if (currentTimer >= requiredGauge)
         {
-            float finalDamage = stats.attackDamage.GetValue() * step.damagePercent;
-            float isTargetHit = target.TakeDamage(unit, finalDamage);
-            if (isTargetHit > 0)
+            float damageAmount = stats.attackDamage.GetValue() * step.damagePercent;
+            CombatEventContext ctx = new CombatEventContext(unit, target, damageAmount, DamageType.Normal, false);
+            float actualDamage = target.TakeDamage(ctx);
+
+            // TODO : 이거 온힛 관련인데 일단 주석 처리 해놈
+            if (actualDamage > 0)
             {
-                unit.TriggerAbility(CombatEvent.OnAttack, new CombatEventContext(unit, target, finalDamage));
+                ctx.value = actualDamage;
+                unit.TriggerAbility(CombatEvent.OnAttack, ctx);
             }
 
             currentStepIndex++;

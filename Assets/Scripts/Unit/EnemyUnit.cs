@@ -149,20 +149,36 @@ public class EnemyUnit : CombatUnit
         currentRunningPattern = null; 
     }
 
-    public override float TakeDamage(CombatUnit attacker, float damage)
+    public override float TakeDamage(CombatEventContext ctx)
     {
-        float finalDamage = Mathf.Max(1, damage - stats.defense.GetValue());
+        if (IsDead)
+            return 0f;
+
+        TriggerAbility(CombatEvent.OnBeforeTakeDamage, ctx);
+        if (ctx.value <= 0)
+            return 0;
+
+        // 방어력 계산
+        float finalDamage = ctx.value;
+        if (ctx.damageType == DamageType.Normal)
+            finalDamage = Mathf.Max(1, finalDamage - stats.defense.GetValue());
+
+        // 데미지 적용
         stats.hp -= finalDamage;
+
+        // 피격 후 이벤트
+        ctx.value = finalDamage;
+        TriggerAbility(CombatEvent.OnTakeDamage, ctx);
 
         if (stats.hp <= 0)
         {
             stats.hp = 0;
             OnUnitDead?.Invoke(this);
             OnDead();
+            return finalDamage;
         }
 
-        TriggerAbility(CombatEvent.OnTakeDamage, new CombatEventContext(this, attacker, damage));
-        return damage;
+        return finalDamage;
     }
 
     public override T GetStat<T>() => stats as T;
