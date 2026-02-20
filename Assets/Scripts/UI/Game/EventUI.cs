@@ -99,7 +99,11 @@ public class EventUI : UI_Base
         Get<TMP_Text>(Texts.EventDescription).text = option.resultText;
 
         foreach(var op in option.outcomes)
+        {
             op.Apply(GameManager.Instance.Player);
+            if(op.isItem)
+                GameManager.Inventory.AddItem(op);
+        }
 
         Get<Button>(Buttons.NextButton).gameObject.SetActive(true);
     }

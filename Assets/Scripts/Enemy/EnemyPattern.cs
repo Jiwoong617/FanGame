@@ -52,7 +52,8 @@ public class SequentialAttackPattern : EnemyPattern
 
         ComboStep step = comboSteps[currentStepIndex];
         float speed = stats.attackSpeed.GetValue();
-        if (speed <= 0) speed = 0.001f; // 0 나누기 방지 및 진행 멈춤 방지
+        if (speed <= 0)
+            return false;
 
         
         currentTimer += delta * speed;
@@ -67,11 +68,11 @@ public class SequentialAttackPattern : EnemyPattern
             float actualDamage = target.TakeDamage(ctx);
 
             // TODO : 이거 온힛 관련인데 일단 주석 처리 해놈
-            if (actualDamage > 0)
-            {
-                ctx.value = actualDamage;
-                unit.TriggerAbility(CombatEvent.OnAttack, ctx);
-            }
+            //if (actualDamage > 0 && !unit.IsDead)
+            //{
+            //    ctx.value = actualDamage;
+            //    unit.TriggerAbility(CombatEvent.OnAttack, ctx);
+            //}
 
             currentStepIndex++;
             currentTimer = 0f;
