@@ -126,7 +126,8 @@ public abstract class CombatUnit : MonoBehaviour
             {
                 if (ability is StatusEffect existingStatus &&
                     existingStatus.effectType == newStatus.effectType &&
-                    existingStatus.isPermanent == newStatus.isPermanent)
+                    existingStatus.isPermanent == newStatus.isPermanent &&
+                    Mathf.Approximately(existingStatus.effectValue, newStatus.effectValue))
                 {
                     existingStatus.AddStack(newStatus.stacks, newStatus.duration);
                     return;

@@ -1,20 +1,18 @@
 ﻿public class ReflectEffect : StatusEffect
 {
-    public float reflectRatePerStack = 0.05f;
-
     public ReflectEffect()
     {
         effectType = EffectType.Reflect;
         combatEvent = CombatEvent.OnTakeDamage;
+        effectValue = 0.05f; // 기본 5% 반사
     }
 
-    public ReflectEffect(float duration, int stack, bool isPermanent)
+    public ReflectEffect(float duration, int stack, bool isPermanent, float effectValue) : this()
     {
-        effectType = EffectType.Reflect;
-        combatEvent = CombatEvent.OnTakeDamage;
         this.duration = duration;
-        stacks = stack;
+        this.stacks = stack;
         this.isPermanent = isPermanent;
+        this.effectValue = effectValue;
     }
 
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
@@ -26,7 +24,7 @@
             if (ctx.value <= 0 || ctx.isReflectDamage)
                 return;
 
-            float reflectAmount = ctx.value * (reflectRatePerStack * stacks);
+            float reflectAmount = ctx.value * (effectValue * stacks);
             // 반사 데미지는 고정뎀/ 회피 패리 불가로
             CombatEventContext reflectCtx = new CombatEventContext(owner, ctx.source, reflectAmount, DamageType.Fixed, true);
             ctx.source.TakeDamage(reflectCtx);

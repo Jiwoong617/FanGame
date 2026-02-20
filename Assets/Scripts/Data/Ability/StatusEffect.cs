@@ -18,9 +18,11 @@ public abstract class StatusEffect : Ability
     public EffectType effectType;
     public float duration = 0;
     public int stacks = 1;
+    public float effectValue = 0f;
 
     //영구 지속 버프인지
     public bool isPermanent = true;
+
 
     public override void OnUpdate(float delta)
     {

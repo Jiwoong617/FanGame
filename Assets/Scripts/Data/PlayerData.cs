@@ -9,7 +9,7 @@ public class PlayerData : UnitData
     public float staminaRegen;
     public float fp;
 
-    public float skillCost;
+    //스킬 코스트는 1 고정으로 그냥 삭제 했음
     public float skillCoolTime;
 
     public float dodgeCost;
@@ -42,7 +42,6 @@ public class PlayerStats : UnitStats
     private float _stamina;
     private float _fp;
 
-    public float skillCost { get; private set; }
     public float dodgeDuration { get; private set; }
     public float parryDuration { get; private set; }
     public float dodgeCoolTime { get; private set; }
@@ -85,7 +84,6 @@ public class PlayerStats : UnitStats
         parryDuration = data.parryDuration;
         dodgeCoolTime = data.dodgeCoolTime;
         parrayCoolTime = data.parrayCoolTime;
-        skillCost = data.skillCost;
 
         maxStamina.OnStatChanged += () => OnStaminaChanged?.Invoke(_stamina, maxStamina.GetValue());
         staminaRegen.OnStatChanged += () => OnStaminaRegenChanged?.Invoke(staminaRegen.GetValue());

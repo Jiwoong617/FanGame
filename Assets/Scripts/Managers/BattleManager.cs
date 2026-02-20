@@ -195,4 +195,9 @@ public class BattleManager
             }
         }
     }
+
+    public List<EnemyUnit> GetAliveEnemies()
+    {
+        return enemies.FindAll(e => e != null && !e.IsDead);
+    }
 }
