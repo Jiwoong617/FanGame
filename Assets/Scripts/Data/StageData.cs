@@ -9,8 +9,10 @@ public class StageData : ScriptableObject
     public List<UnitData> eliteEnemyPool;
     public List<UnitData> bossPool;
 
-    [Header("Rewards")]
-    public List<RewardData> rewards;
+    [Header("Rewards Pools")]
+    public List<RewardData> normalRewards;
+    public List<RewardData> eliteRewards;
+    public List<RewardData> bossRewards;
 }
 
 [System.Serializable]

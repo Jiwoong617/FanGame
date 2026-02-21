@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf5bc5e40aa4de439417b63a598dcf3, type: 3}
+  m_Name: TestStageData 2
+  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  normalEnemyPool:
+  - enemies:
+    - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
+    - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
+  eliteEnemyPool:
+  - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
+  bossPool:
+  - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
+  normalRewards:
+  - {fileID: 11400000, guid: 129370ae294c6014bb4e366d88096d99, type: 2}
+  - {fileID: 11400000, guid: 2414fb65b3ff555449e491e4d751d7fc, type: 2}
+  - {fileID: 11400000, guid: 61f3a9dadc209b946a17fea6064b9f50, type: 2}
+  eliteRewards:
+  - {fileID: 11400000, guid: 129370ae294c6014bb4e366d88096d99, type: 2}
+  - {fileID: 11400000, guid: 2414fb65b3ff555449e491e4d751d7fc, type: 2}
+  - {fileID: 11400000, guid: 61f3a9dadc209b946a17fea6064b9f50, type: 2}
+  bossRewards:
+  - {fileID: 11400000, guid: 129370ae294c6014bb4e366d88096d99, type: 2}
+  - {fileID: 11400000, guid: 2414fb65b3ff555449e491e4d751d7fc, type: 2}
+  - {fileID: 11400000, guid: 61f3a9dadc209b946a17fea6064b9f50, type: 2}

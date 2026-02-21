@@ -54,7 +54,7 @@ public abstract class CombatUnit : MonoBehaviour
         {
             if (abilities[i] is StatusEffect status)
             {
-                if (status.duration > 0 || status.IsFinished)
+                if (!status.isPermanent || status.IsFinished)
                 {
                     status.OnRemoved();
                     abilities.RemoveAt(i);

@@ -30,10 +30,10 @@ public class MapUI : UI_Base
     {
         if (GameManager.Map == null || GameManager.Map.mapGrid == null) return;
 
-        if (nodeUIs.Count > 0)
-            UpdateMapUI();
-        else
+        if (GameManager.Map.currentNode == null || nodeUIs.Count == 0)
             GenerateMapUI();
+        else
+            UpdateMapUI();
     }
 
     protected override void Init()
@@ -178,7 +178,7 @@ public class MapUI : UI_Base
     private void ClearMap()
     {
         foreach (var ui in nodeUIs) Destroy(ui.gameObject);
-        foreach (var line in lines) Destroy(line);
+        foreach (var line in lines) Destroy(line.gameObject);
         nodeUIs.Clear();
         lines.Clear();
         nodeUiMap.Clear();

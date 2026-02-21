@@ -37,10 +37,15 @@ public class GameManager : MonoBehaviour
     public PlayerUnit Player { get; private set; }
     private Transform playerAnchor;
 
+    private NodeType CurrentBattleType;
 
     //TEST 용
     [SerializeField] private PlayerData testUnitData;
-    [SerializeField] private StageData currentStageData;
+
+    [Header("Stages")]
+    [SerializeField] private List<StageData> stageList;
+    private int currentStageIndex = 0;
+    public StageData currentStageData => stageList[currentStageIndex];
 
 
     private void Awake()
@@ -160,6 +165,8 @@ public class GameManager : MonoBehaviour
             case NodeType.Monster:
             case NodeType.Elite:
             case NodeType.Boss:
+                CurrentBattleType = node.nodeType;
+
                 if (node.content is BattleContent battleContent)
                     Battle.SetupBattle(Player, battleContent.enemies);
                 ChangeState(GameState.Battle);
@@ -191,13 +198,20 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.Reward:
-                Reward.ShowRewardUI(currentStageData); 
+                Reward.ShowRewardUI(currentStageData, CurrentBattleType);
                 break;
 
             case GameState.MapSelect:
                 Battle.CleanupBattle(); // 전투 정리
+
                 if (Map.mapGrid == null)
                     Map.GenerateMap(currentStageData);
+                else if (Map.IsCleared)
+                {
+                    NextStage();
+                    return;
+                }
+
                 Map.OnClearMap();
                 Map.ShowMapUI();
                 break;
@@ -216,5 +230,25 @@ public class GameManager : MonoBehaviour
                 Debug.Log("GAME OVER");
                 break;
         }
+    }
+
+    private void NextStage()
+    {
+        currentStageIndex++;
+
+        if (currentStageIndex >= stageList.Count)
+        {
+            // TODO : 모든 스테이지 클리어
+            Debug.Log("Clear All Stage");
+            return;
+        }
+
+
+        // 플레이어 상태 회복
+        Player.FullyRestore();
+        // 2스테이지
+        Map.GenerateMap(currentStageData);
+
+        Map.ShowMapUI();
     }
 }

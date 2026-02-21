@@ -224,4 +224,14 @@ public class PlayerUnit : CombatUnit
     {
         playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.staminaRegen.GetValue() * delta);
     }
+
+    // 스테이지 클리어 시 호출할 회복 함수
+    public void FullyRestore()
+    {
+        var pStats = GetStat<PlayerStats>();
+
+        pStats.hp = pStats.maxHp.GetValue();
+        pStats.stamina = pStats.maxStamina.GetValue();
+        pStats.fp = pStats.maxFp.GetValue();
+    }
 }

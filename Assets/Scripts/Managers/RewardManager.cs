@@ -14,7 +14,7 @@ public class RewardManager
         rewardUI = ui;
     }
 
-    public void ShowRewardUI(StageData stageData)
+    public void ShowRewardUI(StageData stageData, NodeType battleType)
     {
         if (rewardUI == null)
         {
@@ -22,7 +22,9 @@ public class RewardManager
             return;
         }
 
-        if (stageData == null || stageData.rewards == null || stageData.rewards.Count == 0)
+        List<RewardData> targetPool = GetRewardPool(stageData, battleType);
+
+        if (stageData == null || targetPool == null || targetPool.Count == 0)
         {
             Debug.LogError("[RewardManager] No rewards available in StageData!");
 
@@ -31,7 +33,7 @@ public class RewardManager
             return;
         }
 
-        GetRandomRewards(stageData, 3);
+        GetRandomRewards(targetPool, 3);
         rewardUI.SetRewards(currentRewards);
         rewardUI.Show();
     }
@@ -62,16 +64,16 @@ public class RewardManager
         OnRewardSelected?.Invoke();
     }
 
-    private void GetRandomRewards(StageData stageData, int count)
+    private void GetRandomRewards(List<RewardData> pool, int count)
     {
         currentRewards.Clear();
 
-        if (stageData.rewards == null) return;
+        if (pool == null) return;
 
-        int n = stageData.rewards.Count;
+        int n = pool.Count;
         if (n <= count)
         {
-            currentRewards.AddRange(stageData.rewards);
+            currentRewards.AddRange(pool);
             return;
         }
 
@@ -88,7 +90,7 @@ public class RewardManager
 
         foreach (int index in selectedIndices)
         {
-            currentRewards.Add(stageData.rewards[index]);
+            currentRewards.Add(pool[index]);
         }
 
         //FisherYates - 필요없을듯
@@ -97,5 +99,16 @@ public class RewardManager
         //    int rnd = UnityEngine.Random.Range(i, currentRewards.Count);
         //    (currentRewards[i], currentRewards[rnd]) = (currentRewards[rnd], currentRewards[i]);
         //}
+    }
+
+    private List<RewardData> GetRewardPool(StageData stageData, NodeType type)
+    {
+        switch (type)
+        {
+            case NodeType.Monster: return stageData.normalRewards;
+            case NodeType.Elite: return stageData.eliteRewards;
+            case NodeType.Boss: return stageData.bossRewards;
+            default: return stageData.normalRewards;
+        }
     }
 }

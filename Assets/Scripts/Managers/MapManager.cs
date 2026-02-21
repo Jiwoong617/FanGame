@@ -6,6 +6,9 @@ public class MapManager
 {
     public List<List<MapNode>> mapGrid { get; private set; }
     public MapNode currentNode { get; private set; }
+    public bool IsCleared => (currentNode != null && 
+        currentNode.nodeType == NodeType.Boss && 
+        currentNode.status == NodeStatus.Visited);
     
     // 설정값
     private const int FLOORS = 11; // 전체 층 수 (보스 포함)
@@ -16,6 +19,8 @@ public class MapManager
     
     public void GenerateMap(StageData stageData)
     {
+        currentNode = null;
+
         //Walker 알고리즘 사용
         mapGrid = new List<List<MapNode>>();
         for (int i = 0; i < FLOORS; i++) mapGrid.Add(new List<MapNode>());
