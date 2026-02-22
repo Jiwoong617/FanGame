@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -189,6 +188,9 @@ public class PlayerUnit : CombatUnit
             OnDead();
             return 0;
         }
+
+        //피격 이펙트
+        hitEffect?.Flash();
 
         return finalDamage;
     }

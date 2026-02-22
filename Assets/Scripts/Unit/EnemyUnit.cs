@@ -165,7 +165,7 @@ public class EnemyUnit : CombatUnit
 
         // 데미지 적용
         stats.hp -= finalDamage;
-
+        
         // 피격 후 이벤트
         ctx.value = finalDamage;
         TriggerAbility(CombatEvent.OnTakeDamage, ctx);
@@ -177,6 +177,9 @@ public class EnemyUnit : CombatUnit
             OnDead();
             return finalDamage;
         }
+
+        //피격 이펙트
+        hitEffect?.Flash();
 
         return finalDamage;
     }

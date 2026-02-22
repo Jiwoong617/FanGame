@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public abstract class CombatUnit : MonoBehaviour
@@ -18,6 +17,14 @@ public abstract class CombatUnit : MonoBehaviour
     protected List<Ability> abilities = new List<Ability>();
 
     public bool IsDead => stats.hp <= 0;
+
+
+    protected HitFlash hitEffect;
+
+    protected virtual void Start()
+    {
+        hitEffect = GetComponent<HitFlash>();
+    }
 
     protected void ProcessAttackLoop(float delta)
     {
