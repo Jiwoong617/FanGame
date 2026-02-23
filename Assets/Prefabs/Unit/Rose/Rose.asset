@@ -25,8 +25,30 @@ MonoBehaviour:
     \uC804\uC124\uC758 \uBA85\uD654 '\uD1A0\uB07C \uB85C\uC988\uBFC5'\uC744 \uB178\uB9B0\uB2E4\uB294
     \uC18C\uC2DD\uC744 \uB4E3\uACE0 \uC774\uB97C \uB9C9\uAE30 \uC704\uD55C \uB3C4\uC6C0\uC744
     \uC694\uCCAD\uD558\uB7EC \uB5A0\uB09C\uB2E4."
+  startingAbilities:
+  - rid: 8549445450257924179
+  - rid: 8549445450257924180
   stamina: 100
   staminaRegen: 1
   fp: 100
+  skillCost: 0
+  skillCoolTime: 0
   dodgeCost: 20
   parryCost: 10
+  dodgeDuration: 0
+  parryDuration: 0
+  dodgeCoolTime: 0
+  parrayCoolTime: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8549445450257924179
+      type: {class: ParryAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        actionType: 2
+    - rid: 8549445450257924180
+      type: {class: DodgeAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        actionType: 1

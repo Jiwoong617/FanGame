@@ -25,6 +25,7 @@ public class GameManager : MonoBehaviour
     public static MapManager Map { get; private set; }
     public static EventManager Event { get; private set; }
     public static RestManager Rest { get; private set; }
+    public static InventoryManager Inventory { get; private set; }
     #endregion
 
     private GameState state = GameState.MainMenu;
@@ -93,6 +94,7 @@ public class GameManager : MonoBehaviour
         Map = new MapManager();
         Event = new EventManager();
         Rest = new RestManager();
+        Inventory = new InventoryManager();
 
 
         // 전투 -> (승리) -> 보상
@@ -146,44 +148,30 @@ public class GameManager : MonoBehaviour
         Player = go.GetComponent<PlayerUnit>();
         Player.Init(SelectedPlayerClass);
 
-        Event.LoadEvents(SelectedPlayerClass.unitName);
+        Event.LoadEvents(SelectedPlayerClass.name);
     }
 
     // MapManager에서 노드 선택 시 호출
     public void ProcessNode(MapNode node)
     {
         Debug.Log($"[GameManager] ProcessNode: {node.nodeType} at Floor {node.y}");
-
-        if (node.content is BattleContent battleContent)
+        switch (node.nodeType)
         {
-            Battle.SetupBattle(Player, battleContent.enemies);
-            ChangeState(GameState.Battle);
-        }
-        else if (node.content is EventContent eventContent)
-        {
-            ChangeState(GameState.Event);
-        }
-        else if (node.content is RestContent restContent)
-        {
-            ChangeState(GameState.Rest);
-        }
-        else
-        {
-            switch (node.nodeType)
-            {
-                case NodeType.Monster:
-                case NodeType.Elite:
-                case NodeType.Boss:
-                    Debug.LogWarning("Battle node but no BattleContent found.");
-                    ChangeState(GameState.Battle);
-                    break;
-                case NodeType.Rest:
-                    ChangeState(GameState.Rest);
-                    break;
-                case NodeType.Event:
-                    ChangeState(GameState.Event);
-                    break;
-            }
+            case NodeType.Monster:
+            case NodeType.Elite:
+            case NodeType.Boss:
+                if (node.content is BattleContent battleContent)
+                    Battle.SetupBattle(Player, battleContent.enemies);
+                ChangeState(GameState.Battle);
+                break;
+            case NodeType.Event:
+                if (node.content is EventContent eventContent)
+                    Event.SetupEvent(eventContent.eventData);
+                ChangeState(GameState.Event);
+                break;
+            case NodeType.Rest:
+                ChangeState(GameState.Rest);
+                break;
         }
     }
 

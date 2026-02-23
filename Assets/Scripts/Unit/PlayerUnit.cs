@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -10,13 +12,13 @@ public enum PlayerState
 
 public class PlayerUnit : CombatUnit
 {
-    private const float DODGE_DURATION = 0.7f;
-    private const float PARRY_DURATION = 0.2f;
-
     protected PlayerStats playerStats;
-
-    protected PlayerState state = PlayerState.Idle;
     protected float stateTimer = 0f;
+
+    public PlayerState state { get; private set; } = PlayerState.Idle;
+
+    public event Action<ActionType, float> OnCooldownTriggered;
+    private Dictionary<ActionType, ActiveAbility> actionMap = new Dictionary<ActionType, ActiveAbility>();
 
 
     public override void Init(UnitData unitData)
@@ -25,16 +27,58 @@ public class PlayerUnit : CombatUnit
         {
             playerStats = new PlayerStats(playerData);
             base.stats = playerStats;
+            
+            InitializeAbilities(unitData);
         }
         else
         {
-            Debug.LogError("PlayerData «¸Ωƒ æ∆¥‘");
+            Debug.LogError("PlayerData Í∞Ä ÏïÑÎãò");
         }
     }
 
+    public override void AddAbility(Ability newAbility)
+    {
+        base.AddAbility(newAbility);
+        if (newAbility is ActiveAbility active && active.actionType != ActionType.None)
+        {
+            actionMap[active.actionType] = active;
+        }
+    }
+
+    public override void OnBattleStart()
+    {
+        base.OnBattleStart();
+
+        if (playerStats != null)
+            playerStats.stamina = playerStats.maxStamina.GetValue();
+
+        foreach (var a in actionMap)
+            if (a.Value != null)
+                a.Value.ResetCooldown();
+
+        state = PlayerState.Idle;
+        stateTimer = 0f;
+    }
+
+    public override void OnBattleEnd()
+    {
+        base.OnBattleEnd();
+
+        if (playerStats != null)
+            playerStats.stamina = playerStats.maxStamina.GetValue();
+
+        foreach (var a in actionMap)
+            if (a.Value != null)
+                a.Value.ResetCooldown();
+
+        state = PlayerState.Idle;
+        stateTimer = 0f;
+    }
 
     public override void OnUpdate(float delta)
     {
+        base.OnUpdate(delta);
+
         HandleInput();
         HandleState(delta);
 
@@ -49,11 +93,22 @@ public class PlayerUnit : CombatUnit
     {
         if (state != PlayerState.Idle) return;
 
-        // TODO: ¿‘∑¬ ∏≈«Œ ºˆ¡§
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            TryDodge();
-        else if (Keyboard.current.qKey.wasPressedThisFrame)
-            TryParry();
+        // TODO: ÏûÖÎ†• Îß§ÎãàÏ†Ä Ïó∞Îèô
+        if (Keyboard.current != null)
+        {
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                UseAbility(ActionType.Dodge);
+            else if (Keyboard.current.qKey.wasPressedThisFrame)
+                UseAbility(ActionType.Parry);
+            else if (Keyboard.current.fKey.wasPressedThisFrame)
+                UseAbility(ActionType.Skill);
+        }
+    }
+
+    private void UseAbility(ActionType type)
+    {
+        if (actionMap.TryGetValue(type, out ActiveAbility ability))
+            ability.TryUseSkill();
     }
 
     private void HandleState(float delta)
@@ -65,76 +120,70 @@ public class PlayerUnit : CombatUnit
             state = PlayerState.Idle;
     }
 
-    private void TryDodge()
+
+    public void ResetCooldown(ActionType type)
     {
-        if (playerStats.stamina >= playerStats.dodgeCost)
+        if (actionMap.TryGetValue(type, out ActiveAbility ability))
         {
-            playerStats.stamina -= playerStats.dodgeCost;
-            state = PlayerState.Dodging;
-            stateTimer = DODGE_DURATION;
-            Debug.Log("Dodge");
-        }
-        else
-        {
-            Debug.Log("[Player] Not enough stamina to Dodge!");
+            ability.ResetCooldown();
+            NotifyCooldownStarted(type, 0f);
         }
     }
 
-    private void TryParry()
+    public bool CheckAbilityCooldown(ActionType type)
     {
-        if (playerStats.stamina >= playerStats.parryCost)
+        if (actionMap.TryGetValue(type, out ActiveAbility ability))
         {
-            playerStats.stamina -= playerStats.parryCost;
-            state = PlayerState.Parrying;
-            stateTimer = PARRY_DURATION;
+            return ability.IsOnCooldown();
         }
-        else
-        {
-            Debug.Log("[Player] Not enough stamina to Parry!");
-        }
+        return false;
     }
+
 
     public override void OnDead()
     {
         Debug.Log("Player Dead");
     }
 
-    void RegenerateStamina(float delta)
-    {
-        playerStats.stamina = Mathf.Min(playerStats.maxStamina, playerStats.stamina + playerStats.staminaRegen * delta);
-    }
 
-    public override void Attack()
-    {
-        if (target != null)
-        {
-            Debug.Log($"[Player] Attacks {target.name} for {stats.attackDamage} damage!");
-            target.TakeDamage(stats.attackDamage);
-        }
-    }
-
-    public override void TakeDamage(float damage)
+    public override float TakeDamage(CombatUnit attacker, float damage)
     {
         if (state == PlayerState.Dodging)
-        {
-            Debug.Log("Dodge Success");
-            return;
-        }
+            return 0;
 
         if (state == PlayerState.Parrying)
         {
-            Debug.Log("Parry Success! Stamina Refunded.");
-            playerStats.stamina = Mathf.Min(playerStats.maxStamina, playerStats.stamina + playerStats.parryCost * 0.5f);
+            ResetCooldown(ActionType.Parry);
+            playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost.GetValue() * 0.5f);
 
-           // TODO : ππ ƒ´øÓ≈Õ∞∞¿∫∞≈ √ﬂ∞°«“∞≈∏È √ﬂ∞°
-           // TODO : ¿Ã∆Â∆Æ µÓ
-
-            return;
+            TriggerAbility(CombatEvent.OnParrySuccess, new CombatEventContext(this, attacker, damage));
+            return 0;
         }
 
-        float finalDamage = Mathf.Max(1, damage - stats.defense);
+        // Îç∞ÎØ∏ÏßÄ Ï†ÅÏö©
+        float finalDamage = Mathf.Max(1, damage - stats.defense.GetValue());
         stats.hp -= finalDamage;
         Debug.Log($"[Player] Took {finalDamage} damage. HP: {stats.hp}");
+        
+        if (stats.hp <= 0)
+        {
+            OnDead();
+            return 0;
+        }
+
+        TriggerAbility(CombatEvent.OnTakeDamage, new CombatEventContext(this, attacker, damage));
+        return damage;
+    }
+
+    public void ChangeState(PlayerState newState, float duration)
+    {
+        state = newState;
+        stateTimer = duration;
+    }
+
+    public void NotifyCooldownStarted(ActionType type, float duration)
+    {
+        OnCooldownTriggered?.Invoke(type, duration);
     }
 
     public override T GetStat<T>()
@@ -146,5 +195,15 @@ public class PlayerUnit : CombatUnit
     {
         base.SetTarget(inTarget);
         attackTimer = 0f;
+    }
+
+    public IEnumerable<ActiveAbility> GetActiveAbilities()
+    {
+        return actionMap.Values;
+    }
+
+    private void RegenerateStamina(float delta)
+    {
+        playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.staminaRegen.GetValue() * delta);
     }
 }

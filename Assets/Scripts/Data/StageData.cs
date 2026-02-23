@@ -10,7 +10,7 @@ public class StageData : ScriptableObject
     public List<UnitData> bossPool;
 
     [Header("Rewards")]
-    public List<RewardBase> rewards;
+    public List<RewardData> rewards;
 }
 
 [System.Serializable]

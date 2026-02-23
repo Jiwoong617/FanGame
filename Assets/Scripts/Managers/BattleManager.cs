@@ -15,7 +15,6 @@ public class BattleManager
     public event Action OnPlayerDead;
     public event Action OnBattleWon;
 
-
     private PlayerUnit player;
     private List<EnemyUnit> enemies = new();
     private Transform enemyAnchor;
@@ -93,16 +92,18 @@ public class BattleManager
         if (player != null && enemies.Count > 0)
         {
             player.SetTarget(enemies[0]);
+            player.OnBattleStart();
+
             foreach (var enemy in enemies)
             {
                 enemy.SetTarget(player);
                 enemy.OnUnitDead += HandleEnemyDead;
+                enemy.OnBattleStart();
             }
         }
         else
         {
             Debug.LogWarning("[BattleManager] Units not found. Auto-win for testing?");
-            // OnBattleWon?.Invoke(); // 테스트용
         }
     }
 
@@ -139,6 +140,10 @@ public class BattleManager
         {
             Debug.Log("[BattleManager] All enemies defeated!");
             state = BattleState.Finished;
+            
+            if (player != null)
+                player.OnBattleEnd();
+            
             OnBattleWon?.Invoke();
         }
     }

@@ -8,6 +8,7 @@ public class EventManager
 
     private EventUI eventUI;
     private List<EventData> currentEventPool = new List<EventData>();
+    private EventData currentEventData;
 
     public void SetUI(EventUI ui)
     {
@@ -18,8 +19,6 @@ public class EventManager
     {
         currentEventPool.Clear();
 
-        // TODO : 나중에 adressable로 바꿀거
-        // 경로: Resources/Events/{CharacterName}
         if (!string.IsNullOrEmpty(characterName))
         {
             var charEvents = Resources.LoadAll<EventData>($"Events/{characterName}");
@@ -28,6 +27,13 @@ public class EventManager
                 currentEventPool.AddRange(charEvents);
             }
         }
+    }
+
+    public void SetupEvent(EventData data)
+    {
+        if(data == null) return;
+
+        currentEventData = data;    
     }
 
     public void StartEvent()
@@ -39,10 +45,9 @@ public class EventManager
             return;
         }
 
-        EventData selectedEvent = SelectRandomEvent();
-        if (selectedEvent != null)
+        if (currentEventData != null)
         {
-            eventUI.ShowEvent(selectedEvent);
+            eventUI.ShowEvent(currentEventData);
         }
         else
         {
@@ -52,7 +57,7 @@ public class EventManager
         }
     }
 
-    private EventData SelectRandomEvent()
+    public EventData SelectRandomEvent()
     {
         if (currentEventPool == null || currentEventPool.Count == 0)
             return null;

@@ -71,7 +71,7 @@ public class RewardUI : UI_Base
         Hide();
     }
 
-    public void SetRewards(List<RewardBase> rewards)
+    public void SetRewards(List<RewardData> rewards)
     {
         for (int i = 0; i < buttons.Count; i++)
         {

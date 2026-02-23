@@ -9,12 +9,15 @@ public abstract class EnemyPattern
     public float cooldown = 5.0f;
     public Sprite patternSprite;
 
-    //½ÇÇà È®·ü
     [Range(0, 100)] public int triggerChance = 30;
-    //¸¶Áö¸· ½ÇÇà½Ã°£
     [HideInInspector] public float lastExecutionTime = -9999f;
 
-    public abstract IEnumerator Execute(EnemyUnit unit);
+    public virtual void OnEnter(EnemyUnit unit) { }
+    
+    // true ë°˜í™˜ ì‹œ íŒ¨í„´ ì¢…ë£Œ
+    public abstract bool OnUpdate(EnemyUnit unit, float delta);
+    
+    public virtual void OnExit(EnemyUnit unit) { }
 }
 
 [System.Serializable]
@@ -29,23 +32,50 @@ public class SequentialAttackPattern : EnemyPattern
 
     public List<ComboStep> comboSteps = new List<ComboStep>();
 
-    public override IEnumerator Execute(EnemyUnit unit)
+    private int currentStepIndex = 0;
+    private float currentTimer = 0f;
+    private UnitStats stats;
+
+    public override void OnEnter(EnemyUnit unit)
     {
+        currentStepIndex = 0;
+        currentTimer = 0f;
+        stats = unit.GetStat<UnitStats>();
+    }
+
+    public override bool OnUpdate(EnemyUnit unit, float delta)
+    {
+        if (currentStepIndex >= comboSteps.Count) return true;
+
         var target = unit.GetTarget();
-        var stats = unit.GetStat<UnitStats>();
+        if (target == null || target.IsDead) return true;
 
-        foreach (var step in comboSteps)
+        ComboStep step = comboSteps[currentStepIndex];
+        float speed = stats.attackSpeed.GetValue();
+        if (speed <= 0) speed = 0.001f; // 0 ë‚˜ëˆ„ê¸° ë°©ì§€ ë° ì§„í–‰ ë©ˆì¶¤ ë°©ì§€
+
+        
+        currentTimer += delta * speed;
+        float requiredGauge = step.delayBeforeAttack;
+        float progress = (requiredGauge > 0) ? Mathf.Clamp01(currentTimer / requiredGauge) : 1f;
+        unit.UpdatePatternUI(progress);
+
+        if (currentTimer >= requiredGauge)
         {
-            if (target == null || target.IsDead) break;
-
-            if (step.delayBeforeAttack > 0)
+            float finalDamage = stats.attackDamage.GetValue() * step.damagePercent;
+            float isTargetHit = target.TakeDamage(unit, finalDamage);
+            if (isTargetHit > 0)
             {
-                float duration = step.delayBeforeAttack;
-                yield return unit.StartCoroutine(unit.WaitAndUpdateUI(duration));
+                unit.TriggerAbility(CombatEvent.OnAttack, new CombatEventContext(unit, target, finalDamage));
             }
 
-            float finalDamage = stats.attackDamage * step.damagePercent;
-            target.TakeDamage(finalDamage);
+            currentStepIndex++;
+            currentTimer = 0f;
+
+            if (currentStepIndex >= comboSteps.Count)
+                return true;
         }
+
+        return false;
     }
 }

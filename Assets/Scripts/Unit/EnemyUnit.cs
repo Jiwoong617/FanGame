@@ -4,15 +4,14 @@ using System.Collections.Generic;
 
 public class EnemyUnit : CombatUnit
 {
-    private float targetTime = 1f;
-    private bool isActing = false;
-
     [SerializeField] private EnemyUI enemyUI;
     [SerializeField] private Sprite basicAttackSprite;
 
     [Header("Pattern Settings")]
     [SerializeReference, SerializeReferenceDropdown]
     public List<EnemyPattern> patterns = new List<EnemyPattern>();
+    
+    private EnemyPattern currentRunningPattern = null;
     private EnemyPattern nextPattern = null;
     private EnemyPattern lastExecutedPattern = null;
 
@@ -24,29 +23,44 @@ public class EnemyUnit : CombatUnit
             pattern.lastExecutionTime = -9999f;
 
         stats.OnHpChanged += enemyUI.UpdateHp;
-        enemyUI.UpdateHp(stats.hp, stats.maxHp);
+        enemyUI.UpdateHp(stats.hp, stats.maxHp.GetValue());
 
         attackTimer = 0f;
-        targetTime = stats.attackSpeed > 0 ? 1f / stats.attackSpeed : 1f;
-        //같은몹 여러마리일 때 초기 딜레이 줄거면 이거 주석 해제
-        //attackTimer = -Random.Range(0, targetTime * 0.5f);
+        // 초기 랜덤 딜레이 (선택 사항)
+        // attackTimer = -Random.Range(0f, 0.5f);
+
+        InitializeAbilities(unitData);
+
+        //이거 주석 풀면 시작 시 기본 공격말고 패턴 선택함
+        //DecideNextAction();
     }
 
     public override void OnUpdate(float delta)
     {
         if (target == null || target.IsDead || IsDead) return;
-        if (isActing) return;
 
+        base.OnUpdate(delta);
+
+        if (currentRunningPattern != null)
+        {
+            bool isFinished = currentRunningPattern.OnUpdate(this, delta);
+            if (isFinished)
+            {
+                FinishPattern();
+            }
+            return;
+        }
+
+        attackTimer += delta * stats.attackSpeed.GetValue();
         if (enemyUI != null)
         {
-            float progress = GetActionProgress();
+            float progress = Mathf.Clamp01(attackTimer / ATTACK_THRESHOLD);
             enemyUI.UpdateActionBar(progress);
         }
 
-        attackTimer += delta;
-        if (attackTimer >= targetTime)
+        if (attackTimer >= ATTACK_THRESHOLD)
         {
-            attackTimer = targetTime;
+            attackTimer = 0f;
             Attack();
         }
     }
@@ -54,37 +68,29 @@ public class EnemyUnit : CombatUnit
     public override void Attack()
     {
         if (nextPattern != null)
-            StartCoroutine(ExecutePatternRoutine(nextPattern));
+        {
+            currentRunningPattern = nextPattern;
+            lastExecutedPattern = nextPattern;
+            
+            currentRunningPattern.OnEnter(this);
+        }
         else
-            PerformBasicAttack();
+        {
+            base.Attack();
+            DecideNextAction();
+        }
     }
 
-    private IEnumerator ExecutePatternRoutine(EnemyPattern pattern)
+    private void FinishPattern()
     {
-        isActing = true;
-        lastExecutedPattern = pattern;
-
-        yield return StartCoroutine(pattern.Execute(this));
-
-        pattern.lastExecutionTime = Time.time;
-
-        isActing = false;
-        ResetTimer();
-    }
-
-    private void PerformBasicAttack()
-    {
-        if (target != null)
-            target.TakeDamage(stats.attackDamage);
-
-        ResetTimer();
-    }
-
-    private void ResetTimer()
-    {
-        attackTimer = 0f;
-        targetTime = stats.attackSpeed > 0 ? 1f / stats.attackSpeed : 1f;
-
+        if (currentRunningPattern != null)
+        {
+            currentRunningPattern.lastExecutionTime = Time.time;
+            currentRunningPattern.OnExit(this);
+            currentRunningPattern = null;
+        }
+        
+        // 패턴 종료 후 다음 행동 결정
         DecideNextAction();
     }
 
@@ -132,42 +138,32 @@ public class EnemyUnit : CombatUnit
         }
     }
 
-    public IEnumerator WaitAndUpdateUI(float duration)
+    public void UpdatePatternUI(float progress)
     {
-        if (duration <= 0) yield break;
-        attackTimer = 0f;
-        targetTime = duration;
-        while (attackTimer < targetTime)
-        {
-            attackTimer += Time.deltaTime;
-            if (enemyUI != null)
-                enemyUI.UpdateActionBar(GetActionProgress());
-
-            yield return null;
-        }
-
-        attackTimer = targetTime;
         if (enemyUI != null)
-            enemyUI.UpdateActionBar(1f);
+            enemyUI.UpdateActionBar(progress);
     }
 
+    public override void OnDead() 
+    { 
+        currentRunningPattern = null; 
+    }
 
-    public override void OnDead() { StopAllCoroutines(); isActing = false; }
-    public override void TakeDamage(float damage)
+    public override float TakeDamage(CombatUnit attacker, float damage)
     {
-        stats.hp -= Mathf.Max(1, damage - stats.defense);
+        float finalDamage = Mathf.Max(1, damage - stats.defense.GetValue());
+        stats.hp -= finalDamage;
+
         if (stats.hp <= 0)
         {
             stats.hp = 0;
             OnUnitDead?.Invoke(this);
             OnDead();
         }
-    }
-    public override T GetStat<T>() => stats as T;
 
-    public float GetActionProgress()
-    {
-        if (targetTime <= 0) return 0;
-        return Mathf.Clamp01(attackTimer / targetTime);
+        TriggerAbility(CombatEvent.OnTakeDamage, new CombatEventContext(this, attacker, damage));
+        return damage;
     }
+
+    public override T GetStat<T>() => stats as T;
 }

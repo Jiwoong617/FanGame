@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 /// <summary>
 /// Sciptable Objects
@@ -21,6 +22,10 @@ public class UnitData : ScriptableObject
 
     [Header("Description"), TextArea]
     public string unitDescription;
+
+    [Header("Abilities")]
+    [SerializeReference, SerializeReferenceDropdown]
+    public List<Ability> startingAbilities = new List<Ability>();
 }
 
 
@@ -31,73 +36,42 @@ public class UnitData : ScriptableObject
 [System.Serializable]
 public class UnitStats
 {
+    // 값이 변경될 때 UI 갱신 등을 위한 이벤트
     public event Action<float, float> OnHpChanged;
     public event Action<float> OnDefenseChanged;
     public event Action<float> OnAttackDamageChanged;
     public event Action<float> OnAttackSpeedChanged;
 
-    private float _maxHp;
-    private float _hp;
-    private float _defense;
-    private float _attackDamage;
-    private float _attackSpeed;
+    // 능력치 (Stat 시스템 적용)
+    public Stat maxHp;
+    public Stat defense;
+    public Stat attackDamage;
+    public Stat attackSpeed;
 
-    public float maxHp
-    {
-        get => _maxHp;
-        set
-        {
-            _maxHp = value;
-            OnHpChanged?.Invoke(_hp, _maxHp);
-        }
-    }
+    // 얘는 상태니까 그냥 놔둔거
+    private float _hp;
 
     public float hp
     {
         get => _hp;
         set
         {
-            _hp = value;
-            OnHpChanged?.Invoke(_hp, _maxHp);
-        }
-    }
-
-    public float defense
-    {
-        get => _defense;
-        set
-        {
-            _defense = value;
-            OnDefenseChanged?.Invoke(_defense);
-        }
-    }
-
-    public float attackDamage
-    {
-        get => _attackDamage;
-        set
-        {
-            _attackDamage = value;
-            OnAttackDamageChanged?.Invoke(_attackDamage);
-        }
-    }
-
-    public float attackSpeed
-    {
-        get => _attackSpeed;
-        set
-        {
-            _attackSpeed = value;
-            OnAttackSpeedChanged?.Invoke(_attackSpeed);
+            _hp = Mathf.Clamp(value, 0, maxHp.GetValue());
+            OnHpChanged?.Invoke(_hp, maxHp.GetValue());
         }
     }
 
     public UnitStats(UnitData data)
     {
-        _maxHp = data.hp;
+        maxHp = new Stat(data.hp);
+        defense = new Stat(data.defense);
+        attackDamage = new Stat(data.attackDamage);
+        attackSpeed = new Stat(data.attackSpeed);
         _hp = data.hp;
-        _defense = data.defense;
-        _attackDamage = data.attackDamage;
-        _attackSpeed = data.attackSpeed;
+
+        maxHp.OnStatChanged += () => OnHpChanged?.Invoke(_hp, maxHp.GetValue());
+        defense.OnStatChanged += () => OnDefenseChanged?.Invoke(defense.GetValue());
+        attackDamage.OnStatChanged += () => OnAttackDamageChanged?.Invoke(attackDamage.GetValue());
+        attackSpeed.OnStatChanged += () => OnAttackSpeedChanged?.Invoke(attackSpeed.GetValue());
     }
 }
