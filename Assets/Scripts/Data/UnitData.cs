@@ -19,6 +19,8 @@ public class UnitData : ScriptableObject
     public float defense;
     public float attackDamage;
     public float attackSpeed;
+    public float criticalChance;
+    public float criticalDamage;
 
     [Header("Description"), TextArea]
     public string unitDescription;
@@ -41,12 +43,16 @@ public class UnitStats
     public event Action<float> OnDefenseChanged;
     public event Action<float> OnAttackDamageChanged;
     public event Action<float> OnAttackSpeedChanged;
+    public event Action<float> OnCriticalChanceChanged;
+    public event Action<float> OnCriticalDamageChanged;
 
     // 능력치 (Stat 시스템 적용)
     public Stat maxHp;
     public Stat defense;
     public Stat attackDamage;
     public Stat attackSpeed;
+    public Stat criticalChance;
+    public Stat criticalDamage;
 
     // 얘는 상태니까 그냥 놔둔거
     private float _hp;
@@ -67,11 +73,15 @@ public class UnitStats
         defense = new Stat(data.defense);
         attackDamage = new Stat(data.attackDamage);
         attackSpeed = new Stat(data.attackSpeed);
+        criticalChance = new Stat(data.criticalChance);
+        criticalDamage = new Stat(data.criticalDamage);
         _hp = data.hp;
 
         maxHp.OnStatChanged += () => OnHpChanged?.Invoke(_hp, maxHp.GetValue());
         defense.OnStatChanged += () => OnDefenseChanged?.Invoke(defense.GetValue());
         attackDamage.OnStatChanged += () => OnAttackDamageChanged?.Invoke(attackDamage.GetValue());
         attackSpeed.OnStatChanged += () => OnAttackSpeedChanged?.Invoke(attackSpeed.GetValue());
+        criticalChance.OnStatChanged += () => OnCriticalChanceChanged?.Invoke(criticalChance.GetValue());
+        criticalDamage.OnStatChanged += () => OnCriticalDamageChanged?.Invoke(criticalDamage.GetValue());
     }
 }

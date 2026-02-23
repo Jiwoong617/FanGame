@@ -97,7 +97,15 @@ public abstract class CombatUnit : MonoBehaviour
         if (target == null || IsDead) return;
 
         float damage = stats.attackDamage.GetValue();
-        CombatEventContext attackCtx = new CombatEventContext(this, target, damage, DamageType.Normal, false);
+        bool isCrit = false;
+
+        if (UnityEngine.Random.Range(0f, 100f) < stats.criticalChance.GetValue())
+        {
+            isCrit = true;
+            damage *= (stats.criticalDamage.GetValue() / 100f);
+        }
+
+        CombatEventContext attackCtx = new CombatEventContext(this, target, damage, DamageType.Normal, false, isCrit);
         float actualDamage = target.TakeDamage(attackCtx);
 
         if (actualDamage > 0 && !IsDead)

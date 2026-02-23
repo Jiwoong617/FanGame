@@ -24,14 +24,16 @@ public class CombatEventContext
     
     public DamageType damageType;
     public bool isReflectDamage;
+    public bool isCritical;
 
-    public CombatEventContext(CombatUnit source, CombatUnit target, float value, DamageType damageType = DamageType.Normal, bool isReflectDamage = false)
+    public CombatEventContext(CombatUnit source, CombatUnit target, float value, DamageType damageType = DamageType.Normal, bool isReflectDamage = false, bool isCritical = false)
     {
         this.source = source;
         this.target = target;
         this.value = value;
         this.damageType = damageType;
         this.isReflectDamage = isReflectDamage;
+        this.isCritical = isCritical;
     }
 }
 

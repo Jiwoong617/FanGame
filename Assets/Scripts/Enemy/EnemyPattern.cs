@@ -64,7 +64,15 @@ public class SequentialAttackPattern : EnemyPattern
         if (currentTimer >= requiredGauge)
         {
             float damageAmount = stats.attackDamage.GetValue() * step.damagePercent;
-            CombatEventContext ctx = new CombatEventContext(unit, target, damageAmount, DamageType.Normal, false);
+            bool isCrit = false;
+
+            if (UnityEngine.Random.Range(0f, 100f) < stats.criticalChance.GetValue())
+            {
+                isCrit = true;
+                damageAmount *= (stats.criticalDamage.GetValue() / 100f);
+            }
+
+            CombatEventContext ctx = new CombatEventContext(unit, target, damageAmount, DamageType.Normal, false, isCrit);
             float actualDamage = target.TakeDamage(ctx);
 
             // TODO : 이거 온힛 관련인데 일단 주석 처리 해놈

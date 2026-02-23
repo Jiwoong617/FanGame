@@ -19,6 +19,13 @@ public class EventManager
     {
         currentEventPool.Clear();
 
+        //공용 이벤트
+        var commonEvents = Resources.LoadAll<EventData>("Events/Common");
+        if (commonEvents != null)
+        {
+            currentEventPool.AddRange(commonEvents);
+        }
+
         if (!string.IsNullOrEmpty(characterName))
         {
             var charEvents = Resources.LoadAll<EventData>($"Events/{characterName}");

@@ -15,7 +15,9 @@ public class PlayerUI : UI_Base
         Attack,
         AttackSpeed,
         Defense,
-        StRegen
+        StRegen,
+        CritChance,
+        CritDamage
     }
 
     enum Sliders
@@ -41,6 +43,8 @@ public class PlayerUI : UI_Base
     private TMP_Text HpText;
     private TMP_Text StaminaText;
     private TMP_Text FpText;
+    private TMP_Text CritChanceText;
+    private TMP_Text CritDamageText;
 
     private TMP_Text AttackText;
     private TMP_Text AttackSpeedText;
@@ -71,6 +75,8 @@ public class PlayerUI : UI_Base
         AttackSpeedText = Get<TMP_Text>(Texts.AttackSpeed);
         DefenseText = Get<TMP_Text>(Texts.Defense);
         StRegenText = Get<TMP_Text>(Texts.StRegen);
+        CritChanceText = Get<TMP_Text>(Texts.CritChance);
+        CritDamageText = Get<TMP_Text>(Texts.CritDamage);
 
         Get<Image>(Images.Icon).sprite = GameManager.Instance.SelectedPlayerClass.unitSprite;
         PlayerPanel = Get<Image>(Images.BackGround).gameObject;
@@ -95,6 +101,8 @@ public class PlayerUI : UI_Base
         stats.OnDefenseChanged += UpdateDefense;
         stats.OnAttackSpeedChanged += UpdateAttackSpeed;
         stats.OnStaminaRegenChanged += UpdateStaminaRegen;
+        stats.OnCriticalChanceChanged += UpdateCritChance;
+        stats.OnCriticalDamageChanged += UpdateCritDamage;
 
         RefreshAll();
     }
@@ -113,6 +121,8 @@ public class PlayerUI : UI_Base
         stats.OnDefenseChanged -= UpdateDefense;
         stats.OnAttackSpeedChanged -= UpdateAttackSpeed;
         stats.OnStaminaRegenChanged -= UpdateStaminaRegen;
+        stats.OnCriticalChanceChanged -= UpdateCritChance;
+        stats.OnCriticalDamageChanged -= UpdateCritDamage;
 
         if (tabAction != null)
         {
@@ -135,6 +145,8 @@ public class PlayerUI : UI_Base
         UpdateDefense(stats.defense.GetValue());
         UpdateAttackSpeed(stats.attackSpeed.GetValue());
         UpdateStaminaRegen(stats.staminaRegen.GetValue());
+        UpdateCritChance(stats.criticalChance.GetValue());
+        UpdateCritDamage(stats.criticalDamage.GetValue());
     }
 
     private void UpdateHp(float current, float max)
@@ -173,6 +185,16 @@ public class PlayerUI : UI_Base
     private void UpdateStaminaRegen(float value)
     {
         StRegenText.text = $"{value:F2}";
+    }
+
+    private void UpdateCritChance(float value)
+    {
+        CritChanceText.text = $"{value:F0}";
+    }
+
+    private void UpdateCritDamage(float value)
+    {
+        CritDamageText.text = $"{value:F0}";
     }
 
     private void OnTabPressed(InputAction.CallbackContext context)
