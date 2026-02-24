@@ -31,6 +31,9 @@ public class EnemyUnit : CombatUnit
 
         InitializeAbilities(unitData);
 
+        OnDamageTextRequested += GameManager.VFX.ShowDamageText;
+        OnHealTextRequested += (amount) => GameManager.VFX.ShowHealText(transform, amount);
+
         //이거 주석 풀면 시작 시 기본 공격말고 패턴 선택함
         //DecideNextAction();
     }
@@ -180,6 +183,7 @@ public class EnemyUnit : CombatUnit
 
         //피격 이펙트
         hitEffect?.Flash();
+        RequestDamageText(ctx);
 
         return finalDamage;
     }

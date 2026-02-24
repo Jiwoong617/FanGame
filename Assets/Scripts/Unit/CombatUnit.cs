@@ -8,6 +8,9 @@ public abstract class CombatUnit : MonoBehaviour
     protected const float ATTACK_THRESHOLD = 1f;
 
     public Action<CombatUnit> OnUnitDead;
+    public event Action<CombatEventContext> OnDamageTextRequested;
+    public event Action<float> OnHealTextRequested;
+
 
     protected UnitStats stats;
     protected CombatUnit target;
@@ -20,6 +23,7 @@ public abstract class CombatUnit : MonoBehaviour
 
 
     protected HitFlash hitEffect;
+
 
     protected virtual void Start()
     {
@@ -158,5 +162,19 @@ public abstract class CombatUnit : MonoBehaviour
     {
         for (int i = 0; i < abilities.Count; i++)
             abilities[i].OnEvent(type, cec);
+    }
+
+    public void Heal(float amount)
+    {
+        if (IsDead || amount <= 0) return;
+
+        stats.hp += amount;
+
+        OnHealTextRequested?.Invoke(amount);
+    }
+
+    protected void RequestDamageText(CombatEventContext ctx)
+    {
+        OnDamageTextRequested?.Invoke(ctx);
     }
 }

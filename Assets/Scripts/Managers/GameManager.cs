@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     public static EventManager Event { get; private set; }
     public static RestManager Rest { get; private set; }
     public static InventoryManager Inventory { get; private set; }
+    public static VFXManager VFX { get; private set; }
     #endregion
 
     private GameState state = GameState.MainMenu;
@@ -100,6 +101,8 @@ public class GameManager : MonoBehaviour
         Event = new EventManager();
         Rest = new RestManager();
         Inventory = new InventoryManager();
+        VFX = new VFXManager();
+        VFX.Init();
 
 
         // 전투 -> (승리) -> 보상

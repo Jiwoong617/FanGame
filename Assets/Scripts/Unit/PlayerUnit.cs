@@ -29,6 +29,9 @@ public class PlayerUnit : CombatUnit
             base.stats = playerStats;
             
             InitializeAbilities(unitData);
+
+            OnDamageTextRequested += GameManager.VFX.ShowDamageText;
+            OnHealTextRequested += (amount) => GameManager.VFX.ShowHealText(transform, amount);
         }
         else
         {
@@ -191,6 +194,7 @@ public class PlayerUnit : CombatUnit
 
         //피격 이펙트
         hitEffect?.Flash();
+        RequestDamageText(ctx);
 
         return finalDamage;
     }
