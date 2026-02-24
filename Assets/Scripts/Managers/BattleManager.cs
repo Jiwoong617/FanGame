@@ -18,6 +18,7 @@ public class BattleManager
     private PlayerUnit player;
     private List<EnemyUnit> enemies = new();
     private Transform enemyAnchor;
+    private TargetMarker targetMarker;
 
     private BattleState state = BattleState.None;
     private float spawnSpacing = 5f;
@@ -177,9 +178,8 @@ public class BattleManager
                 if (clickedEnemy != null && !clickedEnemy.IsDead)
                 {
                     player.SetTarget(clickedEnemy);
-                    Debug.Log($"[Targeting] Player switched target to {clickedEnemy.name}");
 
-                    // TODO: 타겟 변경 시각적 피드백 (화살표 UI 등)
+                    targetMarker?.PlaySnapEffect(clickedEnemy.transform);
                 }
             }
         }
@@ -191,7 +191,8 @@ public class BattleManager
             if (newTarget != null)
             {
                 player.SetTarget(newTarget);
-                Debug.Log($"[Targeting] Auto-switched target to {newTarget.name}");
+                    
+                targetMarker?.PlaySnapEffect(newTarget.transform);
             }
         }
     }
@@ -200,4 +201,6 @@ public class BattleManager
     {
         return enemies.FindAll(e => e != null && !e.IsDead);
     }
+
+    public void SetTargetMarker(TargetMarker targetMarker) => this.targetMarker = targetMarker;
 }
