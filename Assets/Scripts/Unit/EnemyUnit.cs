@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class EnemyUnit : CombatUnit
 {
-    [SerializeField] private Sprite basicAttackSprite;
-
     [Header("Pattern Settings")]
     [SerializeReference, SerializeReferenceDropdown]
     public List<EnemyPattern> patterns = new List<EnemyPattern>();
@@ -16,6 +14,7 @@ public class EnemyUnit : CombatUnit
 
     public override void Init(UnitData unitData)
     {
+        base.Init(unitData);
         stats = new UnitStats(unitData);
 
         foreach (var pattern in patterns)
@@ -135,7 +134,7 @@ public class EnemyUnit : CombatUnit
 
         if (combatUI != null)
         {
-            Sprite intentSprite = (nextPattern != null) ? nextPattern.patternSprite : basicAttackSprite;
+            Sprite intentSprite = (nextPattern != null) ? nextPattern.patternSprite : unitData.unitBasicAttackSprite;
             combatUI.SetIntentIcon(intentSprite);
         }
     }

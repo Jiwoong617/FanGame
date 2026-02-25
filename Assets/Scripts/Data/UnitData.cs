@@ -13,6 +13,8 @@ public class UnitData : ScriptableObject
     public string unitName;
     public GameObject prefab;
     public Sprite unitSprite;
+    public Sprite unitBasicAttackSprite;
+    public Sprite unitAttackEffectSprite;
 
     [Header("Combat Stats")]
     public float hp;

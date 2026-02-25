@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
   combatUI: {fileID: 5729058743016381452}
+  basicAttackSprite: {fileID: 0}
 --- !u!114 &6354160402800920440
 MonoBehaviour:
   m_ObjectHideFlags: 0

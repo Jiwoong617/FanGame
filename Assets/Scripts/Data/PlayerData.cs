@@ -5,6 +5,8 @@ using System;
 public class PlayerData : UnitData
 {
     [Header("Combat Resource")]
+    public Sprite unitBackSprite;
+
     public float stamina;
     public float staminaRegen;
     public float fp;

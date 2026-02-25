@@ -1,12 +1,15 @@
+using DG.Tweening;
 using System;
+using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class CombatUnit : MonoBehaviour
 {
     [SerializeField] protected CombatUnitUI combatUI;
-
+    protected SpriteRenderer spriteRenderer;
+    protected UnitData unitData;
+    protected List<GameObject> _activeEffects = new List<GameObject>(); // 이펙트 관리
 
     protected const float ATTACK_THRESHOLD = 1f;
 
@@ -36,6 +39,7 @@ public abstract class CombatUnit : MonoBehaviour
     protected virtual void Start()
     {
         hitEffect = GetComponent<HitFlash>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>(); // 임시 코드라 좀 더 정확하게 짜야함
     }
 
     protected void ProcessAttackLoop(float delta)
@@ -62,7 +66,21 @@ public abstract class CombatUnit : MonoBehaviour
     {
         return target;
     }
-
+    protected virtual void OnDestroy()
+    {
+        // 리스트에 남아있는 모든 이펙트 게임 오브젝트를 파괴합니다.
+        foreach (var effect in _activeEffects)
+        {
+            if (effect != null)
+            {
+                // DOTween 애니메이션도 함께 중단하고 파괴합니다.
+                effect.transform.DOKill();
+                Destroy(effect);
+            }
+        }
+        // 리스트를 비웁니다.
+        _activeEffects.Clear();
+    }
     public virtual void OnBattleStart()
     {
         TriggerAbility(CombatEvent.OnBattleStart, new CombatEventContext(this, target, 0));
@@ -105,14 +123,27 @@ public abstract class CombatUnit : MonoBehaviour
             }
         }
     }
-
-    public abstract void Init(UnitData unitData);
+    //
+    public virtual void Init(UnitData data)
+    {
+        this.unitData = data;
+    
+        // 초기 스프라이트 설정
+        if (spriteRenderer != null && unitData != null && unitData.unitSprite != null)
+        {
+            spriteRenderer.sprite = unitData.unitSprite;
+        }
+    }
     public abstract void OnDead();
     public abstract float TakeDamage(CombatEventContext info);
     public abstract T GetStat<T>() where T : UnitStats;
 
     public virtual void Attack()
     {
+        StopCoroutine(nameof(AttackAnimation));
+        StartCoroutine(AttackAnimation());
+
+        StartCoroutine(AttackEffectCoroutine());
         if (target == null || IsDead) return;
 
         float damage = stats.attackDamage.GetValue();
@@ -133,6 +164,54 @@ public abstract class CombatUnit : MonoBehaviour
             attackCtx.value = actualDamage;
             TriggerAbility(CombatEvent.OnAttack, attackCtx);
         }
+    }
+    // 스프라이트 변경 코루틴 코드
+    protected virtual IEnumerator AttackAnimation()
+    {
+        if (spriteRenderer != null && unitData != null && unitData.unitBasicAttackSprite != null)
+        {
+            spriteRenderer.sprite = unitData.unitBasicAttackSprite;
+        }
+        yield return new WaitForSeconds(0.3f);
+
+        if (spriteRenderer != null && unitData != null && unitData.unitSprite != null)
+        {
+            spriteRenderer.sprite = unitData.unitSprite;
+        }
+    }
+
+    protected virtual IEnumerator AttackEffectCoroutine()
+    {
+        // 1. 필요한 데이터(타겟, 이펙트 스프라이트)가 없으면 실행하지 않음
+        if (target == null || unitData == null || unitData.unitAttackEffectSprite == null)
+        {
+            yield break; // 코루틴 종료
+        }
+
+        // 2. 이펙트를 표시할 빈 게임 오브젝트를 생성
+        GameObject effectObject = new GameObject("AttackEffect");
+        _activeEffects.Add(effectObject);
+
+        // 3. 이펙트 오브젝트의 위치를 타겟의 위치로 설정
+        // (Z값을 살짝 조정하여 다른 스프라이트보다 앞에 보이게 할 수 있습니다)
+        effectObject.transform.position = target.transform.position + new Vector3(0, 0, -0.1f);
+
+        // 4. SpriteRenderer 컴포넌트를 추가하고 이펙트 스프라이트를 할당
+        SpriteRenderer effectRenderer = effectObject.AddComponent<SpriteRenderer>();
+        effectRenderer.sprite = unitData.unitAttackEffectSprite;
+
+        // (선택 사항) 다른 스프라이트와 겹치지 않도록 Sorting Order를 높게 설정
+        effectRenderer.sortingOrder = 10;
+
+        // 5. 이펙트를 보여줄 시간만큼 대기
+        yield return new WaitForSeconds(0.5f); // 0.5초 동안 보여줌 (시간 조절 가능)
+        if (_activeEffects.Contains(effectObject))
+        {
+            _activeEffects.Remove(effectObject);
+        }
+
+        // 6. 이펙트 오브젝트를 파괴하여 화면에서 제거
+        Destroy(effectObject);
     }
 
     protected void InitializeAbilities(UnitData data)
