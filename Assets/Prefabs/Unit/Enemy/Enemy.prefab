@@ -185,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd2f24948f54a6e4a834a40e7812a865, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
-  enemyUI: {fileID: 6162710147832715274}
+  combatUI: {fileID: 6162710147832715274}
   basicAttackSprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
   patterns:
   - rid: 8549445310020845640
@@ -247,6 +247,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8156299736801096019}
     m_Modifications:
+    - target: {fileID: 2361331921383849659, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3837743707018266951, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
       propertyPath: m_Name
       value: EnemyUI

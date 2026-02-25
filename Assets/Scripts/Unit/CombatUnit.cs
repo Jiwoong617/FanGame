@@ -5,9 +5,20 @@ using UnityEngine;
 
 public abstract class CombatUnit : MonoBehaviour
 {
+    [SerializeField] protected CombatUnitUI combatUI;
+
+
     protected const float ATTACK_THRESHOLD = 1f;
 
     public Action<CombatUnit> OnUnitDead;
+    public event Action<CombatEventContext> OnDamageTextRequested;
+    public event Action<float> OnHealTextRequested;
+
+    //이건 ui 띄울것들임
+    public event Action<float> OnActionBarUpdated;
+    public event Action<StatusEffect> OnBuffAdded;
+    public event Action<StatusEffect> OnBuffRemoved;
+    public event Action<StatusEffect> OnBuffUpdated;
 
     protected UnitStats stats;
     protected CombatUnit target;
@@ -21,6 +32,7 @@ public abstract class CombatUnit : MonoBehaviour
 
     protected HitFlash hitEffect;
 
+
     protected virtual void Start()
     {
         hitEffect = GetComponent<HitFlash>();
@@ -31,10 +43,13 @@ public abstract class CombatUnit : MonoBehaviour
         if (IsDead || target == null || target.IsDead) return;
 
         attackTimer += (delta * stats.attackSpeed.GetValue());
+        OnActionBarUpdated?.Invoke(Mathf.Clamp01(attackTimer / ATTACK_THRESHOLD));
+
         if (attackTimer >= ATTACK_THRESHOLD)
         {
             Attack();
             attackTimer = 0f;
+            OnActionBarUpdated?.Invoke(0f);
         }
     }
 
@@ -64,6 +79,7 @@ public abstract class CombatUnit : MonoBehaviour
                 if (!status.isPermanent || status.IsFinished)
                 {
                     status.OnRemoved();
+                    OnBuffRemoved?.Invoke(status);
                     abilities.RemoveAt(i);
                 }
             }
@@ -82,6 +98,9 @@ public abstract class CombatUnit : MonoBehaviour
             if (ability.IsFinished)
             {
                 ability.OnRemoved();
+                if (ability is StatusEffect status)
+                    OnBuffRemoved?.Invoke(status);
+
                 abilities.RemoveAt(i);
             }
         }
@@ -145,6 +164,7 @@ public abstract class CombatUnit : MonoBehaviour
                     Mathf.Approximately(existingStatus.effectValue, newStatus.effectValue))
                 {
                     existingStatus.AddStack(newStatus.stacks, newStatus.duration);
+                    OnBuffUpdated?.Invoke(existingStatus);
                     return;
                 }
             }
@@ -152,11 +172,35 @@ public abstract class CombatUnit : MonoBehaviour
 
         newAbility.Init(this);
         abilities.Add(newAbility);
+
+        if (newAbility is StatusEffect addedStatus)
+        {
+            OnBuffAdded?.Invoke(addedStatus);
+        }
     }
 
     public void TriggerAbility(CombatEvent type, CombatEventContext cec)
     {
         for (int i = 0; i < abilities.Count; i++)
             abilities[i].OnEvent(type, cec);
+    }
+
+    public void Heal(float amount)
+    {
+        if (IsDead || amount <= 0) return;
+
+        stats.hp += amount;
+
+        OnHealTextRequested?.Invoke(amount);
+    }
+
+    protected void RequestDamageText(CombatEventContext ctx)
+    {
+        OnDamageTextRequested?.Invoke(ctx);
+    }
+
+    protected void RequestActionBarUpdate(float value)
+    {
+        OnActionBarUpdated?.Invoke(value);
     }
 }

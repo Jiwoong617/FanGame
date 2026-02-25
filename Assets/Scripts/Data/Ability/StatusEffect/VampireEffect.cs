@@ -25,7 +25,7 @@ public class VampireEffect : StatusEffect
             if (ctx.value > 0)
             {
                 float healAmount = ctx.value * (effectValue * stacks);
-                owner.GetStat<UnitStats>().hp += healAmount;
+                owner.Heal(healAmount);
             }
         }
     }

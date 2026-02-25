@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class EnemyUnit : CombatUnit
 {
-    [SerializeField] private EnemyUI enemyUI;
     [SerializeField] private Sprite basicAttackSprite;
 
     [Header("Pattern Settings")]
@@ -22,14 +21,18 @@ public class EnemyUnit : CombatUnit
         foreach (var pattern in patterns)
             pattern.lastExecutionTime = -9999f;
 
-        stats.OnHpChanged += enemyUI.UpdateHp;
-        enemyUI.UpdateHp(stats.hp, stats.maxHp.GetValue());
+        if (combatUI == null)
+            combatUI = GetComponentInChildren<CombatUnitUI>();
+        combatUI.SetOwner(this);
 
         attackTimer = 0f;
         // 초기 랜덤 딜레이 (선택 사항)
         // attackTimer = -Random.Range(0f, 0.5f);
 
         InitializeAbilities(unitData);
+
+        OnDamageTextRequested += GameManager.VFX.ShowDamageText;
+        OnHealTextRequested += (amount) => GameManager.VFX.ShowHealText(transform, amount);
 
         //이거 주석 풀면 시작 시 기본 공격말고 패턴 선택함
         //DecideNextAction();
@@ -52,10 +55,9 @@ public class EnemyUnit : CombatUnit
         }
 
         attackTimer += delta * stats.attackSpeed.GetValue();
-        if (enemyUI != null)
+        if (currentRunningPattern == null)
         {
-            float progress = Mathf.Clamp01(attackTimer / ATTACK_THRESHOLD);
-            enemyUI.UpdateActionBar(progress);
+            ProcessAttackLoop(delta);
         }
 
         if (attackTimer >= ATTACK_THRESHOLD)
@@ -131,17 +133,16 @@ public class EnemyUnit : CombatUnit
     {
         nextPattern = GetAvailablePattern();
 
-        if (enemyUI != null)
+        if (combatUI != null)
         {
             Sprite intentSprite = (nextPattern != null) ? nextPattern.patternSprite : basicAttackSprite;
-            enemyUI.SetIntentIcon(intentSprite);
+            combatUI.SetIntentIcon(intentSprite);
         }
     }
 
     public void UpdatePatternUI(float progress)
     {
-        if (enemyUI != null)
-            enemyUI.UpdateActionBar(progress);
+        RequestActionBarUpdate(progress);
     }
 
     public override void OnDead() 
@@ -180,6 +181,7 @@ public class EnemyUnit : CombatUnit
 
         //피격 이펙트
         hitEffect?.Flash();
+        RequestDamageText(ctx);
 
         return finalDamage;
     }
