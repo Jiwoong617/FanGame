@@ -9,13 +9,6 @@ public class MapNodeUI : MonoBehaviour
     private Button button;
 
     [Header("Resources")]
-    // TODO
-    // 실제로는 ResourceManger나 Atlas에서 가져오는 게 좋음
-    [SerializeField] private Sprite monsterSprite;
-    [SerializeField] private Sprite eliteSprite;
-    [SerializeField] private Sprite restSprite;
-    [SerializeField] private Sprite eventSprite;
-    [SerializeField] private Sprite bossSprite;
 
     private MapNode nodeData;
     private Action<MapNode> onClickCallback;
@@ -29,7 +22,11 @@ public class MapNodeUI : MonoBehaviour
         this.onClickCallback = onClick;
 
         // 아이콘 설정
-        iconImage.sprite = GetSpriteByType(node.nodeType);
+        Sprite loadedIcon = GameManager.SpriteData.GetSprite(node.nodeType, "Icons/MapNodes");
+        if (loadedIcon != null)
+        {
+            iconImage.sprite = loadedIcon;
+        }
 
         // 버튼 이벤트
         button.onClick.RemoveAllListeners();
@@ -61,18 +58,5 @@ public class MapNodeUI : MonoBehaviour
     private void OnClick()
     {
         onClickCallback?.Invoke(nodeData);
-    }
-
-    private Sprite GetSpriteByType(NodeType type)
-    {
-        switch (type)
-        {
-            case NodeType.Monster: return monsterSprite;
-            case NodeType.Elite: return eliteSprite;
-            case NodeType.Rest: return restSprite;
-            case NodeType.Event: return eventSprite;
-            case NodeType.Boss: return bossSprite;
-            default: return null;
-        }
     }
 }

@@ -6,7 +6,7 @@ public class IronFortressEffect : StatusEffect
     public IronFortressEffect()
     {
         effectType = EffectType.IronFortress;
-        combatEvent = CombatEvent.OnTakeDamage;
+        combatEvent = CombatEvent.OnBeforeTakeDamage;
     }
 
     public IronFortressEffect(int duration, int stack, bool isPermanent) 

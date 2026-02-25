@@ -48,4 +48,9 @@ public class TargetMarker : MonoBehaviour
         sequence.Append(spriteRenderer.DOFade(0f, fadingDuration));
         sequence.Join(transform.DOScale(targetScale * 1.3f, 0.3f).SetEase(Ease.OutQuad));
     }
+
+    private void OnDestroy()
+    {
+        transform.DOKill();
+    }
 }

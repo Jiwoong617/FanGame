@@ -31,7 +31,7 @@ public class MySceneManager
     {
         CanvasGroup fadeGroup = GetOrCreateFadeUI();
         fadeGroup.blocksRaycasts = true;
-        fadeGroup.gameObject.SetActive(true);
+        //fadeGroup.gameObject.SetActive(true);
 
         float fadeDuration = 0.5f;
         float timer = 0f;
@@ -72,7 +72,7 @@ public class MySceneManager
         
         fadeGroup.alpha = 0f;
         fadeGroup.blocksRaycasts = false;
-        fadeGroup.gameObject.SetActive(false);
+        //fadeGroup.gameObject.SetActive(false);
     }
 
     private CanvasGroup GetOrCreateFadeUI()

@@ -30,6 +30,11 @@ public class PlayerUnit : CombatUnit
             
             InitializeAbilities(unitData);
 
+            if (combatUI == null)
+                combatUI = GetComponentInChildren<CombatUnitUI>();
+            combatUI.SetOwner(this);
+            combatUI.Hide();
+
             OnDamageTextRequested += GameManager.VFX.ShowDamageText;
             OnHealTextRequested += (amount) => GameManager.VFX.ShowHealText(transform, amount);
         }
@@ -51,6 +56,7 @@ public class PlayerUnit : CombatUnit
     public override void OnBattleStart()
     {
         base.OnBattleStart();
+        combatUI?.Show();
 
         if (playerStats != null)
             playerStats.stamina = playerStats.maxStamina.GetValue();
@@ -66,6 +72,7 @@ public class PlayerUnit : CombatUnit
     public override void OnBattleEnd()
     {
         base.OnBattleEnd();
+        combatUI?.Hide();
 
         if (playerStats != null)
             playerStats.stamina = playerStats.maxStamina.GetValue();

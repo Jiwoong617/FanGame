@@ -71,4 +71,10 @@ public class HitFlash : MonoBehaviour
                         transform.localPosition = originalLocalPos;
                     });
     }
+
+    private void OnDestroy()
+    {
+        transform.DOKill();
+        flashMaterial.DOKill();
+    }
 }

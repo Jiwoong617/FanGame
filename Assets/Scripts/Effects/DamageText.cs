@@ -55,4 +55,10 @@ public class DamageText : MonoBehaviour
     {
         transform.DOBlendableMoveBy(Vector3.up * yOffset, 0.15f).SetEase(Ease.OutExpo);
     }
+
+    private void OnDestroy()
+    {
+        transform.DOKill();
+        textMesh.DOKill();
+    }
 }
