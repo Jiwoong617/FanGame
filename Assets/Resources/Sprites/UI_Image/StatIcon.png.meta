@@ -1,0 +1,381 @@
+fileFormatVersion: 2
+guid: 6965be827eeb1824f9fd06993c23d785
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1727417112200218534
+    second: StatIcon_0
+  - first:
+      213: -7697050319745515585
+    second: StatIcon_1
+  - first:
+      213: 6630381044421498900
+    second: StatIcon_2
+  - first:
+      213: 3429151725591327031
+    second: StatIcon_3
+  - first:
+      213: 6214428697258113553
+    second: StatIcon_4
+  - first:
+      213: -8243886518614325858
+    second: StatIcon_5
+  - first:
+      213: -7329053528250802251
+    second: StatIcon_6
+  - first:
+      213: 7111601070181778425
+    second: StatIcon_7
+  - first:
+      213: -7174779260284485463
+    second: StatIcon_8
+  - first:
+      213: -580875054738617143
+    second: StatIcon_9
+  - first:
+      213: -958030010082882899
+    second: StatIcon_10
+  - first:
+      213: 3710317355635498329
+    second: StatIcon_11
+  - first:
+      213: -2904011246208337597
+    second: StatIcon_12
+  - first:
+      213: 2493424319177414747
+    second: StatIcon_13
+  - first:
+      213: -2883172177548694820
+    second: StatIcon_14
+  - first:
+      213: -5764673095351138055
+    second: StatIcon_15
+  - first:
+      213: 2056426080959312003
+    second: StatIcon_16
+  - first:
+      213: -7387843839165797202
+    second: StatIcon_17
+  - first:
+      213: 5329889174487141724
+    second: StatIcon_18
+  - first:
+      213: -9126280211749379512
+    second: StatIcon_19
+  - first:
+      213: 4696854772506097777
+    second: StatIcon_20
+  - first:
+      213: 2391310624115050101
+    second: StatIcon_21
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FP
+      rect:
+        serializedVersion: 2
+        x: 1820
+        y: 1005
+        width: 520
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a58ff58e94bf608e0800000000000000
+      internalID: -1727417112200218534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamina
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 1005
+        width: 520
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4181a3e3e68d30c50800000000000000
+      internalID: 6630381044421498900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack
+      rect:
+        serializedVersion: 2
+        x: 1276
+        y: 1005
+        width: 520
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 11a301689f51e3650800000000000000
+      internalID: 6214428697258113553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 1005
+        width: 520
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bf99c4a5a8f94a90800000000000000
+      internalID: -7329053528250802251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_Speed
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 200
+        width: 520
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: daa88dc18c464b2f0800000000000000
+      internalID: -958030010082882899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crit_Chance
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 200
+        width: 520
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b58d3e2253c6a9220800000000000000
+      internalID: 2493424319177414747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stamina_Regen
+      rect:
+        serializedVersion: 2
+        x: 1269
+        y: 200
+        width: 520
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdaabe22e2aecf7d0800000000000000
+      internalID: -2883172177548694820
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Crit_Damage
+      rect:
+        serializedVersion: 2
+        x: 1815
+        y: 200
+        width: 520
+        height: 540
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 380bd6e00a4e98c10800000000000000
+      internalID: 2056426080959312003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: e46f87cdffff86f4f9ba6a9f1072105f
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Attack: 6214428697258113553
+      Attack_Speed: -958030010082882899
+      Crit_Chance: 2493424319177414747
+      Crit_Damage: 2056426080959312003
+      FP: -1727417112200218534
+      Health: -7329053528250802251
+      Stamina: 6630381044421498900
+      Stamina_Regen: -2883172177548694820
+      StatIcon_1: -7697050319745515585
+      StatIcon_11: 3710317355635498329
+      StatIcon_12: -2904011246208337597
+      StatIcon_15: -5764673095351138055
+      StatIcon_17: -7387843839165797202
+      StatIcon_18: 5329889174487141724
+      StatIcon_19: -9126280211749379512
+      StatIcon_20: 4696854772506097777
+      StatIcon_21: 2391310624115050101
+      StatIcon_3: 3429151725591327031
+      StatIcon_5: -8243886518614325858
+      StatIcon_7: 7111601070181778425
+      StatIcon_8: -7174779260284485463
+      StatIcon_9: -580875054738617143
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
