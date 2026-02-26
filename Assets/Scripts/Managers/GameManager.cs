@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -30,8 +31,9 @@ public class GameManager : MonoBehaviour
     public static SpriteDataManager SpriteData { get; private set; }
     #endregion
 
-    private GameState state = GameState.MainMenu;
-    
+    public GameState State { get; private set; } = GameState.MainMenu;
+    public event Action<GameState> OnGameStateChanged;
+
     // Selected Data
     public PlayerData SelectedPlayerClass { get; private set; }
 
@@ -46,8 +48,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Stages")]
     [SerializeField] private List<StageData> stageList;
-    private int currentStageIndex = 0;
-    public StageData currentStageData => stageList[currentStageIndex];
+    public int CurrentStageIndex { get; private set; } = 0;
+    public StageData currentStageData => stageList[CurrentStageIndex];
+
 
 
     private void Awake()
@@ -70,7 +73,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        switch (state)
+        switch (State)
         {
             case GameState.Battle:
                 Battle?.OnUpdate();
@@ -189,8 +192,10 @@ public class GameManager : MonoBehaviour
 
     public void ChangeState(GameState next)
     {
-        state = next;
-        Debug.Log($"[GameManager] ChangeState: {state}");
+        State = next;
+        Debug.Log($"[GameManager] ChangeState: {State}");
+
+        OnGameStateChanged?.Invoke(next);
 
         switch (next)
         {
@@ -239,9 +244,9 @@ public class GameManager : MonoBehaviour
 
     private void NextStage()
     {
-        currentStageIndex++;
+        CurrentStageIndex++;
 
-        if (currentStageIndex >= stageList.Count)
+        if (CurrentStageIndex >= stageList.Count)
         {
             // TODO : 모든 스테이지 클리어
             Debug.Log("Clear All Stage");

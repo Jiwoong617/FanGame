@@ -16,6 +16,7 @@ public class MapManager
     private const float BRANCH = 0.4f; // 이거 미만이면 2갈래, 초과하면 1갈래
 
     private MapUI mapUI;
+    private MapTransitionUI mapTransitionUI;
     
     public void GenerateMap(StageData stageData)
     {
@@ -275,6 +276,15 @@ public class MapManager
         mapUI = ui;
     }
 
+    public void SetMapTransitionUI(MapTransitionUI ui)
+    {
+        if (ui == null) return;
+
+        mapTransitionUI = ui;
+    }
+
     public void ShowMapUI() => mapUI.Show();
     public void HideMapUI() => mapUI.Hide();
+
+    public MapTransitionUI GetMapTransitionUI() => mapTransitionUI;
 }

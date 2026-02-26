@@ -31,13 +31,13 @@ public class PlayerUnit : CombatUnit
         {
             playerStats = new PlayerStats(playerData);
             base.stats = playerStats;
-            
-            InitializeAbilities(unitData);
 
             if (combatUI == null)
                 combatUI = GetComponentInChildren<CombatUnitUI>();
             combatUI.SetOwner(this);
             combatUI.Hide();
+
+            InitializeAbilities(unitData);
 
             OnDamageTextRequested += GameManager.VFX.ShowDamageText;
             OnHealTextRequested += (amount) => GameManager.VFX.ShowHealText(transform, amount);

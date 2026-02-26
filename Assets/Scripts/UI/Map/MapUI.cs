@@ -167,11 +167,22 @@ public class MapUI : UI_Base
     private void OnNodeClicked(MapNode node)
     {
         Debug.Log($"Node Selected: {node.nodeType} at ({node.x}, {node.y})");
-        
-        GameManager.Map.SelectNode(node);
-        UpdateMapUI();
 
-        Hide();
+        if (GameManager.Map.GetMapTransitionUI() != null)
+        {
+            GameManager.Map.GetMapTransitionUI().PlayTransition(() =>
+            {
+                GameManager.Map.SelectNode(node);
+                UpdateMapUI();
+                Hide();
+            });
+        }
+        else
+        {
+            GameManager.Map.SelectNode(node);
+            UpdateMapUI();
+            Hide() ;
+        }
     }
 
 

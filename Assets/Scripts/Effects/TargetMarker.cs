@@ -52,5 +52,6 @@ public class TargetMarker : MonoBehaviour
     private void OnDestroy()
     {
         transform.DOKill();
+        sequence?.Kill();
     }
 }

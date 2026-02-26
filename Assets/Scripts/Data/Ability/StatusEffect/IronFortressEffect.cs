@@ -12,7 +12,7 @@ public class IronFortressEffect : StatusEffect
     public IronFortressEffect(int duration, int stack, bool isPermanent) 
     {
         effectType = EffectType.IronFortress;
-        combatEvent = CombatEvent.OnTakeDamage;
+        combatEvent = CombatEvent.OnBeforeTakeDamage;
         this.duration = duration;
         stacks = stack;
         this.isPermanent = isPermanent;

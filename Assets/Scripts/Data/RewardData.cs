@@ -28,6 +28,7 @@ public class RewardData : ScriptableObject
     public Sprite Icon;
     public string RewardName;
     [TextArea] public string Description;
+    [TextArea] public string FlavorText;
 
     [Header("Inventory Settings")]
     public bool isItem; //이거 true면 인벤토리 들어가게 할거임

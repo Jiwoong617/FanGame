@@ -31,6 +31,8 @@ public class VFXManager
         if (damageTextPrefab == null) return;
         if (amount <= 0 && !isHeal) return;
 
+        activeTexts.RemoveAll(t => t == null || t.gameObject == null);
+
         foreach (var activeText in activeTexts)
         {
             if (activeText.currentTarget == target)

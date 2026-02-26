@@ -8,11 +8,13 @@ public class TooltipUI : UI_Base
     enum Texts
     {
         NameText,
-        DescText
+        DescText,
+        FlavorText
     }
 
     private TMP_Text nameText;
     private TMP_Text descText;
+    private TMP_Text flavorText;
 
     protected override void Init()
     {
@@ -30,10 +32,11 @@ public class TooltipUI : UI_Base
         Hide();
     }
 
-    public void ShowTooltip(string itemName, string desc, Vector3 slotPosition)
+    public void ShowTooltip(string itemName, string desc, string flavor, Vector3 slotPosition)
     {
         nameText.text = itemName;
         descText.text = desc;
+        flavorText.text = flavor;
 
         transform.position = slotPosition;
         Show();

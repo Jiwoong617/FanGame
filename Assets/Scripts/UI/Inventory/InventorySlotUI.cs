@@ -20,7 +20,7 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     {
         if (itemData != null && TooltipUI.Instance != null)
         {
-            TooltipUI.Instance.ShowTooltip(itemData.RewardName, itemData.Description, transform.position);
+            TooltipUI.Instance.ShowTooltip(itemData.RewardName, itemData.Description, itemData.FlavorText, transform.position);
         }
     }
 
