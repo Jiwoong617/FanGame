@@ -14,14 +14,14 @@ public class PlayerData : UnitData
     //스킬 코스트는 1 고정으로 그냥 삭제 했음
     public float skillCoolTime;
 
-    public float dodgeCost;
-    public float parryCost;
+    public float dodgeCost = 10f;
+    public float parryCost = 7f;
 
-    public float dodgeDuration;
-    public float parryDuration;
+    public float dodgeDuration = 0.3f;
+    public float parryDuration = 0.1f;
 
-    public float dodgeCoolTime;
-    public float parrayCoolTime;
+    public float dodgeCoolTime = 0.5f;
+    public float parrayCoolTime = 0.5f;
 }
 
 [System.Serializable]

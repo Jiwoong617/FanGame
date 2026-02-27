@@ -75,6 +75,10 @@ public class HitFlash : MonoBehaviour
     private void OnDestroy()
     {
         transform.DOKill();
-        flashMaterial.DOKill();
+        if (flashMaterial != null)
+        {
+            flashMaterial.DOKill();
+            Destroy(flashMaterial);
+        }
     }
 }

@@ -15,10 +15,14 @@ MonoBehaviour:
   unitName: "\uD574\uD3EC\uB9AC"
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
   unitSprite: {fileID: 2903746670860312822, guid: 416fc2df813dc34468d71e23e608e2de, type: 3}
-  hp: 100
+  unitBasicAttackSprite: {fileID: 0}
+  unitAttackEffectSprite: {fileID: 0}
+  hp: 25
   defense: 0
-  attackDamage: 10
-  attackSpeed: 2
+  attackDamage: 2
+  attackSpeed: 1.6
+  criticalChance: 5
+  criticalDamage: 150
   unitDescription: "\uBD80\uC0B0 \uC55E\uBC14\uB2E4\uC758 \uC694\uC815 '\uD3EC\uD3EC\uD3EC\uD3EC'\uC758
     \uD574\uD30C\uB9AC \uCE5C\uAD6C\uB2E4. '\uD3EC\uD3EC'\uAC00 \uC544\uB07C\uB294
     '\uC544\uC774\uD401'\uC744 \uBCC0\uAE30\uC5D0 \uBE60\uB728\uB824 \uACE0\uC7A5\uB0B4\uACE0
@@ -28,17 +32,18 @@ MonoBehaviour:
   startingAbilities:
   - rid: 8549445450257924177
   - rid: 8549445450257924178
-  stamina: 100
+  - rid: 8549445694374805576
+  unitBackSprite: {fileID: -3865171101212884221, guid: 05c454e1365d2874ab2970faff971c92, type: 3}
+  stamina: 30
   staminaRegen: 1
-  fp: 100
-  skillCost: 0
+  fp: 2
   skillCoolTime: 0
-  dodgeCost: 20
-  parryCost: 10
-  dodgeDuration: 0
-  parryDuration: 0
-  dodgeCoolTime: 0
-  parrayCoolTime: 0
+  dodgeCost: 10
+  parryCost: 7
+  dodgeDuration: 0.3
+  parryDuration: 0.1
+  dodgeCoolTime: 0.5
+  parrayCoolTime: 0.5
   references:
     version: 2
     RefIds:
@@ -47,8 +52,16 @@ MonoBehaviour:
       data:
         combatEvent: 0
         actionType: 2
+        skillIcon: {fileID: 0}
     - rid: 8549445450257924178
       type: {class: DodgeAbility, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
         actionType: 1
+        skillIcon: {fileID: 0}
+    - rid: 8549445694374805576
+      type: {class: PopoSkill, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        actionType: 3
+        skillIcon: {fileID: 0}

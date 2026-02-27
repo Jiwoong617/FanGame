@@ -63,7 +63,7 @@ public class HasiyoSkill : ActiveAbility
             case 1:
                 foreach (var enemy in enemies)
                 {
-                    SlowEffect slow = new SlowEffect(1f, 1, false, 0.5f);
+                    SlowEffect slow = new SlowEffect(5f, 1, false, 0.5f);
                     enemy.AddAbility(slow);
                 }
                 break;
@@ -71,7 +71,7 @@ public class HasiyoSkill : ActiveAbility
             case 2:
                 foreach (var enemy in enemies)
                 {
-                    DisarmEffect disarm = new DisarmEffect(0.5f, 1, false);
+                    DisarmEffect disarm = new DisarmEffect(2f, 1, false);
                     enemy.AddAbility(disarm);
                 }
                 break;

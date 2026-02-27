@@ -292,9 +292,10 @@ public abstract class CombatUnit : MonoBehaviour
     {
         if (IsDead || amount <= 0) return;
 
-        stats.hp += amount;
+        float finalHeal = Mathf.Max(1f, amount);
+        stats.hp += finalHeal;
 
-        OnHealTextRequested?.Invoke(amount);
+        OnHealTextRequested?.Invoke(finalHeal);
     }
 
     protected void RequestDamageText(CombatEventContext ctx)

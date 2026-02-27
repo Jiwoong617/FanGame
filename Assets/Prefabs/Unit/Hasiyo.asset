@@ -20,9 +20,9 @@ MonoBehaviour:
   hp: 20
   defense: 0
   attackDamage: 5
-  attackSpeed: 0.3
-  criticalChance: 0
-  criticalDamage: 0
+  attackSpeed: 0.6
+  criticalChance: 5
+  criticalDamage: 150
   unitDescription: "\uBD81\uADF9\uC5EC\uC6B0 \uB9C8\uB140 '\uD558\uC2DC\uC694' \uBC11\uC5D0\uC11C
     \uB9C8\uB140\uC758 \uC9D1\uC744 \uAC74\uC124\uD558\uB294 \uB300\uC2E0 \uBCF4\uC218\uB85C
     \uB9C8\uBC95\uC744 \uBC30\uC6B4 \uBC14\uBC14 \uBC18\uC7A5\uC774\uB2E4. 2\uB300
@@ -35,16 +35,16 @@ MonoBehaviour:
   - rid: 8549445450257924174
   - rid: 8549445538707406920
   unitBackSprite: {fileID: 12120417478428064, guid: fcb8aa07aafebb44f8a4b80da97476f5, type: 3}
-  stamina: 15
+  stamina: 30
   staminaRegen: 1
-  fp: 50
+  fp: 3
   skillCoolTime: 0
-  dodgeCost: 5
-  parryCost: 3
+  dodgeCost: 10
+  parryCost: 7
   dodgeDuration: 0.3
   parryDuration: 0.1
   dodgeCoolTime: 0.5
-  parrayCoolTime: 0.3
+  parrayCoolTime: 0.5
   references:
     version: 2
     RefIds:

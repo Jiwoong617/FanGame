@@ -15,10 +15,14 @@ MonoBehaviour:
   unitName: "\uC2E0\uC790"
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
   unitSprite: {fileID: 9053092070223317430, guid: d7bd72ffc9b04fd48bdf2a93388592c3, type: 3}
-  hp: 100
+  unitBasicAttackSprite: {fileID: 0}
+  unitAttackEffectSprite: {fileID: 0}
+  hp: 10
   defense: 0
-  attackDamage: 10
-  attackSpeed: 0.1
+  attackDamage: 5
+  attackSpeed: 1
+  criticalChance: 5
+  criticalDamage: 150
   unitDescription: "\uCE74\uC624\uC2A4\uC758 \uC2E0\uC744 \uC12C\uAE30\uB294 '\uB958\uC2DC\uD638'
     \uC131\uB140 \uC544\uB798 \uC131\uB140\uB97C \uB530\uB974\uB294 \uC2E0\uC790\uC774\uB2E4.
     \uC2E0\uD654\uC18D \uC874\uC7AC\uC778 '\uC0AC\uC790\uBB34'\uB97C \uBCF4\uACE0\uC2F6\uB2E4\uB294
@@ -31,17 +35,17 @@ MonoBehaviour:
   - rid: 8549445380324196423
   - rid: 8549445450257924181
   - rid: 8549445450257924183
-  stamina: 100
+  unitBackSprite: {fileID: -7954620618086645965, guid: 927caa84d79950b479dc5442efa22dcb, type: 3}
+  stamina: 80
   staminaRegen: 1
-  fp: 100
-  skillCost: 0
+  fp: 0
   skillCoolTime: 0
-  dodgeCost: 20
-  parryCost: 10
-  dodgeDuration: 1
-  parryDuration: 1
-  dodgeCoolTime: 3
-  parrayCoolTime: 3
+  dodgeCost: 10
+  parryCost: 7
+  dodgeDuration: 0.3
+  parryDuration: 0.1
+  dodgeCoolTime: 0.5
+  parrayCoolTime: 0.5
   references:
     version: 2
     RefIds:
