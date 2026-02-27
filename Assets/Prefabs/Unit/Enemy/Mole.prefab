@@ -79,7 +79,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 21300000, guid: 7dce25e832fa59a4d96b12a97d737eae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -186,7 +186,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
-  basicAttackSprite: {fileID: 21300000, guid: 223b93625b023b843b97c0b55f07a2e2, type: 3}
   patterns:
   - rid: 270507929149374545
   - rid: 8549445310020845641

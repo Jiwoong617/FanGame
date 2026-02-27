@@ -7,6 +7,7 @@ using UnityEngine;
 public abstract class CombatUnit : MonoBehaviour
 {
     [SerializeField] protected CombatUnitUI combatUI;
+
     protected SpriteRenderer spriteRenderer;
     protected UnitData unitData;
     protected List<GameObject> _activeEffects = new List<GameObject>(); // 이펙트 관리
@@ -36,7 +37,7 @@ public abstract class CombatUnit : MonoBehaviour
     protected HitFlash hitEffect;
 
 
-    protected virtual void Start()
+    protected virtual void Awake()
     {
         hitEffect = GetComponent<HitFlash>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>(); // 임시 코드라 좀 더 정확하게 짜야함
@@ -140,79 +141,102 @@ public abstract class CombatUnit : MonoBehaviour
 
     public virtual void Attack()
     {
-        StopCoroutine(nameof(AttackAnimation));
-        StartCoroutine(AttackAnimation());
-
-        StartCoroutine(AttackEffectCoroutine());
         if (target == null || IsDead) return;
 
-        float damage = stats.attackDamage.GetValue();
-        bool isCrit = false;
+        Vector3 originalPos = transform.position;
+        Vector3 dir = (target.transform.position - transform.position).normalized;
 
-        if (UnityEngine.Random.Range(0f, 100f) < stats.criticalChance.GetValue())
+        float dashDistance = 1f;
+        Vector3 attackPos = originalPos + dir * dashDistance;
+        float attackInterval = ATTACK_THRESHOLD / stats.attackSpeed.GetValue();
+        float maxAnimTime = Mathf.Min(0.2f, attackInterval * 0.8f);
+
+        float forwardTime = maxAnimTime * 0.2f;
+        float pauseTime = maxAnimTime * 0.2f;
+        float returnTime = maxAnimTime * 0.6f;
+
+        transform.DOKill();
+        Sequence attackSeq = DOTween.Sequence();
+
+        // 일단 돌진 후 도달하면 공격하게 했음
+        attackSeq.Append(transform.DOMove(attackPos, forwardTime).SetEase(Ease.OutExpo));
+        attackSeq.AppendCallback(() =>
         {
-            isCrit = true;
-            damage *= (stats.criticalDamage.GetValue() / 100f);
-        }
+            if (target == null || target.IsDead || IsDead) return;
 
-        CombatEventContext attackCtx = new CombatEventContext(this, target, damage, DamageType.Normal, false, isCrit);
-        float actualDamage = target.TakeDamage(attackCtx);
+            float damage = stats.attackDamage.GetValue();
+            bool isCrit = false;
 
-        if (actualDamage > 0 && !IsDead)
-        {
-            //이거 방어력 깎인 최종 데미지로 교체
-            attackCtx.value = actualDamage;
-            TriggerAbility(CombatEvent.OnAttack, attackCtx);
-        }
+            if (UnityEngine.Random.Range(0f, 100f) < stats.criticalChance.GetValue())
+            {
+                isCrit = true;
+                damage *= (stats.criticalDamage.GetValue() / 100f);
+            }
+
+            CombatEventContext attackCtx = new CombatEventContext(this, target, damage, DamageType.Normal, false, isCrit);
+            float actualDamage = target.TakeDamage(attackCtx);
+
+            if (actualDamage > 0 && !IsDead)
+            {
+                //이거 방어력 깎인 최종 데미지로 교체
+                attackCtx.value = actualDamage;
+                TriggerAbility(CombatEvent.OnAttack, attackCtx);
+            }
+        });
+
+        attackSeq.AppendInterval(pauseTime);
+        attackSeq.Append(transform.DOMove(originalPos, returnTime).SetEase(Ease.OutCirc));
     }
+
+
     // 스프라이트 변경 코루틴 코드
-    protected virtual IEnumerator AttackAnimation()
-    {
-        if (spriteRenderer != null && unitData != null && unitData.unitBasicAttackSprite != null)
-        {
-            spriteRenderer.sprite = unitData.unitBasicAttackSprite;
-        }
-        yield return new WaitForSeconds(0.3f);
+    //protected virtual IEnumerator AttackAnimation()
+    //{
+    //    if (spriteRenderer != null && unitData != null && unitData.unitBasicAttackSprite != null)
+    //    {
+    //        spriteRenderer.sprite = unitData.unitBasicAttackSprite;
+    //    }
+    //    yield return new WaitForSeconds(0.3f);
 
-        if (spriteRenderer != null && unitData != null && unitData.unitSprite != null)
-        {
-            spriteRenderer.sprite = unitData.unitSprite;
-        }
-    }
+    //    if (spriteRenderer != null && unitData != null && unitData.unitSprite != null)
+    //    {
+    //        spriteRenderer.sprite = unitData.unitSprite;
+    //    }
+    //}
 
-    protected virtual IEnumerator AttackEffectCoroutine()
-    {
-        // 1. 필요한 데이터(타겟, 이펙트 스프라이트)가 없으면 실행하지 않음
-        if (target == null || unitData == null || unitData.unitAttackEffectSprite == null)
-        {
-            yield break; // 코루틴 종료
-        }
+    //protected virtual IEnumerator AttackEffectCoroutine()
+    //{
+    //    // 1. 필요한 데이터(타겟, 이펙트 스프라이트)가 없으면 실행하지 않음
+    //    if (target == null || unitData == null || unitData.unitAttackEffectSprite == null)
+    //    {
+    //        yield break; // 코루틴 종료
+    //    }
 
-        // 2. 이펙트를 표시할 빈 게임 오브젝트를 생성
-        GameObject effectObject = new GameObject("AttackEffect");
-        _activeEffects.Add(effectObject);
+    //    // 2. 이펙트를 표시할 빈 게임 오브젝트를 생성
+    //    GameObject effectObject = new GameObject("AttackEffect");
+    //    _activeEffects.Add(effectObject);
 
-        // 3. 이펙트 오브젝트의 위치를 타겟의 위치로 설정
-        // (Z값을 살짝 조정하여 다른 스프라이트보다 앞에 보이게 할 수 있습니다)
-        effectObject.transform.position = target.transform.position + new Vector3(0, 0, -0.1f);
+    //    // 3. 이펙트 오브젝트의 위치를 타겟의 위치로 설정
+    //    // (Z값을 살짝 조정하여 다른 스프라이트보다 앞에 보이게 할 수 있습니다)
+    //    effectObject.transform.position = target.transform.position + new Vector3(0, 0, -0.1f);
 
-        // 4. SpriteRenderer 컴포넌트를 추가하고 이펙트 스프라이트를 할당
-        SpriteRenderer effectRenderer = effectObject.AddComponent<SpriteRenderer>();
-        effectRenderer.sprite = unitData.unitAttackEffectSprite;
+    //    // 4. SpriteRenderer 컴포넌트를 추가하고 이펙트 스프라이트를 할당
+    //    SpriteRenderer effectRenderer = effectObject.AddComponent<SpriteRenderer>();
+    //    effectRenderer.sprite = unitData.unitAttackEffectSprite;
 
-        // (선택 사항) 다른 스프라이트와 겹치지 않도록 Sorting Order를 높게 설정
-        effectRenderer.sortingOrder = 10;
+    //    // (선택 사항) 다른 스프라이트와 겹치지 않도록 Sorting Order를 높게 설정
+    //    effectRenderer.sortingOrder = 10;
 
-        // 5. 이펙트를 보여줄 시간만큼 대기
-        yield return new WaitForSeconds(0.5f); // 0.5초 동안 보여줌 (시간 조절 가능)
-        if (_activeEffects.Contains(effectObject))
-        {
-            _activeEffects.Remove(effectObject);
-        }
+    //    // 5. 이펙트를 보여줄 시간만큼 대기
+    //    yield return new WaitForSeconds(0.5f); // 0.5초 동안 보여줌 (시간 조절 가능)
+    //    if (_activeEffects.Contains(effectObject))
+    //    {
+    //        _activeEffects.Remove(effectObject);
+    //    }
 
-        // 6. 이펙트 오브젝트를 파괴하여 화면에서 제거
-        Destroy(effectObject);
-    }
+    //    // 6. 이펙트 오브젝트를 파괴하여 화면에서 제거
+    //    Destroy(effectObject);
+    //}
 
     protected void InitializeAbilities(UnitData data)
     {

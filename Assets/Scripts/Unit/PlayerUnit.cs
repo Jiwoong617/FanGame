@@ -10,11 +10,14 @@ public enum PlayerState
 {
     Idle,
     Dodging,
-    Parrying
+    Parrying,
+    Skill
 }
 
 public class PlayerUnit : CombatUnit
 {
+    protected PlayerData playerData;
+
     protected PlayerStats playerStats;
     protected float stateTimer = 0f;
 
@@ -26,9 +29,13 @@ public class PlayerUnit : CombatUnit
 
     public override void Init(UnitData unitData)
     {
-        base.Init(unitData);
+        this.unitData = unitData;
+
         if (unitData is PlayerData playerData)
         {
+            spriteRenderer.sprite = playerData.unitBackSprite;
+            this.playerData = playerData;
+
             playerStats = new PlayerStats(playerData);
             base.stats = playerStats;
 
@@ -156,7 +163,12 @@ public class PlayerUnit : CombatUnit
 
     public override void OnDead()
     {
-        Debug.Log("Player Dead");
+        transform.DOKill();
+        spriteRenderer.transform.DOKill();
+
+        spriteRenderer.sortingOrder = 40;
+
+        spriteRenderer.transform.DORotate(new Vector3(0, 0, -90f), 2f).SetEase(Ease.OutBounce);
     }
 
 
@@ -214,6 +226,29 @@ public class PlayerUnit : CombatUnit
     {
         state = newState;
         stateTimer = duration;
+
+        if (newState == PlayerState.Dodging)
+        {
+            spriteRenderer.transform.DOKill();
+
+            float originalX = spriteRenderer.transform.position.x;
+            float dodgeDistance = 1.5f;
+
+            Sequence dodgeSeq = DOTween.Sequence();
+
+            //일단 구르기 0.3, 제자리 0.2, 복귀 0.5로 했음
+            dodgeSeq.Append(spriteRenderer.transform.DOMoveX(originalX - dodgeDistance, duration * 0.3f).SetEase(Ease.OutCubic));
+            dodgeSeq.AppendInterval(duration * 0.2f);
+            dodgeSeq.Append(spriteRenderer.transform.DOMoveX(originalX, duration * 0.5f).SetEase(Ease.InOutSine));
+        }
+        else if (newState == PlayerState.Parrying)
+        {
+            //TODO : 패링 연출
+        }
+        else if (newState == PlayerState.Skill)
+        {
+            //TODO : 스킬 연출
+        }
     }
 
     public void NotifyCooldownStarted(ActionType type, float duration)
@@ -226,72 +261,67 @@ public class PlayerUnit : CombatUnit
         return playerStats as T;
     }
 
-    protected override IEnumerator AttackAnimation()
-   {
-        if (spriteRenderer != null && unitData != null && unitData.unitBasicAttackSprite != null)
-       {
-           spriteRenderer.sprite = unitData.unitBasicAttackSprite;
-       }
+   // protected override IEnumerator AttackAnimation()
+   //{
+   //     if (spriteRenderer != null && unitData != null && unitData.unitBasicAttackSprite != null)
+   //     {
+   //        spriteRenderer.sprite = unitData.unitBasicAttackSprite;
+   //     }
 
-        yield return new WaitForSeconds(0.3f);
+   //     yield return new WaitForSeconds(0.3f);
 
-        if (spriteRenderer != null && unitData != null && unitData.unitBasicAttackSprite != null && unitData is PlayerData playerData)
-        {
-            spriteRenderer.sprite = playerData.unitBackSprite;
-        }
+   //     if (spriteRenderer != null && playerData != null)
+   //     {
+   //         spriteRenderer.sprite = playerData.unitBackSprite;
+   //     }
+   // }
 
-        else if (spriteRenderer != null && unitData != null && unitData.unitSprite != null)
-        {
-            spriteRenderer.sprite = unitData.unitSprite;
-        }
-    }
+   // protected override IEnumerator AttackEffectCoroutine()
+   // {
+   //     // 1. 필요한 데이터(타겟, 이펙트 스프라이트)가 없으면 실행하지 않음
+   //     if (target == null || unitData == null || unitData.unitAttackEffectSprite == null)
+   //     {
+   //         yield break; // 코루틴 종료
+   //     }
+    
+   //     // --- DOTween을 사용한 연출 ---
+    
+   //     // 2. 이펙트용 게임 오브젝트 생성 및 설정
+   //     GameObject effectObject = new GameObject("PlayerAttackEffect");
+   //     _activeEffects.Add(effectObject);
+   //     SpriteRenderer effectRenderer = effectObject.AddComponent<SpriteRenderer>();
+   //     effectRenderer.sprite = unitData.unitAttackEffectSprite;
+   //     effectRenderer.sortingOrder = 10; // 다른 스프라이트보다 앞에 보이도록 설정
+   //     effectRenderer.color = new Color(1, 1, 1, 0.8f); // 약간 투명하게 시작
+    
+   //     // 3. 연출 시작 위치와 각도 설정
+   //     Vector3 direction = target.transform.position - transform.position; // 타겟을 향하는 방향
+   //     float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // 방향을 각도로 변환
+    
+   //     effectObject.transform.position = target.transform.position + new Vector3(0.5f,1); //타겟 위치 대각선 시작
+   //     effectObject.transform.rotation = Quaternion.Euler(0, 0, angle - 225f); // -90도 기울여서 시작
+    
+   //     // 4. DOTween 시퀀스를 사용하여 애니메이션 제작
+   //     Sequence sequence = DOTween.Sequence();
+    
+   //     // 90도 회전
+   //     sequence.Join(effectObject.transform.DORotate(new Vector3(0, 0, angle - 90f), 0.3f).SetEase(Ease.InExpo));
 
-    protected override IEnumerator AttackEffectCoroutine()
-    {
-        // 1. 필요한 데이터(타겟, 이펙트 스프라이트)가 없으면 실행하지 않음
-        if (target == null || unitData == null || unitData.unitAttackEffectSprite == null)
-        {
-            yield break; // 코루틴 종료
-        }
-    
-        // --- DOTween을 사용한 연출 ---
-    
-        // 2. 이펙트용 게임 오브젝트 생성 및 설정
-        GameObject effectObject = new GameObject("PlayerAttackEffect");
-        _activeEffects.Add(effectObject);
-        SpriteRenderer effectRenderer = effectObject.AddComponent<SpriteRenderer>();
-        effectRenderer.sprite = unitData.unitAttackEffectSprite;
-        effectRenderer.sortingOrder = 10; // 다른 스프라이트보다 앞에 보이도록 설정
-        effectRenderer.color = new Color(1, 1, 1, 0.8f); // 약간 투명하게 시작
-    
-        // 3. 연출 시작 위치와 각도 설정
-        Vector3 direction = target.transform.position - transform.position; // 타겟을 향하는 방향
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg; // 방향을 각도로 변환
-    
-        effectObject.transform.position = target.transform.position + new Vector3(0.5f,1); //타겟 위치 대각선 시작
-        effectObject.transform.rotation = Quaternion.Euler(0, 0, angle - 225f); // -90도 기울여서 시작
-    
-        // 4. DOTween 시퀀스를 사용하여 애니메이션 제작
-        Sequence sequence = DOTween.Sequence();
-    
-        // 90도 회전
-        sequence.Join(effectObject.transform.DORotate(new Vector3(0, 0, angle - 90f), 0.3f).SetEase(Ease.InExpo));
+   //     // 0.3초에 걸쳐 서서히 사라지게 함
+   //     sequence.Append(effectRenderer.DOFade(0, 0.3f));
 
-        // 0.3초에 걸쳐 서서히 사라지게 함
-        sequence.Append(effectRenderer.DOFade(0, 0.3f));
-
-        // 시퀀스가 모두 끝나면 이펙트 오브젝트를 파괴
-        sequence.OnComplete(() =>
-        {
-            if (_activeEffects.Contains(effectObject))
-            {
-                _activeEffects.Remove(effectObject);
-            }
-            Destroy(effectObject);
-        });
+   //     // 시퀀스가 모두 끝나면 이펙트 오브젝트를 파괴
+   //     sequence.OnComplete(() =>
+   //     {
+   //         if (_activeEffects.Contains(effectObject))
+   //         {
+   //             _activeEffects.Remove(effectObject);
+   //         }
+   //         Destroy(effectObject);
+   //     });
     
-        yield break; // 코루틴의 역할은 시퀀스를 실행하는 것까지이므로 바로 종료
-    }
+   //     yield break; // 코루틴의 역할은 시퀀스를 실행하는 것까지이므로 바로 종료
+   // }
 
     public override void SetTarget(CombatUnit inTarget)
     {

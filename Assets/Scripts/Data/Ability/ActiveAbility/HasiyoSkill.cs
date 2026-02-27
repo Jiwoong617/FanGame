@@ -34,6 +34,9 @@ public class HasiyoSkill : ActiveAbility
         if (enemies == null || enemies.Count == 0)
             return;
 
+        //TODO : 이거 일단 0.3초로 해놓음
+        player.ChangeState(PlayerState.Skill, 0.3f);
+
         // 0 불, 1 얼음, 2 대지
         int magicType = Random.Range(0, 3);
 

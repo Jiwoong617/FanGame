@@ -25,6 +25,10 @@ public class MapTransitionUI : UI_Base
 
     protected override void Init()
     {
+        Canvas canvas = GetComponent<Canvas>();
+        if (canvas != null && canvas.worldCamera == null)
+            canvas.worldCamera = Camera.main;
+
         Bind<Image>(typeof(Images));
 
         bars.Clear();

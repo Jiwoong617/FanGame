@@ -37,6 +37,10 @@ public class EventUI : UI_Base
 
     protected override void Init()
     {
+        Canvas canvas = GetComponent<Canvas>();
+        if (canvas != null && canvas.worldCamera == null)
+            canvas.worldCamera = Camera.main;
+
         Bind<TMP_Text>(typeof(Texts));
         Bind<VerticalLayoutGroup>(typeof(Verticals));
         Bind<Image>(typeof(Images));

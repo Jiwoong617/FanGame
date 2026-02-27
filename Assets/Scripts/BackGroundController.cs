@@ -9,9 +9,9 @@ public enum BackgroundType
     Stage1_Battle,
     Stage1_Rest,
     Stage2_Battle,
-    Stage2_Boss,
+    Stage2_Rest,
     Stage3_Battle,
-    Stage3_Boss,
+    Stage3_Rest,
 }
 
 public class BackGroundController : MonoBehaviour

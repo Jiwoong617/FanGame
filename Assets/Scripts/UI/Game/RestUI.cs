@@ -33,6 +33,10 @@ public class RestUI : UI_Base
 
     protected override void Init()
     {
+        Canvas canvas = GetComponent<Canvas>();
+        if (canvas != null && canvas.worldCamera == null)
+            canvas.worldCamera = Camera.main;
+
         Bind<Button>(typeof(Buttons));
         Bind<Image>(typeof(Images));
         Bind<TMP_Text>(typeof(Texts));

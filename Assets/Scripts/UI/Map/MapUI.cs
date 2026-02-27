@@ -38,6 +38,10 @@ public class MapUI : UI_Base
 
     protected override void Init()
     {
+        Canvas canvas = GetComponent<Canvas>();
+        if (canvas != null && canvas.worldCamera == null)
+            canvas.worldCamera = Camera.main;
+
         GameManager.Map.SetMapUI(this);
 
         Bind<RectTransform>(typeof(RectT));

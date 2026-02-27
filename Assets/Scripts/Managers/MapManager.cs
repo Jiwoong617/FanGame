@@ -287,4 +287,14 @@ public class MapManager
     public void HideMapUI() => mapUI.Hide();
 
     public MapTransitionUI GetMapTransitionUI() => mapTransitionUI;
+
+    public void ClearMapData()
+    {
+        if (mapGrid != null)
+        {
+            mapGrid.Clear();
+            mapGrid = null;
+        }
+        currentNode = null;
+    }
 }

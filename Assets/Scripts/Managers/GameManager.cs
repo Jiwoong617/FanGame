@@ -261,4 +261,20 @@ public class GameManager : MonoBehaviour
 
         Map.ShowMapUI();
     }
+
+    public void ResetGame()
+    {
+        Inventory.ClearInventory();
+        Battle.CleanupBattle();
+        Map.ClearMapData();
+        CurrentStageIndex = 0;
+
+        if (Player != null)
+        {
+            Destroy(Player.gameObject);
+            Player = null;
+        }
+
+        State = GameState.MainMenu;
+    }
 }
