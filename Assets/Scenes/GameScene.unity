@@ -1001,10 +1001,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: MapTransitionUI
       objectReference: {fileID: 0}
-    - target: {fileID: 5622108763935306043, guid: d84d1c0836b53954d86fe1b760142448, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

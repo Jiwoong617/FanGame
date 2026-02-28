@@ -1,6 +1,7 @@
-using UnityEngine;
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class EnemyUnit : CombatUnit
 {
@@ -145,8 +146,20 @@ public class EnemyUnit : CombatUnit
     }
 
     public override void OnDead() 
-    { 
-        currentRunningPattern = null; 
+    {
+        currentRunningPattern = null;
+
+        var col = GetComponent<Collider2D>();
+        if (col != null)
+            col.enabled = false;
+
+        spriteRenderer.transform.DOKill();
+        //TODO : 만약 사망 스프라이트가 있다면 여기서 바꿀거임
+
+        spriteRenderer.DOFade(0f, 1.0f).OnComplete(() =>
+        {
+            OnUnitDead?.Invoke(this);
+        });
     }
 
     public override float TakeDamage(CombatEventContext ctx)
@@ -173,7 +186,6 @@ public class EnemyUnit : CombatUnit
         if (stats.hp <= 0)
         {
             stats.hp = 0;
-            OnUnitDead?.Invoke(this);
             OnDead();
             return finalDamage;
         }

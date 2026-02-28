@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public enum BattleState
 {
     None,
+    Intro,
     Processing,
     Finished
 }
@@ -22,12 +23,6 @@ public class BattleManager
 
     private BattleState state = BattleState.None;
     private float spawnSpacing = 5f;
-
-    public void SetEnemyAnchor()
-    {
-        GameObject eAnchorObj = GameObject.Find("EnemyAnchor");
-        enemyAnchor = eAnchorObj.transform;
-    }
 
     public void SetupBattle(PlayerUnit p, List<UnitData> enemyDataList)
     {
@@ -87,6 +82,11 @@ public class BattleManager
 
     public void StartBattle()
     {
+        state = BattleState.Intro;
+    }
+
+    public void StartProcessing()
+    {
         Debug.Log("[BattleManager] Battle Started!");
         state = BattleState.Processing;
 
@@ -135,18 +135,6 @@ public class BattleManager
                 enemies[i].OnUpdate(Time.deltaTime);
             }
         }
-
-        // 승리 조건 체크
-        if (enemies.Count == 0)
-        {
-            Debug.Log("[BattleManager] All enemies defeated!");
-            state = BattleState.Finished;
-            
-            if (player != null)
-                player.OnBattleEnd();
-            
-            OnBattleWon?.Invoke();
-        }
     }
 
     private void HandleEnemyDead(CombatUnit unit)
@@ -159,6 +147,18 @@ public class BattleManager
             
             enemies.Remove(enemy);
             GameObject.Destroy(enemy.gameObject);
+
+            // 승리 조건 체크
+            if (enemies.Count == 0)
+            {
+                Debug.Log("[BattleManager] All enemies defeated!");
+                state = BattleState.Finished;
+
+                if (player != null)
+                    player.OnBattleEnd();
+
+                OnBattleWon?.Invoke();
+            }
         }
     }
 
@@ -200,6 +200,13 @@ public class BattleManager
     public List<EnemyUnit> GetAliveEnemies()
     {
         return enemies.FindAll(e => e != null && !e.IsDead);
+    }
+
+
+    public void SetEnemyAnchor()
+    {
+        GameObject eAnchorObj = GameObject.Find("EnemyAnchor");
+        enemyAnchor = eAnchorObj.transform;
     }
 
     public void SetTargetMarker(TargetMarker targetMarker) => this.targetMarker = targetMarker;
