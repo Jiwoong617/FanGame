@@ -11,7 +11,8 @@ public enum GameState
     MapSelect,
     Event,
     Rest,
-    GameOver
+    GameOver,
+    Ending,
 }
 
 public class GameManager : MonoBehaviour
@@ -239,6 +240,9 @@ public class GameManager : MonoBehaviour
             case GameState.GameOver:
                 Debug.Log("GAME OVER");
                 break;
+            case GameState.Ending:
+                Debug.Log("Ending");
+                break;
         }
     }
 
@@ -248,8 +252,9 @@ public class GameManager : MonoBehaviour
 
         if (CurrentStageIndex >= stageList.Count)
         {
-            // TODO : 모든 스테이지 클리어
-            Debug.Log("Clear All Stage");
+            // TODO : 일단 클리어 하면 엔딩 바로 보게
+            ChangeState(GameState.Ending);
+            Scene.LoadScene(SceneType.Ending);
             return;
         }
 

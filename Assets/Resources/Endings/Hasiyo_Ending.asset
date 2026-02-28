@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa086fe25cba1e74cabd6b1976725679, type: 3}
+  m_Name: Hasiyo_Ending
+  m_EditorClassIdentifier: Assembly-CSharp::EndingData
+  pagePrefabs:
+  - {fileID: 7128034086232717874, guid: 8ecaf797947b6f04c8965458d561ca9c, type: 3}

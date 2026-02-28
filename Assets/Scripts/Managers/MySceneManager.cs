@@ -7,7 +7,8 @@ public enum SceneType
 {
     Unknown,
     MainMenu,
-    Game
+    Game,
+    Ending
 }
 
 public class MySceneManager
@@ -115,7 +116,7 @@ public class MySceneManager
         return fadeObj.GetComponentInChildren<CanvasGroup>();
     }
 
-    public string GetSceneName(SceneType type)
+    private string GetSceneName(SceneType type)
     {
         switch (type)
         {
@@ -123,6 +124,8 @@ public class MySceneManager
                 return "MainScene";
             case SceneType.Game:
                 return "GameScene";
+            case SceneType.Ending:
+                return "EndingScene";
             default:
                 return "";
         }
