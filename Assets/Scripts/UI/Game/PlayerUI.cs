@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class PlayerUI : UI_Base
 {
@@ -30,8 +31,8 @@ public class PlayerUI : UI_Base
     enum Images
     {
         Icon,
-        BackGround,
-        InventoryUI,
+        PlayerPanel,
+        InventoryPanel,
     }
     #endregion
 
@@ -51,9 +52,17 @@ public class PlayerUI : UI_Base
     private TMP_Text DefenseText;
     private TMP_Text StRegenText;
 
-    private GameObject PlayerPanel; 
-    private GameObject InventoryPanel;
+    private GameObject playerPanelObj;
+    private GameObject inventoryPanelObj;
+    private RectTransform playerRect;
+    private RectTransform inventoryRect;
+    private CanvasGroup playerCG;
+    private CanvasGroup inventoryCG;
+
     private bool isShowingPlayer = true;
+    private Vector2 originalPos; 
+    private float slideOffset = 200f; 
+    private float animDuration = 0.3f; // 전환 속도
 
     private InputAction tabAction;
 
@@ -83,8 +92,15 @@ public class PlayerUI : UI_Base
         CritDamageText = Get<TMP_Text>(Texts.CritDamage);
 
         Get<Image>(Images.Icon).sprite = GameManager.Instance.SelectedPlayerClass.unitSprite;
-        PlayerPanel = Get<Image>(Images.BackGround).gameObject;
-        InventoryPanel = Get<Image>(Images.InventoryUI).gameObject;
+        playerPanelObj = Get<Image>(Images.PlayerPanel).gameObject;
+        inventoryPanelObj = Get<Image>(Images.InventoryPanel).gameObject;
+        playerRect = playerPanelObj.GetComponent<RectTransform>();
+        inventoryRect = inventoryPanelObj.GetComponent<RectTransform>();
+        playerCG = playerPanelObj.GetComponent<CanvasGroup>();
+        inventoryCG = inventoryPanelObj.GetComponent<CanvasGroup>();
+        originalPos = playerRect.anchoredPosition;
+        isShowingPlayer = true;
+
 
         tabAction = new InputAction(binding: "<Keyboard>/tab");
         tabAction.performed += OnTabPressed;
@@ -203,9 +219,43 @@ public class PlayerUI : UI_Base
 
     private void OnTabPressed(InputAction.CallbackContext context)
     {
+        //이벤트 중복 방지
+        if (DOTween.IsTweening(playerRect) || DOTween.IsTweening(inventoryRect)) return;
+
         isShowingPlayer = !isShowingPlayer;
 
-        PlayerPanel.SetActive(isShowingPlayer);
-        InventoryPanel.SetActive(!isShowingPlayer);
+        if (isShowingPlayer)
+            SwitchPanels(inventoryRect, inventoryCG, playerRect, playerCG, -1);
+        else
+            SwitchPanels(playerRect, playerCG, inventoryRect, inventoryCG, 1);
+    }
+
+    private void SwitchPanels(RectTransform from, CanvasGroup fromCG, RectTransform to, CanvasGroup toCG, int direction)
+    {
+        from.DOKill(); fromCG.DOKill();
+        to.DOKill(); toCG.DOKill();
+
+        // 나가는 패널
+        // 방향이 1이면 왼쪽으로, -1이면 오른쪽으로밀려남
+        float exitDestX = originalPos.x + (direction == 1 ? -slideOffset : slideOffset);
+
+        fromCG.blocksRaycasts = false; // 클릭 방지
+        from.DOAnchorPosX(exitDestX, animDuration).SetEase(Ease.OutQuad);
+        fromCG.DOFade(0f, animDuration).OnComplete(() =>
+        {
+            from.gameObject.SetActive(false);
+        });
+
+        //들어오는 패널
+        to.gameObject.SetActive(true);
+        toCG.blocksRaycasts = true;
+
+        // 방향이 1이면 오른쪽(+)에서 -1이면 왼쪽(-)에서 등장
+        float enterStartX = originalPos.x + (direction == 1 ? slideOffset : -slideOffset);
+        to.anchoredPosition = new Vector2(enterStartX, originalPos.y);
+        toCG.alpha = 0f;
+
+        to.DOAnchorPosX(originalPos.x, animDuration).SetEase(Ease.OutQuad);
+        toCG.DOFade(1f, animDuration);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class MapUI : UI_Base
 {
@@ -20,6 +21,7 @@ public class MapUI : UI_Base
     private RectTransform lineContainer;
     private RectTransform nodeContainer;
 
+    private CanvasGroup canvasGroup;
 
     // 생성된 UI 객체 관리
     private List<MapNodeUI> nodeUIs = new List<MapNodeUI>();
@@ -49,6 +51,7 @@ public class MapUI : UI_Base
         lineContainer = Get<RectTransform>(RectT.LineContainer);
         nodeContainer = Get<RectTransform>(RectT.NodeContainer);
         scrollRect = GetComponentInChildren<ScrollRect>();
+        canvasGroup = GetComponent<CanvasGroup>();
 
         gameObject.SetActive(false);
     }
@@ -185,7 +188,7 @@ public class MapUI : UI_Base
         {
             GameManager.Map.SelectNode(node);
             UpdateMapUI();
-            Hide() ;
+            Hide();
         }
     }
 
@@ -197,5 +200,24 @@ public class MapUI : UI_Base
         nodeUIs.Clear();
         lines.Clear();
         nodeUiMap.Clear();
+    }
+
+    public override void Show()
+    {
+        base.Show();
+        PlayAppearAnimation();
+    }
+
+    private void PlayAppearAnimation()
+    {
+        if (canvasGroup != null)
+            canvasGroup.alpha = 0f;
+        transform.localScale = new Vector3(0.95f, 0.95f, 1f);
+
+        Sequence seq = DOTween.Sequence();
+        seq.SetUpdate(true);
+
+        seq.Append(canvasGroup.DOFade(1f, 0.3f));
+        seq.Join(transform.DOScale(1f, 0.3f).SetEase(Ease.OutBack));
     }
 }

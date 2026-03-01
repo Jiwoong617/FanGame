@@ -33,10 +33,10 @@ RectTransform:
   - {fileID: 2557159149598693206}
   m_Father: {fileID: 262010230388785372}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.22, y: 0.08}
+  m_AnchorMax: {x: 0.98, y: 0.92}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1500, y: 900}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3906411653791997648
 CanvasRenderer:
@@ -109,10 +109,10 @@ RectTransform:
   - {fileID: 2567375461061073333}
   m_Father: {fileID: 2809901792068321641}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1500, y: 900}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000061035156, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1146865755762292643
 CanvasRenderer:
@@ -241,8 +241,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 180, y: 0}
-  m_SizeDelta: {x: 1500, y: 1800}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 1500, y: 2000}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &536217570870690534
 CanvasRenderer:
@@ -295,6 +295,7 @@ GameObject:
   - component: {fileID: 1946877752367645148}
   - component: {fileID: 5636599664416130643}
   - component: {fileID: 6646809143197711625}
+  - component: {fileID: 4320561047533185207}
   m_Layer: 5
   m_Name: MapUI
   m_TagString: Untagged
@@ -399,3 +400,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MapUI
   nodePrefab: {fileID: 4736066685773861453, guid: fc5e839e03a3b2d41a526f536f0df1c7, type: 3}
   linePrefab: {fileID: 2156988775891819694, guid: a1dfa8679183ceb47b5d6bb6f3ed4823, type: 3}
+--- !u!225 &4320561047533185207
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8746837784477970726}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
