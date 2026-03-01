@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour
     public static RestManager Rest { get; private set; }
     public static InventoryManager Inventory { get; private set; }
     public static VFXManager VFX { get; private set; }
+    public static SoundManager Sound { get; private set; }
     public static SpriteDataManager SpriteData { get; private set; }
     #endregion
 
@@ -109,6 +110,8 @@ public class GameManager : MonoBehaviour
         VFX.Init();
         SpriteData = new SpriteDataManager();
         SpriteData.Init();
+        Sound = new SoundManager();
+        Sound.Init();
 
 
         // 전투 -> (승리) -> 보상

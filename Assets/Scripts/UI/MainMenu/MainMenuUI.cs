@@ -37,7 +37,10 @@ public class MainMenuUI : UI_Base
 
     private void OnSettingClicked()
     {
-        Debug.Log("Settings");
+        if (SettingUI.Instance != null)
+        {
+            SettingUI.Instance.Toggle();
+        }
     }
 
     private void OnExitClicked()
