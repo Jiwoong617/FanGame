@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Button
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -133,8 +133,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d8a647e90cadea4a93b92785e88c099, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MapIconUI
-  monsterSprite: {fileID: -6567437999947246713, guid: c074e71828de5dc42a0b05037042ab4c, type: 3}
-  eliteSprite: {fileID: 6958723090021040894, guid: c074e71828de5dc42a0b05037042ab4c, type: 3}
-  restSprite: {fileID: -8504795465780784537, guid: c074e71828de5dc42a0b05037042ab4c, type: 3}
-  eventSprite: {fileID: -8918218619221043143, guid: c074e71828de5dc42a0b05037042ab4c, type: 3}
-  bossSprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
