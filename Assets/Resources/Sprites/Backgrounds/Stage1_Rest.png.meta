@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f5154e17c43ac1c409914e5b75dbe561
+guid: 26fc0814a2f8ec24eaa47fad28b3a5ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -363735876097212019
-    second: GameMapImage_0
+      213: -2074359557193584148
+    second: Stage1_Rest 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: GameMapImage_0
+      name: Stage1_Rest 1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 14
-        width: 2786
-        height: 1426
+        y: 0
+        width: 2752
+        height: 1536
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d810929d520c3faf0800000000000000
-      internalID: -363735876097212019
+      spriteID: ce13a0129f46633e0800000000000000
+      internalID: -2074359557193584148
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      GameMapImage_0: -363735876097212019
+      Stage1_Rest 1_0: -2074359557193584148
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
