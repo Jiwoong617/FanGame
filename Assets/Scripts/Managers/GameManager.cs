@@ -261,7 +261,7 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-
+        OnGameStateChanged?.Invoke(GameState.Battle);
         // 플레이어 상태 회복
         Player.FullyRestore();
         // 2스테이지

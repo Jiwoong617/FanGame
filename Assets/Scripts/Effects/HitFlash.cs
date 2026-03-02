@@ -6,7 +6,7 @@ public class HitFlash : MonoBehaviour
     [SerializeField] private Color flashColor = Color.white;
     [SerializeField] private float flashDuration = 0.1f;
     [SerializeField] private float shakeDuration = 0.2f;
-    [SerializeField] private float shakeStrength = 0.2f;
+    [SerializeField] private float shakeStrength = 0.1f;
 
     private SpriteRenderer spriteRenderer;
     private Material originalMaterial;

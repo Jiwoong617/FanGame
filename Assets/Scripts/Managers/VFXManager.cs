@@ -1,19 +1,46 @@
+using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AttackVFXType
+{
+    Slash,
+    Smash,
+    Magic,
+
+    Hasiyo,
+    Mone,
+    Rose,
+    Popo,
+    Ryusiho
+}
+
 public class VFXManager
 {
+    //DamageText 관련
     private GameObject damageTextPrefab;
     private Queue<DamageText> textPool = new Queue<DamageText>();
     private List<DamageText> activeTexts = new List<DamageText>();
-
     private float pushHeight = 0.3f;
+
+    //Effect 관련
+    private GameObject effectPrefab;
+    private Queue<SimpleEffect> effectPool = new Queue<SimpleEffect>();
+    private Dictionary<AttackVFXType, Sprite> commonSprites = new Dictionary<AttackVFXType, Sprite>();
 
     public void Init()
     {
         damageTextPrefab = Resources.Load<GameObject>("DamageText");
+
+        CreateEffectPrefab();
+
+        LoadCommonSprite(AttackVFXType.Slash, "Sprites/VFX/Slash");
+        LoadCommonSprite(AttackVFXType.Smash, "Sprites/VFX/Smash");
+        LoadCommonSprite(AttackVFXType.Magic, "Sprites/VFX/Magic");
     }
 
+    #region DamageText
     public void ShowDamageText(CombatEventContext ctx)
     {
         if (ctx.target == null) return;
@@ -41,7 +68,7 @@ public class VFXManager
             }
         }
 
-        DamageText dt = (textPool.Count > 0) ? textPool.Dequeue() : Object.Instantiate(damageTextPrefab).GetComponent<DamageText>();
+        DamageText dt = (textPool.Count > 0) ? textPool.Dequeue() : UnityEngine.Object.Instantiate(damageTextPrefab).GetComponent<DamageText>();
         dt.gameObject.SetActive(true);
 
         activeTexts.Add(dt);
@@ -53,5 +80,154 @@ public class VFXManager
         dt.gameObject.SetActive(false);
         activeTexts.Remove(dt);
         textPool.Enqueue(dt);
+    }
+    #endregion
+
+    private void LoadCommonSprite(AttackVFXType type, string path)
+    {
+        Sprite s = Resources.Load<Sprite>(path);
+        if (s != null)
+            commonSprites[type] = s;
+    }
+
+    private void CreateEffectPrefab()
+    {
+        effectPrefab = new GameObject("VFXPrefab");
+        effectPrefab.AddComponent<SpriteRenderer>();
+        effectPrefab.AddComponent<SimpleEffect>();
+        effectPrefab.SetActive(false);
+        UnityEngine.Object.DontDestroyOnLoad(effectPrefab);
+    }
+
+    private SimpleEffect GetEffect()
+    {
+        if (effectPool.Count > 0)
+        {
+            SimpleEffect eff = effectPool.Dequeue();
+            eff.gameObject.SetActive(true);
+            return eff;
+        }
+        else
+        {
+            // 풀이 비었으면 새로 생성
+            GameObject go = UnityEngine.Object.Instantiate(effectPrefab);
+            go.SetActive(true);
+            return go.GetComponent<SimpleEffect>();
+        }
+    }
+
+    public void ReturnEffect(SimpleEffect effect)
+    {
+        effect.gameObject.SetActive(false);
+        effectPool.Enqueue(effect);
+    }
+
+    public void ShowGenericEffect(Vector3 pos, AttackVFXType type, float hitDelay, Color color)
+    {
+        if (!commonSprites.TryGetValue(type, out Sprite sprite)) return;
+
+        SimpleEffect effect = GetEffect();
+
+        effect.Play(pos, sprite, (t, sr, onComplete) =>
+        {
+            sr.color = new Color(color.r, color.g, color.b, 0f);
+            Sequence seq = DOTween.Sequence();
+
+            if (hitDelay > 0)
+                seq.AppendInterval(hitDelay);
+            seq.AppendCallback(() => sr.color = color);
+
+            switch (type)
+            {
+                case AttackVFXType.Slash:
+                    float angle = UnityEngine.Random.Range(0, 360f);
+                    t.rotation = Quaternion.Euler(0, 0, angle);
+
+                    seq.Append(sr.DOFade(0f, 0.25f).SetEase(Ease.InQuad));
+                    break;
+
+                case AttackVFXType.Smash:
+                    t.localScale = Vector3.one * 0.5f;
+
+                    seq.Append(t.DOScale(1.1f, 0.15f).SetEase(Ease.OutBack));
+                    seq.Join(sr.DOFade(0f, 0.2f).SetEase(Ease.InQuad));
+                    break;
+
+                default:
+                    seq.Append(t.DOScale(1.1f, 0.3f));
+                    seq.Join(sr.DOFade(0f, 0.3f));
+                    break;
+            }
+            seq.OnComplete(() => onComplete());
+
+        }, color);
+    }
+
+    public void PlayerAttackEffect(Vector3 attackerPos, Vector3 targetPos, AttackVFXType type, Sprite sprite, float hitDelay)
+    {
+        switch(type)
+        {
+            case AttackVFXType.Hasiyo:
+                HasiyoEffect(attackerPos, targetPos, sprite, hitDelay);
+                break;
+            case AttackVFXType.Mone:
+                MoneEffect(attackerPos, targetPos, sprite, hitDelay);
+                break;
+            case AttackVFXType.Popo:
+                PopoEffect(attackerPos, targetPos, sprite, hitDelay);
+                break;
+            case AttackVFXType.Rose:
+                RoseEffect(attackerPos, targetPos, sprite, hitDelay);
+                break;
+            case AttackVFXType.Ryusiho:
+                RyusihoEffect(attackerPos, targetPos, sprite, hitDelay);
+                break;
+        }
+    }
+
+    private void HasiyoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
+    {
+        if (sprite == null) return;
+
+        hitDelay *= 2;
+
+        SimpleEffect effect = GetEffect();
+        effect.Play(targetPos, sprite, (t, sr, onComplete) =>
+        {
+            Vector3 dir = targetPos - attackerPos;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+
+            t.position = targetPos + new Vector3(0.5f, 0.5f);
+            t.rotation = Quaternion.Euler(0, 0, angle - 225f);
+
+            Sequence seq = DOTween.Sequence();
+            if (hitDelay > 0)
+                seq.Append(t.DORotate(new Vector3(0, 0, angle - 90f), hitDelay).SetEase(Ease.InExpo));
+            else
+                t.rotation = Quaternion.Euler(0, 0, angle - 90f);
+
+            seq.Append(sr.DOFade(0f, 0.5f));
+            seq.OnComplete(() => onComplete());
+        }, Color.white);
+    }
+
+    private void MoneEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
+    {
+
+    }
+
+    private void RoseEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
+    {
+
+    }
+
+    private void PopoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
+    {
+
+    }
+
+    private void RyusihoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
+    {
+
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
   unitSprite: {fileID: 7955080341527372920, guid: 5acf57bee6ae0474d8b11bf14b7e6bc9, type: 3}
   unitBasicAttackSprite: {fileID: 0}
-  unitAttackEffectSprite: {fileID: 0}
+  attackVFXType: 4
   hp: 15
   defense: 0
   attackDamage: 3
@@ -36,6 +36,9 @@ MonoBehaviour:
   - rid: 8549445450257924176
   - rid: 8549445694374805575
   unitBackSprite: {fileID: 12120417478428064, guid: fcb8aa07aafebb44f8a4b80da97476f5, type: 3}
+  attackVFXSprite: {fileID: 0}
+  unitSkillSprite: {fileID: 0}
+  unitParrySprite: {fileID: 0}
   stamina: 100
   staminaRegen: 1
   fp: 2

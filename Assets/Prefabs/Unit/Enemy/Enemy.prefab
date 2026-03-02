@@ -197,30 +197,34 @@ MonoBehaviour:
       data:
         patternName: Pattern
         cooldown: 5
-        patternSprite: {fileID: -7954620618086645965, guid: 927caa84d79950b479dc5442efa22dcb, type: 3}
+        patternIconSprite: {fileID: -8327839568167991489, guid: d4e5456cba949354f88644af0a27ded8, type: 3}
         triggerChance: 30
         lastExecutionTime: -9999
+        onHit: 1
+        onCritical: 1
         comboSteps:
-        - damagePercent: 0.7
+        - damagePercent: 1
           delayBeforeAttack: 0
-        - damagePercent: 0.7
+        - damagePercent: 1
           delayBeforeAttack: 0.5
-        - damagePercent: 0.7
+        - damagePercent: 1
           delayBeforeAttack: 1.5
     - rid: 8549445310020845641
       type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
       data:
         patternName: Pattern
         cooldown: 5
-        patternSprite: {fileID: 5943091342570826787, guid: 5acf57bee6ae0474d8b11bf14b7e6bc9, type: 3}
+        patternIconSprite: {fileID: 2493424319177414747, guid: 6965be827eeb1824f9fd06993c23d785, type: 3}
         triggerChance: 30
         lastExecutionTime: -9999
+        onHit: 1
+        onCritical: 1
         comboSteps:
-        - damagePercent: 0.7
+        - damagePercent: 1
           delayBeforeAttack: 0
-        - damagePercent: 0.8
+        - damagePercent: 1
           delayBeforeAttack: 1
-        - damagePercent: 0.5
+        - damagePercent: 1
           delayBeforeAttack: 2
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
@@ -253,6 +257,10 @@ PrefabInstance:
     - target: {fileID: 3837743707018266951, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
       propertyPath: m_Name
       value: EnemyUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268117758376135377, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5268117758376135377, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
       propertyPath: m_AnchorMax.y
@@ -336,6 +344,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7176886128381870345, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7176886128381870345, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}

@@ -51,7 +51,8 @@ public class BackGroundController : MonoBehaviour
         int stageNum = GameManager.Instance.CurrentStageIndex + 1;
 
         // Stage1_Battle
-        string enumStr = $"Stage{stageNum}_{newState}";
+        string typeStr = (newState == GameState.Rest) ? "Rest" : "Battle";
+        string enumStr = $"Stage{stageNum}_{typeStr}";
 
         if (Enum.TryParse(enumStr, out BackgroundType bgType))
         {

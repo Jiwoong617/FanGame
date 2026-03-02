@@ -22,6 +22,7 @@ public class CombatUnitUI : UI_Base
 
     [SerializeField] private GameObject buffSlotPrefab;
 
+    private Sprite BasicAttackSprite;
     private Image ActionImage;
     private Slider HpBar;
     private Slider ActionBar;
@@ -41,6 +42,7 @@ public class CombatUnitUI : UI_Base
         HpBar = Get<Slider>(Sliders.HpBar);
         ActionBar = Get<Slider>(Sliders.ActionBar);
         buffGrid = Get<Transform>(Transforms.BuffGrid);
+        BasicAttackSprite = ActionImage.sprite;
     }
 
     private void OnDestroy()
@@ -71,14 +73,9 @@ public class CombatUnitUI : UI_Base
     public void SetIntentIcon(Sprite sprite)
     {
         if (sprite != null)
-        {
             ActionImage.sprite = sprite;
-            ActionImage.enabled = true;
-        }
         else
-        {
-            ActionImage.enabled = false;
-        }
+            ActionImage.sprite = BasicAttackSprite;
     }
 
     public void SetOwner(CombatUnit unit)

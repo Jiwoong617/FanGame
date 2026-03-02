@@ -54,20 +54,13 @@ public class EnemyUnit : CombatUnit
             return;
         }
 
-        attackTimer += delta * stats.attackSpeed.GetValue();
         if (currentRunningPattern == null)
         {
             ProcessAttackLoop(delta);
         }
-
-        if (attackTimer >= ATTACK_THRESHOLD)
-        {
-            attackTimer = 0f;
-            Attack();
-        }
     }
 
-    public override void Attack()
+    public override void Attack(CombatUnit target, float damage, bool onHit, bool onCritical)
     {
         if (nextPattern != null)
         {
@@ -78,7 +71,7 @@ public class EnemyUnit : CombatUnit
         }
         else
         {
-            base.Attack();
+            base.Attack(target, damage, onHit, onCritical);
             DecideNextAction();
         }
     }
@@ -135,7 +128,7 @@ public class EnemyUnit : CombatUnit
 
         if (combatUI != null)
         {
-            Sprite intentSprite = (nextPattern != null) ? nextPattern.patternSprite : unitData.unitBasicAttackSprite;
+            Sprite intentSprite = (nextPattern != null) ? nextPattern.patternIconSprite : null;
             combatUI.SetIntentIcon(intentSprite);
         }
     }
@@ -198,4 +191,16 @@ public class EnemyUnit : CombatUnit
     }
 
     public override T GetStat<T>() => stats as T;
+
+    protected override void PlayAttackVFX(Vector3 targetPos, float hitDelay)
+    {
+        if (unitData != null)
+        {
+            GameManager.VFX.ShowGenericEffect(
+                targetPos,
+                unitData.attackVFXType,
+                hitDelay, Color.white
+            );
+        }
+    }
 }

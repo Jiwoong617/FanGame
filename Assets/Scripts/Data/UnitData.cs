@@ -14,7 +14,7 @@ public class UnitData : ScriptableObject
     public GameObject prefab;
     public Sprite unitSprite;
     public Sprite unitBasicAttackSprite;
-    public Sprite unitAttackEffectSprite;
+    public AttackVFXType attackVFXType;
 
     [Header("Combat Stats")]
     public float hp;

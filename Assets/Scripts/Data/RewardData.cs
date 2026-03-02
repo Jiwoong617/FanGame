@@ -11,7 +11,9 @@ public enum StatType
     MaxFp,
     SkillCoolTime,
     DodgeCost,
-    ParryCost
+    ParryCost,
+    CriticalChance,
+    CriticalDamage,
 }
 
 [System.Serializable]
@@ -98,6 +100,14 @@ public class RewardData : ScriptableObject
 
                 case StatType.ParryCost:
                     stats.parryCost.AddModifier(mod);
+                    break;
+
+                case StatType.CriticalChance:
+                    stats.criticalChance.AddModifier(mod);
+                    break;
+
+                case StatType.CriticalDamage:
+                    stats.criticalDamage.AddModifier(mod);
                     break;
             }
         }

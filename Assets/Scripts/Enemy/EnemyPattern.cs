@@ -7,7 +7,7 @@ public abstract class EnemyPattern
 {
     public string patternName = "Pattern";
     public float cooldown = 5.0f;
-    public Sprite patternSprite;
+    public Sprite patternIconSprite;
 
     [Range(0, 100)] public int triggerChance = 30;
     [HideInInspector] public float lastExecutionTime = -9999f;
@@ -30,6 +30,8 @@ public class SequentialAttackPattern : EnemyPattern
         public float delayBeforeAttack;
     }
 
+    public bool onHit = true;
+    public bool onCritical = true;
     public List<ComboStep> comboSteps = new List<ComboStep>();
 
     private int currentStepIndex = 0;
@@ -75,12 +77,13 @@ public class SequentialAttackPattern : EnemyPattern
             CombatEventContext ctx = new CombatEventContext(unit, target, damageAmount, DamageType.Normal, false, isCrit);
             float actualDamage = target.TakeDamage(ctx);
 
-            // TODO : 이거 온힛 관련인데 일단 주석 처리 해놈
-            //if (actualDamage > 0 && !unit.IsDead)
-            //{
-            //    ctx.value = actualDamage;
-            //    unit.TriggerAbility(CombatEvent.OnAttack, ctx);
-            //}
+            if (actualDamage > 0 && !unit.IsDead)
+            {
+                ctx.value = actualDamage;
+                unit.TriggerAbility(CombatEvent.OnAttack, ctx);
+                if(isCrit && onCritical)
+                    unit.TriggerAbility(CombatEvent.OnCritical, ctx);
+            }
 
             currentStepIndex++;
             currentTimer = 0f;
