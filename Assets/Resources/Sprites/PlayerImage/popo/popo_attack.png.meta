@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 5acf57bee6ae0474d8b11bf14b7e6bc9
+guid: caf02f01ee4d8404199464d0359d2de9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7955080341527372920
-    second: mone_0
+      213: 4423542609042055247
+    second: popo_attack_0
   - first:
-      213: -1933958539667631305
-    second: mone_1
-  - first:
-      213: 5943091342570826787
-    second: mone_2
+      213: -5520169287950325131
+    second: popo_attack_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 1152
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -106,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mone_0
+      name: popo_attack_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 11
-        width: 1405
-        height: 1368
+        x: 48
+        y: 224
+        width: 395
+        height: 116
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 874ae6c3c6f166e60800000000000000
-      internalID: 7955080341527372920
+      spriteID: f40a1c4e094936d30800000000000000
+      internalID: 4423542609042055247
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mone_1
+      name: popo_attack_1
       rect:
         serializedVersion: 2
-        x: 1402
-        y: 373
-        width: 149
-        height: 138
+        x: 120
+        y: 92
+        width: 1783
+        height: 1505
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,30 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 73317c864f23925e0800000000000000
-      internalID: -1933958539667631305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mone_2
-      rect:
-        serializedVersion: 2
-        x: 1609
-        y: 427
-        width: 81
-        height: 74
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 32c22a5961a1a7250800000000000000
-      internalID: 5943091342570826787
+      spriteID: 57a23bb974b6463b0800000000000000
+      internalID: -5520169287950325131
       vertices: []
       indices: 
       edges: []
@@ -175,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mone_0: 7955080341527372920
-      mone_1: -1933958539667631305
-      mone_2: 5943091342570826787
+      popo_attack_0: 4423542609042055247
+      popo_attack_1: -5520169287950325131
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

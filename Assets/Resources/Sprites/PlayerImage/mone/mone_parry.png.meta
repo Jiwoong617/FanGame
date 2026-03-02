@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 05c454e1365d2874ab2970faff971c92
+guid: a8bc5a516232f67448d067ea17a59ec6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 217806103198121620
-    second: hasiyo_attack_0
+      213: -1582622885191681097
+    second: mone_parry_0
   - first:
-      213: -3865171101212884221
-    second: hasiyo_attack_1
+      213: 4993752990100664117
+    second: mone_parry_1
+  - first:
+      213: -6409757320048380897
+    second: mone_parry_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 315
+  spritePixelsToUnits: 768
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,45 +106,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hasiyo_hammer
+      name: mone_parry_0
       rect:
         serializedVersion: 2
-        x: 182
-        y: 605
-        width: 389
-        height: 302
+        x: 166
+        y: 251
+        width: 108
+        height: 89
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 49e39033f7dc50300800000000000000
-      internalID: 217806103198121620
+      spriteID: 7bbfebafed4690ae0800000000000000
+      internalID: -1582622885191681097
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: hasiyo_attack
+      name: mone_parry_1
       rect:
         serializedVersion: 2
-        x: 271
-        y: 80
-        width: 630
-        height: 501
+        x: 264
+        y: 210
+        width: 77
+        height: 52
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 303c91cac572c5ac0800000000000000
-      internalID: -3865171101212884221
+      spriteID: 53faefee2ef5d4540800000000000000
+      internalID: 4993752990100664117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mone_parry_2
+      rect:
+        serializedVersion: 2
+        x: 277
+        y: 169
+        width: 967
+        height: 745
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f147e028da7fb07a0800000000000000
+      internalID: -6409757320048380897
       vertices: []
       indices: 
       edges: []
@@ -150,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cc407aa28af847b4a8a0f1654fe23459
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hasiyo_attack: -3865171101212884221
-      hasiyo_hammer: 217806103198121620
+      mone_parry_0: -1582622885191681097
+      mone_parry_1: 4993752990100664117
+      mone_parry_2: -6409757320048380897
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
