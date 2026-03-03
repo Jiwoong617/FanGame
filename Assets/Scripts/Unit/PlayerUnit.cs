@@ -168,7 +168,17 @@ public class PlayerUnit : CombatUnit
 
         spriteRenderer.sortingOrder = 40;
 
-        spriteRenderer.transform.DORotate(new Vector3(0, 0, -90f), 2f).SetEase(Ease.OutBounce);
+        Sequence deadSeq = DOTween.Sequence();
+
+        deadSeq.Append(spriteRenderer.DOColor(Color.gray, 2f));
+        deadSeq.InsertCallback(1.0f, () =>
+        {
+            if (unitData != null && unitData.unitDeadSprite != null)
+            {
+                spriteRenderer.sprite = unitData.unitDeadSprite;
+            }
+        });
+        //spriteRenderer.transform.DORotate(new Vector3(0, 0, -90f), 2f).SetEase(Ease.OutBounce);
     }
 
 

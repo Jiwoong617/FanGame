@@ -6,7 +6,7 @@ using UnityEngine;
 
 public abstract class CombatUnit : MonoBehaviour
 {
-    protected const float ATTACK_THRESHOLD = 1f;
+    protected float currentAttackThreshold = 1f;
 
     [SerializeField] protected CombatUnitUI combatUI;
 
@@ -26,7 +26,9 @@ public abstract class CombatUnit : MonoBehaviour
     protected UnitStats stats;
     protected CombatUnit target;
     protected float attackTimer = 0f;
-    
+    protected bool isAttacking = false;
+    public bool IsAttacking => isAttacking;
+
     // 런타임 능력 리스트
     protected List<Ability> abilities = new List<Ability>();
 
@@ -46,14 +48,16 @@ public abstract class CombatUnit : MonoBehaviour
     {
         if (IsDead || target == null || target.IsDead) return;
 
-        attackTimer += (delta * stats.attackSpeed.GetValue());
-        OnActionBarUpdated?.Invoke(Mathf.Clamp01(attackTimer / ATTACK_THRESHOLD));
+        if (isAttacking) return;
 
-        if (attackTimer >= ATTACK_THRESHOLD)
+        attackTimer += (delta * stats.attackSpeed.GetValue());
+        OnActionBarUpdated?.Invoke(Mathf.Clamp01(attackTimer / currentAttackThreshold));
+
+        if (attackTimer >= currentAttackThreshold)
         {
             attackTimer = 0f;
-            Attack(target, stats.attackDamage.GetValue(), true, true);
             OnActionBarUpdated?.Invoke(0f);
+            Attack(target, stats.attackDamage.GetValue(), true, true);
         }
     }
 
@@ -138,7 +142,7 @@ public abstract class CombatUnit : MonoBehaviour
 
         float dashDistance = 1f;
         Vector3 attackPos = originalPos + dir * dashDistance;
-        float attackInterval = ATTACK_THRESHOLD / stats.attackSpeed.GetValue();
+        float attackInterval = currentAttackThreshold / stats.attackSpeed.GetValue();
         float maxAnimTime = Mathf.Min(0.3f, attackInterval * 0.8f);
 
         float forwardTime = maxAnimTime * 0.2f;
@@ -180,6 +184,7 @@ public abstract class CombatUnit : MonoBehaviour
         attackSeq.Append(transform.DOMove(originalPos, returnTime).SetEase(Ease.OutCirc));
         attackSeq.OnComplete(() =>
         {
+            isAttacking = false;
             ChangeToIdleSprite();
         });
 

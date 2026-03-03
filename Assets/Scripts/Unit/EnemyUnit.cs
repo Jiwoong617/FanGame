@@ -66,8 +66,12 @@ public class EnemyUnit : CombatUnit
         {
             currentRunningPattern = nextPattern;
             lastExecutedPattern = nextPattern;
-            
+            nextPattern = null;
             currentRunningPattern.OnEnter(this);
+        }
+        else if (currentRunningPattern != null)
+        {
+            base.Attack(target, damage, onHit, onCritical);
         }
         else
         {
@@ -126,6 +130,15 @@ public class EnemyUnit : CombatUnit
     {
         nextPattern = GetAvailablePattern();
 
+        if (nextPattern != null)
+        {
+            currentAttackThreshold = nextPattern.requiredChargeTime;
+        }
+        else
+        {
+            currentAttackThreshold = 1.0f;
+        }
+
         if (combatUI != null)
         {
             Sprite intentSprite = (nextPattern != null) ? nextPattern.patternIconSprite : null;
@@ -147,7 +160,9 @@ public class EnemyUnit : CombatUnit
             col.enabled = false;
 
         spriteRenderer.transform.DOKill();
-        //TODO : 만약 사망 스프라이트가 있다면 여기서 바꿀거임
+
+        if (unitData.unitDeadSprite != null)
+            spriteRenderer.sprite = unitData.unitDeadSprite;
 
         spriteRenderer.DOFade(0f, 1.0f).OnComplete(() =>
         {

@@ -7,6 +7,7 @@ public abstract class EnemyPattern
 {
     public string patternName = "Pattern";
     public float cooldown = 5.0f;
+    public float requiredChargeTime = 1.0f;
     public Sprite patternIconSprite;
 
     [Range(0, 100)] public int triggerChance = 30;
@@ -51,6 +52,7 @@ public class SequentialAttackPattern : EnemyPattern
 
         var target = unit.GetTarget();
         if (target == null || target.IsDead) return true;
+        if (unit.IsAttacking) return false;
 
         ComboStep step = comboSteps[currentStepIndex];
         float speed = stats.attackSpeed.GetValue();
@@ -66,24 +68,7 @@ public class SequentialAttackPattern : EnemyPattern
         if (currentTimer >= requiredGauge)
         {
             float damageAmount = stats.attackDamage.GetValue() * step.damagePercent;
-            bool isCrit = false;
-
-            if (UnityEngine.Random.Range(0f, 100f) < stats.criticalChance.GetValue())
-            {
-                isCrit = true;
-                damageAmount *= (stats.criticalDamage.GetValue() / 100f);
-            }
-
-            CombatEventContext ctx = new CombatEventContext(unit, target, damageAmount, DamageType.Normal, false, isCrit);
-            float actualDamage = target.TakeDamage(ctx);
-
-            if (actualDamage > 0 && !unit.IsDead)
-            {
-                ctx.value = actualDamage;
-                unit.TriggerAbility(CombatEvent.OnAttack, ctx);
-                if(isCrit && onCritical)
-                    unit.TriggerAbility(CombatEvent.OnCritical, ctx);
-            }
+            unit.Attack(target, damageAmount, onHit, onCritical);
 
             currentStepIndex++;
             currentTimer = 0f;

@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CombatResourceData
   unitName: "\uD574\uD3EC\uB9AC"
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
-  unitSprite: {fileID: 2903746670860312822, guid: 416fc2df813dc34468d71e23e608e2de, type: 3}
-  unitBasicAttackSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 416fc2df813dc34468d71e23e608e2de, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: caf02f01ee4d8404199464d0359d2de9, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 8f7bdc3eaeeced845986a5a451256e3e, type: 3}
   attackVFXType: 6
   hp: 25
   defense: 0
@@ -33,10 +34,10 @@ MonoBehaviour:
   - rid: 8549445450257924177
   - rid: 8549445450257924178
   - rid: 8549445694374805576
-  unitBackSprite: {fileID: -3865171101212884221, guid: 05c454e1365d2874ab2970faff971c92, type: 3}
+  unitBackSprite: {fileID: 21300000, guid: b8d7a114757bd5b49a359b33937cbd84, type: 3}
   attackVFXSprite: {fileID: 0}
   unitSkillSprite: {fileID: 0}
-  unitParrySprite: {fileID: 0}
+  unitParrySprite: {fileID: 21300000, guid: 53be1d4591761454194fe8b5abbec5af, type: 3}
   stamina: 30
   staminaRegen: 1
   fp: 2

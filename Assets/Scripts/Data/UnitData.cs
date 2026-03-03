@@ -14,13 +14,14 @@ public class UnitData : ScriptableObject
     public GameObject prefab;
     public Sprite unitSprite;
     public Sprite unitBasicAttackSprite;
+    public Sprite unitDeadSprite;
     public AttackVFXType attackVFXType;
 
     [Header("Combat Stats")]
     public float hp;
     public float defense;
     public float attackDamage;
-    public float attackSpeed;
+    public float attackSpeed = 1;
     public float criticalChance;
     public float criticalDamage;
 
