@@ -194,7 +194,8 @@ public class PlayerUnit : CombatUnit
             if (state == PlayerState.Parrying)
             {
                 ResetCooldown(ActionType.Parry);
-                playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost.GetValue() * 0.5f);
+                //playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost.GetValue() * 0.5f);
+                hitEffect?.Flash(false);
 
                 TriggerAbility(CombatEvent.OnParrySuccess, ctx);
                 return 0;
@@ -253,7 +254,18 @@ public class PlayerUnit : CombatUnit
         }
         else if (newState == PlayerState.Parrying)
         {
-            //TODO : 패링 연출
+            if (playerData.unitParrySprite != null)
+            {
+                spriteRenderer.sprite = playerData.unitParrySprite;
+            }
+
+            Sequence parrySeq = DOTween.Sequence();
+            parrySeq.AppendInterval(duration);
+            parrySeq.OnComplete(() =>
+            {
+                if (!IsDead)
+                    ChangeToIdleSprite();
+            });
         }
         else if (newState == PlayerState.Skill)
         {

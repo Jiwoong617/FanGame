@@ -196,7 +196,7 @@ MonoBehaviour:
       data:
         patternName: Scratch
         cooldown: 1
-        requiredChargeTime: 0.2
+        requiredChargeTime: 1
         patternIconSprite: {fileID: 7465851344183582018, guid: 86493d7e8e9a4f34499b715ff1f5b601, type: 3}
         triggerChance: 30
         lastExecutionTime: -9999

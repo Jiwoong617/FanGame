@@ -151,6 +151,8 @@ public abstract class CombatUnit : MonoBehaviour
 
         transform.DOKill();
 
+        PlayAttackVFX(target.transform.position, forwardTime);
+
         Sequence attackSeq = DOTween.Sequence();
         // 일단 돌진 후 도달하면 공격하게 했음
         attackSeq.Append(transform.DOMove(attackPos, forwardTime).SetEase(Ease.OutExpo));
@@ -171,6 +173,8 @@ public abstract class CombatUnit : MonoBehaviour
 
             if (actualDamage > 0 && !IsDead)
             {
+                PlayHitVFX(target.transform.position);
+
                 //이거 방어력 깎인 최종 데미지로 교체
                 attackCtx.value = actualDamage;
                 if(onHit)
@@ -187,8 +191,6 @@ public abstract class CombatUnit : MonoBehaviour
             isAttacking = false;
             ChangeToIdleSprite();
         });
-
-        PlayAttackVFX(target.transform.position, forwardTime);
     }
 
     protected void InitializeAbilities(UnitData data)
@@ -261,7 +263,8 @@ public abstract class CombatUnit : MonoBehaviour
         OnActionBarUpdated?.Invoke(value);
     }
 
-    protected abstract void PlayAttackVFX(Vector3 targetPos, float hitDelay);
+    protected virtual void PlayAttackVFX(Vector3 targetPos, float hitDelay) { }
+    protected virtual void PlayHitVFX(Vector3 targetPos) { }
 
     protected virtual void ChangeToIdleSprite()
     {

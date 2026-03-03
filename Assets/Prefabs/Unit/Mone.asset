@@ -46,9 +46,9 @@ MonoBehaviour:
   skillCoolTime: 0
   dodgeCost: 10
   parryCost: 7
-  dodgeDuration: 0.3
-  parryDuration: 0.1
-  dodgeCoolTime: 0.5
+  dodgeDuration: 0.5
+  parryDuration: 0.2
+  dodgeCoolTime: 0.7
   parrayCoolTime: 0.5
   references:
     version: 2

@@ -25,6 +25,11 @@ public class PlayerData : UnitData
 
     public float dodgeCoolTime = 0.5f;
     public float parrayCoolTime = 0.5f;
+
+    [Header("Skill")]
+    public Sprite skillIcon;
+    public string skillName;
+    public string skillDesc;
 }
 
 [System.Serializable]

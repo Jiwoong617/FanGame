@@ -41,7 +41,7 @@ public class HitFlash : MonoBehaviour
         flashMaterial.SetColor("_FlashColor", flashColor);
     }
 
-    public void Flash()
+    public void Flash(bool shake = true)
     {
         if (spriteRenderer == null || flashMaterial == null) return;
 
@@ -64,12 +64,15 @@ public class HitFlash : MonoBehaviour
                 spriteRenderer.material = originalMaterial;
         });
 
-        // TODO : 만약 막 튀는게 싫으면 shakeStrength 이거 벡터로 바꿔서 하면 될듯
-        transform.DOShakePosition(shakeDuration, shakeStrength, vibrato: 20, randomness: 90, snapping: false, fadeOut: true)
-                    .OnComplete(() =>
-                    {
-                        transform.localPosition = originalLocalPos;
-                    });
+        if(shake)
+        {
+            // TODO : 만약 막 튀는게 싫으면 shakeStrength 이거 벡터로 바꿔서 하면 될듯
+            transform.DOShakePosition(shakeDuration, shakeStrength, vibrato: 20, randomness: 90, snapping: false, fadeOut: true)
+                        .OnComplete(() =>
+                        {
+                            transform.localPosition = originalLocalPos;
+                        });
+        }
     }
 
     private void OnDestroy()

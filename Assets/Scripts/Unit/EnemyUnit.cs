@@ -207,14 +207,15 @@ public class EnemyUnit : CombatUnit
 
     public override T GetStat<T>() => stats as T;
 
-    protected override void PlayAttackVFX(Vector3 targetPos, float hitDelay)
+    protected override void PlayHitVFX(Vector3 targetPos)
     {
         if (unitData != null)
         {
             GameManager.VFX.ShowGenericEffect(
                 targetPos,
                 unitData.attackVFXType,
-                hitDelay, Color.white
+                0f,
+                Color.white
             );
         }
     }
