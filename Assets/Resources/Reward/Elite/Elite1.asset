@@ -10,22 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
-  m_Name: TestReward1 2
+  m_Name: Elite1
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 21300000, guid: 9e7987042c7bf3a41bcefeeb077acc66, type: 3}
+  Icon: {fileID: 0}
   RewardName: 
-  Description: 
-  isItem: 0
+  Description: "\uACF5\uACA9\uB825 2\uBC30 \uC99D\uAC00, \uACF5\uACA9\uC18D\uB3C4
+    0.5\uBC30 \uAC10\uC18C"
+  FlavorText: 
+  isItem: 1
   statChanges:
-  - targetStat: 0
-    modType: 0
-    amount: 50
-  - targetStat: 6
-    modType: 0
-    amount: 100
-  - targetStat: 3
+  - targetStat: 2
     modType: 2
     amount: 2
+  - targetStat: 3
+    modType: 2
+    amount: 0.5
   abilities: []
   references:
     version: 2

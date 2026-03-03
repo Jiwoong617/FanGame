@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
+  m_Name: Normal3
+  m_EditorClassIdentifier: Assembly-CSharp::RewardData
+  Icon: {fileID: 0}
+  RewardName: "\uB3C5\uB450\uAEBC\uBE44 \uCFE0\uC158"
+  Description: "\uACF5\uACA9\uB825 1 \uC99D\uAC00"
+  FlavorText: "\uB3C5\uB450\uAEBC\uBE44\uAC00 \uC0DD\uAC01\uB098\uB294 \uCFE0\uC158\uC774\uB2E4.
+    \uBCF4\uBA74 \uAF34\uBC1B\uC544\uC11C \uACF5\uACA9\uB825\uC774 1 \uC0C1\uC2B9\uD55C\uB2E4\r\n\u201C\uB098
+    \uD0D0\uCF04\uCE58 \uC544\uB2C8\uB77C\uACE0\u201D -\uB3C5\uC774 \uAC00\uB4DD\uCC2C
+    \uB450\uAEBC\uBE44-"
+  isItem: 1
+  statChanges:
+  - targetStat: 2
+    modType: 0
+    amount: 1
+  abilities: []
+  references:
+    version: 2
+    RefIds: []

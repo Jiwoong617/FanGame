@@ -177,23 +177,16 @@ public class MapManager
                     enemies = stageData.normalEnemyPool[Random.Range(0, stageData.normalEnemyPool.Count)].enemies;
                 node.content = new BattleContent(enemies);
                 break;
-                // TODO : 나중에 Elite나 Boss도 몬스터가 여러마리 일 수 있음
             case NodeType.Elite:
                 List<UnitData> elites = new List<UnitData>();
                 if (stageData.eliteEnemyPool != null && stageData.eliteEnemyPool.Count > 0)
-                {
-                    var elite = stageData.eliteEnemyPool[Random.Range(0, stageData.eliteEnemyPool.Count)];
-                    elites.Add(elite);
-                }
+                    elites = stageData.eliteEnemyPool[Random.Range(0, stageData.eliteEnemyPool.Count)].enemies;
                 node.content = new BattleContent(elites);
                 break;
             case NodeType.Boss:
                 List<UnitData> bosses = new List<UnitData>();
                 if (stageData.bossPool != null && stageData.bossPool.Count > 0)
-                {
-                    var boss = stageData.bossPool[Random.Range(0, stageData.bossPool.Count)];
-                    bosses.Add(boss);
-                }
+                    bosses = stageData.bossPool[Random.Range(0, stageData.bossPool.Count)].enemies;
                 node.content = new BattleContent(bosses);
                 break;
             case NodeType.Event:

@@ -112,31 +112,31 @@ public class RestUI : UI_Base
             switch (rand)
             {
                 case 0: // 공격력
-                    float randAtk = Random.Range(1, 5);
+                    float randAtk = Random.Range(1, 4);
                     StatModifier atkmod = new StatModifier(randAtk, StatModType.Flat);
                     stats.attackDamage.AddModifier(atkmod);
                     resultMsg = $"공격 훈련을 수행했습니다.\n공격력이 {randAtk} 상승했습니다.";
                     break;
 
                 case 1: // 공격속도
-                    float randAtkSpeed = Random.Range(0.1f, 0.3f);
+                    float randAtkSpeed = Random.Range(1, 4) * 0.1f;
                     StatModifier asmod = new StatModifier(randAtkSpeed, StatModType.Flat);
                     stats.attackSpeed.AddModifier(asmod);
                     resultMsg = $"민첩성 훈련을 수행했습니다.\n공격 속도가 {randAtkSpeed:F2} 상승했습니다.";
                     break;
 
                 case 2: // 스태미나
-                    float randSt = Random.Range(10, 20);
+                    float randSt = Random.Range(10, 16);
                     StatModifier stmod = new StatModifier(randSt, StatModType.Flat);
                     stats.maxStamina.AddModifier(stmod);
                     resultMsg = $"지구력 훈련을 수행했습니다.\n최대 스태미나가 {randSt:F0} 상승했습니다.";
                     break;
 
                 case 3: // 방어력
-                    float randDf = Random.Range(10, 20);
+                    float randDf = Random.Range(0, 3);
                     StatModifier dfmod = new StatModifier(randDf, StatModType.Flat);
                     stats.defense.AddModifier(dfmod);
-                    resultMsg = $"맷집 훈련을 수행했습니다.\n방어력이 {dfmod:F0} 상승했습니다.";
+                    resultMsg = $"맷집 훈련을 수행했습니다.\n방어력이 {randDf:F0} 상승했습니다.";
                     break;
             }
             Get<Image>(Images.Result).sprite = resultSpriteList[1];

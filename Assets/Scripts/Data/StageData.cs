@@ -6,13 +6,8 @@ public class StageData : ScriptableObject
 {
     [Header("Enemies")]
     public List<EnemyGroup> normalEnemyPool;
-    public List<UnitData> eliteEnemyPool;
-    public List<UnitData> bossPool;
-
-    [Header("Rewards Pools")]
-    public List<RewardData> normalRewards;
-    public List<RewardData> eliteRewards;
-    public List<RewardData> bossRewards;
+    public List<EnemyGroup> eliteEnemyPool;
+    public List<EnemyGroup> bossPool;
 }
 
 [System.Serializable]

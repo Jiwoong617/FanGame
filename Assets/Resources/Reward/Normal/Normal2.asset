@@ -10,16 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
-  m_Name: TestReward1
+  m_Name: Normal2
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: -1538216131050100205, guid: 443d74a6c57a1784686a77a623ff97ef, type: 3}
-  RewardName: "hp2\uBC30"
-  Description: hp 2
-  isItem: 0
+  Icon: {fileID: 0}
+  RewardName: "\uC798 \uB053\uC778 \uB77C\uBA74"
+  Description: "\uACF5\uACA9\uC18D\uB3C4 0.2\uC99D\uAC00"
+  FlavorText: "\u201C\uC774 \uB77C\uBA74\uC73C\uB85C 19100\uC6D0\uC744 \uBC8C\uC740
+    \uC0AC\uB78C\uC774 \uC788\uB2E4\uB358\uB370.. \uBA74\uC0C1\uD601\uC774\uB7AC\uB098?\u201D\n
+    -\uC9C0\uB098\uAC00\uB358 \uD574\uD30C\uB9AC-"
+  isItem: 1
   statChanges:
-  - targetStat: 0
-    modType: 2
-    amount: 2
+  - targetStat: 3
+    modType: 0
+    amount: 0.2
   abilities: []
   references:
     version: 2

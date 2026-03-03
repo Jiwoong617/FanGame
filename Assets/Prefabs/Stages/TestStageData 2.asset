@@ -17,18 +17,8 @@ MonoBehaviour:
     - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
     - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
   eliteEnemyPool:
-  - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
   bossPool:
-  - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
-  normalRewards:
-  - {fileID: 11400000, guid: 129370ae294c6014bb4e366d88096d99, type: 2}
-  - {fileID: 11400000, guid: 2414fb65b3ff555449e491e4d751d7fc, type: 2}
-  - {fileID: 11400000, guid: 61f3a9dadc209b946a17fea6064b9f50, type: 2}
-  eliteRewards:
-  - {fileID: 11400000, guid: 129370ae294c6014bb4e366d88096d99, type: 2}
-  - {fileID: 11400000, guid: 2414fb65b3ff555449e491e4d751d7fc, type: 2}
-  - {fileID: 11400000, guid: 61f3a9dadc209b946a17fea6064b9f50, type: 2}
-  bossRewards:
-  - {fileID: 11400000, guid: 129370ae294c6014bb4e366d88096d99, type: 2}
-  - {fileID: 11400000, guid: 2414fb65b3ff555449e491e4d751d7fc, type: 2}
-  - {fileID: 11400000, guid: 61f3a9dadc209b946a17fea6064b9f50, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}

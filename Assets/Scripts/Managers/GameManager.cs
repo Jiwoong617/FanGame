@@ -102,6 +102,7 @@ public class GameManager : MonoBehaviour
         Scene = new MySceneManager();
         Battle = new BattleManager();
         Reward = new RewardManager();
+        Reward.Init();
         Map = new MapManager();
         Event = new EventManager();
         Rest = new RestManager();
@@ -212,7 +213,7 @@ public class GameManager : MonoBehaviour
                 break;
 
             case GameState.Reward:
-                Reward.ShowRewardUI(currentStageData, CurrentBattleType);
+                Reward.ShowRewardUI(CurrentBattleType);
                 break;
 
             case GameState.MapSelect:
@@ -284,5 +285,6 @@ public class GameManager : MonoBehaviour
         }
 
         State = GameState.MainMenu;
+        Reward.Init();
     }
 }

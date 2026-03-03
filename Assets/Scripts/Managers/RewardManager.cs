@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RewardManager
@@ -9,12 +10,25 @@ public class RewardManager
     private RewardUI rewardUI;
     private List<RewardData> currentRewards = new List<RewardData>();
 
+    private List<RewardData> normalRewards = new List<RewardData>();
+    private List<RewardData> eliteRewards = new List<RewardData>();
+    private List<RewardData> bossRewards = new List<RewardData>();
+
+    private NodeType currentBattleType;
+
+    public void Init()
+    {
+        normalRewards = Resources.LoadAll<RewardData>("Reward/Normal").ToList();
+        eliteRewards = Resources.LoadAll<RewardData>("Reward/Elite").ToList();
+        bossRewards = Resources.LoadAll<RewardData>("Reward/Boss").ToList();
+    }
+
     public void SetUI(RewardUI ui)
     {
         rewardUI = ui;
     }
 
-    public void ShowRewardUI(StageData stageData, NodeType battleType)
+    public void ShowRewardUI(NodeType battleType)
     {
         if (rewardUI == null)
         {
@@ -22,9 +36,10 @@ public class RewardManager
             return;
         }
 
-        List<RewardData> targetPool = GetRewardPool(stageData, battleType);
+        currentBattleType = battleType;
+        List<RewardData> targetPool = GetRewardPool(battleType);
 
-        if (stageData == null || targetPool == null || targetPool.Count == 0)
+        if (targetPool == null || targetPool.Count == 0)
         {
             Debug.LogError("[RewardManager] No rewards available in StageData!");
 
@@ -59,7 +74,17 @@ public class RewardManager
                 GameManager.Inventory.AddItem(selected);
             }
         }
-        
+
+        // TODO : 먹은 보상 삭제할지 안할지
+        //List<RewardData> sourcePool = GetRewardPool(currentBattleType);
+        //if (sourcePool != null)
+        //{
+        //    if (sourcePool.Contains(selected))
+        //    {
+        //        sourcePool.Remove(selected);
+        //    }
+        //}
+
         rewardUI.Hide();
         OnRewardSelected?.Invoke();
     }
@@ -101,14 +126,14 @@ public class RewardManager
         //}
     }
 
-    private List<RewardData> GetRewardPool(StageData stageData, NodeType type)
+    private List<RewardData> GetRewardPool(NodeType type)
     {
         switch (type)
         {
-            case NodeType.Monster: return stageData.normalRewards;
-            case NodeType.Elite: return stageData.eliteRewards;
-            case NodeType.Boss: return stageData.bossRewards;
-            default: return stageData.normalRewards;
+            case NodeType.Monster: return normalRewards;
+            case NodeType.Elite: return eliteRewards;
+            case NodeType.Boss: return bossRewards;
+            default: return normalRewards;
         }
     }
 }
