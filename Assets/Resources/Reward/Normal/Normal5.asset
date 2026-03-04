@@ -19,7 +19,7 @@ MonoBehaviour:
     \uC758\uC695\uC774 \uC0DD\uACA8 FP\uAC00 1 \uC0C1\uC2B9\uD55C\uB2E4\r\n\u201C\uC815\uC218\uB9AC
     \uB0C4\uC0C8 \uC65C \uB9E1\uB290\uB0D0\uACE0!\u201D -\uAF2C\uC21C\uB0B4\uAC00
     \uB098\uB294 \uC694\uC815-"
-  isItem: 1
+  isItem: 0
   statChanges:
   - targetStat: 6
     modType: 0

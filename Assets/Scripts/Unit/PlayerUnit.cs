@@ -129,7 +129,16 @@ public class PlayerUnit : CombatUnit
     private void UseAbility(ActionType type)
     {
         if (actionMap.TryGetValue(type, out ActiveAbility ability))
-            ability.TryUseSkill();
+        {
+            if (ability.TryUseSkill())
+            {
+                if (type == ActionType.Skill)
+                {
+                    CombatEventContext ctx = new CombatEventContext(this, target, 0);
+                    TriggerAbility(CombatEvent.OnUseSkill, ctx);
+                }
+            }
+        }
     }
 
     private void HandleState(float delta)
@@ -190,7 +199,10 @@ public class PlayerUnit : CombatUnit
         if (!ctx.isReflectDamage)
         {
             if (state == PlayerState.Dodging)
+            {
+                TriggerAbility(CombatEvent.OnDodgeSuccess, ctx);
                 return 0;
+            }
             if (state == PlayerState.Parrying)
             {
                 ResetCooldown(ActionType.Parry);

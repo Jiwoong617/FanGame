@@ -19,7 +19,7 @@ MonoBehaviour:
     \uBCF4\uBA74 \uAF34\uBC1B\uC544\uC11C \uACF5\uACA9\uB825\uC774 1 \uC0C1\uC2B9\uD55C\uB2E4\r\n\u201C\uB098
     \uD0D0\uCF04\uCE58 \uC544\uB2C8\uB77C\uACE0\u201D -\uB3C5\uC774 \uAC00\uB4DD\uCC2C
     \uB450\uAEBC\uBE44-"
-  isItem: 1
+  isItem: 0
   statChanges:
   - targetStat: 2
     modType: 0

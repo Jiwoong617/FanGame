@@ -10,18 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
-  m_Name: Normal1
+  m_Name: Normal26
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 0}
-  RewardName: "151\uBD84 \uC0AC\uC6A9\uB41C \uB9C1\uCF58"
-  Description: "\uCD5C\uB300 \uCCB4\uB825 5 \uC99D\uAC00"
-  FlavorText: "\u201C\uB0B4 \uD5C8\uBC85\uC9C0\uB85C \uC228\uB9C9\uD788\uAC8C \uD574\uC8FC\uC9C0\u201D\n-151\uBD84
-    \uCF20\uC655\uB7EC-"
-  isItem: 0
-  statChanges:
-  - targetStat: 0
-    modType: 0
-    amount: 5
+  RewardName: "\uCABC\uC544\uC694"
+  Description: "\uC544\uBB34 \uB2A5\uB825\uC774 \uC5C6\uB2E4. \uAE30\uBD84\uC774
+    \uC88B\uC544\uC9C4\uB2E4."
+  FlavorText: "\u201C\uCABC\uC544\uC694 \uCABC\uC544\uC694~ \uB9CC\uCE58\uC988 \uCABC\uC544\uC694~\u201D"
+  isItem: 1
+  statChanges: []
   abilities: []
   references:
     version: 2

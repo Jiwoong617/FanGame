@@ -9,6 +9,9 @@ public enum CombatEvent
     OnTakeDamage,
     OnParrySuccess,
     OnCritical, //크리티컬 명중 시
+    OnRest,
+    OnUseSkill,
+    OnDodgeSuccess
 }
 
 public enum DamageType

@@ -18,7 +18,7 @@ MonoBehaviour:
   FlavorText: "\u201C\uC774 \uB77C\uBA74\uC73C\uB85C 19100\uC6D0\uC744 \uBC8C\uC740
     \uC0AC\uB78C\uC774 \uC788\uB2E4\uB358\uB370.. \uBA74\uC0C1\uD601\uC774\uB7AC\uB098?\u201D\n
     -\uC9C0\uB098\uAC00\uB358 \uD574\uD30C\uB9AC-"
-  isItem: 1
+  isItem: 0
   statChanges:
   - targetStat: 3
     modType: 0

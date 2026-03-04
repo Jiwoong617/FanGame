@@ -82,7 +82,10 @@ public class RestUI : UI_Base
             stats.hp = Mathf.Min(stats.hp + healAmount, stats.maxHp.GetValue());
             Get<Image>(Images.Result).sprite = resultSpriteList[0];
 
-            return $"체력을 회복했습니다.\n(HP : {beforeHp:F0} -> {stats.hp:F0})";
+            CombatEventContext ctx = new CombatEventContext(GameManager.Instance.Player, GameManager.Instance.Player, 0);
+            GameManager.Instance.Player.TriggerAbility(CombatEvent.OnRest, ctx);
+
+            return $"잠을 자 체력을 회복했습니다.";
         });
     }
 
@@ -96,7 +99,7 @@ public class RestUI : UI_Base
             stats.fp = stats.maxFp.GetValue();
             Get<Image>(Images.Result).sprite = resultSpriteList[2];
 
-            return $"정신을 집중하여 FP를 모두 회복했습니다.\n(FP : {beforeFp:F0} -> {stats.fp:F0})";
+            return $"정신을 집중하여 FP를 모두 회복했습니다.";
         });
     }
 
