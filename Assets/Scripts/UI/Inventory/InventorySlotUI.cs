@@ -6,10 +6,12 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 {
     private RewardData itemData;
     private Image icon;
+    public RewardData ItemData => itemData;
 
     public void Init(RewardData item)
     {
-        icon = GetComponent<Image>();
+        if (icon == null)
+            icon = GetComponent<Image>();
 
         itemData = item;
 

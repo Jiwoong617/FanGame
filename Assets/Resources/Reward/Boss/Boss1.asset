@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
+  m_Name: Boss1
+  m_EditorClassIdentifier: Assembly-CSharp::RewardData
+  Icon: {fileID: 0}
+  RewardName: 
+  Description: "\uC801\uC5D0\uAC8C \uB370\uBBF8\uC9C0\uB97C \uC785\uC744 \uB54C\uB9C8\uB2E4
+    \uBC18\uC0AC 1\uC2A4\uD0DD \uD68D\uB4DD"
+  FlavorText: 
+  isItem: 1
+  statChanges: []
+  abilities:
+  - rid: 7988895476758347854
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895476758347854
+      type: {class: GenericBuffAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 4
+        useStack: 0
+        requiredStack: 1
+        resetStackOnTrigger: 1
+        resetStackOnBattleEnd: 1
+        targetType: 0
+        buffToApply:
+          rid: 7988895476758347855
+    - rid: 7988895476758347855
+      type: {class: ReflectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 4
+        effectType: 3
+        duration: -1
+        stacks: 1
+        effectValue: 0.05
+        isPermanent: 0
