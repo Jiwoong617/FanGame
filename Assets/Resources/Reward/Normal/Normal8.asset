@@ -15,7 +15,8 @@ MonoBehaviour:
   Icon: {fileID: 0}
   RewardName: "\uD15F\uCE74\uC774"
   Description: "\uBC29\uC5B4\uB825 1 \uC99D\uAC00"
-  FlavorText: 
+  FlavorText: "\uB2E8\uB2E8\uD574\uC9C0\uB294 \uB290\uB08C\uC774 \uB4DC\uB294 \uC774\uB984\uC758
+    \uBB3C\uAC74\uC774\uB2E4.\n\"\uD15F\uCE74\uC774\""
   isItem: 0
   statChanges:
   - targetStat: 1

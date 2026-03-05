@@ -15,7 +15,7 @@ MonoBehaviour:
   Icon: {fileID: 0}
   RewardName: "\uC7901\uD790"
   Description: "5\uD68C \uD53C\uACA9 \uC2DC \uCCB4\uB825 10 \uD68C\uBCF5"
-  FlavorText: 
+  FlavorText: "\"\uC790\uD790!\""
   isItem: 1
   statChanges: []
   abilities:
