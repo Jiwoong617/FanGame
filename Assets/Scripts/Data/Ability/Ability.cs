@@ -64,4 +64,6 @@ public abstract class Ability
     public virtual void OnRemoved() { }
     public virtual void OnUpdate(float delta) { }
     public virtual void OnEvent(CombatEvent eventType, CombatEventContext context) { }
+
+    public void MakeFinish() => IsFinished = true;
 }

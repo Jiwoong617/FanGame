@@ -47,4 +47,11 @@ public abstract class ActiveAbility : Ability
     protected abstract bool CheckAndConsumeCost(PlayerUnit player);
     protected abstract float GetCooldown(PlayerUnit player);
     protected abstract void ExecuteSkill(PlayerUnit player);
+
+    public void ExecuteFree()
+    {
+        PlayerUnit player = owner as PlayerUnit;
+        if (player != null)
+            ExecuteSkill(player);
+    }
 }

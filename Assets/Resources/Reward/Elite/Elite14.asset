@@ -10,18 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
-  m_Name: Elite4
+  m_Name: Elite14
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 0}
   RewardName: 
-  Description: "\uD68D\uB4DD \uC2DC \uACF5\uACA9\uB825 20% \uC99D\uAC00"
+  Description: "\uC5D8\uB9AC\uD2B8 \uD639\uC740 \uBCF4\uC2A4\uC640 \uC804\uD22C \uC2DC\uC791
+    \uC2DC FP \uC18C\uBAA8 \uC5C6\uC774 \uC2A4\uD0AC \uC989\uC2DC \uC0AC\uC6A9"
   FlavorText: 
   isItem: 1
-  statChanges:
-  - targetStat: 2
-    modType: 1
-    amount: 0.2
-  abilities: []
+  statChanges: []
+  abilities:
+  - rid: 7988895476758347853
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7988895476758347853
+      type: {class: Elite14, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0

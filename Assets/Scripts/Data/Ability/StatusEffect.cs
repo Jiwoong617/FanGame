@@ -9,7 +9,9 @@ public enum EffectType
     Disarm,       // 무장해제
     Slow,         // 둔화
     Inspire,      // 격려
-    Mone,
+    Mone,         // 모네 스킬
+    AttackUp,     // 공격력증가
+    AttackDown,   // 공격력 감소
 }
 
 

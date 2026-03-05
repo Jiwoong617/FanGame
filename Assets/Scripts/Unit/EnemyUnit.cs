@@ -191,16 +191,16 @@ public class EnemyUnit : CombatUnit
         ctx.value = finalDamage;
         TriggerAbility(CombatEvent.OnTakeDamage, ctx);
 
+        //피격 이펙트
+        hitEffect?.Flash();
+        RequestDamageText(ctx);
+
         if (stats.hp <= 0)
         {
             stats.hp = 0;
             OnDead();
             return finalDamage;
         }
-
-        //피격 이펙트
-        hitEffect?.Flash();
-        RequestDamageText(ctx);
 
         return finalDamage;
     }

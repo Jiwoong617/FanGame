@@ -72,18 +72,14 @@ public class RewardManager
             if (selected.isItem)
             {
                 GameManager.Inventory.AddItem(selected);
+
+                List<RewardData> sourcePool = GetRewardPool(currentBattleType);
+                if (sourcePool != null && sourcePool.Contains(selected))
+                {
+                    sourcePool.Remove(selected);
+                }
             }
         }
-
-        // TODO : 먹은 보상 삭제할지 안할지
-        //List<RewardData> sourcePool = GetRewardPool(currentBattleType);
-        //if (sourcePool != null)
-        //{
-        //    if (sourcePool.Contains(selected))
-        //    {
-        //        sourcePool.Remove(selected);
-        //    }
-        //}
 
         rewardUI.Hide();
         OnRewardSelected?.Invoke();

@@ -29,6 +29,7 @@ public class TooltipUI : UI_Base
         Bind<TMP_Text>(typeof(Texts));
         nameText = Get<TMP_Text>(Texts.NameText);
         descText = Get<TMP_Text>(Texts.DescText);
+        flavorText = Get<TMP_Text>(Texts.FlavorText);
         Hide();
     }
 

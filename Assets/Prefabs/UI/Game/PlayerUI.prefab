@@ -1628,7 +1628,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 20
+  m_SortingOrder: 21
   m_TargetDisplay: 0
 --- !u!114 &3855764901631551666
 MonoBehaviour:
@@ -2424,7 +2424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3233,6 +3233,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 3184574873498504557, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4195159572448678134, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
       propertyPath: m_Name
       value: DescText
@@ -3703,6 +3707,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 24
       objectReference: {fileID: 0}
+    - target: {fileID: 3184574873498504557, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4195159572448678134, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
       propertyPath: m_Name
       value: FlavorText
@@ -3808,6 +3816,14 @@ PrefabInstance:
     - target: {fileID: 3184574873498504557, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
       propertyPath: m_text
       value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184574873498504557, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3184574873498504557, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
+      propertyPath: m_TextWrappingMode
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4195159572448678134, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
       propertyPath: m_Name

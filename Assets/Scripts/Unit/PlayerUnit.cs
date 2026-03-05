@@ -175,7 +175,7 @@ public class PlayerUnit : CombatUnit
         transform.DOKill();
         spriteRenderer.transform.DOKill();
 
-        spriteRenderer.sortingOrder = 40;
+        spriteRenderer.sortingOrder = 30;
 
         Sequence deadSeq = DOTween.Sequence();
 
@@ -232,15 +232,15 @@ public class PlayerUnit : CombatUnit
         ctx.value = finalDamage;
         TriggerAbility(CombatEvent.OnTakeDamage, ctx);
 
+        //피격 이펙트
+        hitEffect?.Flash();
+        RequestDamageText(ctx);
+
         if (stats.hp <= 0)
         {
             OnDead();
             return 0;
         }
-
-        //피격 이펙트
-        hitEffect?.Flash();
-        RequestDamageText(ctx);
 
         return finalDamage;
     }
@@ -335,6 +335,16 @@ public class PlayerUnit : CombatUnit
         if (spriteRenderer != null && unitData.unitSprite != null)
         {
             spriteRenderer.sprite = playerData.unitBackSprite;
+        }
+    }
+
+    public void UseFreeSkill()
+    {
+        if (actionMap.TryGetValue(ActionType.Skill, out ActiveAbility ability))
+        {
+            ability.ExecuteFree();
+            CombatEventContext ctx = new CombatEventContext(this, target, 0);
+            TriggerAbility(CombatEvent.OnUseSkill, ctx);
         }
     }
 }

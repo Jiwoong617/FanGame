@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
     public PlayerUnit Player { get; private set; }
     private Transform playerAnchor;
 
-    private NodeType CurrentBattleType;
+    public NodeType CurrentBattleType { get; private set; }
 
     //TEST 용
     [SerializeField] private PlayerData testUnitData;
