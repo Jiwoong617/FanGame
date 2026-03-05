@@ -82,7 +82,16 @@ public abstract class CombatUnit : MonoBehaviour
 
         for (int i = abilities.Count - 1; i >= 0; i--)
         {
-            if (abilities[i] is StatusEffect status)
+            Ability ability = abilities[i];
+
+            if (ability.IsFinished)
+            {
+                ability.OnRemoved();
+                abilities.RemoveAt(i);
+                continue;
+            }
+
+            if (ability is StatusEffect status)
             {
                 if (!status.isPermanent || status.IsFinished)
                 {
