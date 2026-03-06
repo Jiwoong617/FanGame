@@ -102,11 +102,12 @@ public class EventUI : UI_Base
         Get<VerticalLayoutGroup>(Verticals.Vertical).gameObject.SetActive(false);
         Get<TMP_Text>(Texts.EventDescription).text = option.resultText;
 
-        foreach(var op in option.outcomes)
+        foreach(var outcome in option.outcomes)
         {
-            op.Apply(GameManager.Instance.Player);
-            if(op.isItem)
-                GameManager.Inventory.AddItem(op);
+            if (outcome != null)
+            {
+                outcome.Apply(GameManager.Instance.Player);
+            }
         }
 
         Get<Button>(Buttons.NextButton).gameObject.SetActive(true);

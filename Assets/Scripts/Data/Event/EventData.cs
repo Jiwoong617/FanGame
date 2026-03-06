@@ -18,6 +18,7 @@ public class EventOption
 {
     public string buttonText;
     [TextArea] public string resultText;
-    
-    public List<RewardData> outcomes; 
+
+    [SerializeReference, SerializeReferenceDropdown]
+    public List<EventOutcome> outcomes = new List<EventOutcome>();
 }
