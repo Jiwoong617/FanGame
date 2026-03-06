@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Boss7
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 0}
-  RewardName: 
+  RewardName: "\uC2DC\uBC14\uACAC"
   Description: "\uC804\uD22C \uC885\uB8CC \uC2DC \uC9C0\uC18D\uB418\uB294 \uD761\uD608
     1\uC2A4\uD0DD \uD68D\uB4DD"
-  FlavorText: 
+  FlavorText: "\uC2DC\uBC14..\uB828\u2026?"
   isItem: 1
   statChanges: []
   abilities:

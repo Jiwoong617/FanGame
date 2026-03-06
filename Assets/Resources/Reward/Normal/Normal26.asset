@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
   m_Name: Normal26
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 956958e778146034f821054a77c31049, type: 3}
   RewardName: "\uCABC\uC544\uC694"
   Description: "\uC544\uBB34 \uB2A5\uB825\uC774 \uC5C6\uB2E4. \uAE30\uBD84\uC774
     \uC88B\uC544\uC9C4\uB2E4."

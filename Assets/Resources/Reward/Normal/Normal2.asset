@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
   m_Name: Normal2
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: b90f85da03622714da355808f2a410d5, type: 3}
   RewardName: "\uC798 \uB053\uC778 \uB77C\uBA74"
   Description: "\uACF5\uACA9\uC18D\uB3C4 0.2\uC99D\uAC00"
-  FlavorText: "\u201C\uC774 \uB77C\uBA74\uC73C\uB85C 19100\uC6D0\uC744 \uBC8C\uC740
-    \uC0AC\uB78C\uC774 \uC788\uB2E4\uB358\uB370.. \uBA74\uC0C1\uD601\uC774\uB7AC\uB098?\u201D\n
-    -\uC9C0\uB098\uAC00\uB358 \uD574\uD30C\uB9AC-"
+  FlavorText: "\uBA74 \uC0C1 \uD601"
   isItem: 0
   statChanges:
   - targetStat: 3

@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
   m_Name: Normal8
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: a13878aed9b9f324eb3d00f268b9cb00, type: 3}
   RewardName: "\uD15F\uCE74\uC774"
   Description: "\uBC29\uC5B4\uB825 1 \uC99D\uAC00"
   FlavorText: "\uB2E8\uB2E8\uD574\uC9C0\uB294 \uB290\uB08C\uC774 \uB4DC\uB294 \uC774\uB984\uC758
-    \uBB3C\uAC74\uC774\uB2E4.\n\"\uD15F\uCE74\uC774\""
+    \uC870\uAC01\uC0C1\uC774\uB2E4."
   isItem: 0
   statChanges:
   - targetStat: 1

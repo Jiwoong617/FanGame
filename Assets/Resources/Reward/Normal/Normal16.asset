@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
   m_Name: Normal16
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 0}
-  RewardName: 
+  Icon: {fileID: 21300000, guid: f073fce1aaede5b40b351fe359ea8ca1, type: 3}
+  RewardName: "\uB808\uBAA8\uB098\uB370"
   Description: "\uC804\uD22C \uC2DC\uC791 \uC2DC 3\uCD08\uAC04 \uACF5\uACA9\uC18D\uB3C4
     50% \uAC10\uC18C, FP 1 \uD68C\uBCF5"
-  FlavorText: 
+  FlavorText: "\uB808\uBAAC\uCC98\uB7FC \uC0DD\uAE34 \uACFC\uC77C. \uC808\uB300 \uB808\uBAAC\uC740
+    \uC544\uB2C8\uB2E4."
   isItem: 1
   statChanges: []
   abilities:

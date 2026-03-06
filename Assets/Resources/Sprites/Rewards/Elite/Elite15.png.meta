@@ -1,0 +1,1027 @@
+fileFormatVersion: 2
+guid: f70450d38c81d8843a848be75edb3b5f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5643951090366499303
+    second: Elite15_0
+  - first:
+      213: -574727835062474441
+    second: Elite15_1
+  - first:
+      213: -3945190825636820183
+    second: Elite15_2
+  - first:
+      213: -8637441186471553118
+    second: Elite15_3
+  - first:
+      213: 9174655060027019475
+    second: Elite15_4
+  - first:
+      213: 4632524243542291929
+    second: Elite15_5
+  - first:
+      213: 1757765468804869453
+    second: Elite15_6
+  - first:
+      213: 4025583155780510873
+    second: Elite15_7
+  - first:
+      213: 3285688095973401193
+    second: Elite15_8
+  - first:
+      213: 37969082566052510
+    second: Elite15_9
+  - first:
+      213: -2352926781096816961
+    second: Elite15_10
+  - first:
+      213: 5542274778387888748
+    second: Elite15_11
+  - first:
+      213: 8066865520188460632
+    second: Elite15_12
+  - first:
+      213: -8530463682343985905
+    second: Elite15_13
+  - first:
+      213: -6103844038554353962
+    second: Elite15_14
+  - first:
+      213: 268982739810239794
+    second: Elite15_15
+  - first:
+      213: 2604542268277250360
+    second: Elite15_16
+  - first:
+      213: 5845943159519323729
+    second: Elite15_17
+  - first:
+      213: 2112923014115507838
+    second: Elite15_18
+  - first:
+      213: 6155828298283565213
+    second: Elite15_19
+  - first:
+      213: 4426035893565181391
+    second: Elite15_20
+  - first:
+      213: 6605533553335581458
+    second: Elite15_21
+  - first:
+      213: -3968235903884337955
+    second: Elite15_22
+  - first:
+      213: -3304265781880928764
+    second: Elite15_23
+  - first:
+      213: 4149420288165820913
+    second: Elite15_24
+  - first:
+      213: -2233733123820284704
+    second: Elite15_25
+  - first:
+      213: 8517648551399950288
+    second: Elite15_26
+  - first:
+      213: -5012615701483220792
+    second: Elite15_27
+  - first:
+      213: 632462805900765848
+    second: Elite15_28
+  - first:
+      213: -1084065020004792560
+    second: Elite15_29
+  - first:
+      213: -9081314897728721751
+    second: Elite15_30
+  - first:
+      213: -1394103016135276953
+    second: Elite15_31
+  - first:
+      213: 4236637387925393397
+    second: Elite15_32
+  - first:
+      213: -4481228669146698762
+    second: Elite15_33
+  - first:
+      213: 2856483198974782629
+    second: Elite15_34
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 64
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Elite15_0
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 277
+        width: 29
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e949fe1d97535e40800000000000000
+      internalID: 5643951090366499303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_1
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 278
+        width: 29
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 739629c34182608f0800000000000000
+      internalID: -574727835062474441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_2
+      rect:
+        serializedVersion: 2
+        x: 122
+        y: 272
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b89cab8dddf39c0800000000000000
+      internalID: -3945190825636820183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_3
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 267
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a7d8080105a12880800000000000000
+      internalID: -8637441186471553118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_4
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 265
+        width: 30
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d096adea2ce25f70800000000000000
+      internalID: 9174655060027019475
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_5
+      rect:
+        serializedVersion: 2
+        x: 331
+        y: 269
+        width: 29
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d539bd51480a4040800000000000000
+      internalID: 4632524243542291929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_6
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 275
+        width: 30
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d4def8e7166d46810800000000000000
+      internalID: 1757765468804869453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_7
+      rect:
+        serializedVersion: 2
+        x: 413
+        y: 273
+        width: 30
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 994e71e3d8ebdd730800000000000000
+      internalID: 4025583155780510873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_8
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 238
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 962693b3aeb199d20800000000000000
+      internalID: 3285688095973401193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_9
+      rect:
+        serializedVersion: 2
+        x: 205
+        y: 264
+        width: 30
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9a0cceeda4e68000800000000000000
+      internalID: 37969082566052510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_10
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 264
+        width: 30
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe88361f89b85fd0800000000000000
+      internalID: -2352926781096816961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_11
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 234
+        width: 17
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6aba65fb8d1aec40800000000000000
+      internalID: 5542274778387888748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 179
+        width: 32
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85e0ea5537343ff60800000000000000
+      internalID: 8066865520188460632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_13
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 184
+        width: 29
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f0d148c2a74bd9980800000000000000
+      internalID: -8530463682343985905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_14
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 166
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6def49dbf2aca4ba0800000000000000
+      internalID: -6103844038554353962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 175
+        width: 28
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 235c911706e9bb300800000000000000
+      internalID: 268982739810239794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_16
+      rect:
+        serializedVersion: 2
+        x: 423
+        y: 180
+        width: 37
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 839d72fb461352420800000000000000
+      internalID: 2604542268277250360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_17
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 145
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15626489456f02150800000000000000
+      internalID: 5845943159519323729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_18
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 143
+        width: 26
+        height: 23
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7e3a1e594c925d10800000000000000
+      internalID: 2112923014115507838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_19
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 155
+        width: 26
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d904d79e835ed6550800000000000000
+      internalID: 6155828298283565213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_20
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 145
+        width: 24
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fcdc41fe1307c6d30800000000000000
+      internalID: 4426035893565181391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_21
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 113
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21bbd76e4c19bab50800000000000000
+      internalID: 6605533553335581458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_22
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 114
+        width: 22
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddcd504587efde8c0800000000000000
+      internalID: -3968235903884337955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_23
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 127
+        width: 24
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 406428337c3e422d0800000000000000
+      internalID: -3304265781880928764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_24
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 112
+        width: 25
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f93ceb74c3b59930800000000000000
+      internalID: 4149420288165820913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_25
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 85
+        width: 27
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e41ba70f8f2001e0800000000000000
+      internalID: -2233733123820284704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_26
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 79
+        width: 19
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d780d3aa34c43670800000000000000
+      internalID: 8517648551399950288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_27
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 94
+        width: 21
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c01c85d39c9f6ab0800000000000000
+      internalID: -5012615701483220792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_28
+      rect:
+        serializedVersion: 2
+        x: 354
+        y: 84
+        width: 25
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89aac5f2295f6c800800000000000000
+      internalID: 632462805900765848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_29
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 60
+        width: 28
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0170031ab90a4f0f0800000000000000
+      internalID: -1084065020004792560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_30
+      rect:
+        serializedVersion: 2
+        x: 173
+        y: 39
+        width: 28
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9acaa632730b8f180800000000000000
+      internalID: -9081314897728721751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_31
+      rect:
+        serializedVersion: 2
+        x: 201
+        y: 32
+        width: 39
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 766c4fe61b627ace0800000000000000
+      internalID: -1394103016135276953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_32
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 57
+        width: 17
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff8e65f14f8bca30800000000000000
+      internalID: 4236637387925393397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_33
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 59
+        width: 27
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fbe63a944a7fc1c0800000000000000
+      internalID: -4481228669146698762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Elite15_34
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 32
+        width: 58
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ac63cdc55444a720800000000000000
+      internalID: 2856483198974782629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Elite15_0: 5643951090366499303
+      Elite15_1: -574727835062474441
+      Elite15_10: -2352926781096816961
+      Elite15_11: 5542274778387888748
+      Elite15_12: 8066865520188460632
+      Elite15_13: -8530463682343985905
+      Elite15_14: -6103844038554353962
+      Elite15_15: 268982739810239794
+      Elite15_16: 2604542268277250360
+      Elite15_17: 5845943159519323729
+      Elite15_18: 2112923014115507838
+      Elite15_19: 6155828298283565213
+      Elite15_2: -3945190825636820183
+      Elite15_20: 4426035893565181391
+      Elite15_21: 6605533553335581458
+      Elite15_22: -3968235903884337955
+      Elite15_23: -3304265781880928764
+      Elite15_24: 4149420288165820913
+      Elite15_25: -2233733123820284704
+      Elite15_26: 8517648551399950288
+      Elite15_27: -5012615701483220792
+      Elite15_28: 632462805900765848
+      Elite15_29: -1084065020004792560
+      Elite15_3: -8637441186471553118
+      Elite15_30: -9081314897728721751
+      Elite15_31: -1394103016135276953
+      Elite15_32: 4236637387925393397
+      Elite15_33: -4481228669146698762
+      Elite15_34: 2856483198974782629
+      Elite15_4: 9174655060027019475
+      Elite15_5: 4632524243542291929
+      Elite15_6: 1757765468804869453
+      Elite15_7: 4025583155780510873
+      Elite15_8: 3285688095973401193
+      Elite15_9: 37969082566052510
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
