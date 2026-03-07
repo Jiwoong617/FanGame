@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: MoneEvent3
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uC2DD\uB2F9"
+  eventImage: {fileID: 0}
+  description: "\uB9C8\uC744\uC5D0\uC11C \uB9DB\uC788\uB294 \uC2DD\uB2F9 \uC5EC\uB7EC
+    \uACF3\uC744 \uCD94\uCC9C \uBC1B\uC558\uB2E4. \uC5B4\uB51C \uAC00\uBCFC\uAE4C?"
+  options:
+  - buttonText: "\uBC14\uC9C0\uB77D \uCE7C\uAD6D\uC218"
+    resultText: "\uC2DC\uC6D0\uD55C \uBC14\uC9C0\uB77D \uCE7C\uAD6D\uC218\uB97C \uBA39\uC5C8\uB2E4.
+      \uB2E4\uC74C\uC5D0 \uBAA8\uB124\uB791 \uC640\uB3C4 \uC88B\uC744 \uAC83 \uAC19\uB2E4\n(\uCD5C\uB300
+      \uCCB4\uB825 +5)"
+    outcomes:
+    - rid: 7988895521758773360
+  - buttonText: "\uC0E4\uBE0C\uC0E4\uBE0C"
+    resultText: "\uC0E4\uBE0C\uC0E4\uBE0C\uB97C \uBA39\uC5C8\uB2E4. \uC5ED\uC2DC
+      \uACE0\uAE30\uAC00 \uCD5C\uACE0\uC9C0\n(\uACF5\uACA9\uB825 +1)"
+    outcomes:
+    - rid: 7988895521758773361
+  - buttonText: "\uB099\uC9C0 \uC218\uC81C\uBE44"
+    resultText: "\uC5BC\uD070\uD55C \uB099\uC9C0 \uC218\uC81C\uBE44\uB97C \uBA39\uC5C8\uB2E4.
+      \uB9E4\uC6B4\uAC8C \uCD5C\uACE0\uC57C\n(\uCE58\uBA85\uD0C0 \uD655\uB960 +5%)"
+    outcomes:
+    - rid: 7988895521758773362
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895521758773360
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 0
+        modType: 0
+        amount: 5
+    - rid: 7988895521758773361
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 2
+        modType: 0
+        amount: 1
+    - rid: 7988895521758773362
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 10
+        modType: 0
+        amount: 5

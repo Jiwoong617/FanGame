@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: CommonEvent1
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uB5A8\uC5B4\uC9C4 \uC568\uBC94"
+  eventImage: {fileID: 0}
+  description: "\uB545\uC5D0 \uB5A8\uC5B4\uC9C4 \uC624\uC158\uBE14\uB8E8 \uC568\uBC94\uC744
+    \uBC1C\uACAC\uD588\uB2E4. \uC8FC\uC704\uB97C \uB458\uB7EC\uBD10\uB3C4 \uC8FC\uC778\uC73C\uB85C
+    \uBCF4\uC774\uB294 \uC0AC\uB78C\uC740 \uC5C6\uB294 \uAC83 \uAC19\uB2E4. \uC5B4\uB5BB\uAC8C
+    \uD560\uAE4C?"
+  options:
+  - buttonText: "\uC8FC\uC778\uC744 \uCC3E\uC544\uC8FC\uB824\uACE0 \uB178\uB825\uD55C\uB2E4"
+    resultText: "\uC5EC\uAE30\uC800\uAE30 \uB3CC\uC544\uB2E4\uB2C8\uBA70 \uACA8\uC6B0
+      \uC8FC\uC778\uC744 \uCC3E\uC544 \uB3CC\uB824\uC8FC\uC5C8\uB2E4. \uBCF4\uB2F5\uC73C\uB85C
+      \uC9C4\uC218\uC131\uCC2C\uC744 \uB300\uC811\uBC1B\uC558\uB2E4.\n(HP 30% \uD68C\uBCF5)"
+    outcomes:
+    - rid: 7988895500292063321
+  - buttonText: "\uC8FC\uC778\uC774 \uC5C6\uC73C\uB2C8 \uAC00\uC9C4\uB2E4"
+    resultText: "\uC8FC\uC778\uC774 \uC5C6\uB294 \uBB3C\uAC74\uC740 \uAC00\uC838\uB3C4
+      \uBB38\uC81C\uAC00 \uC5C6\uACA0\uC9C0?"
+    outcomes:
+    - rid: 7988895500292063318
+  - buttonText: "\uADF8\uB0E5 \uB450\uACE0 \uAC04\uB2E4"
+    resultText: "\uC544\uC27D\uC9C0\uB9CC \uCC1D\uCC1D\uD558\uB2C8 \uB450\uACE0 \uAC00\uB294
+      \uAC83\uC774 \uC88B\uC744 \uAC83 \uAC19\uB2E4."
+    outcomes: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895500292063318
+      type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        itemReward: {fileID: 11400000, guid: 339dadf9e5d745e44bdd59da391f0c2b, type: 2}
+    - rid: 7988895500292063321
+      type: {class: RecoveryOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        isHp: 1
+        amount: 30
+        isPercentage: 1

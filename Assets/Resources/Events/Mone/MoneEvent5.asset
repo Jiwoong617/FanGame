@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: MoneEvent5
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uC775\uC219\uD55C \uC778\uBB3C"
+  eventImage: {fileID: 0}
+  description: "\uC55E\uC5D0 \uC775\uC219\uD55C \uC778\uBB3C\uB4E4\uC774 \uBCF4\uC778\uB2E4.
+    \uC5EC\uC815\uC5D0 \uB3C4\uC6C0\uC744 \uBC1B\uAE30 \uC704\uD574 \uB9D0\uC744
+    \uAC78\uC5B4\uBCF4\uB824 \uD55C\uB2E4. \uB204\uAD6C\uC5D0\uAC8C \uB9D0\uC744
+    \uAC78\uC5B4\uBCFC\uAE4C?"
+  options:
+  - buttonText: "\uC544\uC57C"
+    resultText: "\uB9D0\uC744 \uAC70\uB2C8 \uCC28\uAC8C \uC2DD\uC5B4\uBC84\uB9B0
+      \uAE40\uCE58\uCC0C\uAC1C\uB97C \uBA39\uACE0 \uC788\uB294 \uC544\uC57C\uAC00
+      \uC1E0\uC0AC\uC2AC\uC744 \uAC74\uB124\uC92C\uB2E4. \uC774\uAC8C \uBB50\uC9C0?\n(4\uC778\uC6A9
+      \uC1E0\uC0AC\uC2AC \uD68D\uB4DD)"
+    outcomes:
+    - rid: 7988895521758773366
+  - buttonText: "\uB9DD\uB0B4"
+    resultText: "\uB9DD\uB0B4\uAC00 \uBC18\uAC11\uAC8C \uC778\uC0AC\uD574\uC8FC\uB354\uB2C8
+      \uAD6C\uC6B4 \uCF54\uCF54\uB11B\uC744 \uAC74\uB124\uBC1B\uC558\uB2E4. \uBC1B\uC740
+      \uCF54\uCF54\uB11B\uC744 \uB9DB\uC788\uAC8C \uBA39\uB294\uB370 \uC606\uC5D0\uC11C
+      \uBAA9\uC18C\uB9AC\uAC00 \uB4E4\uB824\uC628\uB2E4.\n\u201C\uC640 \uBAA8\uB124
+      \uBBF8\uB4DC\uB9CC \uD558\uB124\u201D\n(HP 30% \uD68C\uBCF5) "
+    outcomes:
+    - rid: 7988895521758773371
+  - buttonText: "\uD5C8\uB2C8\uCE04\uB7EC\uC2A4"
+    resultText: "\uD5C8\uCE04\uB294 \uC0C1\uD669\uC744 \uB4E3\uB354\uB2C8 \uB9DB\uC788\uB294
+      \uCE04\uB7EC\uC2A4\uB97C \uC950\uC5B4\uC8FC\uBA70, \uBAA8\uB124\uC5D0\uAC8C
+      \uC774\uBAA8 \uBED8\uC774 \uC544\uB2C8\uB77C\uACE0 \uC804\uD574 \uB2EC\uB77C\uACE0
+      \uBD80\uD0C1\uD588\uB2E4.\n(\uD5C8\uCE04\uC758 \uAC04\uC808\uD55C \uCE04\uB7EC\uC2A4
+      \uD68D\uB4DD)"
+    outcomes:
+    - rid: 7988895521758773370
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895521758773366
+      type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        itemReward: {fileID: 11400000, guid: 50fcd0885cb023043a7c0f1b9fbb941c, type: 2}
+    - rid: 7988895521758773370
+      type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        itemReward: {fileID: 11400000, guid: c1c97adc781375c43b10df303e46c776, type: 2}
+    - rid: 7988895521758773371
+      type: {class: RecoveryOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        isHp: 1
+        amount: 30
+        isPercentage: 1

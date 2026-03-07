@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: PopoEvent5
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uC775\uC219\uD55C \uC778\uBB3C"
+  eventImage: {fileID: 0}
+  description: "\uC55E\uC5D0 \uC775\uC219\uD55C \uC778\uBB3C\uB4E4\uC774 \uBCF4\uC778\uB2E4.
+    \uC5EC\uC815\uC5D0 \uB3C4\uC6C0\uC744 \uBC1B\uAE30 \uC704\uD574 \uB9D0\uC744
+    \uAC78\uC5B4\uBCF4\uB824 \uD55C\uB2E4. \uB204\uAD6C\uC5D0\uAC8C \uB9D0\uC744
+    \uAC78\uC5B4\uBCFC\uAE4C?"
+  options:
+  - buttonText: "\uC624\uD654\uC694"
+    resultText: "\uC778\uC0AC\uD558\uB2C8 \uD574\uB3CB\uC774 \uB204\uB098\uAC00 \uBC18\uACA8\uC8FC\uB354\uB2C8
+      \uBC25\uC744 \uC0AC\uC92C\uB2E4. \uC5ED\uC2DC \uD574\uB3CB\uC774 \uB204\uB098\uC57C.
+      \uADFC\uB370 \uBB58 \uBB3C\uC5B4\uBCF4\uB824 \uD588\uB354\uB77C?\n(\uCD5C\uB300
+      \uCCB4\uB825 +10)"
+    outcomes:
+    - rid: 7988895521758773391
+  - buttonText: "\uB9DD\uB0B4"
+    resultText: "\uC0C1\uD669\uC744 \uC124\uBA85\uD558\uB2C8 \uD3EC\uD3EC\uC640 \uD568\uAED8
+      \uC218\uC5C6\uC774 \uAE68\uB728\uB9B0 \uC720\uB9AC\uB97C \uACE0\uCE58\uAE30
+      \uC704\uD574 \uB9DD\uB0B4\uB3C4 \uB9CC\uB2A5 \uC218\uB9AC \uB3C4\uAD6C\uB97C
+      \uCC3E\uACE0 \uC788\uB2E4\uBA74\uC11C \uCC3E\uC73C\uBA74 \uC54C\uB824\uB2EC\uB77C\uACE0
+      \uD55C\uB2E4. \uC120\uBCF4\uC218\uB85C \uB2EC\uB2EC\uD55C \uCD08\uCF5C\uB9BF\uC744
+      \uBC1B\uC558\uB2E4.\n(Hp 30% \uD68C\uBCF5)"
+    outcomes:
+    - rid: 7988895521758773392
+  - buttonText: "\uB514\uB514\uB514\uC6A9"
+    resultText: "\uAC00\uAE4C\uC774 \uB2E4\uAC00\uAC00\uC790 \uB760\uC6A9\uC774\uAC00
+      \uC758\uC0AC\uAC00 \uB418\uACE0\uC2F6\uB2E4\uACE0 \uD558\uB294 \uB9D0\uC774
+      \uB4E4\uB824\uC654\uB2E4. \uC660\uC9C0 \uBD88\uAE38\uD55C \uAE30\uC6B4\uC774
+      \uB290\uAEF4\uC838 \uBA40\uB9AC \uB5A8\uC5B4\uC9C0\uAE30\uB85C \uD588\uB2E4.
+      \uC74C \uC758\uC0AC\uB9CC\uD07C\uC740 \uC808\uB300 \uC548\uB41C\uB2E4.\n(\uCE58\uBA85\uD0C0
+      \uD655\uB960 +5%, \uCE58\uBA85\uD0C0 \uB370\uBBF8\uC9C0 +25%)"
+    outcomes:
+    - rid: 7988895521758773393
+    - rid: 7988895521758773394
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895521758773391
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 0
+        modType: 0
+        amount: 10
+    - rid: 7988895521758773392
+      type: {class: RecoveryOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        isHp: 1
+        amount: 30
+        isPercentage: 1
+    - rid: 7988895521758773393
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 10
+        modType: 0
+        amount: 5
+    - rid: 7988895521758773394
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 11
+        modType: 0
+        amount: 25

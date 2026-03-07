@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: RyusihoEvent2
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uC18C\uD658 \uC0AC\uC778"
+  eventImage: {fileID: 0}
+  description: "\uB3C4\uB85C \uC704\uC5D0 \uBD89\uC740 \uC0C9\uC73C\uB85C \uBE5B\uB098\uB294
+    \uC0AC\uC778\uC774 \uBCF4\uC778\uB2E4. \uC790\uC138\uD788 \uBCF4\uB2C8 \u201CImNotSiho\u201D\uB77C\uACE0
+    \uC801\uD600\uC788\uB2E4. \uB9CC\uC838\uBCFC\uAE4C? "
+  options:
+  - buttonText: "\uB9CC\uC9C4\uB2E4."
+    resultText: "\uB0A1\uACE0 \uD5E4\uC9C4 \uC637\uC744 \uC785\uC740 \uBCF4\uB77C\uC0C9
+      \uD53C\uBD80\uC758 \uC0AC\uB78C\uC774 \uB098\uD0C0\uB098, \uC55E\uC5D0 \uBB3C\uAC74\uC744
+      \uD558\uB098 \uB358\uC9C0\uACE0 \uD640\uC5F0\uD788 \uC0AC\uB77C\uC84C\uB2E4.\n(\uC794\uBD88
+      \uD68D\uB4DD)"
+    outcomes:
+    - rid: 7988895500292063308
+  - buttonText: "\uB9CC\uC9C0\uC9C0 \uC54A\uB294\uB2E4."
+    resultText: "\uBD88\uC548\uD55C \uB9C8\uC74C\uC5D0 \uBE60\uB974\uAC8C \uC9C0\uB098\uCCD0
+      \uC654\uB2E4. \uC544\uBB34\uC77C\uB3C4 \uC77C\uC5B4\uB098\uC9C0 \uC54A\uC558\uB2E4."
+    outcomes: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895500292063308
+      type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        itemReward: {fileID: 11400000, guid: 36d5e344869f2f6429a05df0e3070bb3, type: 2}

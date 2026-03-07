@@ -57,6 +57,7 @@ public class UnitStats
     public Stat criticalChance;
     public Stat criticalDamage;
 
+    private float _lastMaxHp;
     // 얘는 상태니까 그냥 놔둔거
     private float _hp;
 
@@ -86,5 +87,30 @@ public class UnitStats
         attackSpeed.OnStatChanged += () => OnAttackSpeedChanged?.Invoke(attackSpeed.GetValue());
         criticalChance.OnStatChanged += () => OnCriticalChanceChanged?.Invoke(criticalChance.GetValue());
         criticalDamage.OnStatChanged += () => OnCriticalDamageChanged?.Invoke(criticalDamage.GetValue());
+
+        _lastMaxHp = maxHp.GetValue();
+        maxHp.OnStatChanged += HandleMaxHpChange;
+    }
+
+    private void HandleMaxHpChange()
+    {
+        float newMaxHp = maxHp.GetValue();
+
+        if (newMaxHp > _lastMaxHp)
+        {
+            float diff = newMaxHp - _lastMaxHp;
+            _hp += diff;
+            OnHpChanged?.Invoke(_hp, newMaxHp);
+        }
+        else if (newMaxHp < _lastMaxHp)
+        {
+            if (_hp > newMaxHp)
+            {
+                _hp = newMaxHp;
+                OnHpChanged?.Invoke(_hp, newMaxHp);
+            }
+        }
+
+        _lastMaxHp = newMaxHp;
     }
 }

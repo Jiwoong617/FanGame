@@ -50,14 +50,16 @@ MonoBehaviour:
   parryDuration: 0.2
   dodgeCoolTime: 0.7
   parrayCoolTime: 0.5
+  skillIcon: {fileID: 0}
+  skillName: 
+  skillDesc: 
   references:
     version: 2
     RefIds:
     - rid: 8549445380324196423
       type: {class: ParryReflectAbility, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 4
-        reflectMultiplier: 1
+        combatEvent: 5
     - rid: 8549445450257924181
       type: {class: ParryAbility, ns: , asm: Assembly-CSharp}
       data:

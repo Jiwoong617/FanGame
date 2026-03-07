@@ -16,7 +16,7 @@ MonoBehaviour:
   RewardName: "\uBCC0\uAE30\uD1B5"
   Description: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC774\uBC88 \uC804\uD22C \uB3D9\uC548
     \uC790\uC2E0\uC5D0\uAC8C \uBC18\uC0AC \uBC84\uD504 2\uC2A4\uD0DD \uD68D\uB4DD"
-  FlavorText: "\uB0B4 \uC544\uC774\uD3F0 \u3160\u3160 \uC544\uBE60\uAC00 \uC0AC\uC900\uAC74\uB370
+  FlavorText: "\"\uB0B4 \uC544\uC774\uD3F0 \u3160\u3160 \uC544\uBE60\uAC00 \uC0AC\uC900\uAC74\uB370
     \u3160\u3160\u201D"
   isItem: 1
   statChanges: []
@@ -41,7 +41,7 @@ MonoBehaviour:
       data:
         combatEvent: 3
         effectType: 1
-        duration: 0
+        duration: -1
         stacks: 1
         effectValue: 0
         isPermanent: 1

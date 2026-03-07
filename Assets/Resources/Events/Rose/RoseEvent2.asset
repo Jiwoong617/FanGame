@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: RoseEvent2
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uAE08\uACE0"
+  eventImage: {fileID: 0}
+  description: "\uBE14\uB808\uC5B4 \uAC00\uBB38\uC758 \uC9C0\uC6D0\uC744 \uBC1B\uC544
+    \uAE08\uACE0\uAC00 \uC788\uB294 \uB3C4\uC2DC\uC5D0 \uB3C4\uCC29\uD588\uB2E4.
+    \uC5B4\uB290 \uAE08\uACE0\uB97C \uC5F4\uC5B4\uBCFC\uAE4C?"
+  options:
+  - buttonText: 1024
+    resultText: "\uC548\uC5D0\uB294 \uB625\uC637\uC774 \uB4E4\uC5B4\uC788\uC5C8\uB2E4.
+      \uAE08\uACE0\uC5D0 \uB625\uC637\uC774\uB77C\uB2C8 \uAC00\uBB38 \uC774\uB300\uB85C
+      \uAD1C\uCC2E\uC744\uAE4C \uAC71\uC815\uC774 \uB4E4\uAE30 \uC2DC\uC791\uD55C\uB2E4.\n(\uB625\uC637
+      \uD68D\uB4DD)"
+    outcomes:
+    - rid: 7988895521758773349
+  - buttonText: 0214
+    resultText: "\uC548\uC5D0\uB294 \uD558\uB298\uBCF4\uB9AC\uAC00 \uB4E4\uC5B4\uC788\uC5C8\uB2E4.
+      \uC774\uAC8C \uC65C \uAE08\uACE0\uC5D0?\n(\uD558\uB298\uBCF4\uB9AC \uD68D\uB4DD)"
+    outcomes:
+    - rid: 7988895521758773348
+  - buttonText: "\uC5F4\uC9C0 \uC54A\uB294\uB2E4."
+    resultText: "\uAC00\uBB38\uC5D0 \uAE30\uB300\uC9C0 \uC54A\uACE0 \uC790\uC2E0\uC758
+      \uD798\uC73C\uB85C \uD5E4\uCCD0\uB098\uAC08 \uC904\uB3C4 \uC54C\uC544\uC57C\uACA0\uC9C0.\n(\uCD5C\uB300
+      FP +1)"
+    outcomes:
+    - rid: 7988895521758773347
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895521758773347
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 6
+        modType: 0
+        amount: 1
+    - rid: 7988895521758773348
+      type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        itemReward: {fileID: 11400000, guid: 48fa06fb5adc7ff4499dd6d25d7e8794, type: 2}
+    - rid: 7988895521758773349
+      type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        itemReward: {fileID: 11400000, guid: b1416c32cf7c6f142b5cbd362118d63b, type: 2}

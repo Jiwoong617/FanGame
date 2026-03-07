@@ -52,13 +52,7 @@ public class RewardData : ScriptableObject
             switch (stat.targetStat)
             {
                 case StatType.MaxHP:
-                    float oldMaxHp = stats.maxHp.GetValue();
                     stats.maxHp.AddModifier(mod);
-
-                    // 증가 후 값 확인하여 차이만큼 현재 체력 회복
-                    float newMaxHp = stats.maxHp.GetValue();
-                    if (newMaxHp > oldMaxHp)
-                        stats.hp += (newMaxHp - oldMaxHp);
                     break;
 
                 case StatType.AttackDamage:
@@ -82,12 +76,7 @@ public class RewardData : ScriptableObject
                     break;
 
                 case StatType.MaxFp:
-                    float oldFp = stats.maxFp.GetValue();
                     stats.maxFp.AddModifier(mod);
-
-                    float newFp = stats.maxFp.GetValue();
-                    if (newFp > oldFp)
-                        stats.fp += (newFp - oldFp);
                     break;
 
                 case StatType.SkillCoolTime:
