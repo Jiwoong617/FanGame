@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RoseEvent4
   m_EditorClassIdentifier: Assembly-CSharp::EventData
   title: "\uC218\uB9AC\uC810"
-  eventImage: {fileID: 0}
+  eventImage: {fileID: 21300000, guid: aad08ebdacb5c2d43ac5c8f86778ad66, type: 3}
   description: "\uB2A6\uC740 \uBC24, \uAC00\uBB38\uC758 \uB9C8\uCC28\uB97C \uD0C0\uACE0
     \uC774\uB3D9\uD558\uB358 \uC911 \uBC14\uD034\uAC00 \uBD80\uC11C\uC9C0\uACE0 \uB9D0\uC558\uB2E4."
   options:
