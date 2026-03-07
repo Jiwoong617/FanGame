@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: HasiyoEvent4
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uB545\uC6B8\uB9BC"
+  eventImage: {fileID: 0}
+  description: "\uB9C8\uC744\uC5D0\uC11C \uC26C\uB358 \uC911 \uB545\uC774 \uC6B8\uB9AC\uB294\uAC8C
+    \uB290\uAEF4\uC9C4\uB2E4. \uBAAC\uC2A4\uD130\uC758 \uC2B5\uACA9\uC77C\uAE4C?"
+  options:
+  - buttonText: "\uC6D0\uC778\uC744 \uC870\uC0AC\uD55C\uB2E4"
+    resultText: "\uB9C8\uB140 \uD558\uC2DC\uC694\uC5D0\uAC8C \uC5F0\uB77D\uD574\uBCF4\uB2C8
+      \uC2E4\uD5D8\uC744 \uD558\uB2E4 \uC0AC\uACE0\uAC00 \uB0AC\uB2E4\uACE0 \uD55C\uB2E4.
+      \uC74C \uC624\uB298\uB3C4 \uBB34\uC0AC\uACE0 0\uC77C\uCC28 \uAD70\n(\uACF5\uACA9\uB825
+      +1)"
+    outcomes:
+    - rid: 7988895521758773257
+  - buttonText: "\uC8FC\uBBFC\uB4E4\uACFC \uAC19\uC774 \uB300\uD53C\uD55C\uB2E4."
+    resultText: "\uC0AC\uB78C\uB4E4\uACFC \uAC19\uC774 \uC548\uC804\uD55C \uACF3\uC5D0
+      \uB300\uD53C\uD588\uB2E4. \uC6B4\uC774 \uC88B\uC740\uC9C0 \uB2E4\uD589\uC774
+      \uC544\uBB34 \uC77C\uB3C4 \uC5C6\uC5C8\uB2E4.\n(\uCE58\uBA85\uD0C0 \uD655\uB960
+      +5%)"
+    outcomes:
+    - rid: 7988895521758773259
+  - buttonText: "\uB3C4\uB9DD\uCE5C\uB2E4"
+    resultText: "\uBB34\uC2A8 \uC77C\uC778\uC9C0 \uBAA8\uB974\uACA0\uC9C0\uB9CC \uB098\uB77C\uB3C4
+      \uC0B4\uC544\uC57C\uC9C0. \uB204\uAD6C\uBCF4\uB2E4 \uBE60\uB974\uAC8C \uB3C4\uB9DD\uCCE4\uB2E4\n(\uCD5C\uB300
+      \uC2A4\uD14C\uBBF8\uB098 +15)"
+    outcomes:
+    - rid: 7988895521758773258
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895521758773257
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 2
+        modType: 0
+        amount: 1
+    - rid: 7988895521758773258
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 4
+        modType: 0
+        amount: 15
+    - rid: 7988895521758773259
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 10
+        modType: 0
+        amount: 5

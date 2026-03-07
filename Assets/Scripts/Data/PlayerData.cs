@@ -51,6 +51,7 @@ public class PlayerStats : UnitStats
     // 현재 상태 (단순 변수)
     private float _stamina;
     private float _fp;
+    private float _lastMaxFp;
 
     public float dodgeDuration { get; private set; }
     public float parryDuration { get; private set; }
@@ -99,5 +100,29 @@ public class PlayerStats : UnitStats
         staminaRegen.OnStatChanged += () => OnStaminaRegenChanged?.Invoke(staminaRegen.GetValue());
         maxFp.OnStatChanged += () => OnFpChanged?.Invoke(_fp, maxFp.GetValue());
 
+        _lastMaxFp = maxFp.GetValue();
+        maxFp.OnStatChanged += HandleMaxFpChange;
+    }
+
+    private void HandleMaxFpChange()
+    {
+        float newMaxFp = maxFp.GetValue();
+
+        if (newMaxFp > _lastMaxFp)
+        {
+            float diff = newMaxFp - _lastMaxFp;
+            fp += diff;
+            OnFpChanged?.Invoke(_fp, newMaxFp);
+        }
+        else if (newMaxFp < _lastMaxFp)
+        {
+            if (fp > newMaxFp)
+            {
+                fp = newMaxFp;
+                OnFpChanged?.Invoke(_fp, newMaxFp);
+            }
+        }
+
+        _lastMaxFp = newMaxFp;
     }
 }

@@ -1,0 +1,39 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: HasiyoEvent2
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uC751\uC6D0"
+  eventImage: {fileID: 0}
+  description: "\uC9C0\uB098\uAC00\uB358 \uC0AC\uB78C\uC774 \uACE7 \uC2DC\uD5D8\uC744
+    \uBCF4\uB294\uB370 \uC751\uC6D0\uD574 \uB2EC\uB77C\uACE0 \uBD80\uD0C1\uD55C\uB2E4.
+    \uC5B4\uB5A1\uD560\uAE4C?"
+  options:
+  - buttonText: "\uC131\uACF5\uC758 \uC8FC\uBB38 \uB178\uB798\uB97C \uBD88\uB7EC\uC900\uB2E4."
+    resultText: "\uC640\uC3D8\uBCA0\uC3D8~ \uB178\uB798\uB97C \uB4E3\uACE0\uC120
+      \uAC10\uC0AC\uC758 \uD45C\uC2DC\uB85C \uB9C8\uB098 \uD3EC\uC158\uC744 \uBC1B\uC558\uB2E4.\n(FP
+      2\uD68C\uBCF5)"
+    outcomes:
+    - rid: 7988895521758773255
+  - buttonText: "\uBC14\uC05C \uC77C\uC815\uC774 \uBA3C\uC800\uB2E4."
+    resultText: "\uC77C\uC774 \uAE09\uD558\uB2E4\uBA70 \uC815\uC911\uD788 \uAC70\uC808\uD588\uB2E4.
+      \uC0C1\uB300\uB3C4 \uC5B4\uCA54 \uC218 \uC5C6\uB2E4\uBA70 \uAE38\uC744 \uBE44\uCF30\uB2E4."
+    outcomes: []
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895521758773255
+      type: {class: RecoveryOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        isHp: 0
+        amount: 2
+        isPercentage: 0

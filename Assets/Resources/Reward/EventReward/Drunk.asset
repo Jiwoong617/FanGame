@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
+  m_Name: Drunk
+  m_EditorClassIdentifier: Assembly-CSharp::RewardData
+  Icon: {fileID: -1288479230768560328, guid: c37acf5b0a2cc3749ac5cc699471222c, type: 3}
+  RewardName: "\uC219\uCDE8"
+  Description: "\uCD5C\uB300 \uCCB4\uB825 20% \uAC10\uC18C, \uCE58\uBA85\uD0C0 \uD655\uB960
+    10% \uC99D\uAC00"
+  FlavorText: "\uC73C\uC5B4\u3153\uC5B4.. \uB108\uBB34 \uB9CE\uC774 \uB9C8\uC168\uB098...?"
+  isItem: 1
+  statChanges:
+  - targetStat: 0
+    modType: 1
+    amount: -0.2
+  - targetStat: 10
+    modType: 0
+    amount: 10
+  abilities: []
+  references:
+    version: 2
+    RefIds: []

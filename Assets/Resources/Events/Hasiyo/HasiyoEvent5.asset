@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: HasiyoEvent5
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uC775\uC219\uD55C \uC778\uBB3C"
+  eventImage: {fileID: 0}
+  description: "\uC55E\uC5D0 \uC775\uC219\uD55C \uC778\uBB3C\uB4E4\uC774 \uBCF4\uC778\uB2E4.
+    \uC5EC\uC815\uC5D0 \uB3C4\uC6C0\uC744 \uBC1B\uAE30 \uC704\uD574 \uB9D0\uC744
+    \uAC78\uC5B4\uBCF4\uB824 \uD55C\uB2E4. \uB204\uAD6C\uC5D0\uAC8C \uB9D0\uC744
+    \uAC78\uC5B4\uBCFC\uAE4C?"
+  options:
+  - buttonText: "\uD5C8\uB2C8\uCE04\uB7EC\uC2A4"
+    resultText: "\uD669\uC62C\uC758 \uC704\uCE58\uB294 \uBAA8\uB974\uACA0\uC9C0\uB9CC
+      \uAD00\uB828\uB41C \uBB38\uC11C\uB97C \uC548\uB2E4\uACE0 \uD558\uC5EC \uAC19\uC774
+      \uCC3E\uC544\uBD24\uB2E4. \uB9C8\uC9C0\uB9C9\uC73C\uB85C \uBC1C\uACAC\uB41C
+      \uC704\uCE58\uAC00 \uAE30\uB85D\uB418\uC5B4\uC788\uB294 \uC9C0\uB3C4\uB97C
+      \uCC3E\uC558\uB2E4.\n(\uC704\uCE58\uAC00 \uAE30\uB85D\uB41C \uC9C0\uB3C4 \uD68D\uB4DD)"
+    outcomes:
+    - rid: 7988895521758773260
+  - buttonText: "\uC544\uC57C"
+    resultText: "\uD669\uC62C\uC5D0 \uB300\uD574 \uBB3C\uC5B4\uBCF4\uB2C8 \u2018\uBAA8\uB974\uACA0\uB294\uB370
+      \uC77C\uB2E8 \uB864 \u3131?\u2019\uB97C \uC678\uCE58\uB294 \uC544\uC57C\uB97C
+      \uB4A4\uB85C \uD55C \uCC44 \uBC1C\uAC78\uC74C\uC744 \uCC44\uC871\uD588\uB2E4.\n(\uCD5C\uB300
+      \uCCB4\uB825 +5)"
+    outcomes:
+    - rid: 7988895521758773261
+  - buttonText: "\uB514\uB514\uB514\uC6A9"
+    resultText: "\uD669\uC62C \uC774\uC57C\uAE30\uB97C \uB4E3\uC790\uB9C8\uC790 \u2018\uC774\uB7F0
+      \uC0E4\uAC08!\u2019\uC744 \uC678\uCE58\uACE0 \uB3C4\uB9DD\uAC00\uBC84\uB838\uB2E4.
+      \uC544 \uADF8\uB7EC\uACE0\uBCF4\uB2C8 \uACF5\uB8E1\uC758 \uD6C4\uC190\uC740
+      \uB2ED\uC774\uC5C8\uB358\uAC00?\n(\uCD5C\uB300 FP +1)"
+    outcomes:
+    - rid: 7988895521758773263
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895521758773260
+      type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        itemReward: {fileID: 11400000, guid: a12d42d5bc63a8644ba668df97259c1b, type: 2}
+    - rid: 7988895521758773261
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 0
+        modType: 0
+        amount: 5
+    - rid: 7988895521758773263
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 6
+        modType: 0
+        amount: 1

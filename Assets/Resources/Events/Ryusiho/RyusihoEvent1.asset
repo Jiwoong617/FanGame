@@ -30,17 +30,29 @@ MonoBehaviour:
       \uB20C\uB7EC\uC57C \uD560 \uAC83 \uAC19\uC740 \uAE30\uBD84\uC774 \uB4E0\uB2E4.\n(\uACF5\uACA9\uC18D\uB3C4
       +0.2)"
     outcomes:
-    - rid: 7988895500292063307
+    - rid: 7988895521758773340
   - buttonText: "\uC5EC\uC6B0\uADC0 \uBA38\uB9AC\uB760"
     resultText: "\uC131\uB140\uB2D8\uC774 \uC4F0\uBA74 \uADC0\uAC00 6\uAC1C\uAC00
       \uB420 \uAC83 \uAC19\uC740 \uBA38\uB9AC\uB760\uB2E4.\n(\uCD5C\uB300 \uCCB4\uB825
       +5)"
     outcomes:
-    - rid: 7988895500292063307
+    - rid: 7988895521758773341
   references:
     version: 2
     RefIds:
     - rid: 7988895500292063307
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 2
+        modType: 0
+        amount: 1
+    - rid: 7988895521758773340
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 3
+        modType: 0
+        amount: 0.2
+    - rid: 7988895521758773341
       type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
       data:
         targetStat: 0

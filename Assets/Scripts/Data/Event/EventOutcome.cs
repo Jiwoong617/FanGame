@@ -84,3 +84,27 @@ public class ItemOutcome : EventOutcome
         }
     }
 }
+
+[Serializable]
+public class HpLoseOutCome : EventOutcome
+{
+    public float amount;
+    public bool isPercentage = false;
+
+    public override void Apply(PlayerUnit player)
+    {
+        var stats = player.GetStat<PlayerStats>();
+        if (stats == null) return;
+
+        float lossValue = amount;
+        float currentHp = stats.hp;
+        if (isPercentage)
+            lossValue = currentHp * (amount / 100f);
+
+        float nextHp = currentHp - lossValue;
+        if (nextHp < 1f)
+            nextHp = 1f;
+
+        stats.hp = nextHp;
+    }
+}

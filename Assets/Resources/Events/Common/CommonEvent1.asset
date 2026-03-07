@@ -27,8 +27,7 @@ MonoBehaviour:
     - rid: 7988895500292063321
   - buttonText: "\uC8FC\uC778\uC774 \uC5C6\uC73C\uB2C8 \uAC00\uC9C4\uB2E4"
     resultText: "\uC8FC\uC778\uC774 \uC5C6\uB294 \uBB3C\uAC74\uC740 \uAC00\uC838\uB3C4
-      \uBB38\uC81C\uAC00 \uC5C6\uACA0\uC9C0? \uC5B4\uB514\uC5D0\uB3C4 \uC5C6\uC744
-      \uD558\uB8E8 in Ocean Blue~"
+      \uBB38\uC81C\uAC00 \uC5C6\uACA0\uC9C0?"
     outcomes:
     - rid: 7988895500292063318
   - buttonText: "\uADF8\uB0E5 \uB450\uACE0 \uAC04\uB2E4"
@@ -41,7 +40,7 @@ MonoBehaviour:
     - rid: 7988895500292063318
       type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
       data:
-        itemReward: {fileID: 0}
+        itemReward: {fileID: 11400000, guid: 339dadf9e5d745e44bdd59da391f0c2b, type: 2}
     - rid: 7988895500292063321
       type: {class: RecoveryOutcome, ns: , asm: Assembly-CSharp}
       data:

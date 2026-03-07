@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: RyusihoEvent6
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uC775\uC219\uD55C \uC778\uBB3C"
+  eventImage: {fileID: 0}
+  description: "\uC55E\uC5D0 \uC775\uC219\uD55C \uC778\uBB3C\uB4E4\uC774 \uBCF4\uC778\uB2E4.
+    \uC5EC\uC815\uC5D0 \uB3C4\uC6C0\uC744 \uBC1B\uAE30 \uC704\uD574 \uB9D0\uC744
+    \uAC78\uC5B4\uBCF4\uB824 \uD55C\uB2E4. \uB204\uAD6C\uC5D0\uAC8C \uB9D0\uC744
+    \uAC78\uC5B4\uBCFC\uAE4C?"
+  options:
+  - buttonText: "\uC624\uD654\uC694"
+    resultText: "\uC5F4\uC2EC\uD788 \uB2F9\uADFC\uC744 \uD754\uB4E4\uACE0 \uC788\uC5B4\uC11C
+      \uB098\uB3C4 \uBAA8\uB974\uAC8C \uAC19\uC774 \uD754\uB4E4\uC5C8\uB2E4.\n(\uCD5C\uB300
+      \uCCB4\uB825 +10)"
+    outcomes:
+    - rid: 7988895521758773344
+  - buttonText: "\uB9DD\uB0B4"
+    resultText: "\uC0C1\uD669\uC744 \uC124\uBA85\uD558\uC790 \uC798 \uBAA8\uB974\uACA0\uC9C0\uB9CC
+      \uB3C4\uC6C0\uC774 \uB420\uC9C0\uB3C4 \uBAA8\uB978\uB2E4\uBA70 \uCC45\uC744
+      \uD558\uB098 \uC92C\uB2E4."
+    outcomes:
+    - rid: 7988895521758773345
+  - buttonText: "\uD5C8\uB2C8\uCE04\uB7EC\uC2A4"
+    resultText: "\uB9D0\uC744 \uAC70\uB294 \uC21C\uAC04, \uBA38\uB9AC \uC704\uC758
+      \uBC84\uD130\uAC00 \uBE68\uB531 \uC11C\uB294 \uC548\uB0B4 \uBC29\uC1A1\uC774
+      \uB4E4\uB824\uC628\uB2E4.\n\u2018\uD575 \uACF5\uACA9\uC774 \uAC10\uC9C0\uB418\uC5C8\uC2B5\uB2C8\uB2E4.\u2019\n\uD5C8\uB2C8\uCE04\uB7EC\uC2A4\uB294
+      \uC5BC\uAD74\uC774 \uC0C8\uD30C\uB797\uAC8C \uC9C8\uB824 \uB3C4\uB9DD\uAC00\uBC84\uB838\uB2E4.\n(\uCD5C\uB300
+      \uC2A4\uD14C\uBBF8\uB098 +30)"
+    outcomes:
+    - rid: 7988895521758773346
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895521758773344
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 0
+        modType: 0
+        amount: 10
+    - rid: 7988895521758773345
+      type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        itemReward: {fileID: 11400000, guid: 63d5cf9bf5ad45a498564d7d4656778f, type: 2}
+    - rid: 7988895521758773346
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 4
+        modType: 0
+        amount: 30

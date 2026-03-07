@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
+  m_Name: PopoEvent2
+  m_EditorClassIdentifier: Assembly-CSharp::EventData
+  title: "\uBAB8\uC744 \uAC00\uBCCD\uAC8C"
+  eventImage: {fileID: 0}
+  description: "\uAC00\uC9C0\uACE0 \uC788\uB358 \uBB3C\uAC74\uC774 \uB108\uBB34 \uB9CE\uC544
+    \uD558\uB098\uB97C \uBC84\uB9AC\uB824\uACE0 \uD55C\uB2E4. \uC5B4\uB5A4 \uAC78
+    \uBC84\uB9B4\uAE4C"
+  options:
+  - buttonText: "\uC774X\uB9B0 \uD53C\uADDC\uC5B4"
+    resultText: "\uAC19\uC774 \uBA87 \uBC88\uC758 \uC2B9\uB9AC\uB97C \uD568\uAED8\uD588\uB358
+      \uCE90\uB9AD\uD130\uC758 \uD53C\uADDC\uC5B4\uC9C0\uB9CC \uC5B4\uCA54 \uC218
+      \uC5C6\uC9C0\n(\uCD5C\uB300 \uC2A4\uD14C\uBBF8\uB098 +15)"
+    outcomes:
+    - rid: 7988895521758773378
+  - buttonText: "\uD584\uBC84\uAC70 \uB3C4\uAC10"
+    resultText: "\uBC84\uAC70\uB9CC \uC5F4\uC2EC\uD788 \uBA39\uC5B4\uC11C \uB9CC\uB4E0\uAC70\uC9C0\uB9CC
+      \uBB3C\uB824\uBC84\uB838\uC73C\uB2C8 \uAD1C\uCC2E\uC544\n(\uACF5\uACA9\uB825
+      -1, \uCD5C\uB300 \uC2A4\uD14C\uBBF8\uB098 +15, \uACF5\uACA9\uC18D\uB3C4 +0.2)"
+    outcomes:
+    - rid: 7988895521758773379
+    - rid: 7988895521758773380
+    - rid: 7988895521758773381
+  - buttonText: "\uC720\uC801\uD0D0\uD5D8\uC73C\uB85C \uC5BB\uC740 \uC720\uBB3C"
+    resultText: "\uD53CX\uCE04\uC640 \uD568\uAED8 \uC720\uC801\uD0D0\uD5D8\uC744
+      \uD588\uB358 \uCD94\uC5B5\uC774 \uB2F4\uAE34 \uC720\uBB3C\uC774\uC9C0\uB9CC
+      \uC9D0\uC774 \uB41C\uB2E4\uBA74..\n(\uACF5\uACA9\uB825 -2, \uCD5C\uB300 \uC2A4\uD14C\uBBF8\uB098
+      +15, \uACF5\uACA9\uC18D\uB3C4 +0.2, \uCD5C\uB300 \uCCB4\uB825 +5)"
+    outcomes:
+    - rid: 7988895521758773382
+    - rid: 7988895521758773383
+    - rid: 7988895521758773385
+    - rid: 7988895521758773384
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895521758773378
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 4
+        modType: 0
+        amount: 15
+    - rid: 7988895521758773379
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 4
+        modType: 0
+        amount: 15
+    - rid: 7988895521758773380
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 2
+        modType: 0
+        amount: -1
+    - rid: 7988895521758773381
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 3
+        modType: 0
+        amount: 0.2
+    - rid: 7988895521758773382
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 0
+        modType: 0
+        amount: 5
+    - rid: 7988895521758773383
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 3
+        modType: 0
+        amount: 0.2
+    - rid: 7988895521758773384
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 2
+        modType: 0
+        amount: -2
+    - rid: 7988895521758773385
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 4
+        modType: 0
+        amount: 15

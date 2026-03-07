@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: OceanBlue
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 0}
-  RewardName: 
-  Description: 
-  FlavorText: 
-  isItem: 0
-  statChanges: []
+  RewardName: "OceanBlue \uC568\uBC94"
+  Description: "\uACF5\uACA9\uC18D\uB3C4 30% \uC99D\uAC00"
+  FlavorText: "\uC5B4\uB514\uC5D0\uB3C4 \uC5C6\uC744 \uD558\uB8E8 in Ocean Blue~"
+  isItem: 1
+  statChanges:
+  - targetStat: 3
+    modType: 1
+    amount: 0.3
   abilities: []
   references:
     version: 2
