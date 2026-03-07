@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
   m_Name: Boss6
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: a18563b5d911f334bb301a034490191e, type: 3}
   RewardName: "\uC785\uC774 \uC090\uB6A4\uC5B4\uC9C4 \uC778\uD615"
   Description: "\uC783\uC740 \uCCB4\uB825 1%\uB2F9 \uACF5\uACA9\uB825 5% \uC99D\uAC00"
   FlavorText: :/

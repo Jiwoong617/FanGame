@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 86bedccd222b9df44b7a171d44441565
+guid: a18563b5d911f334bb301a034490191e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3900672269756557169
-    second: Elite9_0
+      213: -4640331592210173293
+    second: Boss6_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Elite9_0
+      name: Boss6_0
       rect:
         serializedVersion: 2
-        x: 110
-        y: 364
-        width: 812
-        height: 797
+        x: 203
+        y: 143
+        width: 636
+        height: 681
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1776e0043c8f12630800000000000000
-      internalID: 3900672269756557169
+      spriteID: 3923a4e900b3a9fb0800000000000000
+      internalID: -4640331592210173293
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Elite9_0: 3900672269756557169
+      Boss6_0: -4640331592210173293
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
