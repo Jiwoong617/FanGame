@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
   m_Name: Chain
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 4333f6c02c6eee64992d1bc510ed9890, type: 3}
   RewardName: "4\uC778\uC6A9 \uC1E0\uC0AC\uC2AC"
   Description: "\uACF5\uACA9\uC18D\uB3C4 0.4 \uAC10\uC18C, \uACF5\uACA9\uB825 5 \uC99D\uAC00"
   FlavorText: "\u201C\uC544 \uAE40\uCE58\uCC0C\uAC1C \uBA39\uC73C\uB7EC\uAC00\uC57C\uACA0\uB2E4

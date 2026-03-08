@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: c37acf5b0a2cc3749ac5cc699471222c
+guid: b491b91b846850e4ab00f6f60da1e0ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1288479230768560328
-    second: Drunk_0
+      213: -8294750614818783014
+    second: SnowEgg_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Drunk_0
+      name: SnowEgg_0
       rect:
         serializedVersion: 2
-        x: 195
-        y: 0
-        width: 659
-        height: 640
+        x: 179
+        y: 162
+        width: 238
+        height: 295
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 837429d57f66e1ee0800000000000000
-      internalID: -1288479230768560328
+      spriteID: ad00647634023ec80800000000000000
+      internalID: -8294750614818783014
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Drunk_0: -1288479230768560328
+      SnowEgg_0: -8294750614818783014
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

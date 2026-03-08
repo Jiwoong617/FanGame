@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
   m_Name: OceanBlue
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 25bc2f9f6c1cdfd41b2a66d0964407bf, type: 3}
   RewardName: "OceanBlue \uC568\uBC94"
   Description: "\uACF5\uACA9\uC18D\uB3C4 30% \uC99D\uAC00"
   FlavorText: "\uC5B4\uB514\uC5D0\uB3C4 \uC5C6\uC744 \uD558\uB8E8 in Ocean Blue~"

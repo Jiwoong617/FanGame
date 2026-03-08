@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
   m_Name: SnowmanEgg
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: b491b91b846850e4ab00f6f60da1e0ba, type: 3}
   RewardName: "\uB208\uC0AC\uB78C \uC54C"
   Description: "\uC2A4\uD14C\uBBF8\uB098 \uC7AC\uC0DD 50% \uC99D\uAC00"
   FlavorText: "\uB204\uAD70\uAC00 \uC5BB\uACE0 \uC2F6\uC5C8\uC9C0\uB9CC \uBABB \uC5BB\uC740

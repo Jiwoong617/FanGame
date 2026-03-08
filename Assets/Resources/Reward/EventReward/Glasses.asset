@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
   m_Name: Glasses
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 350cadeb837883d42b90601cd6d2ced2, type: 3}
   RewardName: "\uC790\uBB3C\uC1E0\uAC00 \uAC78\uB9B0 \uC548\uACBD"
   Description: "\uBC29\uC5B4\uB825 1 \uC99D\uAC00"
   FlavorText: "\uC218\uC5C5 \uB05D\uB098\uBA74 \uD480\uC5B4\uC900\uB2E4\uBA70! \uD480\uC5B4\uC900\uB2E4\uACE0
