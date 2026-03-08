@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: HasiyoEvent2
   m_EditorClassIdentifier: Assembly-CSharp::EventData
   title: "\uC751\uC6D0"
-  eventImage: {fileID: 0}
+  eventImage: {fileID: 21300000, guid: c0c38a3a68c04624bbef4e3ef42b3bd4, type: 3}
   description: "\uC9C0\uB098\uAC00\uB358 \uC0AC\uB78C\uC774 \uACE7 \uC2DC\uD5D8\uC744
     \uBCF4\uB294\uB370 \uC751\uC6D0\uD574 \uB2EC\uB77C\uACE0 \uBD80\uD0C1\uD55C\uB2E4.
     \uC5B4\uB5A1\uD560\uAE4C?"
