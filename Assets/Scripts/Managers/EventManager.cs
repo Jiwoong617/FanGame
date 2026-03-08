@@ -7,8 +7,7 @@ public class EventManager
     public event Action OnEventFinished;
 
     private EventUI eventUI;
-    private List<EventData> currentEventPool = new List<EventData>();
-    private EventData currentEventData;
+    private Queue<EventData> eventDeck = new Queue<EventData>();
 
     public void SetUI(EventUI ui)
     {
@@ -17,13 +16,14 @@ public class EventManager
 
     public void LoadEvents(string characterName)
     {
-        currentEventPool.Clear();
+        eventDeck.Clear();
+        List<EventData> tempList = new List<EventData>();
 
         //공용 이벤트
         var commonEvents = Resources.LoadAll<EventData>("Events/Common");
         if (commonEvents != null)
         {
-            currentEventPool.AddRange(commonEvents);
+            tempList.AddRange(commonEvents);
         }
 
         if (!string.IsNullOrEmpty(characterName))
@@ -31,16 +31,13 @@ public class EventManager
             var charEvents = Resources.LoadAll<EventData>($"Events/{characterName}");
             if (charEvents != null)
             {
-                currentEventPool.AddRange(charEvents);
+                tempList.AddRange(charEvents);
             }
         }
-    }
 
-    public void SetupEvent(EventData data)
-    {
-        if(data == null) return;
-
-        currentEventData = data;    
+        ShuffleList(tempList);
+        foreach (var evt in tempList)
+            eventDeck.Enqueue(evt);
     }
 
     public void StartEvent()
@@ -52,9 +49,10 @@ public class EventManager
             return;
         }
 
-        if (currentEventData != null)
+        EventData selectedEvent = SelectRandomEvent();
+        if (selectedEvent != null)
         {
-            eventUI.ShowEvent(currentEventData);
+            eventUI.ShowEvent(selectedEvent);
         }
         else
         {
@@ -64,17 +62,30 @@ public class EventManager
         }
     }
 
-    public EventData SelectRandomEvent()
+    private EventData SelectRandomEvent()
     {
-        if (currentEventPool == null || currentEventPool.Count == 0)
+        if (eventDeck.Count > 0)
+            return eventDeck.Dequeue();
+        else
             return null;
-
-        return currentEventPool[UnityEngine.Random.Range(0, currentEventPool.Count)];
     }
 
     public void CompleteEvent()
     {
         Debug.Log("[EventManager] Event Completed");
         OnEventFinished?.Invoke();
+    }
+
+    private void ShuffleList<T>(List<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = UnityEngine.Random.Range(0, n + 1);
+            T value = list[k];
+            list[k] = list[n];
+            list[n] = value;
+        }
     }
 }

@@ -12,12 +12,13 @@ public class BattleContent : NodeContent
     }
 }
 
-public class EventContent : NodeContent
-{
-    public EventData eventData;
+// TODO : 중복 처리를 위해 사용하지 않기로 했음
+//public class EventContent : NodeContent
+//{
+//    public EventData eventData;
 
-    public EventContent(EventData evnetData)
-    {
-        this.eventData = evnetData;
-    }
-}
+//    public EventContent(EventData evnetData)
+//    {
+//        this.eventData = evnetData;
+//    }
+//}

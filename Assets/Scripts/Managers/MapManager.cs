@@ -144,7 +144,9 @@ public class MapManager
         foreach (var walker in currentWalkers)
             Connect(walker, bossNode);
 
-        // 노드 정렬 및 컨텐츠 할당
+        // 노드 정렬 및 컨텐츠 할당, 이벤트 개수 제한 추가
+        Dictionary<MapNode, int> maxEventsPath = new Dictionary<MapNode, int>();
+
         for (int y = 0; y < FLOORS; y++)
         {
             // x 좌표 순 정렬
@@ -152,11 +154,30 @@ public class MapManager
             
             foreach (var node in mapGrid[y])
             {
-                if (y > 0 && y < FLOORS - 1)
-                    node.nodeType = GetRandomNodeType(y);
+                int parentMaxEventCount = 0;
+                if (node.incoming.Count > 0)
+                {
+                    // 부모들 중 최대값 찾기
+                    parentMaxEventCount = node.incoming.Max(parent =>
+                        maxEventsPath.ContainsKey(parent) ? maxEventsPath[parent] : 0
+                    );
+                }
+
+                // 이벤트 횟수 제한 체크
+                NodeType type = GetRandomNodeType(y);
+                if (type == NodeType.Event)
+                {
+                    if (parentMaxEventCount >= 3)
+                        type = Random.value > 0.5f ? NodeType.Monster : NodeType.Elite;
+                }
 
                 // 컨텐츠 할당
+                node.nodeType = type;
                 AssignNodeContent(node, stageData);
+
+                //이벤트 카운드 기록
+                int currentCount = parentMaxEventCount + (type == NodeType.Event ? 1 : 0);
+                maxEventsPath[node] = currentCount;
             }
         }
 
@@ -190,7 +211,7 @@ public class MapManager
                 node.content = new BattleContent(bosses);
                 break;
             case NodeType.Event:
-                node.content = new EventContent(GameManager.Event.SelectRandomEvent());
+                node.content = null;
                 break;
         }
     }
@@ -214,13 +235,15 @@ public class MapManager
 
     private NodeType GetRandomNodeType(int floor)
     {
-        // 1층은 무조건 몬스터
-        if (floor == 0) return NodeType.Monster;
+        if (floor == 0) return NodeType.Monster;        // 1층은 무조건 몬스터
+        if (floor == FLOORS - 1) return NodeType.Boss;  // 마지막은 무조건 보스
+        if (floor == FLOORS - 2) return NodeType.Rest;  // 보스 전은 휴식
+        if (floor == FLOORS / 2) return NodeType.Elite; // 중간에 엘리트 하나
 
         float r = Random.value;
         if (r < 0.6f) return NodeType.Monster;
-        if (r < 0.75f) return NodeType.Event;
-        if (r < 0.9f) return NodeType.Rest;
+        if (r < 0.8f) return NodeType.Event;
+        if (r < 0.85f) return NodeType.Rest;
         return NodeType.Elite;
     }
 

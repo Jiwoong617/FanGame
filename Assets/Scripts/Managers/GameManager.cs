@@ -185,8 +185,6 @@ public class GameManager : MonoBehaviour
                 ChangeState(GameState.Battle);
                 break;
             case NodeType.Event:
-                if (node.content is EventContent eventContent)
-                    Event.SetupEvent(eventContent.eventData);
                 ChangeState(GameState.Event);
                 break;
             case NodeType.Rest:
