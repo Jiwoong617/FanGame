@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b53a7354280c2e842be467167e4e575e
+guid: f4c1873d5423fea44b9ea67d2945d37f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1381159985632646781
-    second: Event_Popo5_0
+      213: 2396433619189042964
+    second: Event_Honeyz_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Event_Popo5_0
+      name: Event_Honeyz_0
       rect:
         serializedVersion: 2
-        x: 122
-        y: 6
-        width: 1310
-        height: 956
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d761e9170bdda2310800000000000000
-      internalID: 1381159985632646781
+      spriteID: 41f01970ea7d14120800000000000000
+      internalID: 2396433619189042964
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Event_Popo5_0: 1381159985632646781
+      Event_Honeyz_0: 2396433619189042964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

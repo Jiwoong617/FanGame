@@ -103,9 +103,9 @@ TextureImporter:
       name: Event_Ryusiho4_0
       rect:
         serializedVersion: 2
-        x: 173
+        x: 0
         y: 61
-        width: 1290
+        width: 1024
         height: 925
       alignment: 0
       pivot: {x: 0, y: 0}

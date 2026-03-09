@@ -5,9 +5,6 @@ TextureImporter:
   - first:
       213: -5615820920804723835
     second: Event3_0
-  - first:
-      213: -3441843250287692870
-    second: Event3_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,10 +103,10 @@ TextureImporter:
       name: Event3_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 58
-        width: 975
-        height: 848
+        x: 0
+        y: 0
+        width: 1024
+        height: 764
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,28 +117,6 @@ TextureImporter:
       bones: []
       spriteID: 5833a3d50a89012b0800000000000000
       internalID: -5615820920804723835
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Event3_1
-      rect:
-        serializedVersion: 2
-        x: 1023
-        y: 62
-        width: 499
-        height: 838
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ab3b60eaccd1c30d0800000000000000
-      internalID: -3441843250287692870
       vertices: []
       indices: 
       edges: []
@@ -161,7 +136,6 @@ TextureImporter:
       entries: []
     nameFileIdTable:
       Event3_0: -5615820920804723835
-      Event3_1: -3441843250287692870
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
