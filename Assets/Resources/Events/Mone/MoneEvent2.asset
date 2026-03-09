@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MoneEvent2
   m_EditorClassIdentifier: Assembly-CSharp::EventData
   title: "\uC74C\uC720\uC2DC\uC778"
-  eventImage: {fileID: 0}
+  eventImage: {fileID: 21300000, guid: b2fc571d92ad66c478638ded4cef770d, type: 3}
   description: "\uB9C8\uC744\uC5D0\uC11C \uC138 \uC74C\uC720\uC2DC\uC778\uC774 \uACF5\uC5F0\uC744 
     \uD558\uB294 \uAC83 \uAC19\uB2E4. \uC5B4\uB5A4 \uC0AC\uB78C\uC758 \uB178\uB798\uB97C
     \uB4E4\uC744\uAE4C?"

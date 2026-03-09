@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PopoEvent2
   m_EditorClassIdentifier: Assembly-CSharp::EventData
   title: "\uBAB8\uC744 \uAC00\uBCCD\uAC8C"
-  eventImage: {fileID: 0}
+  eventImage: {fileID: 21300000, guid: 93266e089e02cbf4f899c162856e43b0, type: 3}
   description: "\uAC00\uC9C0\uACE0 \uC788\uB358 \uBB3C\uAC74\uC774 \uB108\uBB34 \uB9CE\uC544
     \uD558\uB098\uB97C \uBC84\uB9AC\uB824\uACE0 \uD55C\uB2E4. \uC5B4\uB5A4 \uAC78
     \uBC84\uB9B4\uAE4C"

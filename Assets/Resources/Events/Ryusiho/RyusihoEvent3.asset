@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: RyusihoEvent3
   m_EditorClassIdentifier: Assembly-CSharp::EventData
   title: "\uCE58\uD0A4\uBE0C\uB9AC\uD0A4"
-  eventImage: {fileID: 0}
+  eventImage: {fileID: 21300000, guid: c7ad33319f4fb0845a111db4f10234ff, type: 3}
   description: "\uCD08\uB85D\uC0C9 \uC5BC\uB8E9\uB35C\uB8E9\uD55C \uC637\uC5D0 \uBAA8\uC790\uB97C
     \uAFB9 \uB20C\uB7EC\uC4F4 \uB204\uAD70\uAC00\uAC00 \uB9D0\uC744 \uAC78\uC5B4\uC628\uB2E4.
     \uC6CC\uB10C \uC465\uAC13\uC774\uB77C\uACE0 \uD558\uB294\uB370 \uBB50\uB77C\uACE0
