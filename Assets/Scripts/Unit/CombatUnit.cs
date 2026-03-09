@@ -137,69 +137,91 @@ public abstract class CombatUnit : MonoBehaviour
     public abstract float TakeDamage(CombatEventContext info);
     public abstract T GetStat<T>() where T : UnitStats;
 
-    public virtual void Attack(CombatUnit target, float damage, bool onHit, bool onCritical)
+    public virtual void Attack(CombatUnit target, float damage, bool onHit, bool onCritical
+        ,List<StatusEffect> debuffs = null, bool useMoveAnim = true)
     {
         if (target == null || IsDead) return;
+
+        isAttacking = true;
 
         if (spriteRenderer != null && unitData.unitBasicAttackSprite != null)
         {
             spriteRenderer.sprite = unitData.unitBasicAttackSprite;
         }
 
+        if (useMoveAnim) // 움직이는 공격
+            PerformPhysicalAttack(target, damage, onHit, onCritical, debuffs);
+        else // 제자리 공격
+            PerformStationaryAttack(target, damage, onHit, onCritical, debuffs);
+    }
+
+    private void PerformPhysicalAttack(CombatUnit target, float damage, bool onHit, bool onCritical, List<StatusEffect> debuffs)
+    {
         Vector3 originalPos = transform.position;
         Vector3 dir = (target.transform.position - transform.position).normalized;
+        Vector3 attackPos = originalPos + dir * 1f;
 
-        float dashDistance = 1f;
-        Vector3 attackPos = originalPos + dir * dashDistance;
         float attackInterval = currentAttackThreshold / stats.attackSpeed.GetValue();
         float maxAnimTime = Mathf.Min(0.3f, attackInterval * 0.8f);
 
-        float forwardTime = maxAnimTime * 0.2f;
-        float pauseTime = maxAnimTime * 0.2f;
-        float returnTime = maxAnimTime * 0.6f;
-
-        transform.DOKill();
-
-        PlayAttackVFX(target.transform.position, forwardTime);
+        transform.DOKill(true);
 
         Sequence attackSeq = DOTween.Sequence();
-        // 일단 돌진 후 도달하면 공격하게 했음
-        attackSeq.Append(transform.DOMove(attackPos, forwardTime).SetEase(Ease.OutExpo));
-        attackSeq.AppendCallback(() =>
-        {
-            if (target == null || target.IsDead || IsDead) return;
+        attackSeq.Append(transform.DOMove(attackPos, maxAnimTime * 0.2f).SetEase(Ease.OutExpo));
+        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs));
+        attackSeq.AppendInterval(maxAnimTime * 0.2f);
+        attackSeq.Append(transform.DOMove(originalPos, maxAnimTime * 0.6f).SetEase(Ease.OutCirc));
 
-            bool isCrit = false;
-
-            if (UnityEngine.Random.Range(0f, 100f) < stats.criticalChance.GetValue())
-            {
-                isCrit = true;
-                damage *= (stats.criticalDamage.GetValue() / 100f);
-            }
-
-            CombatEventContext attackCtx = new CombatEventContext(this, target, damage, DamageType.Normal, false, isCrit);
-            float actualDamage = target.TakeDamage(attackCtx);
-
-            if (actualDamage > 0 && !IsDead)
-            {
-                PlayHitVFX(target.transform.position);
-
-                //이거 방어력 깎인 최종 데미지로 교체
-                attackCtx.value = actualDamage;
-                if(onHit)
-                    TriggerAbility(CombatEvent.OnAttack, attackCtx);
-                if(isCrit && onCritical)
-                    TriggerAbility(CombatEvent.OnCritical, attackCtx);
-            }
-        });
-
-        attackSeq.AppendInterval(pauseTime);
-        attackSeq.Append(transform.DOMove(originalPos, returnTime).SetEase(Ease.OutCirc));
         attackSeq.OnComplete(() =>
         {
             isAttacking = false;
             ChangeToIdleSprite();
         });
+    }
+
+    private void PerformStationaryAttack(CombatUnit target, float damage, bool onHit, bool onCritical, List<StatusEffect> debuffs)
+    {
+        float castDelay = 0.2f;
+
+        Sequence attackSeq = DOTween.Sequence();
+        attackSeq.AppendInterval(castDelay);
+        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, false));
+        attackSeq.OnComplete(() =>
+        {
+            isAttacking = false;
+            ChangeToIdleSprite();
+        });
+    }
+
+    private void ExecuteHit(CombatUnit target, float damage, bool onHit, bool onCritical, List<StatusEffect> debuffs, bool attackVFX = true)
+    {
+        if (target == null || target.IsDead || IsDead) return;
+        bool isCrit = false;
+
+        if (UnityEngine.Random.Range(0f, 100f) < stats.criticalChance.GetValue())
+        {
+            isCrit = true;
+            damage *= (stats.criticalDamage.GetValue() / 100f);
+        }
+
+        CombatEventContext attackCtx = new CombatEventContext(
+            this, target, damage, DamageType.Normal, false, isCrit, debuffs
+        );
+
+        float actualDamage = target.TakeDamage(attackCtx);
+        if (actualDamage >= 0)
+        {
+            if(attackVFX)
+                PlayHitVFX(target.transform.position);
+            else
+            {
+                //TODO : 디버프 이펙트
+            }
+
+            attackCtx.value = actualDamage;
+            if (onHit) TriggerAbility(CombatEvent.OnAttack, attackCtx);
+            if (isCrit && onCritical) TriggerAbility(CombatEvent.OnCritical, attackCtx);
+        }
     }
 
     protected void InitializeAbilities(UnitData data)

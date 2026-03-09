@@ -172,8 +172,8 @@ public class PlayerUnit : CombatUnit
 
     public override void OnDead()
     {
-        transform.DOKill();
-        spriteRenderer.transform.DOKill();
+        transform.DOKill(true);
+        spriteRenderer.transform.DOKill(true);
 
         spriteRenderer.sortingOrder = 30;
 
@@ -201,7 +201,7 @@ public class PlayerUnit : CombatUnit
             if (state == PlayerState.Dodging)
             {
                 TriggerAbility(CombatEvent.OnDodgeSuccess, ctx);
-                return 0;
+                return -1;
             }
             if (state == PlayerState.Parrying)
             {
@@ -210,30 +210,34 @@ public class PlayerUnit : CombatUnit
                 hitEffect?.Flash(false);
 
                 TriggerAbility(CombatEvent.OnParrySuccess, ctx);
-                return 0;
+                return -1;
             }
         }
 
         //피격 전 이벤트
         TriggerAbility(CombatEvent.OnBeforeTakeDamage, ctx);
-        if (ctx.value <= 0)
-            return 0;
 
         //방어력 계산
         float finalDamage = ctx.value;
-        if (ctx.damageType == DamageType.Normal)
+        if (ctx.damageType == DamageType.Normal && finalDamage > 0)
             finalDamage = Mathf.Max(1, finalDamage - stats.defense.GetValue());
+        else if(finalDamage <= 0)
+            finalDamage = 0;
 
-        // 데미지 적용
+        // 데미지, 디버프 적용
         stats.hp -= finalDamage;
-        Debug.Log($"[Player] Took {finalDamage} damage. HP: {stats.hp}");
+        if (ctx.debuffs != null && ctx.debuffs.Count > 0)
+        {
+            foreach (var debuff in ctx.debuffs)
+                AddAbility(debuff.Clone());
+        }
 
         // 피격 후 이벤트
         ctx.value = finalDamage;
         TriggerAbility(CombatEvent.OnTakeDamage, ctx);
 
         //피격 이펙트
-        hitEffect?.Flash();
+        hitEffect?.Flash(finalDamage > 0 ? true : false);
         RequestDamageText(ctx);
 
         if (stats.hp <= 0)
@@ -252,7 +256,7 @@ public class PlayerUnit : CombatUnit
 
         if (newState == PlayerState.Dodging)
         {
-            spriteRenderer.transform.DOKill();
+            spriteRenderer.transform.DOKill(true);
 
             float originalX = spriteRenderer.transform.position.x;
             float dodgeDistance = 1.5f;

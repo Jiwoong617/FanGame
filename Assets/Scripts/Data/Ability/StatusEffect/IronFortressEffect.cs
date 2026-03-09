@@ -27,6 +27,9 @@ public class IronFortressEffect : StatusEffect
             {
                 Debug.Log($"[철옹성] {owner.name} 데미지 무효화! (남은 횟수: {stacks - 1})");
                 ctx.value = 0;
+                if (ctx.debuffs != null && ctx.debuffs.Count > 0)
+                    ctx.debuffs.Clear();
+
                 stacks--;
 
                 if (stacks <= 0)

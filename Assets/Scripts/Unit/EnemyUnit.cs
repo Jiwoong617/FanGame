@@ -60,7 +60,8 @@ public class EnemyUnit : CombatUnit
         }
     }
 
-    public override void Attack(CombatUnit target, float damage, bool onHit, bool onCritical)
+    public override void Attack(CombatUnit target, float damage, bool onHit, bool onCritical,
+        List<StatusEffect> debuffs = null, bool useMoveAnim = true)
     {
         if (nextPattern != null)
         {
@@ -159,7 +160,7 @@ public class EnemyUnit : CombatUnit
         if (col != null)
             col.enabled = false;
 
-        spriteRenderer.transform.DOKill();
+        spriteRenderer.transform.DOKill(true);
 
         if (unitData.unitDeadSprite != null)
             spriteRenderer.sprite = unitData.unitDeadSprite;

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public enum CombatEvent
@@ -30,7 +31,10 @@ public class CombatEventContext
     public bool isReflectDamage;
     public bool isCritical;
 
-    public CombatEventContext(CombatUnit source, CombatUnit target, float value, DamageType damageType = DamageType.Normal, bool isReflectDamage = false, bool isCritical = false)
+    public List<StatusEffect> debuffs;
+
+    public CombatEventContext(CombatUnit source, CombatUnit target, float value, DamageType damageType = DamageType.Normal,
+        bool isReflectDamage = false, bool isCritical = false, List<StatusEffect> debuffs = null)
     {
         this.source = source;
         this.target = target;
@@ -38,6 +42,7 @@ public class CombatEventContext
         this.damageType = damageType;
         this.isReflectDamage = isReflectDamage;
         this.isCritical = isCritical;
+        this.debuffs = debuffs;
     }
 }
 

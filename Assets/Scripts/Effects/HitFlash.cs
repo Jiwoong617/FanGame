@@ -13,12 +13,8 @@ public class HitFlash : MonoBehaviour
     private Material flashMaterial;
     private Shader flashShader;
 
-    private Vector3 originalLocalPos;
-
     private void Awake()
     {
-        originalLocalPos = transform.localPosition;
-
         spriteRenderer = GetComponent<SpriteRenderer>();
         if (spriteRenderer == null)
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
@@ -46,8 +42,8 @@ public class HitFlash : MonoBehaviour
         if (spriteRenderer == null || flashMaterial == null) return;
 
         //연속 피격 방지
+        spriteRenderer.transform.DOKill();
         flashMaterial.DOKill();
-        transform.DOKill();
 
         // 머티리얼 교체 (Flash Shader 사용)
         spriteRenderer.material = flashMaterial;
@@ -67,20 +63,22 @@ public class HitFlash : MonoBehaviour
         if(shake)
         {
             // TODO : 만약 막 튀는게 싫으면 shakeStrength 이거 벡터로 바꿔서 하면 될듯
-            transform.DOShakePosition(shakeDuration, shakeStrength, vibrato: 20, randomness: 90, snapping: false, fadeOut: true)
+            spriteRenderer.transform.DOShakePosition(shakeDuration, shakeStrength, vibrato: 20, randomness: 90, snapping: false, fadeOut: true)
                         .OnComplete(() =>
                         {
-                            transform.localPosition = originalLocalPos;
+                            spriteRenderer.transform.localPosition = Vector3.zero;
                         });
         }
     }
 
     private void OnDestroy()
     {
-        transform.DOKill();
+        if (spriteRenderer != null)
+            spriteRenderer.transform.DOKill(true);
+
         if (flashMaterial != null)
         {
-            flashMaterial.DOKill();
+            flashMaterial.DOKill(true);
             Destroy(flashMaterial);
         }
     }

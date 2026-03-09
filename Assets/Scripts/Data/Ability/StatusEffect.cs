@@ -12,6 +12,7 @@ public enum EffectType
     Mone,         // 모네 스킬
     AttackUp,     // 공격력증가
     AttackDown,   // 공격력 감소
+    DamageReduction // 받는 데미지 감소
 }
 
 

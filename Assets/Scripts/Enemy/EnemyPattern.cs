@@ -21,6 +21,33 @@ public abstract class EnemyPattern
     public virtual void OnExit(EnemyUnit unit) { }
 }
 
+
+[System.Serializable]
+public class AttackPattern : EnemyPattern
+{
+    [Header("Attack Settings")]
+    [Tooltip("공격력의 몇 %로 때릴지 (1.0 = 100%)")]
+    public float damagePercent = 1.0f;
+
+    [Tooltip("직접 가서 때릴지(True), 제자리 공격할지(False)")]
+    public bool useMoveAnim = true;
+
+    public override bool OnUpdate(EnemyUnit unit, float delta)
+    {
+        var target = unit.GetTarget();
+        if (target == null || target.IsDead) return true;
+        if (unit.IsAttacking) return false;
+
+        var stats = unit.GetStat<UnitStats>();
+        float damage = stats.attackDamage.GetValue() * damagePercent;
+
+        unit.Attack(target, damage, true, true, null, useMoveAnim);
+
+        return true;
+    }
+}
+
+
 [System.Serializable]
 public class SequentialAttackPattern : EnemyPattern
 {
