@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b2fc571d92ad66c478638ded4cef770d
+guid: ca937ccb70e1df34ca67f63e302fe059
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2670036579330791200
-    second: Event_Mone2_0
+      213: 2972282274970699350
+    second: Event_Mone2_1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Event_Mone2_0
+      name: Event_Mone2_1_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 720
-        height: 720
+        y: 292
+        width: 1024
+        height: 432
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0279f485f10ed0520800000000000000
-      internalID: 2670036579330791200
+      spriteID: 65681d33bfaaf3920800000000000000
+      internalID: 2972282274970699350
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Event_Mone2_0: 2670036579330791200
+      Event_Mone2_1_0: 2972282274970699350
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
