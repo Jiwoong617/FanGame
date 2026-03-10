@@ -1,11 +1,19 @@
 ﻿using UnityEngine;
 
+public enum BuffTargetType
+{
+    Self,           // 나 자신
+    Other,          // 다른 적 하나
+    OtherEnemies,   // 나 제외 다른 적들
+    AllEnemies,     // 모든 적들
+}
+
+
 [System.Serializable]
 public class BuffPattern : EnemyPattern
 {
     [Header("Buff Settings")]
-    [Tooltip("true면 본인만, false면 적 전체")]
-    public bool isSelf = true;
+    public BuffTargetType targetType = BuffTargetType.Self;
 
     [SerializeReference, SerializeReferenceDropdown]
     public StatusEffect buffEffect;
@@ -14,23 +22,45 @@ public class BuffPattern : EnemyPattern
     {
         if (unit.IsAttacking) return false;
 
-        if(isSelf)
+        var allies = GameManager.Battle.GetAliveEnemies();
+        switch (targetType)
         {
-            if (buffEffect != null)
-                unit.AddAbility(buffEffect.Clone());
-
-            //TODO : 버프 이펙트
-        }
-        else
-        {
-            var allies = GameManager.Battle.GetAliveEnemies();
-            foreach (var ally in allies)
-            {
+            case BuffTargetType.Self:
                 if (buffEffect != null)
-                    ally.AddAbility(buffEffect.Clone());
+                    unit.AddAbility(buffEffect.Clone());
+                //TODO : 버프 이펙트 (unit 위치)
+                break;
 
-                //TODO : 버프 이펙트
-            }
+            case BuffTargetType.Other:
+                var others = allies.FindAll(a => a != unit);
+                if (others.Count > 0)
+                {
+                    var target = others[Random.Range(0, others.Count)];
+                    if (buffEffect != null)
+                        target.AddAbility(buffEffect.Clone());
+                    //TODO : 버프 이펙트 (target 위치)
+                }
+                break;
+
+            case BuffTargetType.OtherEnemies:
+                foreach (var ally in allies)
+                {
+                    if (ally == unit) continue;
+
+                    if (buffEffect != null)
+                        ally.AddAbility(buffEffect.Clone());
+                    //TODO : 버프 이펙트 (ally 위치)
+                }
+                break;
+
+            case BuffTargetType.AllEnemies:
+                foreach (var ally in allies)
+                {
+                    if (buffEffect != null)
+                        ally.AddAbility(buffEffect.Clone());
+                    //TODO : 버프 이펙트 (ally 위치)
+                }
+                break;
         }
 
         return true;
@@ -42,8 +72,7 @@ public class BuffPattern : EnemyPattern
 public class HealPattern : EnemyPattern
 {
     [Header("Heal Settings")]
-    [Tooltip("true면 본인만, false면 적 전체")]
-    public bool isSelf = true;
+    public BuffTargetType targetType = BuffTargetType.Self;
     [Tooltip("체크하면 최대 체력 비례 퍼센트 회복 (30 = 30%)\n체크 해제하면 고정 수치 회복")]
     public bool isPercent = false;
     [Tooltip("회복량 (고정 수치 or 퍼센트)")]
@@ -52,16 +81,37 @@ public class HealPattern : EnemyPattern
     public override bool OnUpdate(EnemyUnit unit, float delta)
     {
         if (unit.IsAttacking) return false;
+        var friends = GameManager.Battle.GetAliveEnemies();
 
-        if(isSelf)
+        switch (targetType)
         {
-            ApplyHeal(unit);
-        }
-        else
-        {
-            var friends = GameManager.Battle.GetAliveEnemies();
-            foreach (var friend in friends)
-                ApplyHeal(friend);
+            case BuffTargetType.Self:
+                ApplyHeal(unit);
+                break;
+
+            case BuffTargetType.Other:
+                var others = friends.FindAll(f => f != unit);
+                if (others.Count > 0)
+                {
+                    var target = others[Random.Range(0, others.Count)];
+                    ApplyHeal(target);
+                }
+                break;
+
+            case BuffTargetType.OtherEnemies:
+                foreach (var friend in friends)
+                {
+                    if (friend == unit) continue;
+                    ApplyHeal(friend);
+                }
+                break;
+
+            case BuffTargetType.AllEnemies:
+                foreach (var friend in friends)
+                {
+                    ApplyHeal(friend);
+                }
+                break;
         }
 
         return true;

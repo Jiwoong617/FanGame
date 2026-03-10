@@ -25,7 +25,7 @@ public class DamageReductionEffect : StatusEffect
     {
         if (eventType == combatEvent && ctx.target == owner)
         {
-            if (ctx.value > 0)
+            if (ctx.value > 0 && ctx.damageType == DamageType.Normal)
             {
                 float originalDamage = ctx.value;
                 float reducedDamage = originalDamage * (1.0f - reductionPercent);

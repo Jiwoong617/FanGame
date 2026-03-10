@@ -26,8 +26,6 @@ public class EnemyUnit : CombatUnit
         combatUI.SetOwner(this);
 
         attackTimer = 0f;
-        // 초기 랜덤 딜레이 (선택 사항)
-        // attackTimer = -Random.Range(0f, 0.5f);
 
         InitializeAbilities(unitData);
 
@@ -61,7 +59,7 @@ public class EnemyUnit : CombatUnit
     }
 
     public override void Attack(CombatUnit target, float damage, bool onHit, bool onCritical,
-        List<StatusEffect> debuffs = null, bool useMoveAnim = true)
+        List<StatusEffect> debuffs = null, bool useMoveAnim = true, DamageType damageType = DamageType.Normal)
     {
         if (nextPattern != null)
         {
@@ -72,11 +70,11 @@ public class EnemyUnit : CombatUnit
         }
         else if (currentRunningPattern != null)
         {
-            base.Attack(target, damage, onHit, onCritical);
+            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType);
         }
         else
         {
-            base.Attack(target, damage, onHit, onCritical);
+            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType);
             DecideNextAction();
         }
     }
@@ -104,9 +102,12 @@ public class EnemyUnit : CombatUnit
 
         foreach (var pattern in patterns)
         {
+            // 쿨타임 체크
             if (now < pattern.lastExecutionTime + pattern.cooldown) continue;
-
+            // 연속 사용 방지
             if (patterns.Count > 1 && pattern == lastExecutedPattern) continue;
+            // 패턴 실행 조건
+            if (!pattern.CanExecute(this)) continue;
 
             validCandidates.Add(pattern);
             totalWeight += pattern.triggerChance;
@@ -219,5 +220,10 @@ public class EnemyUnit : CombatUnit
                 Color.white
             );
         }
+    }
+
+    public void SetAttackDelay(float delay)
+    {
+        attackTimer = -delay;
     }
 }

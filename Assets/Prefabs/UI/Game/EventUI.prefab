@@ -681,25 +681,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3184574873498504557, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
       propertyPath: m_text
-      value: 'Event Description
-
-        1
-
-        2
-
-        3
-
-        4
-
-        5'
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3184574873498504557, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
       propertyPath: m_fontSize
-      value: 36
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 3184574873498504557, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
       propertyPath: m_fontSizeBase
-      value: 36
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 4195159572448678134, guid: d2348b3ae43d2b44095b40812d83b55b, type: 3}
       propertyPath: m_Name

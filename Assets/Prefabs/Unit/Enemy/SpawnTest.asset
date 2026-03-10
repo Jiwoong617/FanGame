@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
-  m_Name: TestEnemyData
+  m_Name: SpawnTest
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  unitName: asdf
-  prefab: {fileID: 6107110035909089572, guid: bfa5170286b86364290775ac695d7bcb, type: 3}
+  unitName: adfadf
+  prefab: {fileID: 6107110035909089572, guid: b6297098f49b9854ebef9503c0b9c235, type: 3}
   unitSprite: {fileID: 0}
   unitBasicAttackSprite: {fileID: 0}
   unitDeadSprite: {fileID: 0}
@@ -24,7 +24,7 @@ MonoBehaviour:
   attackSpeed: 1
   criticalChance: 0
   criticalDamage: 0
-  unitDescription: adf
+  unitDescription: 
   startingAbilities: []
   references:
     version: 2

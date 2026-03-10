@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
@@ -19,6 +18,8 @@ public abstract class EnemyPattern
     public abstract bool OnUpdate(EnemyUnit unit, float delta);
     
     public virtual void OnExit(EnemyUnit unit) { }
+
+    public virtual bool CanExecute(EnemyUnit unit) { return true; }
 }
 
 
@@ -28,6 +29,9 @@ public class AttackPattern : EnemyPattern
     [Header("Attack Settings")]
     [Tooltip("공격력의 몇 %로 때릴지 (1.0 = 100%)")]
     public float damagePercent = 1.0f;
+
+    [Tooltip("일반 데미지/고정 데미지")]
+    public DamageType damageType = DamageType.Normal;
 
     [Tooltip("직접 가서 때릴지(True), 제자리 공격할지(False)")]
     public bool useMoveAnim = true;
@@ -41,7 +45,7 @@ public class AttackPattern : EnemyPattern
         var stats = unit.GetStat<UnitStats>();
         float damage = stats.attackDamage.GetValue() * damagePercent;
 
-        unit.Attack(target, damage, true, true, null, useMoveAnim);
+        unit.Attack(target, damage, true, true, null, useMoveAnim, damageType);
 
         return true;
     }
@@ -60,6 +64,8 @@ public class SequentialAttackPattern : EnemyPattern
 
     public bool onHit = true;
     public bool onCritical = true;
+    public DamageType damageType = DamageType.Normal;
+
     public List<ComboStep> comboSteps = new List<ComboStep>();
 
     private int currentStepIndex = 0;
@@ -95,7 +101,7 @@ public class SequentialAttackPattern : EnemyPattern
         if (currentTimer >= requiredGauge)
         {
             float damageAmount = stats.attackDamage.GetValue() * step.damagePercent;
-            unit.Attack(target, damageAmount, onHit, onCritical);
+            unit.Attack(target, damageAmount, onHit, onCritical, null, true, damageType);
 
             currentStepIndex++;
             currentTimer = 0f;

@@ -31,6 +31,9 @@ public class AttackDebuffPattern : EnemyPattern
     [Header("Attack & Debuff Settings")]
     public float damagePercent = 1.0f;
 
+    [Tooltip("일반 데미지/고정 데미지")]
+    public DamageType damageType = DamageType.Normal;
+
     [SerializeReference, SerializeReferenceDropdown]
     public List<StatusEffect> debuffs = new List<StatusEffect>();
 
@@ -45,7 +48,7 @@ public class AttackDebuffPattern : EnemyPattern
         var stats = unit.GetStat<UnitStats>();
         float damage = stats.attackDamage.GetValue() * damagePercent;
 
-        unit.Attack(target, damage, true, true, debuffs, useMoveAnim);
+        unit.Attack(target, damage, true, true, debuffs, useMoveAnim, damageType);
 
         return true;
     }

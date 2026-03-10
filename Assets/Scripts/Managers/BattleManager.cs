@@ -22,7 +22,11 @@ public class BattleManager
     private TargetMarker targetMarker;
 
     private BattleState state = BattleState.None;
-    private float spawnSpacing = 5f;
+    private float spawnSpacing = 4f;
+
+    // 배틀 도중 소환을 위한 소환 몹 기록용 변수
+    private EnemyUnit leftSummon;
+    private EnemyUnit rightSummon;
 
     public void SetupBattle(PlayerUnit p, List<UnitData> enemyDataList)
     {
@@ -78,6 +82,9 @@ public class BattleManager
         }
         enemies.Clear();
         state = BattleState.None;
+
+        leftSummon = null;
+        rightSummon = null;
     }
 
     public void StartBattle()
@@ -197,11 +204,48 @@ public class BattleManager
         }
     }
 
+    public void SpawnEnemyMidBattle(UnitData data, EnemyUnit summoner)
+    {
+        if (data == null || data.prefab == null) return;
+        if (enemies.Count >= 3)
+            return;
+
+        Vector3 spawnPos = summoner.transform.position;
+        bool spawnLeft = false;
+
+        // 왼/오 순서대로 소환
+        if (leftSummon == null || leftSummon.IsDead)
+        {
+            spawnLeft = true;
+            spawnPos -= summoner.transform.right * spawnSpacing;
+        }
+        else if (rightSummon == null || rightSummon.IsDead)
+            spawnPos += summoner.transform.right * spawnSpacing;
+        else
+            return;
+
+        GameObject go = UnityEngine.Object.Instantiate(data.prefab, spawnPos, summoner.transform.rotation);
+        EnemyUnit enemy = go.GetComponent<EnemyUnit>();
+        if (enemy != null)
+        {
+            enemy.Init(data);
+            enemy.SetAttackDelay(UnityEngine.Random.Range(0f, 0.5f));
+
+            if (spawnLeft) leftSummon = enemy;
+            else rightSummon = enemy;
+
+            enemy.SetTarget(player);
+            enemy.OnUnitDead += HandleEnemyDead;
+            enemy.OnBattleStart();
+
+            enemies.Add(enemy);
+        }
+    }
+
     public List<EnemyUnit> GetAliveEnemies()
     {
         return enemies.FindAll(e => e != null && !e.IsDead);
     }
-
 
     public void SetEnemyAnchor()
     {

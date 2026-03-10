@@ -138,7 +138,7 @@ public abstract class CombatUnit : MonoBehaviour
     public abstract T GetStat<T>() where T : UnitStats;
 
     public virtual void Attack(CombatUnit target, float damage, bool onHit, bool onCritical
-        ,List<StatusEffect> debuffs = null, bool useMoveAnim = true)
+        ,List<StatusEffect> debuffs = null, bool useMoveAnim = true, DamageType damageType = DamageType.Normal)
     {
         if (target == null || IsDead) return;
 
@@ -150,12 +150,13 @@ public abstract class CombatUnit : MonoBehaviour
         }
 
         if (useMoveAnim) // 움직이는 공격
-            PerformPhysicalAttack(target, damage, onHit, onCritical, debuffs);
+            PerformPhysicalAttack(target, damage, onHit, onCritical, debuffs, damageType);
         else // 제자리 공격
-            PerformStationaryAttack(target, damage, onHit, onCritical, debuffs);
+            PerformStationaryAttack(target, damage, onHit, onCritical, debuffs, damageType);
     }
 
-    private void PerformPhysicalAttack(CombatUnit target, float damage, bool onHit, bool onCritical, List<StatusEffect> debuffs)
+    private void PerformPhysicalAttack(CombatUnit target, float damage, bool onHit, bool onCritical,
+        List<StatusEffect> debuffs, DamageType damageType)
     {
         Vector3 originalPos = transform.position;
         Vector3 dir = (target.transform.position - transform.position).normalized;
@@ -168,7 +169,7 @@ public abstract class CombatUnit : MonoBehaviour
 
         Sequence attackSeq = DOTween.Sequence();
         attackSeq.Append(transform.DOMove(attackPos, maxAnimTime * 0.2f).SetEase(Ease.OutExpo));
-        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs));
+        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType));
         attackSeq.AppendInterval(maxAnimTime * 0.2f);
         attackSeq.Append(transform.DOMove(originalPos, maxAnimTime * 0.6f).SetEase(Ease.OutCirc));
 
@@ -179,13 +180,14 @@ public abstract class CombatUnit : MonoBehaviour
         });
     }
 
-    private void PerformStationaryAttack(CombatUnit target, float damage, bool onHit, bool onCritical, List<StatusEffect> debuffs)
+    private void PerformStationaryAttack(CombatUnit target, float damage, bool onHit, bool onCritical,
+        List<StatusEffect> debuffs, DamageType damageType)
     {
         float castDelay = 0.2f;
 
         Sequence attackSeq = DOTween.Sequence();
         attackSeq.AppendInterval(castDelay);
-        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, false));
+        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, false));
         attackSeq.OnComplete(() =>
         {
             isAttacking = false;
@@ -193,7 +195,8 @@ public abstract class CombatUnit : MonoBehaviour
         });
     }
 
-    private void ExecuteHit(CombatUnit target, float damage, bool onHit, bool onCritical, List<StatusEffect> debuffs, bool attackVFX = true)
+    private void ExecuteHit(CombatUnit target, float damage, bool onHit, bool onCritical,
+        List<StatusEffect> debuffs, DamageType damageType, bool attackVFX = true)
     {
         if (target == null || target.IsDead || IsDead) return;
         bool isCrit = false;
@@ -205,7 +208,7 @@ public abstract class CombatUnit : MonoBehaviour
         }
 
         CombatEventContext attackCtx = new CombatEventContext(
-            this, target, damage, DamageType.Normal, false, isCrit, debuffs
+            this, target, damage, damageType, false, isCrit, debuffs
         );
 
         float actualDamage = target.TakeDamage(attackCtx);

@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TooltipUI : UI_Base
 {
@@ -11,10 +12,16 @@ public class TooltipUI : UI_Base
         DescText,
         FlavorText
     }
+    enum Images
+    {
+        IconImage
+    }
 
     private TMP_Text nameText;
     private TMP_Text descText;
     private TMP_Text flavorText;
+    private Image icon;
+
     RectTransform rectTransform;
     Canvas parentCanvas;
     RectTransform canvasRect;
@@ -30,9 +37,11 @@ public class TooltipUI : UI_Base
         }
 
         Bind<TMP_Text>(typeof(Texts));
+        Bind<Image>(typeof(Images));
         nameText = Get<TMP_Text>(Texts.NameText);
         descText = Get<TMP_Text>(Texts.DescText);
         flavorText = Get<TMP_Text>(Texts.FlavorText);
+        icon = Get<Image>(Images.IconImage);
 
         rectTransform = GetComponent<RectTransform>();
         parentCanvas = GetComponentInParent<Canvas>();
@@ -40,11 +49,12 @@ public class TooltipUI : UI_Base
         Hide();
     }
 
-    public void ShowTooltip(string itemName, string desc, string flavor, Vector3 slotPosition)
+    public void ShowTooltip(string itemName, string desc, string flavor, Sprite iconImage, Vector3 slotPosition)
     {
         nameText.text = itemName;
         descText.text = desc;
         flavorText.text = flavor;
+        icon.sprite = iconImage;
 
         transform.position = slotPosition;
         Show();
