@@ -12,55 +12,35 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576805ec289abe440a2a7ab3d0f4a708, type: 3}
   m_Name: RoseEvent3
   m_EditorClassIdentifier: Assembly-CSharp::EventData
-  title: "\uC775\uC219\uD55C \uC778\uBB3C"
+  title: "\uC218\uB9AC\uC810"
   eventImage: {fileID: 21300000, guid: 68e67f0e463ac3a49a524b50da5b5ec7, type: 3}
-  description: "\uC55E\uC5D0 \uC775\uC219\uD55C \uC778\uBB3C\uB4E4\uC774 \uBCF4\uC5EC
-    \uBC18\uAC00\uC6B4 \uB9C8\uC74C\uC5D0 \uB9D0\uC744 \uAC78\uC5B4\uBCF4\uB824 \uD55C\uB2E4.
-    \uB204\uAD6C\uC5D0\uAC8C \uBA3C\uC800 \uB9D0\uC744 \uAC78\uC5B4\uBCFC\uAE4C?"
+  description: "\uB2A6\uC740 \uBC24, \uAC00\uBB38\uC758 \uB9C8\uCC28\uB97C \uD0C0\uACE0
+    \uC774\uB3D9\uD558\uB358 \uC911 \uBC14\uD034\uAC00 \uBD80\uC11C\uC9C0\uACE0 \uB9D0\uC558\uB2E4."
   options:
-  - buttonText: "\uB2F4\uC720\uC774"
-    resultText: "\uBC18\uAC11\uAC8C \uB9DE\uC774\uD574\uC8FC\uBA70 \uC190\uC218\uD574\uC900
-      \uC694\uB9AC\uB97C \uB300\uC811\uBC1B\uC558\uB2E4.\n\uC544\uAC00\uC528\uB791
-      \uC654\uC73C\uBA74 \uBB34\uC870\uAC74 1\uB4F1 \uC2E0\uBD93\uAC10\uC774\uB77C\uBA70
-      \uD50C\uB7EC\uD305\uD558\uC9C0 \uC54A\uC558\uC744\uAE4C\n(Hp 20%\uD68C\uBCF5)"
+  - buttonText: "\uCE58\uD0A8\uC744 \uBA39\uC73C\uBA70 \uC218\uB9AC\uC810 \uC624\uD508\uC744
+      \uAE30\uB2E4\uB9B0\uB2E4."
+    resultText: "\uC218\uB9AC\uC810 \uC55E\uC5D0\uC11C \uCE58\uD0A8\uC744 \uBA39\uC73C\uBA70
+      \uAE30\uB2E4\uB9AC\uC790 \uC8FC\uC778\uC774 \uAC00\uAC8C\uB97C \uC5F4\uC5C8\uB2E4.\n(\uCD5C\uB300
+      \uCCB4\uB825 +5)"
     outcomes:
-    - rid: 7988895521758773350
-  - buttonText: "\uB9DD\uB0B4"
-    resultText: "\uB9DD\uB0B4\uB97C \uBCF4\uC790 \uC544\uAC00\uC528 \uBC1B\uC558\uB358
-      \uC120\uBB3C\uC774 \uC0DD\uAC01\uB098 \uAC74\uB138\uB2E4. \uC120\uBB3C \uC0C1\uC790
-      \uC548\uC5D0\uC11C \uC18D\uC637\uC774 \uB098\uC654\uB2E4. \n\uC544\uAC00\uC528
-      \uC800\uD55C\uD14C \uBB58 \uC2DC\uD0A8\uAC74\uAC00\uC694..\n(\uACF5\uACA9\uB825
-      +1)"
+    - rid: 7988895521758773353
+  - buttonText: "\uC778\uADFC \uB9C8\uC744\uC5D0\uC11C \uD55C\uC228 \uC794\uB2E4."
+    resultText: "\uC218\uB9AC\uC810\uC774 \uC5F4\uAE30\uAE4C\uC9C0 \uC624\uB798\uAC78\uB9AC\uB2C8
+      \uC6B0\uC120 \uC7A0\uBD80\uD130 \uC790\uAE30\uB85C \uD588\uB2E4.\n(Hp 20% \uD68C\uBCF5)"
     outcomes:
-    - rid: 7988895521758773351
-  - buttonText: "\uD5C8\uB2C8\uCE04\uB7EC\uC2A4"
-    resultText: "\uD5C8\uCE04\uB97C \uBCF4\uC790 \uC544\uAC00\uC528\uAED8 \uC120\uBB3C
-      \uBC1B\uC558\uB358 \uC640\uC778\uC774 \uC0DD\uAC01\uB0AC\uB2E4. \uC640\uC778\uC744
-      \uAC74\uB124\uB2C8 \u201C\uC774\uAC70 \uB098 \uB299\uC5C8\uB2E4\uB294\uAC70\uC9C0?\u201D\uB77C\uB294
-      \uC704\uD5D8\uD55C \uBAA9\uC18C\uB9AC\uC5D0 \uBE60\uB974\uAC8C \uC778\uC0AC
-      \uB4DC\uB9AC\uACE0 \uB3C4\uB9DD\uCCD0 \uB098\uC654\uB2E4. \uB4A4\uC5D0\uC11C\uB294
-      \uACC4\uC18D \uBD88\uC548\uD55C \uC6C3\uC74C\uC18C\uB9AC\uAC00 \uB4E4\uB824\uC628\uB2E4\n(\uBC29\uC5B4\uB825
-      +1)"
-    outcomes:
-    - rid: 7988895521758773352
+    - rid: 7988895521758773354
   references:
     version: 2
     RefIds:
-    - rid: 7988895521758773350
+    - rid: 7988895521758773353
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 0
+        modType: 0
+        amount: 5
+    - rid: 7988895521758773354
       type: {class: RecoveryOutcome, ns: , asm: Assembly-CSharp}
       data:
         isHp: 1
         amount: 20
         isPercentage: 1
-    - rid: 7988895521758773351
-      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
-      data:
-        targetStat: 2
-        modType: 0
-        amount: 1
-    - rid: 7988895521758773352
-      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
-      data:
-        targetStat: 1
-        modType: 0
-        amount: 1
