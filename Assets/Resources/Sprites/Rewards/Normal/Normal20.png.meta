@@ -103,10 +103,10 @@ TextureImporter:
       name: Normal20_0
       rect:
         serializedVersion: 2
-        x: 374
-        y: 53
-        width: 736
-        height: 851
+        x: 228
+        y: 0
+        width: 391
+        height: 507
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

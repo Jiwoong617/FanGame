@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: cd107402d4d6c9b41b72235d387f2660
+guid: 5a0cc46b26d0d4d479112548cd3ee9eb
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1713852261662517068
-    second: Normal11_0
+      213: 5933508559727532319
+    second: AttackDownIcon_0
+  - first:
+      213: -5677415583801235450
+    second: AttackDownIcon_1
+  - first:
+      213: 7363760569118095374
+    second: AttackDownIcon_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal11_0
+      name: AttackDownIcon_0
       rect:
         serializedVersion: 2
-        x: 255
-        y: 0
-        width: 1026
-        height: 1511
+        x: 138
+        y: 235
+        width: 573
+        height: 578
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +121,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c47e4e53d83d8c710800000000000000
-      internalID: 1713852261662517068
+      spriteID: f199c46199e085250800000000000000
+      internalID: 5933508559727532319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackDownIcon_1
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 566
+        width: 248
+        height: 197
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 608a2455b94c531b0800000000000000
+      internalID: -5677415583801235450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackDownIcon_2
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 745
+        width: 128
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08ff450935513660800000000000000
+      internalID: 7363760569118095374
       vertices: []
       indices: 
       edges: []
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Normal11_0: 1713852261662517068
+      AttackDownIcon_0: 5933508559727532319
+      AttackDownIcon_1: -5677415583801235450
+      AttackDownIcon_2: 7363760569118095374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

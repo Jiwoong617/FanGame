@@ -15,7 +15,6 @@ MonoBehaviour:
   normalEnemyPool:
   - enemies:
     - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
-    - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
   eliteEnemyPool:
   - enemies:
     - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}

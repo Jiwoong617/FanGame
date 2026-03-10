@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   normalEnemyPool:
   - enemies:
-    - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
-    - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}
+    - {fileID: 11400000, guid: 55cf5f821074d7b4a99395c8dc486e7c, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: dae757a8ae571484c9a68d5af3988095, type: 2}
   eliteEnemyPool:
   - enemies:
     - {fileID: 11400000, guid: ffda6b789ceb9f24d978658f158701d2, type: 2}

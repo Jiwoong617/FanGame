@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: cd107402d4d6c9b41b72235d387f2660
+guid: 222858078a4bbaa42bbdc5913ff47011
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1713852261662517068
-    second: Normal11_0
+      213: -6302990175564338173
+    second: DebuffIcon_0
+  - first:
+      213: -6981431446048563010
+    second: DebuffIcon_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal11_0
+      name: DebuffIcon_0
       rect:
         serializedVersion: 2
-        x: 255
-        y: 0
-        width: 1026
-        height: 1511
+        x: 264
+        y: 228
+        width: 496
+        height: 393
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c47e4e53d83d8c710800000000000000
-      internalID: 1713852261662517068
+      spriteID: 30ce5ba74d74788a0800000000000000
+      internalID: -6302990175564338173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DebuffIcon_1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 588
+        width: 254
+        height: 237
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb0a88ac619fc1f90800000000000000
+      internalID: -6981431446048563010
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Normal11_0: 1713852261662517068
+      DebuffIcon_0: -6302990175564338173
+      DebuffIcon_1: -6981431446048563010
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

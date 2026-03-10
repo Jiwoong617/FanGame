@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: cd107402d4d6c9b41b72235d387f2660
+guid: 55738fd8acaa87a4882c7a4b1345ba88
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1713852261662517068
-    second: Normal11_0
+      213: -7201461315073210542
+    second: AttackSpeedUpIcon_0
+  - first:
+      213: -6475758530674471996
+    second: AttackSpeedUpIcon_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal11_0
+      name: AttackSpeedUpIcon_0
       rect:
         serializedVersion: 2
-        x: 255
-        y: 0
-        width: 1026
-        height: 1511
+        x: 252
+        y: 285
+        width: 521
+        height: 501
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c47e4e53d83d8c710800000000000000
-      internalID: 1713852261662517068
+      spriteID: 2570853c6154f0c90800000000000000
+      internalID: -7201461315073210542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: AttackSpeedUpIcon_1
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 599
+        width: 248
+        height: 318
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cb41f72deb7126a0800000000000000
+      internalID: -6475758530674471996
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Normal11_0: 1713852261662517068
+      AttackSpeedUpIcon_0: -7201461315073210542
+      AttackSpeedUpIcon_1: -6475758530674471996
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
