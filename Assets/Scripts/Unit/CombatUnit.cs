@@ -87,6 +87,9 @@ public abstract class CombatUnit : MonoBehaviour
             if (ability.IsFinished)
             {
                 ability.OnRemoved();
+                if (ability is StatusEffect finishedStatus)
+                    OnBuffRemoved?.Invoke(finishedStatus);
+
                 abilities.RemoveAt(i);
                 continue;
             }
@@ -253,7 +256,8 @@ public abstract class CombatUnit : MonoBehaviour
                 if (ability is StatusEffect existingStatus &&
                     existingStatus.effectType == newStatus.effectType &&
                     existingStatus.isPermanent == newStatus.isPermanent &&
-                    Mathf.Approximately(existingStatus.effectValue, newStatus.effectValue))
+                    Mathf.Approximately(existingStatus.effectValue, newStatus.effectValue) &&
+                    !existingStatus.IsFinished)
                 {
                     existingStatus.AddStack(newStatus.stacks, newStatus.duration);
                     OnBuffUpdated?.Invoke(existingStatus);
@@ -306,5 +310,10 @@ public abstract class CombatUnit : MonoBehaviour
         {
             spriteRenderer.sprite = unitData.unitSprite;
         }
+    }
+
+    public void UpdateBuffUI(StatusEffect effect)
+    {
+        OnBuffUpdated?.Invoke(effect);
     }
 }

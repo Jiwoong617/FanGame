@@ -10,6 +10,19 @@ public class BuffSlotUI : MonoBehaviour
 
     private StatusEffect currentEffect;
 
+    // TODO : 초단위 일때 보여주는거 추가 했음 맘에 안들면 삭제
+    private void Update()
+    {
+        if (currentEffect == null || currentEffect.IsFinished) return;
+
+        if (!currentEffect.isPermanent && currentEffect.duration > 0)
+        {
+            stackText.gameObject.SetActive(true);
+            stackText.text = currentEffect.duration.ToString("F1");
+        }
+    }
+
+
     public void Init(StatusEffect effect)
     {
         if(iconImage == null)

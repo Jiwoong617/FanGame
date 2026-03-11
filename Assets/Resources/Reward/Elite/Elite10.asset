@@ -27,9 +27,9 @@ MonoBehaviour:
     - rid: 7988895476758347852
       type: {class: Elite10, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 0
+        combatEvent: 5
         buffTemplate:
-          combatEvent: 0
+          combatEvent: 5
           effectType: 8
           duration: -1
           stacks: 1

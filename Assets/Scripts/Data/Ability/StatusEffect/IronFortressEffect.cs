@@ -31,6 +31,7 @@ public class IronFortressEffect : StatusEffect
                     ctx.debuffs.Clear();
 
                 stacks--;
+                owner.UpdateBuffUI(this);
 
                 if (stacks <= 0)
                     IsFinished = true;
