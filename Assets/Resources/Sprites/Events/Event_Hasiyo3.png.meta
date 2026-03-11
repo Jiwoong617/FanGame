@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aad08ebdacb5c2d43ac5c8f86778ad66
+guid: eedb348102093fe4fa205c84922e4cab
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5632228775495920503
-    second: Event_Rose4_0
+      213: 6630214662108827542
+    second: Event_Hasiyo3_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Event_Rose4_0
+      name: Event_Hasiyo3_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1080
+        width: 1024
         height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77bea210b32b92e40800000000000000
-      internalID: 5632228775495920503
+      spriteID: 69f45975b11430c50800000000000000
+      internalID: 6630214662108827542
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Event_Rose4_0: 5632228775495920503
+      Event_Hasiyo3_0: 6630214662108827542
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
