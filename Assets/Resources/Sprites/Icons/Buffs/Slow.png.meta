@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: 214f6379393594c40a767c8d5aca888b
+guid: 13c96f4197b7d784c87c5e36413f1a9d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6920338562069876897
-    second: AttackSpeedDownIcon_0
+      213: 3488240089490820101
+    second: image-Photoroom (2)_0
   - first:
-      213: -5871218857034291849
-    second: AttackSpeedDownIcon_1
-  - first:
-      213: 9123259041010236348
-    second: AttackSpeedDownIcon_2
+      213: 2998789222730455329
+    second: image-Photoroom (2)_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -78,7 +75,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -106,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AttackSpeedDownIcon_0
+      name: image-Photoroom (2)_0
       rect:
         serializedVersion: 2
-        x: 706
-        y: 609
-        width: 248
-        height: 197
+        x: 0
+        y: 0
+        width: 1024
+        height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5f236a4eb406ff90800000000000000
-      internalID: -6920338562069876897
+      spriteID: 50c806141e7b86030800000000000000
+      internalID: 3488240089490820101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AttackSpeedDownIcon_1
+      name: image-Photoroom (2)_1
       rect:
         serializedVersion: 2
-        x: 766
-        y: 788
-        width: 128
-        height: 120
+        x: 603
+        y: 115
+        width: 275
+        height: 252
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,30 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77565eb7e8d358ea0800000000000000
-      internalID: -5871218857034291849
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AttackSpeedDownIcon_2
-      rect:
-        serializedVersion: 2
-        x: 252
-        y: 285
-        width: 521
-        height: 501
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cbb394db2c35c9e70800000000000000
-      internalID: 9123259041010236348
+      spriteID: 1295e19e8e6dd9920800000000000000
+      internalID: 2998789222730455329
       vertices: []
       indices: 
       edges: []
@@ -175,7 +150,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -185,9 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AttackSpeedDownIcon_0: -6920338562069876897
-      AttackSpeedDownIcon_1: -5871218857034291849
-      AttackSpeedDownIcon_2: 9123259041010236348
+      image-Photoroom (2)_0: 3488240089490820101
+      image-Photoroom (2)_1: 2998789222730455329
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

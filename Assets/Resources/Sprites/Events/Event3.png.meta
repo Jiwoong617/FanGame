@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 78f5e355971dbd1419685fc7f059b1f7
+guid: 0f2951458dfeace48a7e358ae6f1cb43
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5615820920804723835
-    second: Event3_0
+      213: 208530081604077688
+    second: Event3 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Event3_0
+      name: Event3 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1080
+        width: 1330
         height: 1080
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5833a3d50a89012b0800000000000000
-      internalID: -5615820920804723835
+      spriteID: 8788efe1109d4e200800000000000000
+      internalID: 208530081604077688
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Event3_0: -5615820920804723835
+      Event3 1_0: 208530081604077688
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

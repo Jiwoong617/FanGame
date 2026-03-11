@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 422ec025db9a99d4799ede33b61bf67b
+guid: e46a5a0873e76664089feb4be06c95f1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8711564662396175048
-    second: Evernt_Rose1_0
+      213: 2654750919994013090
+    second: Event_Rose1 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Evernt_Rose1_0
+      name: Event_Rose1 1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1536
+        width: 1024
         height: 1024
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 83db70c681e4a1780800000000000000
-      internalID: -8711564662396175048
+      spriteID: 2a5726175e197d420800000000000000
+      internalID: 2654750919994013090
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Evernt_Rose1_0: -8711564662396175048
+      Event_Rose1 1_0: 2654750919994013090
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
