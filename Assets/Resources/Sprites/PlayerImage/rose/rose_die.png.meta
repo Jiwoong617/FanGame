@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 1ad1fcdfcdc1d9a4da3cb1a6f08668fa
+guid: 15774d397d60d084692fcf3b596b6376
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1449250475358099162
-    second: rose_die_0
+      213: -2624695352338193517
+    second: rose_rose_0
   - first:
-      213: 3961889000652845123
-    second: rose_die_1
+      213: 4823533855746521510
+    second: rose_rose_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -54,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -103,11 +103,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rose_die_0
+      name: rose_rose_0
       rect:
         serializedVersion: 2
-        x: 55
-        y: 215
+        x: 446
+        y: 246
         width: 170
         height: 90
       alignment: 0
@@ -118,18 +118,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 629e6b10f5a33ebe0800000000000000
-      internalID: -1449250475358099162
+      spriteID: 3936348bb75339bd0800000000000000
+      internalID: -2624695352338193517
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: rose_die_1
+      name: rose_rose_1
       rect:
         serializedVersion: 2
-        x: 66
-        y: 43
+        x: 457
+        y: 74
         width: 940
         height: 643
       alignment: 0
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 340b07b1e057bf630800000000000000
-      internalID: 3961889000652845123
+      spriteID: 6a977d15c72a0f240800000000000000
+      internalID: 4823533855746521510
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rose_die_0: -1449250475358099162
-      rose_die_1: 3961889000652845123
+      rose_rose_0: -2624695352338193517
+      rose_rose_1: 4823533855746521510
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

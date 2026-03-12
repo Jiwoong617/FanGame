@@ -11,30 +11,6 @@ TextureImporter:
   - first:
       213: -7333425509299748112
     second: rose_attack_2
-  - first:
-      213: -2723636472205550022
-    second: rose_attack_3
-  - first:
-      213: 7437209313095308100
-    second: rose_attack_4
-  - first:
-      213: -6063718582792678121
-    second: rose_attack_5
-  - first:
-      213: 4770865856584332078
-    second: rose_attack_6
-  - first:
-      213: -5094791980374982361
-    second: rose_attack_7
-  - first:
-      213: -7740559864344318788
-    second: rose_attack_8
-  - first:
-      213: -8268461272423561874
-    second: rose_attack_9
-  - first:
-      213: -1288784404113707393
-    second: rose_attack_10
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -81,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 512
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -133,10 +109,10 @@ TextureImporter:
       name: rose_attack_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 107
-        width: 894
-        height: 864
+        x: 345
+        y: 74
+        width: 926
+        height: 1072
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +131,10 @@ TextureImporter:
       name: rose_attack_1
       rect:
         serializedVersion: 2
-        x: 914
-        y: 674
-        width: 17
-        height: 21
+        x: 1114
+        y: 310
+        width: 178
+        height: 646
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,10 +153,10 @@ TextureImporter:
       name: rose_attack_2
       rect:
         serializedVersion: 2
-        x: 915
-        y: 647
-        width: 14
-        height: 27
+        x: 1209
+        y: 218
+        width: 72
+        height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,182 +167,6 @@ TextureImporter:
       bones: []
       spriteID: 0f2866b7a507a3a90800000000000000
       internalID: -7333425509299748112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rose_attack_3
-      rect:
-        serializedVersion: 2
-        x: 931
-        y: 615
-        width: 14
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: a3ed3e81f03b33ad0800000000000000
-      internalID: -2723636472205550022
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rose_attack_4
-      rect:
-        serializedVersion: 2
-        x: 983
-        y: 584
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 443d54b5776463760800000000000000
-      internalID: 7437209313095308100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rose_attack_5
-      rect:
-        serializedVersion: 2
-        x: 935
-        y: 567
-        width: 12
-        height: 12
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 71515be631859dba0800000000000000
-      internalID: -6063718582792678121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rose_attack_6
-      rect:
-        serializedVersion: 2
-        x: 979
-        y: 534
-        width: 12
-        height: 13
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e23bfbc2835853240800000000000000
-      internalID: 4770865856584332078
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rose_attack_7
-      rect:
-        serializedVersion: 2
-        x: 938
-        y: 487
-        width: 28
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 7218d3defa9ab49b0800000000000000
-      internalID: -5094791980374982361
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rose_attack_8
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 514
-        width: 8
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cbc6c1b80d1049490800000000000000
-      internalID: -7740559864344318788
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rose_attack_9
-      rect:
-        serializedVersion: 2
-        x: 923
-        y: 465
-        width: 21
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e658e1ae746804d80800000000000000
-      internalID: -8268461272423561874
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rose_attack_10
-      rect:
-        serializedVersion: 2
-        x: 950
-        y: 472
-        width: 10
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7e2db8a9615d1ee0800000000000000
-      internalID: -1288784404113707393
       vertices: []
       indices: 
       edges: []
@@ -387,15 +187,7 @@ TextureImporter:
     nameFileIdTable:
       rose_attack_0: 3352683588957398914
       rose_attack_1: 5653440655252925966
-      rose_attack_10: -1288784404113707393
       rose_attack_2: -7333425509299748112
-      rose_attack_3: -2723636472205550022
-      rose_attack_4: 7437209313095308100
-      rose_attack_5: -6063718582792678121
-      rose_attack_6: 4770865856584332078
-      rose_attack_7: -5094791980374982361
-      rose_attack_8: -7740559864344318788
-      rose_attack_9: -8268461272423561874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
