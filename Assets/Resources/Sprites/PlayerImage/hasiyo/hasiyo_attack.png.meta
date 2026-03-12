@@ -3,8 +3,8 @@ guid: aadc432970c56614788023943488462a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 852793507655733952
-    second: hasiyo_attack2_0
+      213: 217806103198121620
+    second: hasiyo_attack_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 1057
+  spritePixelsToUnits: 275
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hasiyo_attack
+      name: hasiyo_attack_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 2144
-        height: 1965
+        x: 112
+        y: 149
+        width: 779
+        height: 755
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0c2549a4d2bb5db00800000000000000
-      internalID: 852793507655733952
+      spriteID: 49e39033f7dc50300800000000000000
+      internalID: 217806103198121620
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c41b26fb0f2c17b44ae1575216683a05
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hasiyo_attack: 852793507655733952
+      hasiyo_attack_0: 217806103198121620
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

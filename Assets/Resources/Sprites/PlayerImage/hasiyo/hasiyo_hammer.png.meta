@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: 05c454e1365d2874ab2970faff971c92
+guid: f16b925fd02d24045bc7bbedbbc2f547
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 217806103198121620
-    second: hasiyo_attack_0
-  - first:
-      213: -3865171101212884221
-    second: hasiyo_attack_1
+      213: 95300903707308422
+    second: hasiyo_hammer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 315
+  spritePixelsToUnits: 275
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -75,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -103,45 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hasiyo_hammer
+      name: hasiyo_hammer_0
       rect:
         serializedVersion: 2
-        x: 182
-        y: 605
-        width: 389
-        height: 302
+        x: 0
+        y: 0
+        width: 379
+        height: 286
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 49e39033f7dc50300800000000000000
-      internalID: 217806103198121620
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: hasiyo_attack_back
-      rect:
-        serializedVersion: 2
-        x: 271
-        y: 80
-        width: 630
-        height: 501
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 303c91cac572c5ac0800000000000000
-      internalID: -3865171101212884221
+      spriteID: 6817f30caa3925100800000000000000
+      internalID: 95300903707308422
       vertices: []
       indices: 
       edges: []
@@ -150,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: cc407aa28af847b4a8a0f1654fe23459
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hasiyo_attack_back: -3865171101212884221
-      hasiyo_hammer: 217806103198121620
+      hasiyo_hammer_0: 95300903707308422
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
