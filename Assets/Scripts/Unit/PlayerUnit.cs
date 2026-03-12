@@ -285,7 +285,16 @@ public class PlayerUnit : CombatUnit
         }
         else if (newState == PlayerState.Skill)
         {
-            //TODO : 스킬 연출
+            if (playerData.unitSkillSprite != null)
+                spriteRenderer.sprite = playerData.unitSkillSprite;
+
+            Sequence skillSeq = DOTween.Sequence();
+            skillSeq.AppendInterval(duration);
+            skillSeq.OnComplete(() =>
+            {
+                if (!IsDead)
+                    ChangeToIdleSprite();
+            });
         }
     }
 

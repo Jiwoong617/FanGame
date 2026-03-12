@@ -163,6 +163,17 @@ public class VFXManager
         }, color);
     }
 
+    public void ShowCustomEffect(Vector3 pos, Sprite sprite, Action<Transform, SpriteRenderer, Action> customAnim)
+    {
+        if (sprite == null) return;
+        SimpleEffect effect = GetEffect();
+
+        effect.Play(pos, sprite, (t, sr, onComplete) =>
+        {
+            customAnim(t, sr, onComplete);
+        }, Color.white);
+    }
+
     public void PlayerAttackEffect(Vector3 attackerPos, Vector3 targetPos, AttackVFXType type, Sprite sprite, float hitDelay)
     {
         switch(type)
@@ -223,7 +234,26 @@ public class VFXManager
 
     private void PopoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
     {
+        if (sprite == null) return;
 
+        SimpleEffect effect = GetEffect();
+        effect.Play(targetPos, sprite, (t, sr, onComplete) =>
+        {
+            sr.color = new Color(1f, 1f, 1f, 0f);
+
+            Sequence seq = DOTween.Sequence();
+            if (hitDelay > 0)
+                seq.AppendInterval(hitDelay);
+            seq.AppendCallback(() => sr.color = Color.white);
+
+            t.localScale = Vector3.one * 0.5f;
+            float angle = UnityEngine.Random.Range(0, 360f);
+            t.rotation = Quaternion.Euler(0, 0, angle);
+
+            seq.Append(t.DOScale(1.1f, 0.15f).SetEase(Ease.OutBack));
+            seq.Join(sr.DOFade(0f, 0.2f).SetEase(Ease.InQuad));
+            seq.OnComplete(() => onComplete());
+        }, Color.white);
     }
 
     private void RyusihoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)

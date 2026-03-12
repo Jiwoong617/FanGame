@@ -167,15 +167,18 @@ public abstract class CombatUnit : MonoBehaviour
 
         float attackInterval = currentAttackThreshold / stats.attackSpeed.GetValue();
         float maxAnimTime = Mathf.Min(0.3f, attackInterval * 0.8f);
+        float forwardTime = maxAnimTime * 0.2f;
+        float pauseTime = maxAnimTime * 0.2f;
+        float returnTime = maxAnimTime * 0.6f;
 
         transform.DOKill(true);
+        PlayAttackVFX(target.transform.position, forwardTime);
 
         Sequence attackSeq = DOTween.Sequence();
-        attackSeq.Append(transform.DOMove(attackPos, maxAnimTime * 0.2f).SetEase(Ease.OutExpo));
+        attackSeq.Append(transform.DOMove(attackPos, forwardTime).SetEase(Ease.OutExpo));
         attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType));
-        attackSeq.AppendInterval(maxAnimTime * 0.2f);
-        attackSeq.Append(transform.DOMove(originalPos, maxAnimTime * 0.6f).SetEase(Ease.OutCirc));
-
+        attackSeq.AppendInterval(pauseTime);
+        attackSeq.Append(transform.DOMove(originalPos, returnTime).SetEase(Ease.OutCirc));
         attackSeq.OnComplete(() =>
         {
             isAttacking = false;
