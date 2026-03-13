@@ -8,7 +8,7 @@ public class Boss2 : Ability
         if (eventType == CombatEvent.OnBattleEnd)
         {
             var stats = owner.GetStat<UnitStats>();
-            stats.maxHp.SetBaseValue(stats.maxHp.GetValue() + 5f);
+            stats.maxHp.SetBaseValue(stats.maxHp.GetBaseValue() + 5f);
         }
     }
 }
@@ -21,7 +21,7 @@ public class Boss3 : Ability
         if (eventType == CombatEvent.OnBattleEnd)
         {
             var stats = owner.GetStat<UnitStats>();
-            stats.attackDamage.SetBaseValue(stats.attackDamage.GetValue() + 1f);
+            stats.attackDamage.SetBaseValue(stats.attackDamage.GetBaseValue() + 1f);
         }
     }
 }
@@ -34,7 +34,7 @@ public class Boss4 : Ability
         if (eventType == CombatEvent.OnBattleEnd)
         {
             var stats = owner.GetStat<UnitStats>();
-            stats.attackSpeed.SetBaseValue(stats.attackSpeed.GetValue() + 0.1f);
+            stats.attackSpeed.SetBaseValue(stats.attackSpeed.GetBaseValue() + 0.1f);
         }
     }
 }
@@ -49,7 +49,7 @@ public class Boss5 : Ability
             var pStats = owner.GetStat<PlayerStats>();
             if (pStats != null)
             {
-                pStats.maxStamina.SetBaseValue(pStats.maxStamina.GetValue() + 10f);
+                pStats.maxStamina.SetBaseValue(pStats.maxStamina.GetBaseValue() + 10f);
             }
         }
     }
@@ -76,6 +76,16 @@ public class Boss6 : Ability
             eventType == CombatEvent.OnRest)
         {
             UpdateDamageBonus();
+        }
+    }
+
+    public override void OnRemoved()
+    {
+        base.OnRemoved();
+        if (stats != null && damageMod != null)
+        {
+            stats.attackDamage.RemoveModifier(damageMod);
+            damageMod = null;
         }
     }
 

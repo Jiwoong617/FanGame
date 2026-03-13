@@ -24,6 +24,9 @@
             if (ctx.value <= 0 || ctx.isReflectDamage)
                 return;
 
+            if (ctx.source == null || ctx.source == owner || ctx.source.IsDead)
+                return;
+
             float reflectAmount = ctx.value * (effectValue * stacks);
             // 반사 데미지는 고정뎀/ 회피 패리 불가로
             CombatEventContext reflectCtx = new CombatEventContext(owner, ctx.source, reflectAmount, DamageType.Fixed, true);

@@ -111,14 +111,14 @@ public class PlayerStats : UnitStats
         if (newMaxFp > _lastMaxFp)
         {
             float diff = newMaxFp - _lastMaxFp;
-            fp += diff;
+            _fp += diff;
             OnFpChanged?.Invoke(_fp, newMaxFp);
         }
         else if (newMaxFp < _lastMaxFp)
         {
-            if (fp > newMaxFp)
+            if (_fp > newMaxFp)
             {
-                fp = newMaxFp;
+                _fp = newMaxFp;
                 OnFpChanged?.Invoke(_fp, newMaxFp);
             }
         }

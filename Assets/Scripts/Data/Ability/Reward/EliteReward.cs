@@ -112,7 +112,7 @@ public class Elite10 : Ability
         }
         else if (eventType == CombatEvent.OnParrySuccess)
         {
-            if (activeBuff == null)
+            if (activeBuff == null || activeBuff.IsFinished)
             {
                 activeBuff = buffTemplate.Clone() as AttackDamageEffect;
                 owner.AddAbility(activeBuff);

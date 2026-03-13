@@ -88,4 +88,9 @@ public class Stat
         _isDirty = true;
         OnStatChanged?.Invoke();
     }
+
+    public float GetBaseValue()
+    {
+        return BaseValue;
+    }
 }

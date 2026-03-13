@@ -47,9 +47,9 @@ public class AttackDamageEffect : StatusEffect
         if (stats != null)
         {
             float finalValue = 0f;
-            if (modType == StatModType.Flat)
+            if (modType == StatModType.Flat || modType == StatModType.PercentAdd)
                 finalValue = effectValue * stacks;
-            else
+            else if (modType == StatModType.PercentMult)
                 finalValue = Mathf.Pow(effectValue, stacks);
 
             currentMod = new StatModifier(finalValue, modType);
