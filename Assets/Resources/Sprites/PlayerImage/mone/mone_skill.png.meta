@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 5acf57bee6ae0474d8b11bf14b7e6bc9
+guid: 0b59775a919734a468ff6ebff4864e3e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7955080341527372920
-    second: mone_0
+      213: -8783856373996466475
+    second: mone_skill_0
   - first:
-      213: -1933958539667631305
-    second: mone_1
+      213: -4638689704764287419
+    second: mone_skill_1
   - first:
-      213: 5943091342570826787
-    second: mone_2
+      213: -8921932024616828632
+    second: mone_skill_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -106,13 +106,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mone_0
+      name: mone_skill_0
       rect:
         serializedVersion: 2
-        x: 234
-        y: 351
-        width: 776
-        height: 753
+        x: 241
+        y: 514
+        width: 99
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,41 +121,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 874ae6c3c6f166e60800000000000000
-      internalID: 7955080341527372920
+      spriteID: 5dec3edaa29791680800000000000000
+      internalID: -8783856373996466475
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: mone_1
+      name: mone_skill_1
       rect:
         serializedVersion: 2
-        x: 1002
-        y: 549
-        width: 84
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 73317c864f23925e0800000000000000
-      internalID: -1933958539667631305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mone_2
-      rect:
-        serializedVersion: 2
-        x: 1116
-        y: 579
-        width: 46
+        x: 329
+        y: 489
+        width: 64
         height: 42
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -165,8 +143,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 32c22a5961a1a7250800000000000000
-      internalID: 5943091342570826787
+      spriteID: 54653445a4010afb0800000000000000
+      internalID: -4638689704764287419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mone_skill_2
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 428
+        width: 807
+        height: 673
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8214882181eee2480800000000000000
+      internalID: -8921932024616828632
       vertices: []
       indices: 
       edges: []
@@ -185,9 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mone_0: 7955080341527372920
-      mone_1: -1933958539667631305
-      mone_2: 5943091342570826787
+      mone_skill_0: -8783856373996466475
+      mone_skill_1: -4638689704764287419
+      mone_skill_2: -8921932024616828632
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CombatResourceData
   unitName: "\uB124\uBAA8"
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
-  unitSprite: {fileID: 7955080341527372920, guid: 5acf57bee6ae0474d8b11bf14b7e6bc9, type: 3}
+  unitSprite: {fileID: 21300000, guid: 5acf57bee6ae0474d8b11bf14b7e6bc9, type: 3}
   unitBasicAttackSprite: {fileID: 21300000, guid: 2eeeb8787d8b627459c2d766b4bc1e43, type: 3}
   unitDeadSprite: {fileID: 21300000, guid: 5454eb159a0e6cc4fb0d9d4cbba728e8, type: 3}
   attackVFXType: 4
@@ -38,7 +38,7 @@ MonoBehaviour:
   - rid: 8549445694374805575
   unitBackSprite: {fileID: 21300000, guid: 305eb521d04eb1345b92243d12ac3cc6, type: 3}
   attackVFXSprite: {fileID: 0}
-  unitSkillSprite: {fileID: 0}
+  unitSkillSprite: {fileID: 21300000, guid: 0b59775a919734a468ff6ebff4864e3e, type: 3}
   unitParrySprite: {fileID: 21300000, guid: a8bc5a516232f67448d067ea17a59ec6, type: 3}
   stamina: 100
   staminaRegen: 1
@@ -50,6 +50,9 @@ MonoBehaviour:
   parryDuration: 0.2
   dodgeCoolTime: 0.7
   parrayCoolTime: 0.5
+  skillIcon: {fileID: 0}
+  skillName: 
+  skillDesc: 
   references:
     version: 2
     RefIds:

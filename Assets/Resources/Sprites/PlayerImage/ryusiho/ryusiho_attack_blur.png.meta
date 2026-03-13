@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 5acf57bee6ae0474d8b11bf14b7e6bc9
+guid: 18880c12bad558e4299d6a7033c3ae6f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7955080341527372920
-    second: mone_0
-  - first:
-      213: -1933958539667631305
-    second: mone_1
-  - first:
-      213: 5943091342570826787
-    second: mone_2
+      213: -7959216686775246647
+    second: ryusiho_attack_blur_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -57,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 512
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -78,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -106,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: mone_0
+      name: ryusiho_attack_blur_0
       rect:
         serializedVersion: 2
-        x: 234
-        y: 351
-        width: 776
-        height: 753
+        x: 81
+        y: 312
+        width: 1238
+        height: 798
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,52 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 874ae6c3c6f166e60800000000000000
-      internalID: 7955080341527372920
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mone_1
-      rect:
-        serializedVersion: 2
-        x: 1002
-        y: 549
-        width: 84
-        height: 79
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 73317c864f23925e0800000000000000
-      internalID: -1933958539667631305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mone_2
-      rect:
-        serializedVersion: 2
-        x: 1116
-        y: 579
-        width: 46
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 32c22a5961a1a7250800000000000000
-      internalID: 5943091342570826787
+      spriteID: 9c06666d79e2b8190800000000000000
+      internalID: -7959216686775246647
       vertices: []
       indices: 
       edges: []
@@ -185,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      mone_0: 7955080341527372920
-      mone_1: -1933958539667631305
-      mone_2: 5943091342570826787
+      ryusiho_attack_blur_0: -7959216686775246647
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
