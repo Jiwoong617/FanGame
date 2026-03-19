@@ -35,7 +35,7 @@ MonoBehaviour:
   - rid: 8549445450257924178
   - rid: 8549445694374805576
   unitBackSprite: {fileID: 21300000, guid: b8d7a114757bd5b49a359b33937cbd84, type: 3}
-  attackVFXSprite: {fileID: 0}
+  attackVFXSprite: {fileID: 21300000, guid: 7f9554da97b7c4046be47acc5d06ac81, type: 3}
   unitSkillSprite: {fileID: 21300000, guid: b8c2646c7a9b88c41b2da6970daa57ad, type: 3}
   unitParrySprite: {fileID: 21300000, guid: 53be1d4591761454194fe8b5abbec5af, type: 3}
   stamina: 30
@@ -59,16 +59,17 @@ MonoBehaviour:
       data:
         combatEvent: 0
         actionType: 2
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: 4286905991176406154, guid: 51873456e838b4f4990b443fe7266ab0, type: 3}
     - rid: 8549445450257924178
       type: {class: DodgeAbility, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
         actionType: 1
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: -5291787456126606550, guid: 4365b9afd7040a0489c5078016a6f5c4, type: 3}
     - rid: 8549445694374805576
       type: {class: PopoSkill, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
         actionType: 3
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: -8005698595059157771, guid: b73b34b78fdee67439b20f6684897833, type: 3}
+        popoAtkVFX: {fileID: 21300000, guid: 7f9554da97b7c4046be47acc5d06ac81, type: 3}

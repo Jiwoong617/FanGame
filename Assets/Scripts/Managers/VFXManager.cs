@@ -224,12 +224,58 @@ public class VFXManager
 
     private void MoneEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
     {
+        if (sprite == null) return;
 
+        SimpleEffect effect = GetEffect();
+        effect.Play(targetPos, sprite, (t, sr, onComplete) =>
+        {
+            t.position = targetPos;
+            t.localScale = new Vector3(1.5f, 1.5f, 1f);
+            sr.color = new Color(1, 1, 1, 0.6f);
+            t.rotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(0f, 360f));
+
+
+            Sequence seq = DOTween.Sequence();
+
+            seq.Append(t.DOScale(new Vector3(0.8f, 0.8f, 1f), 0.1f).SetEase(Ease.OutQuad));
+            seq.Join(sr.DOFade(1f, 0.1f).SetEase(Ease.OutQuad));
+            seq.Join(t.DORotate(new Vector3(0, 0, t.rotation.eulerAngles.z + 20f), 0.1f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad));
+
+            seq.AppendInterval(0.05f);
+            seq.Join(sr.DOFade(0f, 0.05f).SetEase(Ease.InQuad));
+
+            seq.OnComplete(() => onComplete());
+        }, Color.white);
     }
 
     private void RoseEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
     {
+        if (sprite == null) return;
 
+        SimpleEffect effect = GetEffect();
+        Vector3 randPos = new Vector3(UnityEngine.Random.Range(-0.2f, 0.2f), UnityEngine.Random.Range(-0.2f, 0.2f), 0);
+        effect.Play(targetPos + randPos, sprite, (t, sr, onComplete) =>
+        {
+            Vector3 dir = targetPos - attackerPos;
+            float angle = UnityEngine.Random.Range(0, 360f);
+            t.rotation = Quaternion.Euler(0, 0, angle);
+
+            t.position = targetPos - (dir.normalized * 0.3f);
+            sr.color = new Color(1, 1, 1, 0);
+            t.localScale = new Vector3(0.2f, 0.1f, 1f);
+
+            Sequence seq = DOTween.Sequence();
+            if (hitDelay > 0)
+                seq.AppendInterval(hitDelay);
+
+            seq.AppendCallback(() => sr.color = Color.white);
+            seq.Append(t.DOScale(new Vector3(1.2f, 0.8f, 1f), 0.05f).SetEase(Ease.OutBack));
+
+            seq.Append(t.DOScale(new Vector3(0.1f, 0.1f, 1f), 0.05f).SetEase(Ease.InQuad));
+            seq.Join(t.DOMove(targetPos - (dir.normalized * 0.2f), 0.05f).SetEase(Ease.InQuad));
+            seq.Join(sr.DOFade(0f, 0.05f).SetEase(Ease.InQuad));
+            seq.OnComplete(() => onComplete());
+        }, Color.orange);
     }
 
     private void PopoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
@@ -258,6 +304,29 @@ public class VFXManager
 
     private void RyusihoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
     {
+        if (sprite == null) return;
 
+        SimpleEffect effect = GetEffect();
+        effect.Play(targetPos, sprite, (t, sr, onComplete) =>
+        {
+            sr.color = new Color(1f, 1f, 1f, 0f);
+
+            Vector3 dir = targetPos - attackerPos;
+            float baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            float randomOffset = UnityEngine.Random.Range(-30f, 30f);
+            t.rotation = Quaternion.Euler(0, 0, baseAngle + randomOffset);
+
+            t.localScale = new Vector3(0.5f, 0.1f, 1f);
+            Sequence seq = DOTween.Sequence();
+            if (hitDelay > 0)
+                seq.AppendInterval(hitDelay);
+            seq.AppendCallback(() => sr.color = Color.white);
+
+            seq.Append(t.DOScale(new Vector3(1.5f, 0.5f, 1f), 0.15f).SetEase(Ease.OutExpo));
+
+            seq.Join(sr.DOFade(0f, 0.2f).SetEase(Ease.InQuad));
+
+            seq.OnComplete(() => onComplete());
+        }, Color.white);
     }
 }

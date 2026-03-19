@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 18880c12bad558e4299d6a7033c3ae6f
+guid: 25d1ac9cc59f0fa448934510723ed008
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7959216686775246647
-    second: ryusiho_attack_blur_0
+      213: -2379095607270764574
+    second: RoseHitEffect_0
+  - first:
+      213: 3276451130442166409
+    second: RoseHitEffect_1
+  - first:
+      213: -2879367166632038438
+    second: RoseHitEffect_2
+  - first:
+      213: -6554232371318358643
+    second: RoseHitEffect_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ryusiho_attack_blur_0
+      name: RoseHitEffect_0
       rect:
         serializedVersion: 2
-        x: 81
-        y: 312
-        width: 1238
-        height: 798
+        x: 96
+        y: 217
+        width: 757
+        height: 658
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +124,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9c06666d79e2b8190800000000000000
-      internalID: -7959216686775246647
+      spriteID: 2ef0fe17621cbfed0800000000000000
+      internalID: -2379095607270764574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoseHitEffect_1
+      rect:
+        serializedVersion: 2
+        x: 860
+        y: 646
+        width: 27
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 980bee991fa487d20800000000000000
+      internalID: 3276451130442166409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoseHitEffect_2
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 629
+        width: 19
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: adf69f641de6a08d0800000000000000
+      internalID: -2879367166632038438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: RoseHitEffect_3
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 479
+        width: 75
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8df3345260ba05a0800000000000000
+      internalID: -6554232371318358643
       vertices: []
       indices: 
       edges: []
@@ -135,7 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ryusiho_attack_blur_0: -7959216686775246647
+      RoseHitEffect_0: -2379095607270764574
+      RoseHitEffect_1: 3276451130442166409
+      RoseHitEffect_2: -2879367166632038438
+      RoseHitEffect_3: -6554232371318358643
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -60,19 +60,19 @@ MonoBehaviour:
       data:
         combatEvent: 0
         actionType: 1
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: -5291787456126606550, guid: 4365b9afd7040a0489c5078016a6f5c4, type: 3}
     - rid: 8549445450257924174
       type: {class: ParryAbility, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
         actionType: 2
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: 4286905991176406154, guid: 51873456e838b4f4990b443fe7266ab0, type: 3}
     - rid: 8549445538707406920
       type: {class: HasiyoSkill, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
         actionType: 3
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: 7478704911763468392, guid: 6e33f414c33beab4eb928c94c6e4d26e, type: 3}
         fireballSprite: {fileID: 21300000, guid: f16b925fd02d24045bc7bbedbbc2f547, type: 3}
         iceSprite: {fileID: 21300000, guid: f16b925fd02d24045bc7bbedbbc2f547, type: 3}
         vineSprite: {fileID: 21300000, guid: f16b925fd02d24045bc7bbedbbc2f547, type: 3}

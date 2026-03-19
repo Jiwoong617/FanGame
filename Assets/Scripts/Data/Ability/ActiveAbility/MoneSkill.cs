@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [System.Serializable]
 public class MoneSkill : ActiveAbility
@@ -31,6 +32,15 @@ public class MoneSkill : ActiveAbility
 
     protected override void ExecuteSkill(PlayerUnit player)
     {
+        SpriteRenderer targetSR = owner.GetComponentInChildren<SpriteRenderer>();
+        if (targetSR != null)
+        {
+            targetSR.DOFade(0.3f, 0.2f).SetEase(Ease.InOutSine).OnComplete(() =>
+            {
+                targetSR.color = new Color(1, 1, 1, 0.3f);
+            });
+        }
+
         player.ChangeState(PlayerState.Skill, 0.2f);
 
         MoneEffect moneBuff = new MoneEffect();

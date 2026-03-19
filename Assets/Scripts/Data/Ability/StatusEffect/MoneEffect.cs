@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 [System.Serializable]
 public class MoneEffect : StatusEffect
 {
     private StatModifier critChanceMod;
     private StatModifier critDmgMod;
+
+    private SpriteRenderer targetSR;
 
     public MoneEffect()
     {
@@ -33,6 +37,7 @@ public class MoneEffect : StatusEffect
     {
         if (eventType == CombatEvent.OnAttack && ctx.source == owner)
         {
+            owner.GetSpriteRenderer().DOFade(1f, 0.15f);
             IsFinished = true;
         }
     }

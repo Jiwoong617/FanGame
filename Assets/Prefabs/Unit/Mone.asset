@@ -37,7 +37,7 @@ MonoBehaviour:
   - rid: 8549445450257924176
   - rid: 8549445694374805575
   unitBackSprite: {fileID: 21300000, guid: 305eb521d04eb1345b92243d12ac3cc6, type: 3}
-  attackVFXSprite: {fileID: 0}
+  attackVFXSprite: {fileID: 21300000, guid: cdabf84bda72cda4da89b56bd369080a, type: 3}
   unitSkillSprite: {fileID: 21300000, guid: 0b59775a919734a468ff6ebff4864e3e, type: 3}
   unitParrySprite: {fileID: 21300000, guid: a8bc5a516232f67448d067ea17a59ec6, type: 3}
   stamina: 100
@@ -61,16 +61,16 @@ MonoBehaviour:
       data:
         combatEvent: 0
         actionType: 2
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: 4286905991176406154, guid: 51873456e838b4f4990b443fe7266ab0, type: 3}
     - rid: 8549445450257924176
       type: {class: DodgeAbility, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
         actionType: 1
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: -5291787456126606550, guid: 4365b9afd7040a0489c5078016a6f5c4, type: 3}
     - rid: 8549445694374805575
       type: {class: MoneSkill, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
         actionType: 3
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: 7562379932295306040, guid: 51cb6e1a46d800446ba6cca91f2c1291, type: 3}

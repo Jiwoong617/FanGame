@@ -319,4 +319,6 @@ public abstract class CombatUnit : MonoBehaviour
     {
         OnBuffUpdated?.Invoke(effect);
     }
+
+    public SpriteRenderer GetSpriteRenderer() => spriteRenderer;
 }

@@ -35,7 +35,7 @@ MonoBehaviour:
   - rid: 8549445450257924180
   - rid: 8549445694374805577
   unitBackSprite: {fileID: 21300000, guid: 039b49f30d311434e8c2b299fea879b5, type: 3}
-  attackVFXSprite: {fileID: 0}
+  attackVFXSprite: {fileID: 21300000, guid: 25d1ac9cc59f0fa448934510723ed008, type: 3}
   unitSkillSprite: {fileID: 21300000, guid: ca427feeefe4af444bb7311a7a8f19ba, type: 3}
   unitParrySprite: {fileID: 21300000, guid: dca14ee7376e6fb4ca373a24fcdc2e96, type: 3}
   stamina: 20
@@ -59,16 +59,17 @@ MonoBehaviour:
       data:
         combatEvent: 0
         actionType: 2
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: 4286905991176406154, guid: 51873456e838b4f4990b443fe7266ab0, type: 3}
     - rid: 8549445450257924180
       type: {class: DodgeAbility, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
         actionType: 1
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: -5291787456126606550, guid: 4365b9afd7040a0489c5078016a6f5c4, type: 3}
     - rid: 8549445694374805577
       type: {class: RoseSkill, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
         actionType: 3
-        skillIcon: {fileID: 0}
+        skillIcon: {fileID: -7629144010981688421, guid: 57da031f95fe2834e81ad93995bbd6fa, type: 3}
+        effectSprite: {fileID: 21300000, guid: b8910389940f282448519a7bf090e115, type: 3}
