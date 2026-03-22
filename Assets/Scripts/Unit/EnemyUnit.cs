@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -30,7 +31,6 @@ public class EnemyUnit : CombatUnit
         InitializeAbilities(unitData);
 
         OnDamageTextRequested += GameManager.VFX.ShowDamageText;
-        OnHealTextRequested += (amount) => GameManager.VFX.ShowHealText(transform, amount);
 
         //이거 주석 풀면 시작 시 기본 공격말고 패턴 선택함
         //DecideNextAction();
@@ -59,7 +59,7 @@ public class EnemyUnit : CombatUnit
     }
 
     public override void Attack(CombatUnit target, float damage, bool onHit, bool onCritical,
-        List<StatusEffect> debuffs = null, bool useMoveAnim = true, DamageType damageType = DamageType.Normal)
+        List<StatusEffect> debuffs = null, bool useMoveAnim = true, DamageType damageType = DamageType.Normal, Action<float> onDamageDealt = null)
     {
         if (nextPattern != null)
         {
@@ -70,11 +70,11 @@ public class EnemyUnit : CombatUnit
         }
         else if (currentRunningPattern != null)
         {
-            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType);
+            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType, onDamageDealt);
         }
         else
         {
-            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType);
+            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType, onDamageDealt);
             DecideNextAction();
         }
     }
@@ -116,7 +116,7 @@ public class EnemyUnit : CombatUnit
         if (validCandidates.Count == 0)
             return null;
 
-        int randomPoint = Random.Range(0, totalWeight);
+        int randomPoint = UnityEngine.Random.Range(0, totalWeight);
         int currentSum = 0;
         foreach (var pattern in validCandidates)
         {

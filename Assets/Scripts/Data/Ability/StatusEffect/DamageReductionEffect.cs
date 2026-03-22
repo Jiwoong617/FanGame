@@ -3,22 +3,18 @@
 [System.Serializable]
 public class DamageReductionEffect : StatusEffect
 {
-    [Header("Reduction Settings")]
-    [Tooltip("피해 감소율 (0.1 = 10%, 0.5 = 50%)")]
-    public float reductionPercent = 0.0f;
-
     public DamageReductionEffect()
     {
         effectType = EffectType.DamageReduction; 
         combatEvent = CombatEvent.OnBeforeTakeDamage;
     }
 
-    public DamageReductionEffect(float percent, int duration, bool isPermanent) : this()
+    public DamageReductionEffect(int duration, bool isPermanent, float effectValue, int stack) : this()
     {
-        this.reductionPercent = percent;
+        this.effectValue = effectValue;
         this.duration = duration;
         this.isPermanent = isPermanent;
-        this.stacks = 1;
+        this.stacks = stack;
     }
 
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
@@ -27,9 +23,10 @@ public class DamageReductionEffect : StatusEffect
         {
             if (ctx.value > 0 && ctx.damageType == DamageType.Normal)
             {
-                float originalDamage = ctx.value;
-                float reducedDamage = originalDamage * (1.0f - reductionPercent);
+                float multiplier = 1f - (effectValue * stacks);
+                multiplier = Mathf.Max(0, multiplier);
 
+                float reducedDamage = ctx.value * multiplier;
                 ctx.value = Mathf.Max(0, reducedDamage);
             }
         }

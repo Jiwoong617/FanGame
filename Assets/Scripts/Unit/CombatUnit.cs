@@ -15,7 +15,7 @@ public abstract class CombatUnit : MonoBehaviour
 
     public Action<CombatUnit> OnUnitDead;
     public event Action<CombatEventContext> OnDamageTextRequested;
-    public event Action<float> OnHealTextRequested;
+    public event Action<CombatUnit> OnTargetChanged;
 
     //이건 ui 띄울것들임
     public event Action<float> OnActionBarUpdated;
@@ -63,7 +63,11 @@ public abstract class CombatUnit : MonoBehaviour
 
     public virtual void SetTarget(CombatUnit inTarget)
     {
-        target = inTarget;
+        if (target != inTarget)
+        {
+            target = inTarget;
+            OnTargetChanged?.Invoke(target);
+        }
     }
 
     public CombatUnit GetTarget()
@@ -141,7 +145,7 @@ public abstract class CombatUnit : MonoBehaviour
     public abstract T GetStat<T>() where T : UnitStats;
 
     public virtual void Attack(CombatUnit target, float damage, bool onHit, bool onCritical
-        ,List<StatusEffect> debuffs = null, bool useMoveAnim = true, DamageType damageType = DamageType.Normal)
+        ,List<StatusEffect> debuffs = null, bool useMoveAnim = true, DamageType damageType = DamageType.Normal, Action<float> onDamageDealt = null)
     {
         if (target == null || IsDead) return;
 
@@ -153,13 +157,13 @@ public abstract class CombatUnit : MonoBehaviour
         }
 
         if (useMoveAnim) // 움직이는 공격
-            PerformPhysicalAttack(target, damage, onHit, onCritical, debuffs, damageType);
+            PerformPhysicalAttack(target, damage, onHit, onCritical, debuffs, damageType, onDamageDealt);
         else // 제자리 공격
-            PerformStationaryAttack(target, damage, onHit, onCritical, debuffs, damageType);
+            PerformStationaryAttack(target, damage, onHit, onCritical, debuffs, damageType, onDamageDealt);
     }
 
     private void PerformPhysicalAttack(CombatUnit target, float damage, bool onHit, bool onCritical,
-        List<StatusEffect> debuffs, DamageType damageType)
+        List<StatusEffect> debuffs, DamageType damageType, Action<float> onDamageDealt)
     {
         Vector3 originalPos = transform.position;
         Vector3 dir = (target.transform.position - transform.position).normalized;
@@ -176,7 +180,7 @@ public abstract class CombatUnit : MonoBehaviour
 
         Sequence attackSeq = DOTween.Sequence();
         attackSeq.Append(transform.DOMove(attackPos, forwardTime).SetEase(Ease.OutExpo));
-        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType));
+        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, true, onDamageDealt));
         attackSeq.AppendInterval(pauseTime);
         attackSeq.Append(transform.DOMove(originalPos, returnTime).SetEase(Ease.OutCirc));
         attackSeq.OnComplete(() =>
@@ -187,13 +191,13 @@ public abstract class CombatUnit : MonoBehaviour
     }
 
     private void PerformStationaryAttack(CombatUnit target, float damage, bool onHit, bool onCritical,
-        List<StatusEffect> debuffs, DamageType damageType)
+        List<StatusEffect> debuffs, DamageType damageType, Action<float> onDamageDealt)
     {
         float castDelay = 0.2f;
 
         Sequence attackSeq = DOTween.Sequence();
         attackSeq.AppendInterval(castDelay);
-        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, false));
+        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, false, onDamageDealt));
         attackSeq.OnComplete(() =>
         {
             isAttacking = false;
@@ -202,7 +206,7 @@ public abstract class CombatUnit : MonoBehaviour
     }
 
     private void ExecuteHit(CombatUnit target, float damage, bool onHit, bool onCritical,
-        List<StatusEffect> debuffs, DamageType damageType, bool attackVFX = true)
+        List<StatusEffect> debuffs, DamageType damageType, bool attackVFX, Action<float> onDamageDealt)
     {
         if (target == null || target.IsDead || IsDead) return;
         bool isCrit = false;
@@ -230,6 +234,8 @@ public abstract class CombatUnit : MonoBehaviour
             attackCtx.value = actualDamage;
             if (onHit) TriggerAbility(CombatEvent.OnAttack, attackCtx);
             if (isCrit && onCritical) TriggerAbility(CombatEvent.OnCritical, attackCtx);
+
+            onDamageDealt?.Invoke(actualDamage);
         }
     }
 
@@ -291,7 +297,7 @@ public abstract class CombatUnit : MonoBehaviour
         float finalHeal = Mathf.Max(1f, amount);
         stats.hp += finalHeal;
 
-        OnHealTextRequested?.Invoke(finalHeal);
+        GameManager.VFX.ShowHealText(transform, finalHeal);
     }
 
     protected void RequestDamageText(CombatEventContext ctx)
@@ -321,4 +327,24 @@ public abstract class CombatUnit : MonoBehaviour
     }
 
     public SpriteRenderer GetSpriteRenderer() => spriteRenderer;
+
+    public bool HasStatusEffect(EffectType type)
+    {
+        for (int i = 0; i < abilities.Count; i++)
+        {
+            if (abilities[i] is StatusEffect status && status.effectType == type && !status.IsFinished)
+                return true;
+        }
+        return false;
+    }
+
+    public StatusEffect GetStatusEffect(EffectType type)
+    {
+        for (int i = 0; i < abilities.Count; i++)
+        {
+            if (abilities[i] is StatusEffect status && status.effectType == type && !status.IsFinished)
+                return status;
+        }
+        return null;
+    }
 }

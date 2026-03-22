@@ -12,7 +12,10 @@ public enum EffectType
     Mone,         // 모네 스킬
     AttackUp,     // 공격력증가
     AttackDown,   // 공격력 감소
-    DamageReduction // 받는 데미지 감소
+    DamageReduction, // 받는 데미지 감소
+    DamageAmplification, // 받는 데미지 증가
+    Shackle,      // 구속 (패리/회피 불가)
+    Taunt         // 도발 (타겟 고정)
 }
 
 

@@ -6,6 +6,7 @@ public enum BuffTargetType
     Other,          // 다른 적 하나
     OtherEnemies,   // 나 제외 다른 적들
     AllEnemies,     // 모든 적들
+    AllCharacter    // 모든 캐릭터
 }
 
 
@@ -61,6 +62,18 @@ public class BuffPattern : EnemyPattern
                     //TODO : 버프 이펙트 (ally 위치)
                 }
                 break;
+
+            case BuffTargetType.AllCharacter:
+                foreach (var character in allies)
+                {
+                    if (character != null)
+                        character.AddAbility(buffEffect.Clone());
+                    //TODO : 버프 이펙트 (ally 위치)
+                }
+                GameManager.Instance.Player.AddAbility(buffEffect.Clone());
+                //TODO : 버프 이펙트 (플레이어 위치)
+
+                break;
         }
 
         return true;
@@ -111,6 +124,14 @@ public class HealPattern : EnemyPattern
                 {
                     ApplyHeal(friend);
                 }
+                break;
+
+            case BuffTargetType.AllCharacter:
+                foreach (var friend in friends)
+                {
+                    ApplyHeal(friend);
+                }
+                ApplyHeal(GameManager.Instance.Player);
                 break;
         }
 

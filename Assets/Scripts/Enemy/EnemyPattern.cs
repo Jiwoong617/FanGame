@@ -53,6 +53,53 @@ public class AttackPattern : EnemyPattern
 
 
 [System.Serializable]
+public class AttackHealPattern : EnemyPattern
+{
+    [Header("Attack Settings")]
+    [Tooltip("공격력의 몇 %로 때릴지 (1.0 = 100%)")]
+    public float damagePercent = 1.0f;
+    [Tooltip("일반 데미지/고정 데미지")]
+    public DamageType damageType = DamageType.Normal;
+    [Tooltip("직접 가서 때릴지(True), 제자리 공격할지(False)")]
+    public bool useMoveAnim = true;
+
+    [Header("Heal Settings")]
+    [Tooltip("True: 가한 피해 비례 회복 (흡혈)\nFalse: 고정 수치 회복")]
+    public bool isVampire = true;
+    [Tooltip("비율(0.5 = 50%) 또는 고정값(20)")]
+    public float healValue = 0.5f;
+
+    public override bool OnUpdate(EnemyUnit unit, float delta)
+    {
+        var target = unit.GetTarget();
+        if (target == null || target.IsDead) return true;
+        if (unit.IsAttacking) return false;
+
+        var stats = unit.GetStat<UnitStats>();
+        float damage = stats.attackDamage.GetValue() * damagePercent;
+
+        if (!isVampire)
+        {
+            unit.Attack(target, damage, true, true, null, useMoveAnim, damageType);
+            unit.Heal(healValue);
+        }
+        else
+        {
+            unit.Attack(target, damage, true, true, null, useMoveAnim, damageType, (actualDamage) =>
+            {
+                if (actualDamage > 0)
+                {
+                    unit.Heal(actualDamage * healValue);
+                }
+            });
+        }
+
+        return true;
+    }
+}
+
+
+[System.Serializable]
 public class SequentialAttackPattern : EnemyPattern
 {
     [System.Serializable]

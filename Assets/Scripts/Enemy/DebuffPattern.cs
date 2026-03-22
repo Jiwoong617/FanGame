@@ -18,7 +18,23 @@ public class DebuffPattern : EnemyPattern
         if (target == null || target.IsDead) return true;
         if (unit.IsAttacking) return false;
 
-        unit.Attack(target, 0f, true, true, debuffs, useMoveAnim);
+        List<StatusEffect> instancedDebuffs = new List<StatusEffect>();
+        if (debuffs != null)
+        {
+            foreach (var template in debuffs)
+            {
+                if (template == null)
+                    continue;
+
+                StatusEffect clone = template.Clone() as StatusEffect;
+                if (clone is TauntEffect tauntEffect)
+                    tauntEffect.SetTaunter(unit);
+
+                instancedDebuffs.Add(clone);
+            }
+        }
+
+        unit.Attack(target, 0f, true, true, instancedDebuffs, useMoveAnim);
 
         return true;
     }
@@ -48,7 +64,23 @@ public class AttackDebuffPattern : EnemyPattern
         var stats = unit.GetStat<UnitStats>();
         float damage = stats.attackDamage.GetValue() * damagePercent;
 
-        unit.Attack(target, damage, true, true, debuffs, useMoveAnim, damageType);
+        List<StatusEffect> instancedDebuffs = new List<StatusEffect>();
+        if (debuffs != null)
+        {
+            foreach (var template in debuffs)
+            {
+                if (template == null)
+                    continue;
+
+                StatusEffect clone = template.Clone() as StatusEffect;
+                if (clone is TauntEffect tauntEffect)
+                    tauntEffect.SetTaunter(unit);
+
+                instancedDebuffs.Add(clone);
+            }
+        }
+
+        unit.Attack(target, damage, true, true, instancedDebuffs, useMoveAnim, damageType);
 
         return true;
     }

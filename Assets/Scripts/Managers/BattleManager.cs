@@ -99,12 +99,15 @@ public class BattleManager
 
         if (player != null && enemies.Count > 0)
         {
+            player.OnTargetChanged -= UpdateTargetMarker;
+            player.OnTargetChanged += UpdateTargetMarker;
             player.SetTarget(enemies[0]);
             player.OnBattleStart();
 
             foreach (var enemy in enemies)
             {
                 enemy.SetTarget(player);
+                enemy.OnUnitDead -= HandleEnemyDead;
                 enemy.OnUnitDead += HandleEnemyDead;
                 enemy.OnBattleStart();
             }
@@ -185,8 +188,6 @@ public class BattleManager
                 if (clickedEnemy != null && !clickedEnemy.IsDead)
                 {
                     player.SetTarget(clickedEnemy);
-
-                    targetMarker?.PlaySnapEffect(clickedEnemy.transform);
                 }
             }
         }
@@ -198,9 +199,15 @@ public class BattleManager
             if (newTarget != null)
             {
                 player.SetTarget(newTarget);
-                    
-                targetMarker?.PlaySnapEffect(newTarget.transform);
             }
+        }
+    }
+
+    private void UpdateTargetMarker(CombatUnit newTarget)
+    {
+        if (newTarget != null && !newTarget.IsDead)
+        {
+            targetMarker?.PlaySnapEffect(newTarget.transform);
         }
     }
 
