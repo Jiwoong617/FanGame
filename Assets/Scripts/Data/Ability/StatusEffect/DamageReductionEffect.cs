@@ -27,7 +27,7 @@ public class DamageReductionEffect : StatusEffect
                 multiplier = Mathf.Max(0, multiplier);
 
                 float reducedDamage = ctx.value * multiplier;
-                ctx.value = Mathf.Max(0, reducedDamage);
+                ctx.value = Mathf.Max(1, reducedDamage);
             }
         }
     }

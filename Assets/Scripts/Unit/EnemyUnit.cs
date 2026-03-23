@@ -9,10 +9,14 @@ public class EnemyUnit : CombatUnit
     [Header("Pattern Settings")]
     [SerializeReference, SerializeReferenceDropdown]
     public List<EnemyPattern> patterns = new List<EnemyPattern>();
+    [SerializeField]
+    protected bool isUsePatternFirst = false;
     
     private EnemyPattern currentRunningPattern = null;
     private EnemyPattern nextPattern = null;
     private EnemyPattern lastExecutedPattern = null;
+
+    
 
     public override void Init(UnitData unitData)
     {
@@ -20,7 +24,9 @@ public class EnemyUnit : CombatUnit
         stats = new UnitStats(unitData);
 
         foreach (var pattern in patterns)
-            pattern.lastExecutionTime = -9999f;
+        {
+            pattern.ResetPattern();
+        }
 
         if (combatUI == null)
             combatUI = GetComponentInChildren<CombatUnitUI>();
@@ -32,8 +38,8 @@ public class EnemyUnit : CombatUnit
 
         OnDamageTextRequested += GameManager.VFX.ShowDamageText;
 
-        //이거 주석 풀면 시작 시 기본 공격말고 패턴 선택함
-        //DecideNextAction();
+        if(isUsePatternFirst)
+            DecideNextAction();
     }
 
     public override void OnUpdate(float delta)
@@ -65,6 +71,8 @@ public class EnemyUnit : CombatUnit
         {
             currentRunningPattern = nextPattern;
             lastExecutedPattern = nextPattern;
+            currentRunningPattern.UpdateConditionOnExecute(this);
+
             nextPattern = null;
             currentRunningPattern.OnEnter(this);
         }
