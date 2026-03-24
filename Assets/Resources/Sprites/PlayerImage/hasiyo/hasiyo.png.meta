@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 927caa84d79950b479dc5442efa22dcb
+guid: 7f586a9069283274b9013f8b5e4bda8f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7954620618086645965
-    second: hasiyo_0
+      213: -5513155202712191210
+    second: hasiyo_new_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: hasiyo_0
+      name: hasiyo_new_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 50
-        width: 982
-        height: 958
+        x: 0
+        y: 0
+        width: 1400
+        height: 1374
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 33f72f771b28b9190800000000000000
-      internalID: -7954620618086645965
+      spriteID: 61f3eb69d865d73b0800000000000000
+      internalID: -5513155202712191210
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      hasiyo_0: -7954620618086645965
+      hasiyo_new_0: -5513155202712191210
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

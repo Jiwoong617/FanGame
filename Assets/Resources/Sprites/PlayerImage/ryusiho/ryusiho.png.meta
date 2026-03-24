@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d7bd72ffc9b04fd48bdf2a93388592c3
+guid: 007f74f8768fbfb4cb924c3130a0f21e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9053092070223317430
-    second: ryusiho_0
+      213: -8244684580402083959
+    second: ryusiho_new_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ryusiho_0
+      name: ryusiho_new_0
       rect:
         serializedVersion: 2
-        x: 84
-        y: 311
-        width: 1193
-        height: 793
+        x: 3
+        y: 22
+        width: 1397
+        height: 930
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6b90194c54b03ad70800000000000000
-      internalID: 9053092070223317430
+      spriteID: 9874efb6e0ff49d80800000000000000
+      internalID: -8244684580402083959
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ryusiho_0: 9053092070223317430
+      ryusiho_new_0: -8244684580402083959
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
