@@ -19,62 +19,68 @@ public class BuffPattern : EnemyPattern
     [SerializeReference, SerializeReferenceDropdown]
     public StatusEffect buffEffect;
 
+    [Tooltip("버프를 시전하는 모션 유지 시간")]
+    public float castDuration = 1.0f;
+
     public override bool OnUpdate(EnemyUnit unit, float delta)
     {
         if (unit.IsAttacking) return false;
 
-        var allies = GameManager.Battle.GetAliveEnemies();
-        switch (targetType)
-        {
-            case BuffTargetType.Self:
-                if (buffEffect != null)
-                    unit.AddAbility(buffEffect.Clone());
-                //TODO : 버프 이펙트 (unit 위치)
-                break;
-
-            case BuffTargetType.Other:
-                var others = allies.FindAll(a => a != unit);
-                if (others.Count > 0)
-                {
-                    var target = others[Random.Range(0, others.Count)];
+        unit.PlayActionAnimation(actionSprite, castDuration, () => 
+        { 
+            var allies = GameManager.Battle.GetAliveEnemies();
+            switch (targetType)
+            {
+                case BuffTargetType.Self:
                     if (buffEffect != null)
-                        target.AddAbility(buffEffect.Clone());
-                    //TODO : 버프 이펙트 (target 위치)
-                }
-                break;
+                        unit.AddAbility(buffEffect.Clone());
+                    //TODO : 버프 이펙트 (unit 위치)
+                    break;
 
-            case BuffTargetType.OtherEnemies:
-                foreach (var ally in allies)
-                {
-                    if (ally == unit) continue;
+                case BuffTargetType.Other:
+                    var others = allies.FindAll(a => a != unit);
+                    if (others.Count > 0)
+                    {
+                        var target = others[Random.Range(0, others.Count)];
+                        if (buffEffect != null)
+                            target.AddAbility(buffEffect.Clone());
+                        //TODO : 버프 이펙트 (target 위치)
+                    }
+                    break;
 
-                    if (buffEffect != null)
-                        ally.AddAbility(buffEffect.Clone());
-                    //TODO : 버프 이펙트 (ally 위치)
-                }
-                break;
+                case BuffTargetType.OtherEnemies:
+                    foreach (var ally in allies)
+                    {
+                        if (ally == unit) continue;
 
-            case BuffTargetType.AllEnemies:
-                foreach (var ally in allies)
-                {
-                    if (buffEffect != null)
-                        ally.AddAbility(buffEffect.Clone());
-                    //TODO : 버프 이펙트 (ally 위치)
-                }
-                break;
+                        if (buffEffect != null)
+                            ally.AddAbility(buffEffect.Clone());
+                        //TODO : 버프 이펙트 (ally 위치)
+                    }
+                    break;
 
-            case BuffTargetType.AllCharacter:
-                foreach (var character in allies)
-                {
-                    if (character != null)
-                        character.AddAbility(buffEffect.Clone());
-                    //TODO : 버프 이펙트 (ally 위치)
-                }
-                GameManager.Instance.Player.AddAbility(buffEffect.Clone());
-                //TODO : 버프 이펙트 (플레이어 위치)
+                case BuffTargetType.AllEnemies:
+                    foreach (var ally in allies)
+                    {
+                        if (buffEffect != null)
+                            ally.AddAbility(buffEffect.Clone());
+                        //TODO : 버프 이펙트 (ally 위치)
+                    }
+                    break;
 
-                break;
-        }
+                case BuffTargetType.AllCharacter:
+                    foreach (var character in allies)
+                    {
+                        if (character != null)
+                            character.AddAbility(buffEffect.Clone());
+                        //TODO : 버프 이펙트 (ally 위치)
+                    }
+                    GameManager.Instance.Player.AddAbility(buffEffect.Clone());
+                    //TODO : 버프 이펙트 (플레이어 위치)
+
+                    break;
+            }
+        });
 
         return true;
     }
@@ -91,49 +97,55 @@ public class HealPattern : EnemyPattern
     [Tooltip("회복량 (고정 수치 or 퍼센트)")]
     public float healAmount = 10f;
 
+    [Tooltip("힐을 시전하는 모션 유지 시간")]
+    public float castDuration = 1.0f;
+
     public override bool OnUpdate(EnemyUnit unit, float delta)
     {
         if (unit.IsAttacking) return false;
-        var friends = GameManager.Battle.GetAliveEnemies();
 
-        switch (targetType)
+        unit.PlayActionAnimation(actionSprite, castDuration, () =>
         {
-            case BuffTargetType.Self:
-                ApplyHeal(unit);
-                break;
+            var friends = GameManager.Battle.GetAliveEnemies();
+            switch (targetType)
+            {
+                case BuffTargetType.Self:
+                    ApplyHeal(unit);
+                    break;
 
-            case BuffTargetType.Other:
-                var others = friends.FindAll(f => f != unit);
-                if (others.Count > 0)
-                {
-                    var target = others[Random.Range(0, others.Count)];
-                    ApplyHeal(target);
-                }
-                break;
+                case BuffTargetType.Other:
+                    var others = friends.FindAll(f => f != unit);
+                    if (others.Count > 0)
+                    {
+                        var target = others[Random.Range(0, others.Count)];
+                        ApplyHeal(target);
+                    }
+                    break;
 
-            case BuffTargetType.OtherEnemies:
-                foreach (var friend in friends)
-                {
-                    if (friend == unit) continue;
-                    ApplyHeal(friend);
-                }
-                break;
+                case BuffTargetType.OtherEnemies:
+                    foreach (var friend in friends)
+                    {
+                        if (friend == unit) continue;
+                        ApplyHeal(friend);
+                    }
+                    break;
 
-            case BuffTargetType.AllEnemies:
-                foreach (var friend in friends)
-                {
-                    ApplyHeal(friend);
-                }
-                break;
+                case BuffTargetType.AllEnemies:
+                    foreach (var friend in friends)
+                    {
+                        ApplyHeal(friend);
+                    }
+                    break;
 
-            case BuffTargetType.AllCharacter:
-                foreach (var friend in friends)
-                {
-                    ApplyHeal(friend);
-                }
-                ApplyHeal(GameManager.Instance.Player);
-                break;
-        }
+                case BuffTargetType.AllCharacter:
+                    foreach (var friend in friends)
+                    {
+                        ApplyHeal(friend);
+                    }
+                    ApplyHeal(GameManager.Instance.Player);
+                    break;
+            }
+        });
 
         return true;
     }

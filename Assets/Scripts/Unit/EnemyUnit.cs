@@ -67,7 +67,7 @@ public class EnemyUnit : CombatUnit
     public override void Attack(CombatUnit target, float damage, bool onHit, bool onCritical,
         List<StatusEffect> debuffs = null, bool useMoveAnim = true, DamageType damageType = DamageType.Normal, Action<float> onDamageDealt = null)
     {
-        if (nextPattern != null)
+        if (nextPattern != null) // 다음 패턴으로 변경
         {
             currentRunningPattern = nextPattern;
             lastExecutedPattern = nextPattern;
@@ -76,11 +76,15 @@ public class EnemyUnit : CombatUnit
             nextPattern = null;
             currentRunningPattern.OnEnter(this);
         }
-        else if (currentRunningPattern != null)
+        else if (currentRunningPattern != null) // 현재 패턴 실행
         {
+            // 커스텀 스프라이트 변경
+            if (currentRunningPattern.actionSprite != null)
+                SetActionSprite(currentRunningPattern.actionSprite);
+
             base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType, onDamageDealt);
         }
-        else
+        else // 둘다 null(기본 공격이면 기본 공격하고 패턴 확인)
         {
             base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType, onDamageDealt);
             DecideNextAction();

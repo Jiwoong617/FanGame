@@ -16,6 +16,10 @@ public abstract class EnemyPattern
     [SerializeReference, SerializeReferenceDropdown]
     public List<PatternCondition> conditions = new List<PatternCondition>();
 
+    [Header("Animation Settings")]
+    [Tooltip("패턴 실행 시 덮어씌울 커스텀 스프라이트 (비워두면 기본 공격 스프라이트 사용)")]
+    public Sprite actionSprite = null;
+
     public void ResetPattern()
     {
         lastExecutionTime = -9999f;

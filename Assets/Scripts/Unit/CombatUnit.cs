@@ -28,14 +28,14 @@ public abstract class CombatUnit : MonoBehaviour
     protected float attackTimer = 0f;
     protected bool isAttacking = false;
     public bool IsAttacking => isAttacking;
+    public bool IsDead => stats.hp <= 0;
 
     // 런타임 능력 리스트
     protected List<Ability> abilities = new List<Ability>();
 
-    public bool IsDead => stats.hp <= 0;
-
 
     protected HitFlash hitEffect;
+    protected Sprite overrideActionSprite = null;
 
 
     protected virtual void Awake()
@@ -151,10 +151,12 @@ public abstract class CombatUnit : MonoBehaviour
 
         isAttacking = true;
 
-        if (spriteRenderer != null && unitData.unitBasicAttackSprite != null)
-        {
-            spriteRenderer.sprite = unitData.unitBasicAttackSprite;
-        }
+
+        Sprite spriteToUse = overrideActionSprite != null ? overrideActionSprite : (unitData != null ? unitData.unitBasicAttackSprite : null);
+        if (spriteRenderer != null && spriteToUse != null)
+            spriteRenderer.sprite = spriteToUse;
+
+        overrideActionSprite = null;
 
         if (useMoveAnim) // 움직이는 공격
             PerformPhysicalAttack(target, damage, onHit, onCritical, debuffs, damageType, onDamageDealt);
@@ -346,5 +348,37 @@ public abstract class CombatUnit : MonoBehaviour
                 return status;
         }
         return null;
+    }
+
+    public void SetActionSprite(Sprite customSprite)
+    {
+        overrideActionSprite = customSprite;
+    }
+
+    public virtual void PlayActionAnimation(Sprite customSprite, float duration, Action onActionExecute)
+    {
+        if (IsDead) return;
+
+        isAttacking = true;
+
+        if (spriteRenderer != null && customSprite != null)
+            spriteRenderer.sprite = customSprite;
+
+        Sequence actionSeq = DOTween.Sequence();
+
+        // 절반 대기 후, 실제 효과 발동
+        actionSeq.AppendInterval(duration * 0.5f);
+        actionSeq.AppendCallback(() =>
+        {
+            if (!IsDead)
+                onActionExecute?.Invoke();
+        });
+        actionSeq.AppendInterval(duration * 0.5f);
+        actionSeq.OnComplete(() =>
+        {
+            isAttacking = false;
+            if (!IsDead)
+                ChangeToIdleSprite();
+        });
     }
 }

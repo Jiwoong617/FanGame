@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CombatResourceData
   unitName: "\uB124\uBAA8"
   prefab: {fileID: 3633463439506408949, guid: 85a5803978c93c545916d985b5ad9df5, type: 3}
-  unitSprite: {fileID: 21300000, guid: 5acf57bee6ae0474d8b11bf14b7e6bc9, type: 3}
+  unitSprite: {fileID: 21300000, guid: 3e703dc297896b846a2e75973286bfc5, type: 3}
   unitBasicAttackSprite: {fileID: 21300000, guid: 2eeeb8787d8b627459c2d766b4bc1e43, type: 3}
   unitDeadSprite: {fileID: 21300000, guid: 5454eb159a0e6cc4fb0d9d4cbba728e8, type: 3}
   attackVFXType: 4
@@ -50,7 +50,7 @@ MonoBehaviour:
   parryDuration: 0.2
   dodgeCoolTime: 0.7
   parrayCoolTime: 0.5
-  skillIcon: {fileID: 0}
+  skillIcon: {fileID: 7562379932295306040, guid: 51cb6e1a46d800446ba6cca91f2c1291, type: 3}
   skillName: 
   skillDesc: 
   references:
