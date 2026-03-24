@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 037d4ee150dabb941a5b3deefd7eb812
+guid: 17c5360fdb06fe141a3e756ca6e1a39a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 857312311372029537
-    second: rose_0
+      213: -6907235173602402985
+    second: HealAttackIcon_0
+  - first:
+      213: 8233585004182014440
+    second: HealAttackIcon_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +54,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +75,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: rose_0
+      name: HealAttackIcon_0
       rect:
         serializedVersion: 2
-        x: 6
-        y: 0
-        width: 1394
-        height: 1390
+        x: 199
+        y: 146
+        width: 661
+        height: 719
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 16e16e44109c5eb00800000000000000
-      internalID: 857312311372029537
+      spriteID: 75d5859a4329420a0800000000000000
+      internalID: -6907235173602402985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HealAttackIcon_1
+      rect:
+        serializedVersion: 2
+        x: 609
+        y: 613
+        width: 254
+        height: 254
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e9804a10f1934270800000000000000
+      internalID: 8233585004182014440
       vertices: []
       indices: 
       edges: []
@@ -135,7 +160,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      rose_0: 857312311372029537
+      HealAttackIcon_0: -6907235173602402985
+      HealAttackIcon_1: 8233585004182014440
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

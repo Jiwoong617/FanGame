@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5acf57bee6ae0474d8b11bf14b7e6bc9
+guid: 3e703dc297896b846a2e75973286bfc5
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -8,9 +8,6 @@ TextureImporter:
   - first:
       213: -1933958539667631305
     second: mone_1
-  - first:
-      213: 5943091342570826787
-    second: mone_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,10 +106,10 @@ TextureImporter:
       name: mone_0
       rect:
         serializedVersion: 2
-        x: 234
-        y: 351
-        width: 776
-        height: 753
+        x: 2
+        y: 25
+        width: 1267
+        height: 1233
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -131,10 +128,10 @@ TextureImporter:
       name: mone_1
       rect:
         serializedVersion: 2
-        x: 1002
-        y: 549
-        width: 84
-        height: 79
+        x: 1261
+        y: 351
+        width: 134
+        height: 125
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,28 +142,6 @@ TextureImporter:
       bones: []
       spriteID: 73317c864f23925e0800000000000000
       internalID: -1933958539667631305
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: mone_2
-      rect:
-        serializedVersion: 2
-        x: 1116
-        y: 579
-        width: 46
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 32c22a5961a1a7250800000000000000
-      internalID: 5943091342570826787
       vertices: []
       indices: 
       edges: []
@@ -187,7 +162,6 @@ TextureImporter:
     nameFileIdTable:
       mone_0: 7955080341527372920
       mone_1: -1933958539667631305
-      mone_2: 5943091342570826787
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
