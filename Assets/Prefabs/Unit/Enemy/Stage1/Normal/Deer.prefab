@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6254284788820507192}
   - component: {fileID: -6547912909177896719}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Deer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,11 +186,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
-  patterns: []
+  patterns:
+  - rid: 7988895932436447316
+  - rid: 7988895932436447317
   isUsePatternFirst: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7988895932436447316
+      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: "\uB4E4\uC774\uBC15\uAE30"
+        cooldown: 8
+        requiredChargeTime: 3
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        damagePercent: 4
+        damageType: 0
+        useMoveAnim: 1
+    - rid: 7988895932436447317
+      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: "\uB4B7\uBC1C\uCC28\uAE30"
+        cooldown: 4
+        requiredChargeTime: 2
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        damagePercent: 2
+        damageType: 0
+        useMoveAnim: 1
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

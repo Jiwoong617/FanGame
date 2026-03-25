@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6254284788820507192}
   - component: {fileID: -6547912909177896719}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Goblin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,11 +186,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
-  patterns: []
+  patterns:
+  - rid: 7988895932436447304
+  - rid: 7988895932436447306
   isUsePatternFirst: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7988895932436447304
+      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: "\uB3CC \uB358\uC9C0\uAE30"
+        cooldown: 3
+        requiredChargeTime: 1.2
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        damagePercent: 1
+        damageType: 1
+        useMoveAnim: 1
+    - rid: 7988895932436447306
+      type: {class: BuffPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: "\uC751\uC6D0"
+        cooldown: 5
+        requiredChargeTime: 3
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        targetType: 2
+        buffEffect:
+          rid: 7988895932436447307
+        castDuration: 1
+    - rid: 7988895932436447307
+      type: {class: InspireEffect, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        effectType: 6
+        duration: 3
+        stacks: 1
+        effectValue: 0.1
+        isPermanent: 0
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

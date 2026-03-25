@@ -81,12 +81,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.49999988, b: 0.49999988, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 7dce25e832fa59a4d96b12a97d737eae, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 22.72, y: 18.881563}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6254284788820507192}
   - component: {fileID: -6547912909177896719}
   m_Layer: 0
-  m_Name: Jelly
+  m_Name: Mole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,43 +187,56 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
   patterns:
-  - rid: 8336284094953422930
-  - rid: 8336284094953422931
+  - rid: 270507929149374545
+  - rid: 7988895932436447308
+  isUsePatternFirst: 0
   references:
     version: 2
     RefIds:
-    - rid: 8336284094953422930
-      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
+    - rid: 270507929149374545
+      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
       data:
-        patternName: Pattern
-        cooldown: 5
-        requiredChargeTime: 1
-        patternIconSprite: {fileID: 21300000, guid: 063532438884ba449bfae7381110e752, type: 3}
+        patternName: Scratch
+        cooldown: 4
+        requiredChargeTime: 2
+        patternIconSprite: {fileID: 7465851344183582018, guid: 86493d7e8e9a4f34499b715ff1f5b601, type: 3}
         triggerChance: 30
         lastExecutionTime: -9999
-        damagePercent: 1
+        conditions: []
+        actionSprite: {fileID: 0}
+        onHit: 1
+        onCritical: 1
         damageType: 0
-        useMoveAnim: 1
-    - rid: 8336284094953422931
-      type: {class: DebuffPattern, ns: , asm: Assembly-CSharp}
+        comboSteps:
+        - damagePercent: 1
+          delayBeforeAttack: 0
+        - damagePercent: 1
+          delayBeforeAttack: 0.5
+        - damagePercent: 1
+          delayBeforeAttack: 0.5
+    - rid: 7988895932436447308
+      type: {class: BuffPattern, ns: , asm: Assembly-CSharp}
       data:
-        patternName: Pattern
-        cooldown: 5
-        requiredChargeTime: 1
+        patternName: "\uB545\uAD74\uD30C\uAE30"
+        cooldown: 6
+        requiredChargeTime: 2
         patternIconSprite: {fileID: 0}
         triggerChance: 30
         lastExecutionTime: -9999
-        debuffs:
-        - rid: 8336284094953422932
-        useMoveAnim: 0
-    - rid: 8336284094953422932
-      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
+        conditions: []
+        actionSprite: {fileID: 0}
+        targetType: 0
+        buffEffect:
+          rid: 7988895932436447309
+        castDuration: 1
+    - rid: 7988895932436447309
+      type: {class: IronFortressEffect, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 2
-        effectType: 5
-        duration: 5
+        combatEvent: 3
+        effectType: 1
+        duration: -1
         stacks: 1
-        effectValue: 0.8
+        effectValue: 0
         isPermanent: 0
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
@@ -256,10 +269,6 @@ PrefabInstance:
     - target: {fileID: 3837743707018266951, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
       propertyPath: m_Name
       value: EnemyUI
-      objectReference: {fileID: 0}
-    - target: {fileID: 5268117758376135377, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5268117758376135377, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
       propertyPath: m_AnchorMax.y
@@ -343,10 +352,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7124137338143056060, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7176886128381870345, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
-      propertyPath: m_AnchorMax.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7176886128381870345, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}

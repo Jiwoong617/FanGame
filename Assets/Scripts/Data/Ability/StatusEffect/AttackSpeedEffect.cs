@@ -8,7 +8,7 @@ public class SlowEffect : StatusEffect
     public SlowEffect()
     {
         effectType = EffectType.Slow;
-        effectValue = 0.8f; // 기본 20% 감소
+        effectValue = 0.2f; // 기본 20% 감소
     }
 
     public SlowEffect(float duration, int stack, bool isPermanent, float effectValue) : this()
@@ -37,7 +37,8 @@ public class SlowEffect : StatusEffect
 
     private void ApplyModifier()
     {
-        float finalMult = Mathf.Pow(effectValue, stacks);
+        float finalMult = 1f - (effectValue * stacks);
+        finalMult = Mathf.Max(0.1f, finalMult);
         currentMod = new StatModifier(finalMult, StatModType.PercentMult);
         owner.GetStat<UnitStats>().attackSpeed.AddModifier(currentMod);
     }
@@ -52,7 +53,7 @@ public class InspireEffect : StatusEffect
     public InspireEffect()
     {
         effectType = EffectType.Inspire;
-        effectValue = 1.2f; // 기본 20% 증가
+        effectValue = 0.2f; // 기본 20% 증가
     }
 
     public InspireEffect(float duration, int stack, bool isPermanent, float effectValue) : this()
@@ -77,7 +78,7 @@ public class InspireEffect : StatusEffect
     }
     private void ApplyModifier()
     {
-        float finalMult = Mathf.Pow(effectValue, stacks);
+        float finalMult = 1f + (effectValue * stacks);
         currentMod = new StatModifier(finalMult, StatModType.PercentMult);
         owner.GetStat<UnitStats>().attackSpeed.AddModifier(currentMod);
     }

@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
-  m_Name: MoleData
+  m_Name: RabbitData
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  unitName: Mole
-  prefab: {fileID: 6107110035909089572, guid: 45a97f35f1e226641a9095d00e84d4f9, type: 3}
-  unitSprite: {fileID: 21300000, guid: 7dce25e832fa59a4d96b12a97d737eae, type: 3}
-  unitBasicAttackSprite: {fileID: 21300000, guid: 223b93625b023b843b97c0b55f07a2e2, type: 3}
-  attackVFXType: 2
-  hp: 10
+  unitName: Rabbit
+  prefab: {fileID: 6107110035909089572, guid: a79db4d497fd99348aba692a1a9dcccf, type: 3}
+  unitSprite: {fileID: 0}
+  unitBasicAttackSprite: {fileID: 0}
+  unitDeadSprite: {fileID: 0}
+  attackVFXType: 1
+  hp: 20
   defense: 0
-  attackDamage: 2
+  attackDamage: 1
   attackSpeed: 1
   criticalChance: 0
   criticalDamage: 0
-  unitDescription: Mole
+  unitDescription: adf
   startingAbilities: []
   references:
     version: 2
