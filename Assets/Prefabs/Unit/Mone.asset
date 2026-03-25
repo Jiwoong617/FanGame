@@ -40,7 +40,7 @@ MonoBehaviour:
   attackVFXSprite: {fileID: 21300000, guid: cdabf84bda72cda4da89b56bd369080a, type: 3}
   unitSkillSprite: {fileID: 21300000, guid: 0b59775a919734a468ff6ebff4864e3e, type: 3}
   unitParrySprite: {fileID: 21300000, guid: a8bc5a516232f67448d067ea17a59ec6, type: 3}
-  stamina: 100
+  stamina: 50
   staminaRegen: 1
   fp: 2
   skillCoolTime: 0

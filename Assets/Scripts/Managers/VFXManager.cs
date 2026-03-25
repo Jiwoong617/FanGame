@@ -81,6 +81,13 @@ public class VFXManager
         activeTexts.Remove(dt);
         textPool.Enqueue(dt);
     }
+
+    public void ClearPools()
+    {
+        effectPool.Clear();
+        textPool.Clear();
+        activeTexts.Clear();
+    }
     #endregion
 
     private void LoadCommonSprite(AttackVFXType type, string path)
@@ -104,16 +111,17 @@ public class VFXManager
         if (effectPool.Count > 0)
         {
             SimpleEffect eff = effectPool.Dequeue();
-            eff.gameObject.SetActive(true);
-            return eff;
+            if (eff != null && eff.gameObject != null)
+            {
+                eff.gameObject.SetActive(true);
+                return eff;
+            }
         }
-        else
-        {
-            // 풀이 비었으면 새로 생성
-            GameObject go = UnityEngine.Object.Instantiate(effectPrefab);
-            go.SetActive(true);
-            return go.GetComponent<SimpleEffect>();
-        }
+
+        // 풀이 비었으면 새로 생성
+        GameObject go = UnityEngine.Object.Instantiate(effectPrefab);
+        go.SetActive(true);
+        return go.GetComponent<SimpleEffect>();
     }
 
     public void ReturnEffect(SimpleEffect effect)
