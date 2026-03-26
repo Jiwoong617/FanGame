@@ -12,7 +12,8 @@ public enum CombatEvent
     OnCritical, //크리티컬 명중 시
     OnRest,
     OnUseSkill,
-    OnDodgeSuccess
+    OnDodgeSuccess,
+    OnAllyDead, // 아군 사망 시
 }
 
 public enum DamageType

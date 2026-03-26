@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class EnemyUnit : CombatUnit
 {
+    public event Action<PassiveAbility> OnPassiveAdded;
+
     [Header("Pattern Settings")]
     [SerializeReference, SerializeReferenceDropdown]
     public List<EnemyPattern> patterns = new List<EnemyPattern>();
@@ -40,6 +42,16 @@ public class EnemyUnit : CombatUnit
 
         if(isUsePatternFirst)
             DecideNextAction();
+    }
+
+    public override void AddAbility(Ability newAbility)
+    {
+        base.AddAbility(newAbility);
+
+        if (newAbility is PassiveAbility addedPassive)
+        {
+            OnPassiveAdded?.Invoke(addedPassive);
+        }
     }
 
     public override void OnUpdate(float delta)
@@ -177,6 +189,17 @@ public class EnemyUnit : CombatUnit
 
         if (unitData.unitDeadSprite != null)
             spriteRenderer.sprite = unitData.unitDeadSprite;
+
+        //아군 사망 이벤트
+        var allies = GameManager.Battle.GetAliveEnemies();
+        foreach (var ally in allies)
+        {
+            if (ally != this && !ally.IsDead)
+            {
+                CombatEventContext ctx = new CombatEventContext(this, ally, 0f);
+                ally.TriggerAbility(CombatEvent.OnAllyDead, ctx);
+            }
+        }
 
         spriteRenderer.DOFade(0f, 1.0f).OnComplete(() =>
         {
