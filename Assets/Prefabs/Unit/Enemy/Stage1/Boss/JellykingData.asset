@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
+  m_Name: JellykingData
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  unitName: Jellyking
+  prefab: {fileID: 6107110035909089572, guid: bcfe5f2cbf38da04aa7341807babf6c2, type: 3}
+  unitSprite: {fileID: 0}
+  unitBasicAttackSprite: {fileID: 0}
+  unitDeadSprite: {fileID: 0}
+  attackVFXType: 1
+  hp: 50
+  defense: 0
+  attackDamage: 2
+  attackSpeed: 0.5
+  criticalChance: 0
+  criticalDamage: 0
+  unitDescription: 
+  startingAbilities:
+  - rid: 7988895978013851719
+  - rid: 7988895978013851721
+  references:
+    version: 2
+    RefIds:
+    - rid: 7988895978013851719
+      type: {class: DeathSpawnPassive, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 11
+        passiveIcon: {fileID: 0}
+        summonList:
+        - {fileID: 11400000, guid: 55cf5f821074d7b4a99395c8dc486e7c, type: 2}
+        spawnCount: 2
+        isRandom: 0
+    - rid: 7988895978013851721
+      type: {class: TriggerEventPassive, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        passiveIcon: {fileID: 0}
+        useHeal: 0
+        isPercentHeal: 0
+        healAmount: 0
+        grantEffects:
+        - rid: 7988895978013851722
+    - rid: 7988895978013851722
+      type: {class: ReflectEffect, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 4
+        effectType: 3
+        duration: -1
+        stacks: 2
+        effectValue: 0.05
+        isPermanent: 0

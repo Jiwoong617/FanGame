@@ -10,22 +10,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
-  m_Name: AdamData
+  m_Name: BearData
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  unitName: Adam
-  prefab: {fileID: 6107110035909089572, guid: 0367ea233b476e741b1d6175a8765980, type: 3}
+  unitName: Bear
+  prefab: {fileID: 6107110035909089572, guid: aeed93bb3e4a4da4d8418a3a03889917, type: 3}
   unitSprite: {fileID: 0}
   unitBasicAttackSprite: {fileID: 0}
   unitDeadSprite: {fileID: 0}
-  attackVFXType: 1
-  hp: 15
+  attackVFXType: 0
+  hp: 70
   defense: 0
-  attackDamage: 6
+  attackDamage: 3
   attackSpeed: 1
   criticalChance: 0
   criticalDamage: 0
   unitDescription: 
-  startingAbilities: []
+  startingAbilities:
+  - rid: 7988895978013851724
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7988895978013851724
+      type: {class: MaxDamageCapPassive, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 3
+        passiveIcon: {fileID: 0}
+        maxDamageCap: 5

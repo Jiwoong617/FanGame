@@ -14,6 +14,7 @@ public enum CombatEvent
     OnUseSkill,
     OnDodgeSuccess,
     OnAllyDead, // 아군 사망 시
+    OnBeforeDead,
 }
 
 public enum DamageType

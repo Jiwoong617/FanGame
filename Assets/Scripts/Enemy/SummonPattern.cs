@@ -13,6 +13,9 @@ public class SummonPattern : EnemyPattern
     [Tooltip("True: 풀에서 각각 다른 종류의 몬스터를 뽑아 소환\nFalse: 풀에서 랜덤으로 1종류만 골라 spawnCount만큼 소환")]
     public bool isRandom = false;
 
+    [Tooltip("소환 시전하는 모션 유지 시간")]
+    public float castDuration = 1.0f;
+
     public override bool CanExecute(EnemyUnit unit)
     {
         if(base.CanExecute(unit))
@@ -27,27 +30,31 @@ public class SummonPattern : EnemyPattern
     {
         if (unit.IsAttacking) return false;
 
-        if (summonList != null && summonList.Count > 0)
+        unit.PlayActionAnimation(actionSprite, castDuration, () =>
         {
-            if (!isRandom)
+            if (summonList != null && summonList.Count > 0)
             {
-                int pickIndex = Random.Range(0, summonList.Count);
-                UnitData selectedData = summonList[pickIndex];
-
-                for (int i = 0; i < spawnCount; i++)
-                    GameManager.Battle.SpawnEnemyMidBattle(selectedData, unit);
-            }
-            else
-            {
-                for (int i = 0; i < spawnCount; i++)
+                if (!isRandom)
                 {
                     int pickIndex = Random.Range(0, summonList.Count);
                     UnitData selectedData = summonList[pickIndex];
 
-                    GameManager.Battle.SpawnEnemyMidBattle(selectedData, unit);
+                    for (int i = 0; i < spawnCount; i++)
+                        GameManager.Battle.SpawnEnemyMidBattle(selectedData, unit);
+                }
+                else
+                {
+                    for (int i = 0; i < spawnCount; i++)
+                    {
+                        int pickIndex = Random.Range(0, summonList.Count);
+                        UnitData selectedData = summonList[pickIndex];
+
+                        GameManager.Battle.SpawnEnemyMidBattle(selectedData, unit);
+                    }
                 }
             }
-        }
+        });
+
 
         return true;
     }

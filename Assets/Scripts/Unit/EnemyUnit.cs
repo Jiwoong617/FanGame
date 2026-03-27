@@ -235,6 +235,9 @@ public class EnemyUnit : CombatUnit
         if (stats.hp <= 0)
         {
             stats.hp = 0;
+
+            TriggerAbility(CombatEvent.OnBeforeDead, ctx);
+
             OnDead();
             return finalDamage;
         }

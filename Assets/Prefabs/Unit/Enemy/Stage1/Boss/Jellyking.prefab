@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6254284788820507192}
   - component: {fileID: -6547912909177896719}
   m_Layer: 0
-  m_Name: Adam
+  m_Name: Jellyking
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,73 +187,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
   patterns:
-  - rid: 7988895978013851733
-  - rid: 7988895978013851734
-  - rid: 7988895978013851736
+  - rid: 7988895978013851720
   isUsePatternFirst: 0
   references:
     version: 2
     RefIds:
-    - rid: 7988895978013851733
-      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
+    - rid: 7988895978013851720
+      type: {class: HealPattern, ns: , asm: Assembly-CSharp}
       data:
-        patternName: "\uB9C8\uAD6C \uD560\uD034\uAE30"
-        cooldown: 5
-        requiredChargeTime: 2.5
+        patternName: "\uB9DB\uC788\uB294 \uC824\uB9AC"
+        cooldown: 10
+        requiredChargeTime: 1.5
         patternIconSprite: {fileID: 0}
         triggerChance: 30
         lastExecutionTime: -9999
         conditions: []
         actionSprite: {fileID: 0}
-        onHit: 1
-        onCritical: 1
-        damageType: 0
-        comboSteps:
-        - damagePercent: 0.5
-          delayBeforeAttack: 0
-        - damagePercent: 0.5
-          delayBeforeAttack: 0.75
-    - rid: 7988895978013851734
-      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
-      data:
-        patternName: "\uBAB8\uD1B5\uBC15\uCE58\uAE30"
-        cooldown: 7
-        requiredChargeTime: 1.25
-        patternIconSprite: {fileID: 0}
-        triggerChance: 30
-        lastExecutionTime: -9999
-        conditions: []
-        actionSprite: {fileID: 0}
-        damagePercent: 1
-        damageType: 1
-        useMoveAnim: 1
-    - rid: 7988895978013851736
-      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
-      data:
-        patternName: "\uB2F4\uBE44\uAEBC\uC57C"
-        cooldown: 8
-        requiredChargeTime: 2
-        patternIconSprite: {fileID: 0}
-        triggerChance: 30
-        lastExecutionTime: -9999
-        conditions: []
-        actionSprite: {fileID: 0}
-        onHit: 1
-        onCritical: 1
-        damageType: 0
-        comboSteps:
-        - damagePercent: 0.3
-          delayBeforeAttack: 0
-        - damagePercent: 0.3
-          delayBeforeAttack: 0.5
-        - damagePercent: 0.3
-          delayBeforeAttack: 0.5
-        - damagePercent: 0.3
-          delayBeforeAttack: 0.5
-        - damagePercent: 0.3
-          delayBeforeAttack: 0.5
-        - damagePercent: 0.5
-          delayBeforeAttack: 0.5
+        targetType: 4
+        isPercent: 0
+        healAmount: 10
+        castDuration: 1
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

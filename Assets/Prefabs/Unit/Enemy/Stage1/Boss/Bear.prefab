@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6254284788820507192}
   - component: {fileID: -6547912909177896719}
   m_Layer: 0
-  m_Name: Adam
+  m_Name: Bear
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,73 +187,89 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
   patterns:
-  - rid: 7988895978013851733
-  - rid: 7988895978013851734
-  - rid: 7988895978013851736
-  isUsePatternFirst: 0
+  - rid: 7988895978013851725
+  - rid: 7988895978013851728
+  - rid: 7988895978013851729
+  isUsePatternFirst: 1
   references:
     version: 2
     RefIds:
-    - rid: 7988895978013851733
-      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
+    - rid: 7988895978013851725
+      type: {class: AttackDebuffPattern, ns: , asm: Assembly-CSharp}
       data:
-        patternName: "\uB9C8\uAD6C \uD560\uD034\uAE30"
-        cooldown: 5
-        requiredChargeTime: 2.5
+        patternName: "\uD3EC\uD6A8"
+        cooldown: 10
+        requiredChargeTime: 1
         patternIconSprite: {fileID: 0}
-        triggerChance: 30
-        lastExecutionTime: -9999
-        conditions: []
-        actionSprite: {fileID: 0}
-        onHit: 1
-        onCritical: 1
-        damageType: 0
-        comboSteps:
-        - damagePercent: 0.5
-          delayBeforeAttack: 0
-        - damagePercent: 0.5
-          delayBeforeAttack: 0.75
-    - rid: 7988895978013851734
-      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
-      data:
-        patternName: "\uBAB8\uD1B5\uBC15\uCE58\uAE30"
-        cooldown: 7
-        requiredChargeTime: 1.25
-        patternIconSprite: {fileID: 0}
-        triggerChance: 30
+        triggerChance: 100
         lastExecutionTime: -9999
         conditions: []
         actionSprite: {fileID: 0}
         damagePercent: 1
-        damageType: 1
+        damageType: 0
+        debuffs:
+        - rid: 7988895978013851727
         useMoveAnim: 1
-    - rid: 7988895978013851736
-      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
+    - rid: 7988895978013851727
+      type: {class: AttackDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        patternName: "\uB2F4\uBE44\uAEBC\uC57C"
-        cooldown: 8
-        requiredChargeTime: 2
+        combatEvent: 0
+        effectType: 9
+        duration: 10
+        stacks: 1
+        effectValue: -1
+        isPermanent: 0
+        modType: 0
+    - rid: 7988895978013851728
+      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: "\uB0B4\uB824\uCC0D\uAE30"
+        cooldown: 6
+        requiredChargeTime: 3
         patternIconSprite: {fileID: 0}
-        triggerChance: 30
+        triggerChance: 1
         lastExecutionTime: -9999
         conditions: []
         actionSprite: {fileID: 0}
-        onHit: 1
-        onCritical: 1
+        damagePercent: 3
         damageType: 0
-        comboSteps:
-        - damagePercent: 0.3
-          delayBeforeAttack: 0
-        - damagePercent: 0.3
-          delayBeforeAttack: 0.5
-        - damagePercent: 0.3
-          delayBeforeAttack: 0.5
-        - damagePercent: 0.3
-          delayBeforeAttack: 0.5
-        - damagePercent: 0.3
-          delayBeforeAttack: 0.5
-        - damagePercent: 0.5
-          delayBeforeAttack: 0.5
+        useMoveAnim: 1
+    - rid: 7988895978013851729
+      type: {class: BuffPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: "\uAD11\uD3ED\uD654"
+        cooldown: 5
+        requiredChargeTime: 1
+        patternIconSprite: {fileID: 0}
+        triggerChance: 100
+        lastExecutionTime: -9999
+        conditions:
+        - rid: 7988895978013851730
+        - rid: 7988895978013851731
+        actionSprite: {fileID: 0}
+        targetType: 0
+        buffEffect:
+          rid: 7988895978013851732
+        castDuration: 1
+    - rid: 7988895978013851730
+      type: {class: HpCondition, ns: , asm: Assembly-CSharp}
+      data:
+        thresholdRatio: 0.5
+        belowThreshold: 1
+    - rid: 7988895978013851731
+      type: {class: ExecutionCountCondition, ns: , asm: Assembly-CSharp}
+      data:
+        maxExecutions: 1
+    - rid: 7988895978013851732
+      type: {class: AttackDamageEffect, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        effectType: 8
+        duration: -1
+        stacks: 1
+        effectValue: 1
+        isPermanent: 0
+        modType: 2
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0
