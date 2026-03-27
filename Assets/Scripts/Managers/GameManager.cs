@@ -274,6 +274,7 @@ public class GameManager : MonoBehaviour
         Inventory.ClearInventory();
         Battle.CleanupBattle();
         Map.ClearMapData();
+        VFX.ClearPools();
         CurrentStageIndex = 0;
 
         if (Player != null)

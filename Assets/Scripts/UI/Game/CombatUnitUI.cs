@@ -29,7 +29,7 @@ public class CombatUnitUI : UI_Base
     private Transform buffGrid;
 
     private CombatUnit ownerUnit;
-    private Dictionary<StatusEffect, BuffSlotUI> activeBuffs = new Dictionary<StatusEffect, BuffSlotUI>();
+    private Dictionary<Ability, BuffSlotUI> activeBuffs = new Dictionary<Ability, BuffSlotUI>();
     private Queue<BuffSlotUI> buffSlotPool = new Queue<BuffSlotUI>();
 
     protected override void Init()
@@ -89,6 +89,8 @@ public class CombatUnitUI : UI_Base
             ownerUnit.OnBuffAdded -= AddBuffSlot;
             ownerUnit.OnBuffRemoved -= RemoveBuffSlot;
             ownerUnit.OnBuffUpdated -= UpdateBuffSlot;
+            if (ownerUnit is EnemyUnit oldEnemy)
+                oldEnemy.OnPassiveAdded -= AddPassiveSlot;
         }
 
         ownerUnit = unit;
@@ -104,6 +106,8 @@ public class CombatUnitUI : UI_Base
         unit.OnBuffAdded += AddBuffSlot;
         unit.OnBuffRemoved += RemoveBuffSlot;
         unit.OnBuffUpdated += UpdateBuffSlot;
+        if (unit is EnemyUnit newEnemy)
+            newEnemy.OnPassiveAdded += AddPassiveSlot;
 
         ClearBuffs();
     }
@@ -133,6 +137,16 @@ public class CombatUnitUI : UI_Base
         activeBuffs.Add(effect, slotUI);
     }
 
+    private void AddPassiveSlot(PassiveAbility passive)
+    {
+        if (buffSlotPrefab == null || buffGrid == null || passive.passiveIcon == null) return;
+
+        BuffSlotUI slotUI = GetOrCreateBuffSlot();
+        slotUI.Init(passive);
+
+        activeBuffs.Add(passive, slotUI);
+    }
+
     private void UpdateBuffSlot(StatusEffect effect)
     {
         if (activeBuffs.TryGetValue(effect, out BuffSlotUI slotUI))
@@ -150,6 +164,7 @@ public class CombatUnitUI : UI_Base
             activeBuffs.Remove(effect);
         }
     }
+
 
     private void ClearBuffs()
     {

@@ -1,17 +1,24 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyUnit : CombatUnit
 {
+    public event Action<PassiveAbility> OnPassiveAdded;
+
     [Header("Pattern Settings")]
     [SerializeReference, SerializeReferenceDropdown]
     public List<EnemyPattern> patterns = new List<EnemyPattern>();
+    [SerializeField]
+    protected bool isUsePatternFirst = false;
     
     private EnemyPattern currentRunningPattern = null;
     private EnemyPattern nextPattern = null;
     private EnemyPattern lastExecutedPattern = null;
+
+    
 
     public override void Init(UnitData unitData)
     {
@@ -19,7 +26,9 @@ public class EnemyUnit : CombatUnit
         stats = new UnitStats(unitData);
 
         foreach (var pattern in patterns)
-            pattern.lastExecutionTime = -9999f;
+        {
+            pattern.ResetPattern();
+        }
 
         if (combatUI == null)
             combatUI = GetComponentInChildren<CombatUnitUI>();
@@ -30,10 +39,19 @@ public class EnemyUnit : CombatUnit
         InitializeAbilities(unitData);
 
         OnDamageTextRequested += GameManager.VFX.ShowDamageText;
-        OnHealTextRequested += (amount) => GameManager.VFX.ShowHealText(transform, amount);
 
-        //이거 주석 풀면 시작 시 기본 공격말고 패턴 선택함
-        //DecideNextAction();
+        if(isUsePatternFirst)
+            DecideNextAction();
+    }
+
+    public override void AddAbility(Ability newAbility)
+    {
+        base.AddAbility(newAbility);
+
+        if (newAbility is PassiveAbility addedPassive)
+        {
+            OnPassiveAdded?.Invoke(addedPassive);
+        }
     }
 
     public override void OnUpdate(float delta)
@@ -59,22 +77,28 @@ public class EnemyUnit : CombatUnit
     }
 
     public override void Attack(CombatUnit target, float damage, bool onHit, bool onCritical,
-        List<StatusEffect> debuffs = null, bool useMoveAnim = true, DamageType damageType = DamageType.Normal)
+        List<StatusEffect> debuffs = null, bool useMoveAnim = true, DamageType damageType = DamageType.Normal, Action<float> onDamageDealt = null)
     {
-        if (nextPattern != null)
+        if (nextPattern != null) // 다음 패턴으로 변경
         {
             currentRunningPattern = nextPattern;
             lastExecutedPattern = nextPattern;
+            currentRunningPattern.UpdateConditionOnExecute(this);
+
             nextPattern = null;
             currentRunningPattern.OnEnter(this);
         }
-        else if (currentRunningPattern != null)
+        else if (currentRunningPattern != null) // 현재 패턴 실행
         {
-            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType);
+            // 커스텀 스프라이트 변경
+            if (currentRunningPattern.actionSprite != null)
+                SetActionSprite(currentRunningPattern.actionSprite);
+
+            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType, onDamageDealt);
         }
-        else
+        else // 둘다 null(기본 공격이면 기본 공격하고 패턴 확인)
         {
-            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType);
+            base.Attack(target, damage, onHit, onCritical, debuffs, useMoveAnim, damageType, onDamageDealt);
             DecideNextAction();
         }
     }
@@ -116,7 +140,7 @@ public class EnemyUnit : CombatUnit
         if (validCandidates.Count == 0)
             return null;
 
-        int randomPoint = Random.Range(0, totalWeight);
+        int randomPoint = UnityEngine.Random.Range(0, totalWeight);
         int currentSum = 0;
         foreach (var pattern in validCandidates)
         {
@@ -165,6 +189,17 @@ public class EnemyUnit : CombatUnit
 
         if (unitData.unitDeadSprite != null)
             spriteRenderer.sprite = unitData.unitDeadSprite;
+
+        //아군 사망 이벤트
+        var allies = GameManager.Battle.GetAliveEnemies();
+        foreach (var ally in allies)
+        {
+            if (ally != this && !ally.IsDead)
+            {
+                CombatEventContext ctx = new CombatEventContext(this, ally, 0f);
+                ally.TriggerAbility(CombatEvent.OnAllyDead, ctx);
+            }
+        }
 
         spriteRenderer.DOFade(0f, 1.0f).OnComplete(() =>
         {

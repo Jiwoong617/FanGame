@@ -43,5 +43,5 @@ MonoBehaviour:
         effectType: 6
         duration: 3
         stacks: 1
-        effectValue: 1.2
+        effectValue: 0.2
         isPermanent: 0

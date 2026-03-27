@@ -47,7 +47,6 @@ public class PlayerUnit : CombatUnit
             InitializeAbilities(unitData);
 
             OnDamageTextRequested += GameManager.VFX.ShowDamageText;
-            OnHealTextRequested += (amount) => GameManager.VFX.ShowHealText(transform, amount);
         }
         else
         {
@@ -310,6 +309,13 @@ public class PlayerUnit : CombatUnit
 
     public override void SetTarget(CombatUnit inTarget)
     {
+        TauntEffect taunt = GetStatusEffect(EffectType.Taunt) as TauntEffect;
+        CombatUnit finalTarget = inTarget;
+        if (taunt != null && taunt.taunter != null && !taunt.taunter.IsDead)
+        {
+            finalTarget = taunt.taunter;
+        }
+
         base.SetTarget(inTarget);
         attackTimer = 0f;
     }

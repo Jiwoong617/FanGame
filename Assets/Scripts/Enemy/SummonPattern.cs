@@ -15,7 +15,12 @@ public class SummonPattern : EnemyPattern
 
     public override bool CanExecute(EnemyUnit unit)
     {
-        return GameManager.Battle.GetAliveEnemies().Count < 3;
+        if(base.CanExecute(unit))
+        {
+            return GameManager.Battle.GetAliveEnemies().Count < 3;
+        }
+
+        return false;
     }
 
     public override bool OnUpdate(EnemyUnit unit, float delta)

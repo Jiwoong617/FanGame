@@ -31,6 +31,7 @@ public class BuffSlotUI : MonoBehaviour
             stackText = GetComponentInChildren<TMP_Text>();
 
         currentEffect = effect;
+        iconImage.sprite = null;
 
         Sprite loadedIcon = GameManager.SpriteData.GetSprite(effect.effectType, "Icons/Buffs");
         if (loadedIcon != null)
@@ -39,6 +40,25 @@ public class BuffSlotUI : MonoBehaviour
         }
 
         UpdateSlot();
+    }
+
+    // 패시브 전용
+    public void Init(PassiveAbility passive)
+    {
+        if (iconImage == null)
+            iconImage = GetComponent<Image>();
+        if (stackText == null)
+            stackText = GetComponentInChildren<TMP_Text>();
+
+        currentEffect = null;
+        iconImage.sprite = null;
+
+        if (passive.passiveIcon != null)
+        {
+            iconImage.sprite = passive.passiveIcon;
+        }
+
+        stackText.gameObject.SetActive(false);
     }
 
     public void UpdateSlot()

@@ -8,6 +8,12 @@ public class ParryAbility : ActiveAbility
         var stats = player.GetStat<PlayerStats>();
         float cost = stats.parryCost.GetValue();
 
+        if (player.HasStatusEffect(EffectType.Shackle))
+        {
+            // TODO: 화면에 "구속됨!" 같은 플로팅 텍스트
+            return false;
+        }
+
         if (stats.stamina >= cost)
         {
             stats.stamina -= cost;

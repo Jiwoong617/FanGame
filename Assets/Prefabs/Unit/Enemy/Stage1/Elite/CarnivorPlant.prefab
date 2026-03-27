@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingOrder: 10
   m_MaskInteraction: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.9427507, g: 1, b: 0.49803925, a: 1}
+  m_Color: {r: 1, g: 0.49999988, b: 0.49999988, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6254284788820507192}
   - component: {fileID: -6547912909177896719}
   m_Layer: 0
-  m_Name: Wolf
+  m_Name: CarnivorPlant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,45 +187,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
   patterns:
-  - rid: 8336284094953422930
-  - rid: 8336284094953422940
+  - rid: 7988895932436447333
+  isUsePatternFirst: 1
   references:
     version: 2
     RefIds:
-    - rid: 8336284094953422930
-      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
+    - rid: 7988895932436447333
+      type: {class: SummonPattern, ns: , asm: Assembly-CSharp}
       data:
-        patternName: Pattern
-        cooldown: 4
-        requiredChargeTime: 0.5
-        patternIconSprite: {fileID: 21300000, guid: 772849c6273165a44a262926cc2460ad, type: 3}
+        patternName: "\uCD09\uC218 \uC18C\uD658"
+        cooldown: 7
+        requiredChargeTime: 2.5
+        patternIconSprite: {fileID: 0}
         triggerChance: 30
         lastExecutionTime: -9999
-        damagePercent: 0.5
-        damageType: 0
-        useMoveAnim: 1
-    - rid: 8336284094953422940
-      type: {class: BuffPattern, ns: , asm: Assembly-CSharp}
-      data:
-        patternName: Pattern
-        cooldown: 8
-        requiredChargeTime: 2
-        patternIconSprite: {fileID: 21300000, guid: e4eada30b8a30f34c8b8be1ed4761204, type: 3}
-        triggerChance: 30
-        lastExecutionTime: -9999
-        targetType: 0
-        buffEffect:
-          rid: 8336284094953422941
-    - rid: 8336284094953422941
-      type: {class: AttackDamageEffect, ns: , asm: Assembly-CSharp}
-      data:
-        combatEvent: 2
-        effectType: 8
-        duration: 0
-        stacks: 1
-        effectValue: 1
-        isPermanent: 1
-        modType: 1
+        conditions: []
+        actionSprite: {fileID: 0}
+        summonList:
+        - {fileID: 11400000, guid: 3b1086ad96b7a074b82c5e56d590cb27, type: 2}
+        spawnCount: 2
+        isRandom: 0
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

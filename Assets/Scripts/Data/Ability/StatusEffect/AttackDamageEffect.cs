@@ -50,7 +50,17 @@ public class AttackDamageEffect : StatusEffect
             if (modType == StatModType.Flat || modType == StatModType.PercentAdd)
                 finalValue = effectValue * stacks;
             else if (modType == StatModType.PercentMult)
-                finalValue = Mathf.Pow(effectValue, stacks);
+            {
+                if(effectType == EffectType.AttackUp)
+                {
+                    finalValue = 1f + (effectValue * stacks);
+                }
+                else if(effectType == EffectType.AttackDown)
+                {
+                    finalValue = 1f - (effectValue *stacks);
+                    finalValue = Mathf.Max(0.01f, finalValue);
+                }
+            }
 
             currentMod = new StatModifier(finalValue, modType);
             stats.attackDamage.AddModifier(currentMod);
