@@ -316,7 +316,7 @@ public class PlayerUnit : CombatUnit
             finalTarget = taunt.taunter;
         }
 
-        base.SetTarget(inTarget);
+        base.SetTarget(finalTarget);
         attackTimer = 0f;
     }
 
@@ -349,7 +349,7 @@ public class PlayerUnit : CombatUnit
         }
     }
 
-    protected override void ChangeToIdleSprite()
+    public override void ChangeToIdleSprite()
     {
         if (spriteRenderer != null && unitData.unitSprite != null)
         {

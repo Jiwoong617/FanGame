@@ -238,6 +238,12 @@ public class EnemyUnit : CombatUnit
 
             TriggerAbility(CombatEvent.OnBeforeDead, ctx);
 
+            if (isDeathCanceled)
+            {
+                isDeathCanceled = false;
+                return finalDamage;
+            }
+
             OnDead();
             return finalDamage;
         }
@@ -263,5 +269,14 @@ public class EnemyUnit : CombatUnit
     public void SetAttackDelay(float delay)
     {
         attackTimer = -delay;
+    }
+
+    public void CancelCurrentAction()
+    {
+        currentRunningPattern = null;
+        isAttacking = false;
+        attackTimer = 0f;
+        transform.DOKill(true);
+        spriteRenderer.transform.DOKill(true);
     }
 }
