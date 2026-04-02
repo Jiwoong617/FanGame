@@ -226,6 +226,8 @@ public abstract class CombatUnit : MonoBehaviour
             this, target, damage, damageType, false, isCrit, debuffs
         );
 
+        TriggerAbility(CombatEvent.OnBeforeAttack, attackCtx);
+
         float actualDamage = target.TakeDamage(attackCtx);
         if (actualDamage >= 0)
         {

@@ -197,12 +197,12 @@ public class PlayerUnit : CombatUnit
 
         if (!ctx.isReflectDamage)
         {
-            if (state == PlayerState.Dodging)
+            if (state == PlayerState.Dodging && (ctx.evadeType == AttackEvadeType.Both || ctx.evadeType == AttackEvadeType.DodgeOnly))
             {
                 TriggerAbility(CombatEvent.OnDodgeSuccess, ctx);
                 return -1;
             }
-            if (state == PlayerState.Parrying)
+            if (state == PlayerState.Parrying && (ctx.evadeType == AttackEvadeType.Both || ctx.evadeType == AttackEvadeType.ParryOnly))
             {
                 ResetCooldown(ActionType.Parry);
                 //playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost.GetValue() * 0.5f);
