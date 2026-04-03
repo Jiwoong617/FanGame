@@ -391,4 +391,9 @@ public abstract class CombatUnit : MonoBehaviour
     {
         isDeathCanceled = true;
     }
+
+    public void SetIsAttacking(bool state)
+    {
+        isAttacking = state;
+    }
 }
