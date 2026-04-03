@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6254284788820507192}
   - component: {fileID: -6547912909177896719}
   m_Layer: 0
-  m_Name: Lich
+  m_Name: DurahanHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -187,78 +187,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
   patterns:
-  - rid: 1747107561126232146
-  - rid: 1747107561126232147
-  - rid: 1747107561126232149
+  - rid: 1747107561126232066
   isUsePatternFirst: 1
   references:
     version: 2
     RefIds:
-    - rid: 1747107561126232146
-      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
-      data:
-        patternName: MagicMissile
-        cooldown: 15
-        requiredChargeTime: 6
-        patternIconSprite: {fileID: 0}
-        triggerChance: 1
-        lastExecutionTime: -9999
-        conditions: []
-        actionSprite: {fileID: 0}
-        damagePercent: 3
-        damageType: 1
-        useMoveAnim: 0
-    - rid: 1747107561126232147
+    - rid: 1747107561126232066
       type: {class: DebuffPattern, ns: , asm: Assembly-CSharp}
       data:
-        patternName: Bondage
-        cooldown: 10
-        requiredChargeTime: 2
+        patternName: Sight
+        cooldown: 0
+        requiredChargeTime: 3
         patternIconSprite: {fileID: 0}
-        triggerChance: 1
+        triggerChance: 100
         lastExecutionTime: -9999
         conditions: []
         actionSprite: {fileID: 0}
         debuffs:
-        - rid: 1747107561126232148
+        - rid: 1747107561126232067
+        - rid: 1747107561126232068
         useMoveAnim: 0
-    - rid: 1747107561126232148
-      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
+    - rid: 1747107561126232067
+      type: {class: DisarmEffect, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
-        effectType: 5
-        duration: 3
+        effectType: 4
+        duration: 1
         stacks: 1
-        effectValue: 0.3
+        effectValue: 0
         isPermanent: 0
-    - rid: 1747107561126232149
-      type: {class: SacrificeSummonPattern, ns: , asm: Assembly-CSharp}
+    - rid: 1747107561126232068
+      type: {class: ShackleEffect, ns: , asm: Assembly-CSharp}
       data:
-        patternName: Summon
-        cooldown: 18
-        requiredChargeTime: 5
-        patternIconSprite: {fileID: 0}
-        triggerChance: 100
-        lastExecutionTime: -9999
-        conditions:
-        - rid: 1747107561126232151
-        - rid: 1747107561126232153
-        actionSprite: {fileID: 0}
-        selfDamageAmount: 30
-        randomSummonPool:
-        - {fileID: 11400000, guid: fdb508da86e541d42899b3e302fb0c5b, type: 2}
-        - {fileID: 11400000, guid: d6fb31ebc61a9a04ba35e92159e831c7, type: 2}
-        - {fileID: 11400000, guid: b5c4faad768912b43b57ba4c03c634b2, type: 2}
-        castDuration: 1
-    - rid: 1747107561126232151
-      type: {class: AbsoluteHpCondition, ns: , asm: Assembly-CSharp}
-      data:
-        thresholdHp: 31
-        belowThreshold: 0
-    - rid: 1747107561126232153
-      type: {class: AllyCountCondition, ns: , asm: Assembly-CSharp}
-      data:
-        maxCount: 3
+        combatEvent: 0
+        effectType: 12
+        duration: 1
+        stacks: 1
+        effectValue: 0
+        isPermanent: 0
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

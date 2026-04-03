@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6254284788820507192}
   - component: {fileID: -6547912909177896719}
   m_Layer: 0
-  m_Name: Durahan
+  m_Name: DurahanBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,11 +186,80 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
-  patterns: []
+  patterns:
+  - rid: 1747107561126232064
+  - rid: 1747107561126232065
+  - rid: 1747107561126232143
   isUsePatternFirst: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1747107561126232064
+      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: Slash
+        cooldown: 12
+        requiredChargeTime: 1
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        damagePercent: 2
+        damageType: 1
+        useMoveAnim: 1
+    - rid: 1747107561126232065
+      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: Sequential
+        cooldown: 10
+        requiredChargeTime: 2
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        onHit: 1
+        onCritical: 1
+        damageType: 0
+        comboSteps:
+        - damagePercent: 0.5
+          delayBeforeAttack: 0
+        - damagePercent: 0.7
+          delayBeforeAttack: 0.5
+        - damagePercent: 0.9
+          delayBeforeAttack: 0.9
+    - rid: 1747107561126232143
+      type: {class: AttackDebuffPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: Scar
+        cooldown: 8
+        requiredChargeTime: 1.5
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions:
+        - rid: 1747107561126232144
+        actionSprite: {fileID: 0}
+        damagePercent: 0.3
+        damageType: 0
+        debuffs:
+        - rid: 1747107561126232145
+        useMoveAnim: 1
+    - rid: 1747107561126232144
+      type: {class: HpCondition, ns: , asm: Assembly-CSharp}
+      data:
+        thresholdRatio: 0.5
+        belowThreshold: 1
+    - rid: 1747107561126232145
+      type: {class: DamageAmplificationEffect, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 3
+        effectType: 11
+        duration: -1
+        stacks: 1
+        effectValue: 0.2
+        isPermanent: 0
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

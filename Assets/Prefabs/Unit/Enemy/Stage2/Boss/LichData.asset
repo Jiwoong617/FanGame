@@ -17,15 +17,25 @@ MonoBehaviour:
   unitSprite: {fileID: 0}
   unitBasicAttackSprite: {fileID: 0}
   unitDeadSprite: {fileID: 0}
-  attackVFXType: 0
-  hp: 20
-  defense: 0
-  attackDamage: 3
+  attackVFXType: 2
+  hp: 300
+  defense: 3
+  attackDamage: 6
   attackSpeed: 1
   criticalChance: 0
   criticalDamage: 0
   unitDescription: 
-  startingAbilities: []
+  startingAbilities:
+  - rid: 1747107561126232150
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 1747107561126232150
+      type: {class: TriggerEventPassive, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 10
+        passiveIcon: {fileID: 0}
+        useHeal: 1
+        isPercentHeal: 0
+        healAmount: 10
+        grantEffects: []
