@@ -293,7 +293,8 @@ public abstract class CombatUnit : MonoBehaviour
 
     public void TriggerAbility(CombatEvent type, CombatEventContext cec)
     {
-        for (int i = 0; i < abilities.Count; i++)
+        int currentCount = abilities.Count;
+        for (int i = 0; i < currentCount; i++)
             abilities[i].OnEvent(type, cec);
     }
 

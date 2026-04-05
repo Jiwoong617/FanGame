@@ -3,22 +3,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class BuffSlotUI : MonoBehaviour
+public class BuffSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image iconImage;
     [SerializeField] private TMP_Text stackText;
 
-    private StatusEffect currentEffect;
+    private StatusEffect currentStatusEffect;
+    private PassiveAbility currentPassiveAbility;
 
-    // TODO : 초단위 일때 보여주는거 추가 했음 맘에 안들면 삭제
     private void Update()
     {
-        if (currentEffect == null || currentEffect.IsFinished) return;
+        if (currentStatusEffect == null || currentStatusEffect.IsFinished) return;
 
-        if (!currentEffect.isPermanent && currentEffect.duration > 0)
+        if (!currentStatusEffect.isPermanent && currentStatusEffect.duration > 0)
         {
             stackText.gameObject.SetActive(true);
-            stackText.text = currentEffect.duration.ToString("F1");
+            stackText.text = currentStatusEffect.duration.ToString("F1");
         }
     }
 
@@ -30,8 +30,10 @@ public class BuffSlotUI : MonoBehaviour
         if(stackText == null)
             stackText = GetComponentInChildren<TMP_Text>();
 
-        currentEffect = effect;
         iconImage.sprite = null;
+
+        currentStatusEffect = effect;
+        currentPassiveAbility = null;
 
         Sprite loadedIcon = GameManager.SpriteData.GetSprite(effect.effectType, "Icons/Buffs");
         if (loadedIcon != null)
@@ -50,7 +52,9 @@ public class BuffSlotUI : MonoBehaviour
         if (stackText == null)
             stackText = GetComponentInChildren<TMP_Text>();
 
-        currentEffect = null;
+        currentPassiveAbility = passive;
+        currentStatusEffect = null;
+
         iconImage.sprite = null;
 
         if (passive.passiveIcon != null)
@@ -63,18 +67,53 @@ public class BuffSlotUI : MonoBehaviour
 
     public void UpdateSlot()
     {
-        if (currentEffect == null) return;
+        if (currentStatusEffect == null) return;
 
-        if (currentEffect.stacks > 1)
+        if (currentStatusEffect.stacks > 1)
         {
-            stackText.text = currentEffect.stacks.ToString();
+            stackText.text = currentStatusEffect.stacks.ToString();
             stackText.gameObject.SetActive(true);
         }
-        else
+        else if (currentStatusEffect.isPermanent)
         {
             stackText.gameObject.SetActive(false);
         }
     }
 
-    public StatusEffect GetEffect() => currentEffect;
+    public StatusEffect GetEffect() => currentStatusEffect;
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if ((currentStatusEffect == null && currentPassiveAbility == null) || SimpleTooltipUI.Instance == null) return;
+
+        string name = "";
+        string desc = "";
+
+        // 직관적인 null 체크로 분기 처리
+        if (currentStatusEffect != null)
+        {
+            var tooltipData = BuffSlotTooltipDB.GetStatusTooltip(currentStatusEffect.effectType);
+            name = tooltipData.name;
+            desc = tooltipData.desc;
+        }
+        else if (currentPassiveAbility != null)
+        {
+            name = currentPassiveAbility.passiveName;
+            desc = currentPassiveAbility.passiveDescription;
+        }
+
+        SimpleTooltipUI.Instance.ShowTooltip(name, desc);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (SimpleTooltipUI.Instance != null)
+            SimpleTooltipUI.Instance.Hide();
+    }
+
+    private void OnDisable()
+    {
+        if (SimpleTooltipUI.Instance != null)
+            SimpleTooltipUI.Instance.Hide();
+    }
 }

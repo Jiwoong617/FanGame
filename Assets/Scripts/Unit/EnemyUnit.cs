@@ -56,9 +56,10 @@ public class EnemyUnit : CombatUnit
 
     public override void OnUpdate(float delta)
     {
-        if (target == null || target.IsDead || IsDead) return;
-
+        if (IsDead) return;
         base.OnUpdate(delta);
+        if (target == null || target.IsDead) return;
+
 
         if (currentRunningPattern != null)
         {
