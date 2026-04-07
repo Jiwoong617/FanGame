@@ -32,12 +32,14 @@ public class EvadeAndParryPassive : PassiveAbility
             //패링 먼저
             if (Random.Range(0f, 100f) < parryChance)
             {
+                GameManager.VFX.ShowText(owner.transform, "패링!", Color.softYellow);
                 ExecuteParry(context);
                 return; 
             }
 
             if (Random.Range(0f, 100f) < dodgeChance)
             {
+                GameManager.VFX.ShowText(owner.transform, "회피!", Color.cyan);
                 ExecuteDodge(context);
             }
         }

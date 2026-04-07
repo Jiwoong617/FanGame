@@ -200,6 +200,7 @@ public class PlayerUnit : CombatUnit
             if (state == PlayerState.Dodging && (ctx.evadeType == AttackEvadeType.Both || ctx.evadeType == AttackEvadeType.DodgeOnly))
             {
                 TriggerAbility(CombatEvent.OnDodgeSuccess, ctx);
+                GameManager.VFX.ShowText(transform, "회피!", Color.cyan);
                 return -1;
             }
             if (state == PlayerState.Parrying && (ctx.evadeType == AttackEvadeType.Both || ctx.evadeType == AttackEvadeType.ParryOnly))
@@ -209,6 +210,7 @@ public class PlayerUnit : CombatUnit
                 hitEffect?.Flash(false);
 
                 TriggerAbility(CombatEvent.OnParrySuccess, ctx);
+                GameManager.VFX.ShowText(transform, "패링!", Color.softYellow);
                 return -1;
             }
         }

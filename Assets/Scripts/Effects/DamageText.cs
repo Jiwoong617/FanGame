@@ -40,6 +40,27 @@ public class DamageText : MonoBehaviour
             transform.localScale = Vector3.one * 1.2f;
         }
 
+        PlayAnimation();
+    }
+
+    public void Setup(Transform target, string message, Color textColor, float scaleMultiplier = 1.5f)
+    {
+        currentTarget = target;
+        if (textMesh == null) textMesh = GetComponent<TextMeshPro>();
+
+        textMesh.text = message;
+        textMesh.color = textColor;
+        textMesh.alpha = 1f;
+
+        transform.localScale = Vector3.one * scaleMultiplier;
+
+        transform.position = target.position + new Vector3(Random.Range(-0.2f, 0.2f), offset, 0);
+
+        PlayAnimation();
+    }
+
+    private void PlayAnimation()
+    {
         transform.DOKill();
         textMesh.DOKill();
 

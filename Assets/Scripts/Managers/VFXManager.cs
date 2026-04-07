@@ -53,6 +53,12 @@ public class VFXManager
         SpawnText(target, amount, false, true, false);
     }
 
+    public void ShowText(Transform target, string message, Color color, float scaleMultiplier = 1.5f)
+    {
+        if (target == null) return;
+        SpawnText(target, message, color, scaleMultiplier);
+    }
+
     private void SpawnText(Transform target, float amount, bool isCrit, bool isHeal, bool isFixed)
     {
         if (damageTextPrefab == null) return;
@@ -73,6 +79,28 @@ public class VFXManager
 
         activeTexts.Add(dt);
         dt.Setup(target, amount, isCrit, isHeal, isFixed);
+    }
+
+    private void SpawnText(Transform target, string message, Color color, float scaleMultiplier)
+    {
+        if (damageTextPrefab == null) return;
+        if (string.IsNullOrEmpty(message)) return;
+
+        activeTexts.RemoveAll(t => t == null || t.gameObject == null);
+
+        foreach (var activeText in activeTexts)
+        {
+            if (activeText.currentTarget == target)
+            {
+                activeText.PushUp(pushHeight);
+            }
+        }
+
+        DamageText dt = (textPool.Count > 0) ? textPool.Dequeue() : UnityEngine.Object.Instantiate(damageTextPrefab).GetComponent<DamageText>();
+        dt.gameObject.SetActive(true);
+
+        activeTexts.Add(dt);
+        dt.Setup(target, message, color, scaleMultiplier);
     }
 
     public void ReturnToPool(DamageText dt)
