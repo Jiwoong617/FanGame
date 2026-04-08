@@ -254,19 +254,6 @@ public class EnemyUnit : CombatUnit
 
     public override T GetStat<T>() => stats as T;
 
-    protected override void PlayHitVFX(Vector3 targetPos)
-    {
-        if (unitData != null)
-        {
-            GameManager.VFX.ShowGenericEffect(
-                targetPos,
-                unitData.attackVFXType,
-                0f,
-                Color.white
-            );
-        }
-    }
-
     public void SetAttackDelay(float delay)
     {
         attackTimer = -delay;

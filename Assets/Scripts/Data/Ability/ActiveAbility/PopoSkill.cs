@@ -5,8 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class PopoSkill : ActiveAbility
 {
-    [SerializeField] private Sprite popoAtkVFX;
-
     public PopoSkill()
     {
         actionType = ActionType.Skill;
@@ -71,10 +69,8 @@ public class PopoSkill : ActiveAbility
                 CombatEventContext ctx = new CombatEventContext(player, target, finalDmg, DamageType.Normal, false, isCrit);
                 float actualDamage = target.TakeDamage(ctx);
 
-                float randomX = Random.Range(-0.5f, 0.5f);
-                float randomY = Random.Range(-0.5f, 0.5f);
-                Vector3 effectPos = target.transform.position + new Vector3(randomX, randomY, 0f);
-                GameManager.VFX.PlayerAttackEffect(player.transform.position, effectPos, AttackVFXType.Popo, popoAtkVFX, 0f);
+                GameManager.VFX.PlayEffect(player.transform.position, target.transform.position, AttackVFXType.Popo, 0f,
+                    Color.white);
 
                 if (actualDamage > 0)
                 {

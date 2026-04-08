@@ -181,11 +181,10 @@ public abstract class CombatUnit : MonoBehaviour
         float returnTime = maxAnimTime * 0.6f;
 
         transform.DOKill(true);
-        PlayAttackVFX(target.transform.position, forwardTime);
 
         Sequence attackSeq = DOTween.Sequence();
         attackSeq.Append(transform.DOMove(attackPos, forwardTime).SetEase(Ease.OutExpo));
-        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, true, onDamageDealt));
+        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, forwardTime, onDamageDealt));
         attackSeq.AppendInterval(pauseTime);
         attackSeq.Append(transform.DOMove(originalPos, returnTime).SetEase(Ease.OutCirc));
         attackSeq.OnComplete(() =>
@@ -202,7 +201,7 @@ public abstract class CombatUnit : MonoBehaviour
 
         Sequence attackSeq = DOTween.Sequence();
         attackSeq.AppendInterval(castDelay);
-        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, false, onDamageDealt));
+        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, castDelay, onDamageDealt));
         attackSeq.OnComplete(() =>
         {
             isAttacking = false;
@@ -211,7 +210,7 @@ public abstract class CombatUnit : MonoBehaviour
     }
 
     private void ExecuteHit(CombatUnit target, float damage, bool onHit, bool onCritical,
-        List<StatusEffect> debuffs, DamageType damageType, bool attackVFX, Action<float> onDamageDealt)
+        List<StatusEffect> debuffs, DamageType damageType, float hitDelay, Action<float> onDamageDealt)
     {
         if (target == null || target.IsDead || IsDead) return;
         bool isCrit = false;
@@ -231,12 +230,7 @@ public abstract class CombatUnit : MonoBehaviour
         float actualDamage = target.TakeDamage(attackCtx);
         if (actualDamage >= 0)
         {
-            if(attackVFX)
-                PlayHitVFX(target.transform.position);
-            else
-            {
-                //TODO : 디버프 이펙트
-            }
+            GameManager.VFX.PlayEffect(transform.position, target.transform.position, unitData.attackVFXType, hitDelay, Color.white);
 
             attackCtx.value = actualDamage;
             if (onHit) TriggerAbility(CombatEvent.OnAttack, attackCtx);
@@ -317,9 +311,6 @@ public abstract class CombatUnit : MonoBehaviour
     {
         OnActionBarUpdated?.Invoke(value);
     }
-
-    protected virtual void PlayAttackVFX(Vector3 targetPos, float hitDelay) { }
-    protected virtual void PlayHitVFX(Vector3 targetPos) { }
 
     public virtual void ChangeToIdleSprite()
     {

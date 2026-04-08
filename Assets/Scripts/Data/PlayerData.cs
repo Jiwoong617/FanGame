@@ -6,7 +6,6 @@ public class PlayerData : UnitData
 {
     [Header("Combat Resource")]
     public Sprite unitBackSprite;
-    public Sprite attackVFXSprite;
     public Sprite unitSkillSprite;
     public Sprite unitParrySprite;
 

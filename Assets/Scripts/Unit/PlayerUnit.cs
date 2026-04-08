@@ -342,15 +342,6 @@ public class PlayerUnit : CombatUnit
         pStats.fp = pStats.maxFp.GetValue();
     }
 
-    protected override void PlayAttackVFX(Vector3 targetPos, float hitDelay)
-    {
-        if (unitData != null)
-        {
-            GameManager.VFX.PlayerAttackEffect(transform.position, target.transform.position,
-                unitData.attackVFXType, playerData.attackVFXSprite, hitDelay);
-        }
-    }
-
     public override void ChangeToIdleSprite()
     {
         if (spriteRenderer != null && unitData.unitSprite != null)
