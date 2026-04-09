@@ -24,6 +24,7 @@ public class TauntEffect : StatusEffect
         if (taunter != null && !taunter.IsDead)
         {
             owner.SetTarget(taunter);
+            GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Taunt, 0f, Color.white);
         }
     }
 }

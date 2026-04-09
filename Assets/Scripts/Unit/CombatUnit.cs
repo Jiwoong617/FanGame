@@ -300,6 +300,7 @@ public abstract class CombatUnit : MonoBehaviour
         stats.hp += finalHeal;
 
         GameManager.VFX.ShowHealText(transform, finalHeal);
+        GameManager.VFX.PlayEffect(transform.position, transform.position, AttackVFXType.Heal, 0, Color.white);
     }
 
     protected void RequestDamageText(CombatEventContext ctx)

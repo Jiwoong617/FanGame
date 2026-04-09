@@ -14,4 +14,9 @@ public class ShackleEffect : StatusEffect
         this.duration = duration;
         this.isPermanent = isPermanent;
     }
+
+    protected override void OnAdded()
+    {
+        GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Shackle, 0f, Color.white);
+    }
 }

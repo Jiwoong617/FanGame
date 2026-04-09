@@ -23,6 +23,16 @@ public enum AttackVFXType
     HasiyoIce = 17,
     HasiyoMeteo = 18,
     RoseSkill = 19,
+
+    //버프 관련 이펙트
+    Buff = 30,
+    Debuff = 31,
+    Taunt = 32,
+    Heal = 33,
+    IronFortress = 34,
+    Disarm = 35,
+    Shackle = 36,
+    Reflect = 37,
 }
 
 public class VFXManager

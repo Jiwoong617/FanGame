@@ -18,7 +18,7 @@ public class BuffSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         if (!currentStatusEffect.isPermanent && currentStatusEffect.duration > 0)
         {
             stackText.gameObject.SetActive(true);
-            stackText.text = currentStatusEffect.duration.ToString("F1");
+            stackText.text = currentStatusEffect.duration.ToString("F0");
         }
     }
 
