@@ -18,9 +18,9 @@ MonoBehaviour:
   unitBasicAttackSprite: {fileID: 0}
   unitDeadSprite: {fileID: 0}
   attackVFXType: 1
-  hp: 20
+  hp: 15
   defense: 0
-  attackDamage: 3
+  attackDamage: 6
   attackSpeed: 1
   criticalChance: 0
   criticalDamage: 0

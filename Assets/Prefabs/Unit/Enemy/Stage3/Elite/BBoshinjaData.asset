@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
+  m_Name: BBoshinjaData
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  unitName: BBoshinja
+  prefab: {fileID: 6107110035909089572, guid: a55cd1b53fbbd2040bbde29676286082, type: 3}
+  unitSprite: {fileID: 0}
+  unitBasicAttackSprite: {fileID: 0}
+  unitDeadSprite: {fileID: 0}
+  attackVFXType: 0
+  hp: 20
+  defense: 0
+  attackDamage: 8
+  attackSpeed: 1
+  criticalChance: 0
+  criticalDamage: 0
+  unitDescription: 
+  startingAbilities:
+  - rid: 1747107561126232176
+  references:
+    version: 2
+    RefIds:
+    - rid: 1747107561126232176
+      type: {class: EvadeAndParryPassive, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 3
+        passiveIcon: {fileID: 0}
+        dodgeChance: 50
+        parryChance: 50
+        parryDamagePercent: 0.2
+        animDuration: 0.1
+        parrySprite: {fileID: 0}

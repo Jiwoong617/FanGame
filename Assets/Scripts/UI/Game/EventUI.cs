@@ -100,16 +100,19 @@ public class EventUI : UI_Base
     private void OnOptionSelected(EventOption option)
     {
         Get<VerticalLayoutGroup>(Verticals.Vertical).gameObject.SetActive(false);
-        Get<TMP_Text>(Texts.EventDescription).text = option.resultText;
 
+        string finalResultText = option.resultText + "\n\n";
         foreach(var outcome in option.outcomes)
         {
             if (outcome != null)
             {
-                outcome.Apply(GameManager.Instance.Player);
+                string outcomeMsg = outcome.Apply(GameManager.Instance.Player);
+                if (!string.IsNullOrEmpty(outcomeMsg))
+                    finalResultText += outcomeMsg + "\n";
             }
         }
 
+        Get<TMP_Text>(Texts.EventDescription).text = finalResultText;
         Get<Button>(Buttons.NextButton).gameObject.SetActive(true);
     }
 

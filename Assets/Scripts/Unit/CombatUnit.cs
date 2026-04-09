@@ -11,7 +11,7 @@ public abstract class CombatUnit : MonoBehaviour
     [SerializeField] protected CombatUnitUI combatUI;
 
     protected SpriteRenderer spriteRenderer;
-    protected UnitData unitData;
+    public UnitData unitData { get; protected set; }
 
     public Action<CombatUnit> OnUnitDead;
     public event Action<CombatEventContext> OnDamageTextRequested;
@@ -27,8 +27,11 @@ public abstract class CombatUnit : MonoBehaviour
     protected CombatUnit target;
     protected float attackTimer = 0f;
     protected bool isAttacking = false;
+    protected bool isDeathCanceled = false;
+
     public bool IsAttacking => isAttacking;
     public bool IsDead => stats.hp <= 0;
+
 
     // 런타임 능력 리스트
     protected List<Ability> abilities = new List<Ability>();
@@ -223,6 +226,8 @@ public abstract class CombatUnit : MonoBehaviour
             this, target, damage, damageType, false, isCrit, debuffs
         );
 
+        TriggerAbility(CombatEvent.OnBeforeAttack, attackCtx);
+
         float actualDamage = target.TakeDamage(attackCtx);
         if (actualDamage >= 0)
         {
@@ -288,7 +293,8 @@ public abstract class CombatUnit : MonoBehaviour
 
     public void TriggerAbility(CombatEvent type, CombatEventContext cec)
     {
-        for (int i = 0; i < abilities.Count; i++)
+        int currentCount = abilities.Count;
+        for (int i = 0; i < currentCount; i++)
             abilities[i].OnEvent(type, cec);
     }
 
@@ -315,7 +321,7 @@ public abstract class CombatUnit : MonoBehaviour
     protected virtual void PlayAttackVFX(Vector3 targetPos, float hitDelay) { }
     protected virtual void PlayHitVFX(Vector3 targetPos) { }
 
-    protected virtual void ChangeToIdleSprite()
+    public virtual void ChangeToIdleSprite()
     {
         if (spriteRenderer != null && unitData.unitSprite != null)
         {
@@ -380,5 +386,15 @@ public abstract class CombatUnit : MonoBehaviour
             if (!IsDead)
                 ChangeToIdleSprite();
         });
+    }
+
+    public void CancelDeath()
+    {
+        isDeathCanceled = true;
+    }
+
+    public void SetIsAttacking(bool state)
+    {
+        isAttacking = state;
     }
 }

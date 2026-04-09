@@ -56,9 +56,10 @@ public class EnemyUnit : CombatUnit
 
     public override void OnUpdate(float delta)
     {
-        if (target == null || target.IsDead || IsDead) return;
-
+        if (IsDead) return;
         base.OnUpdate(delta);
+        if (target == null || target.IsDead) return;
+
 
         if (currentRunningPattern != null)
         {
@@ -235,6 +236,15 @@ public class EnemyUnit : CombatUnit
         if (stats.hp <= 0)
         {
             stats.hp = 0;
+
+            TriggerAbility(CombatEvent.OnBeforeDead, ctx);
+
+            if (isDeathCanceled)
+            {
+                isDeathCanceled = false;
+                return finalDamage;
+            }
+
             OnDead();
             return finalDamage;
         }
@@ -260,5 +270,14 @@ public class EnemyUnit : CombatUnit
     public void SetAttackDelay(float delay)
     {
         attackTimer = -delay;
+    }
+
+    public void CancelCurrentAction()
+    {
+        currentRunningPattern = null;
+        isAttacking = false;
+        attackTimer = 0f;
+        transform.DOKill(true);
+        spriteRenderer.transform.DOKill(true);
     }
 }

@@ -197,18 +197,20 @@ public class PlayerUnit : CombatUnit
 
         if (!ctx.isReflectDamage)
         {
-            if (state == PlayerState.Dodging)
+            if (state == PlayerState.Dodging && (ctx.evadeType == AttackEvadeType.Both || ctx.evadeType == AttackEvadeType.DodgeOnly))
             {
                 TriggerAbility(CombatEvent.OnDodgeSuccess, ctx);
+                GameManager.VFX.ShowText(transform, "회피!", Color.cyan);
                 return -1;
             }
-            if (state == PlayerState.Parrying)
+            if (state == PlayerState.Parrying && (ctx.evadeType == AttackEvadeType.Both || ctx.evadeType == AttackEvadeType.ParryOnly))
             {
                 ResetCooldown(ActionType.Parry);
                 //playerStats.stamina = Mathf.Min(playerStats.maxStamina.GetValue(), playerStats.stamina + playerStats.parryCost.GetValue() * 0.5f);
                 hitEffect?.Flash(false);
 
                 TriggerAbility(CombatEvent.OnParrySuccess, ctx);
+                GameManager.VFX.ShowText(transform, "패링!", Color.softYellow);
                 return -1;
             }
         }
@@ -316,7 +318,7 @@ public class PlayerUnit : CombatUnit
             finalTarget = taunt.taunter;
         }
 
-        base.SetTarget(inTarget);
+        base.SetTarget(finalTarget);
         attackTimer = 0f;
     }
 
@@ -349,7 +351,7 @@ public class PlayerUnit : CombatUnit
         }
     }
 
-    protected override void ChangeToIdleSprite()
+    public override void ChangeToIdleSprite()
     {
         if (spriteRenderer != null && unitData.unitSprite != null)
         {

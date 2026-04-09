@@ -211,7 +211,7 @@ public class BattleManager
         }
     }
 
-    public void SpawnEnemyMidBattle(UnitData data, EnemyUnit summoner)
+    public void SpawnEnemyMidBattle(UnitData data, CombatUnit summoner)
     {
         if (data == null || data.prefab == null) return;
         if (enemies.Count >= 3)

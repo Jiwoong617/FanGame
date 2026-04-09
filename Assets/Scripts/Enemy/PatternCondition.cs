@@ -53,3 +53,30 @@ public class ExecutionCountCondition : PatternCondition
         currentExecutions = 0; // 전투 시작 시 초기화
     }
 }
+
+[System.Serializable]
+public class AbsoluteHpCondition : PatternCondition
+{
+    [Tooltip("기준 체력 수치")]
+    public float thresholdHp = 31f;
+    [Tooltip("True: 이하일 때 발동 / False: 이상일 때 발동")]
+    public bool belowThreshold = false;
+
+    public override bool IsMet(EnemyUnit unit, EnemyPattern pattern)
+    {
+        var stats = unit.GetStat<UnitStats>();
+        return belowThreshold ? (stats.hp <= thresholdHp) : (stats.hp >= thresholdHp);
+    }
+}
+
+[System.Serializable]
+public class AllyCountCondition : PatternCondition
+{
+    [Tooltip("발동 가능한 최대 아군 수 (본인 포함)")]
+    public int maxCount = 3;
+
+    public override bool IsMet(EnemyUnit unit, EnemyPattern pattern)
+    {
+        return GameManager.Battle.GetAliveEnemies().Count <= maxCount;
+    }
+}

@@ -186,11 +186,74 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
-  patterns: []
+  patterns:
+  - rid: 7988895978013851733
+  - rid: 7988895978013851734
+  - rid: 7988895978013851736
   isUsePatternFirst: 0
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 7988895978013851733
+      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: "\uB9C8\uAD6C \uD560\uD034\uAE30"
+        cooldown: 5
+        requiredChargeTime: 2.5
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        onHit: 1
+        onCritical: 1
+        damageType: 0
+        comboSteps:
+        - damagePercent: 0.5
+          delayBeforeAttack: 0
+        - damagePercent: 0.5
+          delayBeforeAttack: 0.75
+    - rid: 7988895978013851734
+      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: "\uBAB8\uD1B5\uBC15\uCE58\uAE30"
+        cooldown: 7
+        requiredChargeTime: 1.25
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        damagePercent: 1
+        damageType: 1
+        useMoveAnim: 1
+    - rid: 7988895978013851736
+      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: "\uB2F4\uBE44\uAEBC\uC57C"
+        cooldown: 8
+        requiredChargeTime: 2
+        patternIconSprite: {fileID: 0}
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        onHit: 1
+        onCritical: 1
+        damageType: 0
+        comboSteps:
+        - damagePercent: 0.3
+          delayBeforeAttack: 0
+        - damagePercent: 0.3
+          delayBeforeAttack: 0.5
+        - damagePercent: 0.3
+          delayBeforeAttack: 0.5
+        - damagePercent: 0.3
+          delayBeforeAttack: 0.5
+        - damagePercent: 0.3
+          delayBeforeAttack: 0.5
+        - damagePercent: 0.5
+          delayBeforeAttack: 0.5
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

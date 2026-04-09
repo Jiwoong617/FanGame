@@ -1,6 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum AttackEvadeType
+{
+    Both, //둘다가능
+    DodgeOnly, //회피만 가능
+    ParryOnly, //패리만 가능
+    None //그냥 불가
+}
+
 public enum CombatEvent
 {
     OnBattleStart,
@@ -14,6 +22,9 @@ public enum CombatEvent
     OnUseSkill,
     OnDodgeSuccess,
     OnAllyDead, // 아군 사망 시
+    OnBeforeDead,
+    OnBeforeAttack,
+    //이거 무조건 아래에다가 추가해야됨 안그럼 인스펙터에서 조정하는거 다시 해야됨
 }
 
 public enum DamageType
@@ -27,7 +38,8 @@ public class CombatEventContext
     public CombatUnit source;
     public CombatUnit target;
     public float value;
-    
+
+    public AttackEvadeType evadeType;
     public DamageType damageType;
     public bool isReflectDamage;
     public bool isCritical;
@@ -35,7 +47,7 @@ public class CombatEventContext
     public List<StatusEffect> debuffs;
 
     public CombatEventContext(CombatUnit source, CombatUnit target, float value, DamageType damageType = DamageType.Normal,
-        bool isReflectDamage = false, bool isCritical = false, List<StatusEffect> debuffs = null)
+        bool isReflectDamage = false, bool isCritical = false, List<StatusEffect> debuffs = null, AttackEvadeType evadeType = AttackEvadeType.Both)
     {
         this.source = source;
         this.target = target;
@@ -44,6 +56,7 @@ public class CombatEventContext
         this.isReflectDamage = isReflectDamage;
         this.isCritical = isCritical;
         this.debuffs = debuffs;
+        this.evadeType = evadeType;
     }
 }
 

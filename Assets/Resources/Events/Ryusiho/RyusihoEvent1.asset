@@ -21,20 +21,17 @@ MonoBehaviour:
   options:
   - buttonText: "\uBFC5\uB9DD\uCE58"
     resultText: "\uC774 \uBB35\uC9C1\uD558\uACE0\uB3C4 \uC11C\uB298\uD55C \uAC10\uAC01...
-      \uC131\uB140\uB2D8\uC774 \uC88B\uC544\uD560 \uAC83 \uAC19\uB2E4.\n(\uACF5\uACA9\uB825
-      +1)"
+      \uC131\uB140\uB2D8\uC774 \uC88B\uC544\uD560 \uAC83 \uAC19\uB2E4."
     outcomes:
     - rid: 7988895500292063307
   - buttonText: "\uD6C8\uC218\uBCA8"
     resultText: "\uACFC\uC77C 5\uAC1C\uAC00 \uBAA8\uC774\uBA74 \uBE68\uB9AC \uC885\uC744
-      \uB20C\uB7EC\uC57C \uD560 \uAC83 \uAC19\uC740 \uAE30\uBD84\uC774 \uB4E0\uB2E4.\n(\uACF5\uACA9\uC18D\uB3C4
-      +0.2)"
+      \uB20C\uB7EC\uC57C \uD560 \uAC83 \uAC19\uC740 \uAE30\uBD84\uC774 \uB4E0\uB2E4."
     outcomes:
     - rid: 7988895521758773340
   - buttonText: "\uC5EC\uC6B0\uADC0 \uBA38\uB9AC\uB760"
     resultText: "\uC131\uB140\uB2D8\uC774 \uC4F0\uBA74 \uADC0\uAC00 6\uAC1C\uAC00
-      \uB420 \uAC83 \uAC19\uC740 \uBA38\uB9AC\uB760\uB2E4.\n(\uCD5C\uB300 \uCCB4\uB825
-      +5)"
+      \uB420 \uAC83 \uAC19\uC740 \uBA38\uB9AC\uB760\uB2E4."
     outcomes:
     - rid: 7988895521758773341
   references:

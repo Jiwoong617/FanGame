@@ -112,36 +112,65 @@ public class RestUI : UI_Base
             int rand = Random.Range(0, 4);
             string resultMsg = "";
 
+            float beforeVal = 0f;
+            float afterVal = 0f;
+            float diff = 0f;
+
             switch (rand)
             {
                 case 0: // 공격력
-                    float randAtk = Random.Range(1, 4);
+                    beforeVal = stats.attackDamage.GetValue();
+
+                    float randAtk = Random.Range(1, 3);
                     StatModifier atkmod = new StatModifier(randAtk, StatModType.Flat);
                     stats.attackDamage.AddModifier(atkmod);
-                    resultMsg = $"공격 훈련을 수행했습니다.\n공격력이 {randAtk} 상승했습니다.";
+
+                    afterVal = stats.attackDamage.GetValue();
+                    diff = afterVal - beforeVal;
+
+                    resultMsg = $"공격 훈련을 수행했습니다.\n공격력이 {diff:F0} 상승했습니다.";
                     break;
 
                 case 1: // 공격속도
+                    beforeVal = stats.attackSpeed.GetValue();
+
                     float randAtkSpeed = Random.Range(1, 4) * 0.1f;
                     StatModifier asmod = new StatModifier(randAtkSpeed, StatModType.Flat);
                     stats.attackSpeed.AddModifier(asmod);
-                    resultMsg = $"민첩성 훈련을 수행했습니다.\n공격 속도가 {randAtkSpeed:F2} 상승했습니다.";
+
+                    afterVal = stats.attackSpeed.GetValue();
+                    diff = afterVal - beforeVal;
+
+                    resultMsg = $"민첩성 훈련을 수행했습니다.\n공격 속도가 {diff:F2} 상승했습니다.";
                     break;
 
                 case 2: // 스태미나
+                    beforeVal = stats.maxStamina.GetValue();
+
                     float randSt = Random.Range(10, 16);
                     StatModifier stmod = new StatModifier(randSt, StatModType.Flat);
                     stats.maxStamina.AddModifier(stmod);
-                    resultMsg = $"지구력 훈련을 수행했습니다.\n최대 스태미나가 {randSt:F0} 상승했습니다.";
+
+                    afterVal = stats.maxStamina.GetValue();
+                    diff = afterVal - beforeVal;
+
+                    resultMsg = $"지구력 훈련을 수행했습니다.\n최대 스태미나가 {diff:F0} 상승했습니다.";
                     break;
 
                 case 3: // 방어력
-                    float randDf = Random.Range(0, 3);
+                    beforeVal = stats.defense.GetValue();
+
+                    float randDf = Random.Range(1, 3);
                     StatModifier dfmod = new StatModifier(randDf, StatModType.Flat);
                     stats.defense.AddModifier(dfmod);
-                    resultMsg = $"맷집 훈련을 수행했습니다.\n방어력이 {randDf:F0} 상승했습니다.";
+
+                    afterVal = stats.defense.GetValue();
+                    diff = afterVal - beforeVal;
+
+                    resultMsg = $"맷집 훈련을 수행했습니다.\n방어력이 {diff:F0} 상승했습니다.";
                     break;
             }
+
             Get<Image>(Images.Result).sprite = resultSpriteList[1];
 
             return resultMsg;
