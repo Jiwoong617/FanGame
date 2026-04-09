@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: EarthDragon
   prefab: {fileID: 6107110035909089572, guid: bf5b7b1210acf094e87e02b57568533d, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 51bfe1ef631c3aa4991efa2019967129, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: ae88b7d2a19f47e4b9eee7e7a268727b, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: bd3f5a920ed1ebe48bb65966042babd0, type: 3}
   attackVFXType: 0
   hp: 180
   defense: 0
@@ -35,4 +35,6 @@ MonoBehaviour:
       data:
         combatEvent: 3
         passiveIcon: {fileID: 0}
+        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
+        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
         maxDamageCap: 8

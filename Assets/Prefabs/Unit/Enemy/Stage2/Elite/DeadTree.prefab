@@ -221,7 +221,7 @@ MonoBehaviour:
         lastExecutionTime: -9999
         conditions:
         - rid: 1747107541381808224
-        actionSprite: {fileID: 0}
+        actionSprite: {fileID: 21300000, guid: 25acc0ab7539d6249b53930df9db0d14, type: 3}
         targetType: 0
         isPercent: 0
         healAmount: 20
@@ -241,7 +241,7 @@ MonoBehaviour:
         triggerChance: 30
         lastExecutionTime: -9999
         conditions: []
-        actionSprite: {fileID: 0}
+        actionSprite: {fileID: 21300000, guid: 25acc0ab7539d6249b53930df9db0d14, type: 3}
         damagePercent: 0.5
         damageType: 0
         useMoveAnim: 1

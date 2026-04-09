@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: DragonWarning
   prefab: {fileID: 6107110035909089572, guid: 692504766304ea645971f68731b12e44, type: 3}
-  unitSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: c21f24f8cb73389488d5bb856197a711, type: 3}
   unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitDeadSprite: {fileID: 21300000, guid: 48e2bfad33f193b41b028039a1d936b3, type: 3}
   attackVFXType: 0
   hp: 15
   defense: 9999

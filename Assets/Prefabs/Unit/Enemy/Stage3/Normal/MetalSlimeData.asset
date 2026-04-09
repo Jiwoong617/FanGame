@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: MetalSlime
   prefab: {fileID: 6107110035909089572, guid: f06eac0891cd4854e941a9647ac4a587, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 225830dd6cba122428d3b2059a0fe2a5, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 0f20cdb79b9a5c246bfc70dbf3ef981d, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 5fe077d0ae18706438608ba1c27c7d80, type: 3}
   attackVFXType: 1
   hp: 150
   defense: 0
@@ -35,4 +35,6 @@ MonoBehaviour:
       data:
         combatEvent: 12
         passiveIcon: {fileID: 0}
+        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
+        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
         overrideEvadeType: 1

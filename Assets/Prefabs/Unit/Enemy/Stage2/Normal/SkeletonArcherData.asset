@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: SkeletonArcher
   prefab: {fileID: 6107110035909089572, guid: 2f4dd7565501b484fa8ead5a538cdac1, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 2ddb0d01c92667249bbdadb1eb4efe55, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 619a90c20ed138e4db954bd33f8e5ab8, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 4586afa013ce3364c93571a8996a3434, type: 3}
   attackVFXType: 0
   hp: 15
   defense: 0

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Blackddeok
   prefab: {fileID: 6107110035909089572, guid: 5259d8bdda83354439981a22a0dd1ad1, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 142dfd387e441234d8d4fe1c2541a0f1, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 834e1a1afb9e7194c9516d84700327fc, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: b5cfecacd908ae24d83d1cf75834b28d, type: 3}
   attackVFXType: 1
   hp: 60
   defense: 3

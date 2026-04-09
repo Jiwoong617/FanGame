@@ -202,7 +202,7 @@ MonoBehaviour:
         triggerChance: 30
         lastExecutionTime: -9999
         conditions: []
-        actionSprite: {fileID: 0}
+        actionSprite: {fileID: 21300000, guid: 5bb3c1b898dd0334a9b72feabee6abd9, type: 3}
         debuffs:
         - rid: 1747107519606292565
         useMoveAnim: 0

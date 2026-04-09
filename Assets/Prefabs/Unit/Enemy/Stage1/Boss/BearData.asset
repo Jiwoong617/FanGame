@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Bear
   prefab: {fileID: 6107110035909089572, guid: aeed93bb3e4a4da4d8418a3a03889917, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 37f67ed865b53e942af4ae4b6121466f, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: c59a75b2cd3280f408aeda3c0067a266, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 5ff4fef0df5206842a43ff32a14001ae, type: 3}
   attackVFXType: 0
   hp: 70
   defense: 0
@@ -35,4 +35,6 @@ MonoBehaviour:
       data:
         combatEvent: 3
         passiveIcon: {fileID: 0}
+        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
+        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
         maxDamageCap: 5

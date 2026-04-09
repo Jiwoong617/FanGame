@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: CarnivorPlant
   prefab: {fileID: 6107110035909089572, guid: 3b743e6bbd7925b429b21018518264a8, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 18be21666f3eb0949b7b3fb85ff6bc0a, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: e31e8183a51c0814d949886d53fb799d, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: b84abdf48f269a3478abf95296c023ca, type: 3}
   attackVFXType: 0
   hp: 30
   defense: 0

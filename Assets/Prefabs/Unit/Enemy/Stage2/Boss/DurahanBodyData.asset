@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: DurahanBody
   prefab: {fileID: 6107110035909089572, guid: 2c7a131824ff2b5418f281222ee2a939, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 155f932b0a466fa40a9047d8bdf6fd31, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: ac0c63a956e881f43879d30dcd8b6467, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 5e7bee3cef02fe442b56a763b82062cf, type: 3}
   attackVFXType: 0
   hp: 280
   defense: 2
@@ -35,6 +35,8 @@ MonoBehaviour:
       data:
         combatEvent: 4
         passiveIcon: {fileID: 0}
+        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
+        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
         hpThreshold: 0.5
         headUnitData: {fileID: 11400000, guid: 0f6a7ddf0dd45c14f995f3d4030cb016, type: 2}
         invincibleBuff:

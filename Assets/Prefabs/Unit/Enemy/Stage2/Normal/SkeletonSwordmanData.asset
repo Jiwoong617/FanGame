@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: SkeletonSwordman
   prefab: {fileID: 6107110035909089572, guid: a46cc373b21ce3a42a790361f7d8e5b2, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 293f080844756404a9ad0581a3d0c609, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 67dc864668fdfb04798324da446bc24c, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 9819a38abd7164445b36e971e179b5d7, type: 3}
   attackVFXType: 0
   hp: 40
   defense: 2

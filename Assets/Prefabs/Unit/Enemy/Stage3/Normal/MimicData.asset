@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Mimic
   prefab: {fileID: 6107110035909089572, guid: 351168ea07edd3949abfae78f9c61240, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: ffe79818189b1c4489cdd22529a5cac6, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: bbe12e4a6cee2cf46868add3bb0d9d18, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 8333d03569c0cca4bbaabdb3d38693f2, type: 3}
   attackVFXType: 0
   hp: 100
   defense: 0
@@ -35,6 +35,8 @@ MonoBehaviour:
       data:
         combatEvent: 0
         passiveIcon: {fileID: 0}
+        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
+        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
         useHeal: 0
         isPercentHeal: 0
         healAmount: 0

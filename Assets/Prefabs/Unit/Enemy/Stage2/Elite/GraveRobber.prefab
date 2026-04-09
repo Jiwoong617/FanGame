@@ -204,7 +204,7 @@ MonoBehaviour:
         triggerChance: 30
         lastExecutionTime: -9999
         conditions: []
-        actionSprite: {fileID: 0}
+        actionSprite: {fileID: 21300000, guid: 19498870c0cf011488badd1a3b7442dc, type: 3}
         targetType: 0
         buffEffect:
           rid: 1747107541381808218

@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
-  m_Name: BabyDragonData
+  m_Name: BluetongueData
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: BabyDragon
   prefab: {fileID: 6107110035909089572, guid: fc669a14f05850649b639b3ea9a8da69, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 4e86f610e27d4264a906034bbc96f623, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 28e234ccbed1f0649a5deaeb03344290, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 06a1f739cfabf5640b2eca0c2aea1655, type: 3}
   attackVFXType: 0
   hp: 60
   defense: 0

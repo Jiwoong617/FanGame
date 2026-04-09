@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Banshee
   prefab: {fileID: 6107110035909089572, guid: 02c0d5ac6811678488f1c8a078c1eee7, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 3b7ed12e7c69d564d91c71265f82cc27, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: bf0075117adc31049823b4553500abf8, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: bd46b2586f35f724389f9a5864b79360, type: 3}
   attackVFXType: 0
   hp: 40
   defense: 0

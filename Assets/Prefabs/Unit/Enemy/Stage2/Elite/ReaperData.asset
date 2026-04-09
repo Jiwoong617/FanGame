@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Reaper
   prefab: {fileID: 6107110035909089572, guid: 7ebcb8f71de9d414db25761b8d5797b5, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 860a2ade47e605a4d83d42d7e768dad4, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: a5cb092588a137f4387b7d1030ff9541, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 540543740234baf41973f5d4a07a9ad0, type: 3}
   attackVFXType: 0
   hp: 1000
   defense: 0
@@ -35,6 +35,8 @@ MonoBehaviour:
       data:
         combatEvent: 4
         passiveIcon: {fileID: 0}
+        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
+        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
         useHeal: 0
         isPercentHeal: 0
         healAmount: 0

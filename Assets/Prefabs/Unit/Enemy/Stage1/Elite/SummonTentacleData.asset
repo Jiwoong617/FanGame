@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: SummonTentacle
   prefab: {fileID: 6107110035909089572, guid: 5cf1352ac0ea9b34dad414b5610dddfb, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 4dfa609757c6f1c4b9daf39ea102546d, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 5f0a597411137954784f03ff9f1137a2, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 4dfa609757c6f1c4b9daf39ea102546d, type: 3}
   attackVFXType: 0
   hp: 10
   defense: 0

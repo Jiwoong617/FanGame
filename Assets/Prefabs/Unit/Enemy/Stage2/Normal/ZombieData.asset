@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Zombie
   prefab: {fileID: 6107110035909089572, guid: 90a2c59cb915abc4287e751cca238a02, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: b95cf415261318746a8c0a03a4941ce8, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: c7510bb7b6a38d548b8de0450733c7e6, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 664b297d4791e1f45a5e04de5ef34863, type: 3}
   attackVFXType: 0
   hp: 60
   defense: 0
@@ -35,6 +35,8 @@ MonoBehaviour:
       data:
         combatEvent: 11
         passiveIcon: {fileID: 0}
+        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
+        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
         maxResurrections: 1
         delayTime: 2
         reviveHpPercent: 50
