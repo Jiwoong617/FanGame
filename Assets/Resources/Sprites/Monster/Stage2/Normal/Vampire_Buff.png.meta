@@ -1,0 +1,637 @@
+fileFormatVersion: 2
+guid: 0483d9f68b05bd141b545a4bd6c86c71
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 775984992319268719
+    second: Vampire_Buff_0
+  - first:
+      213: 444792158385113607
+    second: Vampire_Buff_1
+  - first:
+      213: -1999183836005160341
+    second: Vampire_Buff_2
+  - first:
+      213: -85705315488335005
+    second: Vampire_Buff_3
+  - first:
+      213: 7598461379692415105
+    second: Vampire_Buff_4
+  - first:
+      213: 3108156492103837332
+    second: Vampire_Buff_5
+  - first:
+      213: -5332801783192275617
+    second: Vampire_Buff_6
+  - first:
+      213: -1800364638702164592
+    second: Vampire_Buff_7
+  - first:
+      213: 3645536649693093431
+    second: Vampire_Buff_8
+  - first:
+      213: -2279605116659222983
+    second: Vampire_Buff_9
+  - first:
+      213: 3022706976517538708
+    second: Vampire_Buff_10
+  - first:
+      213: 8520188467920238568
+    second: Vampire_Buff_11
+  - first:
+      213: -431086625438189058
+    second: Vampire_Buff_12
+  - first:
+      213: 8715697774853896729
+    second: Vampire_Buff_13
+  - first:
+      213: 470258256817300804
+    second: Vampire_Buff_14
+  - first:
+      213: -1698858260116584230
+    second: Vampire_Buff_15
+  - first:
+      213: -3453976634789328244
+    second: Vampire_Buff_16
+  - first:
+      213: -8512045719705957578
+    second: Vampire_Buff_17
+  - first:
+      213: 2001799466517225172
+    second: Vampire_Buff_18
+  - first:
+      213: 1438769156093272583
+    second: Vampire_Buff_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 256
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Vampire_Buff_0
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 64
+        width: 1419
+        height: 881
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f67693a3d3ad4ca00800000000000000
+      internalID: 775984992319268719
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_1
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 880
+        width: 105
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a8c678c183c2600800000000000000
+      internalID: 444792158385113607
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_2
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 827
+        width: 238
+        height: 149
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6aa53ea4e87144e0800000000000000
+      internalID: -1999183836005160341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_3
+      rect:
+        serializedVersion: 2
+        x: 307
+        y: 908
+        width: 87
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36b74fa38738fcef0800000000000000
+      internalID: -85705315488335005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_4
+      rect:
+        serializedVersion: 2
+        x: 380
+        y: 930
+        width: 124
+        height: 81
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1884710dd58237960800000000000000
+      internalID: 7598461379692415105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_5
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 934
+        width: 81
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4966c22acd3622b20800000000000000
+      internalID: 3108156492103837332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_6
+      rect:
+        serializedVersion: 2
+        x: 592
+        y: 942
+        width: 70
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f55314758051ef5b0800000000000000
+      internalID: -5332801783192275617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_7
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 912
+        width: 80
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 095abfb56e1d307e0800000000000000
+      internalID: -1800364638702164592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_8
+      rect:
+        serializedVersion: 2
+        x: 911
+        y: 897
+        width: 206
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73edf9c944c879230800000000000000
+      internalID: 3645536649693093431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_9
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 922
+        width: 151
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9363d5969373d50e0800000000000000
+      internalID: -2279605116659222983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_10
+      rect:
+        serializedVersion: 2
+        x: 1214
+        y: 894
+        width: 83
+        height: 88
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4934c6beaffc2f920800000000000000
+      internalID: 3022706976517538708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_11
+      rect:
+        serializedVersion: 2
+        x: 1282
+        y: 890
+        width: 154
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e7f3c9054acd3670800000000000000
+      internalID: 8520188467920238568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_12
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 637
+        width: 487
+        height: 259
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef9b5578ff8740af0800000000000000
+      internalID: -431086625438189058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_13
+      rect:
+        serializedVersion: 2
+        x: 1359
+        y: 708
+        width: 122
+        height: 117
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91a34dfc2f064f870800000000000000
+      internalID: 8715697774853896729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_14
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 534
+        width: 57
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4452a4e9461b68600800000000000000
+      internalID: 470258256817300804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_15
+      rect:
+        serializedVersion: 2
+        x: 1408
+        y: 590
+        width: 80
+        height: 84
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad84302d9617c68e0800000000000000
+      internalID: -1698858260116584230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_16
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 404
+        width: 152
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8a02e4fc820110d0800000000000000
+      internalID: -3453976634789328244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_17
+      rect:
+        serializedVersion: 2
+        x: 1345
+        y: 429
+        width: 141
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63bca0544832fd980800000000000000
+      internalID: -8512045719705957578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_18
+      rect:
+        serializedVersion: 2
+        x: 1409
+        y: 512
+        width: 85
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4de53514202d7cb10800000000000000
+      internalID: 2001799466517225172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Vampire_Buff_19
+      rect:
+        serializedVersion: 2
+        x: 776
+        y: 49
+        width: 309
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7026abeace887f310800000000000000
+      internalID: 1438769156093272583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Vampire_Buff_0: 775984992319268719
+      Vampire_Buff_1: 444792158385113607
+      Vampire_Buff_10: 3022706976517538708
+      Vampire_Buff_11: 8520188467920238568
+      Vampire_Buff_12: -431086625438189058
+      Vampire_Buff_13: 8715697774853896729
+      Vampire_Buff_14: 470258256817300804
+      Vampire_Buff_15: -1698858260116584230
+      Vampire_Buff_16: -3453976634789328244
+      Vampire_Buff_17: -8512045719705957578
+      Vampire_Buff_18: 2001799466517225172
+      Vampire_Buff_19: 1438769156093272583
+      Vampire_Buff_2: -1999183836005160341
+      Vampire_Buff_3: -85705315488335005
+      Vampire_Buff_4: 7598461379692415105
+      Vampire_Buff_5: 3108156492103837332
+      Vampire_Buff_6: -5332801783192275617
+      Vampire_Buff_7: -1800364638702164592
+      Vampire_Buff_8: 3645536649693093431
+      Vampire_Buff_9: -2279605116659222983
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
