@@ -9,6 +9,7 @@ public class SettingUI : UI_Base
 {
     private static SettingUI instance;
     public static SettingUI Instance { get { return instance; } }
+    public bool IsVisible => canvas != null && canvas.enabled;  
 
     enum Sliders { MasterVolumeSlider, BGMVolumeSlider, SFXVolumeSlider }
     enum Dropdowns { WindowModeDropdown }
@@ -60,20 +61,10 @@ public class SettingUI : UI_Base
         if (raycaster != null) raycaster.enabled = false;
     }
 
-    private void Update()
-    {
-        if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            Toggle();
-        }
-    }
-
     public override void Show()
     {
         if (canvas != null) canvas.enabled = true;
         if (raycaster != null) raycaster.enabled = true;
-
-        Time.timeScale = 0f;
 
         if (BG != null)
         {
@@ -105,8 +96,6 @@ public class SettingUI : UI_Base
             seq.OnComplete(() => {
                 if (canvas != null) canvas.enabled = false;
                 if (raycaster != null) raycaster.enabled = false;
-
-                Time.timeScale = 1f;
             });
         }
         else

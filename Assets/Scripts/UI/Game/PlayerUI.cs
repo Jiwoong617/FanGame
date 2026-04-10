@@ -64,8 +64,6 @@ public class PlayerUI : UI_Base
     private float slideOffset = 200f; 
     private float animDuration = 0.3f; // 전환 속도
 
-    private InputAction tabAction;
-
     protected override void Init()
     {
         Canvas canvas = GetComponent<Canvas>();
@@ -100,11 +98,6 @@ public class PlayerUI : UI_Base
         inventoryCG = inventoryPanelObj.GetComponent<CanvasGroup>();
         originalPos = playerRect.anchoredPosition;
         isShowingPlayer = true;
-
-
-        tabAction = new InputAction(binding: "<Keyboard>/tab");
-        tabAction.performed += OnTabPressed;
-        tabAction.Enable();
     }
 
     private void Start()
@@ -125,6 +118,9 @@ public class PlayerUI : UI_Base
         stats.OnCriticalDamageChanged += UpdateCritDamage;
 
         RefreshAll();
+
+        if (GameManager.Input != null)
+            GameManager.Input.OnTabTriggered += OnTabPressed;
     }
 
     private void OnDestroy()
@@ -144,12 +140,8 @@ public class PlayerUI : UI_Base
         stats.OnCriticalChanceChanged -= UpdateCritChance;
         stats.OnCriticalDamageChanged -= UpdateCritDamage;
 
-        if (tabAction != null)
-        {
-            tabAction.performed -= OnTabPressed;
-            tabAction.Disable();
-            tabAction.Dispose();
-        }
+        if (GameManager.Instance != null && GameManager.Input != null)
+            GameManager.Input.OnTabTriggered -= OnTabPressed;
     }
 
     private void RefreshAll()
@@ -217,7 +209,7 @@ public class PlayerUI : UI_Base
         CritDamageText.text = $"{value:F0}";
     }
 
-    private void OnTabPressed(InputAction.CallbackContext context)
+    private void OnTabPressed()
     {
         //이벤트 중복 방지
         if (DOTween.IsTweening(playerRect) || DOTween.IsTweening(inventoryRect)) return;

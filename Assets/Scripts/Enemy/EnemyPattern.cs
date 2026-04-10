@@ -1,13 +1,31 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+public enum PatternIcon
+{
+    Attack,
+    AttackBuff,
+    AttackDebuff,
+    AttackHeal,
+    Buff,
+    Debuff,
+    Heal,
+    Combo2,
+    Combo3,
+    Combo4,
+    Combo5,
+    Combo6,
+    Summon,
+    Mimic,
+}
+
 [System.Serializable]
 public abstract class EnemyPattern
 {
     public string patternName = "Pattern";
     public float cooldown = 5.0f;
     public float requiredChargeTime = 1.0f;
-    public Sprite patternIconSprite;
+    public PatternIcon patternIcon = PatternIcon.Attack;
 
     [Range(0, 100)] public int triggerChance = 30;
     [HideInInspector] public float lastExecutionTime = -9999f;

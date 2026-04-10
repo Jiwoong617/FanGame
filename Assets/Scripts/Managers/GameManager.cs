@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     private static GameManager instance = null;
     public static GameManager Instance { get { return instance; } }
+    public static InputManager Input { get; private set;  }
     public static MySceneManager Scene { get; private set; }
     public static BattleManager Battle { get; private set; }
     public static RewardManager Reward { get; private set; }
@@ -75,6 +76,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        Input?.OnUpdate();
+
         switch (State)
         {
             case GameState.Battle:
@@ -99,6 +102,7 @@ public class GameManager : MonoBehaviour
 
     private void InitializeManagers()
     {
+        Input = new InputManager();
         Scene = new MySceneManager();
         Battle = new BattleManager();
         Reward = new RewardManager();

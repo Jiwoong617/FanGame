@@ -113,16 +113,12 @@ public class PlayerUnit : CombatUnit
     {
         if (state != PlayerState.Idle) return;
 
-        // TODO: 입력 매니저 연동
-        if (Keyboard.current != null)
-        {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-                UseAbility(ActionType.Dodge);
-            else if (Keyboard.current.qKey.wasPressedThisFrame)
-                UseAbility(ActionType.Parry);
-            else if (Keyboard.current.fKey.wasPressedThisFrame)
-                UseAbility(ActionType.Skill);
-        }
+        if (GameManager.Input.DodgePressed)
+            UseAbility(ActionType.Dodge);
+        else if (GameManager.Input.ParryPressed)
+            UseAbility(ActionType.Parry);
+        else if (GameManager.Input.SkillPressed)
+            UseAbility(ActionType.Skill);
     }
 
     private void UseAbility(ActionType type)
