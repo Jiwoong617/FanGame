@@ -389,4 +389,17 @@ public abstract class CombatUnit : MonoBehaviour
     {
         isAttacking = state;
     }
+
+    public List<StatusEffect> GetCurrentStatusEffects()
+    {
+        List<StatusEffect> effects = new List<StatusEffect>();
+        for (int i = 0; i < abilities.Count; i++)
+        {
+            if (abilities[i] is StatusEffect status && !status.IsFinished)
+            {
+                effects.Add(status);
+            }
+        }
+        return effects;
+    }
 }
