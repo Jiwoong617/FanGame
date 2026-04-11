@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ff17adf93db251346b2bf6bb14d47f26
+guid: 3605e22bdf970844f928389a8e668a31
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5603869270675790676
-    second: DurahanIdle_Head_0
+      213: 5633444362962482318
+    second: GeckoPassiveIcon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 256
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 512
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: DurahanIdle_Head_0
+      name: GeckoPassiveIcon_0
       rect:
         serializedVersion: 2
-        x: 646
-        y: 667
-        width: 209
-        height: 261
+        x: 5
+        y: 0
+        width: 999
+        height: 880
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 45b9b5e3961f4cd40800000000000000
-      internalID: 5603869270675790676
+      spriteID: e843e440dc30e2e40800000000000000
+      internalID: 5633444362962482318
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      DurahanIdle_Head_0: 5603869270675790676
+      GeckoPassiveIcon_0: 5633444362962482318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

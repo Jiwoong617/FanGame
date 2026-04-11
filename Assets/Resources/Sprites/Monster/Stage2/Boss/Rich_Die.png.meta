@@ -106,10 +106,10 @@ TextureImporter:
       name: Rich_Die_0
       rect:
         serializedVersion: 2
-        x: 69
-        y: 63
-        width: 1258
-        height: 567
+        x: 138
+        y: 79
+        width: 1201
+        height: 541
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +128,10 @@ TextureImporter:
       name: Rich_Die_1
       rect:
         serializedVersion: 2
-        x: 738
-        y: 0
-        width: 740
-        height: 224
+        x: 777
+        y: 16
+        width: 706
+        height: 216
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

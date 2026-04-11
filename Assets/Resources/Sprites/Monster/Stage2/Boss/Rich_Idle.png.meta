@@ -103,10 +103,10 @@ TextureImporter:
       name: Rich_Idle_0
       rect:
         serializedVersion: 2
-        x: 538
-        y: 131
-        width: 928
-        height: 1279
+        x: 601
+        y: 184
+        width: 801
+        height: 1104
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

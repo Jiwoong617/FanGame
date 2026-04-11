@@ -103,10 +103,10 @@ TextureImporter:
       name: Rich_Attack_0
       rect:
         serializedVersion: 2
-        x: 25
-        y: 128
-        width: 1441
-        height: 1275
+        x: 162
+        y: 184
+        width: 1240
+        height: 1098
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
