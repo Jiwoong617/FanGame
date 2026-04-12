@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: YellowDuck
   prefab: {fileID: 6107110035909089572, guid: 78c70a737e3b6894d846faa8355dc1eb, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
-  attackVFXType: 0
+  unitSprite: {fileID: 21300000, guid: d668404b2bd5c2942a2d5d681c439859, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 8d951230fcabcdc4ca2ff66fb422a567, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: c3a9beb5056232847afb50a74c10b2e8, type: 3}
+  attackVFXType: 1
   hp: 60
   defense: 0
   attackDamage: 4

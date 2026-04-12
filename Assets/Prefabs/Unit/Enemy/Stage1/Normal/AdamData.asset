@@ -17,7 +17,7 @@ MonoBehaviour:
   unitSprite: {fileID: 21300000, guid: 87ed935e7cf6c6843a18070744eb7f26, type: 3}
   unitBasicAttackSprite: {fileID: 21300000, guid: 8e1a1a5f8e36b1746997d0c1b70bccb3, type: 3}
   unitDeadSprite: {fileID: 21300000, guid: 13972ed741ab95a44b0eb9ec459e7b06, type: 3}
-  attackVFXType: 1
+  attackVFXType: 0
   hp: 15
   defense: 0
   attackDamage: 6

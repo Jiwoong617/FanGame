@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f3f1bc48d5b54234ab131e1d33c20021, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -161,7 +161,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 1.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -171,7 +171,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 3.5}
   m_EdgeRadius: 0
 --- !u!114 &6254284788820507192
 MonoBehaviour:
@@ -190,6 +190,7 @@ MonoBehaviour:
   - rid: 1747107561126232146
   - rid: 1747107561126232147
   - rid: 1747107561126232149
+  - rid: 7928554444680069121
   isUsePatternFirst: 1
   references:
     version: 2
@@ -200,7 +201,7 @@ MonoBehaviour:
         patternName: MagicMissile
         cooldown: 15
         requiredChargeTime: 6
-        patternIconSprite: {fileID: 0}
+        patternIcon: 0
         triggerChance: 1
         lastExecutionTime: -9999
         conditions: []
@@ -214,7 +215,7 @@ MonoBehaviour:
         patternName: Bondage
         cooldown: 10
         requiredChargeTime: 2
-        patternIconSprite: {fileID: 0}
+        patternIcon: 5
         triggerChance: 1
         lastExecutionTime: -9999
         conditions: []
@@ -237,13 +238,13 @@ MonoBehaviour:
         patternName: Summon
         cooldown: 18
         requiredChargeTime: 5
-        patternIconSprite: {fileID: 0}
+        patternIcon: 12
         triggerChance: 100
         lastExecutionTime: -9999
         conditions:
         - rid: 1747107561126232151
         - rid: 1747107561126232153
-        actionSprite: {fileID: 0}
+        actionSprite: {fileID: 21300000, guid: 6235b2ed447d15c498f71891edd7ced5, type: 3}
         selfDamageAmount: 30
         randomSummonPool:
         - {fileID: 11400000, guid: fdb508da86e541d42899b3e302fb0c5b, type: 2}
@@ -259,6 +260,20 @@ MonoBehaviour:
       type: {class: AllyCountCondition, ns: , asm: Assembly-CSharp}
       data:
         maxCount: 3
+    - rid: 7928554444680069121
+      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: DefaultAttack
+        cooldown: 0.2
+        requiredChargeTime: 1
+        patternIcon: 0
+        triggerChance: 1
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        damagePercent: 1
+        damageType: 0
+        useMoveAnim: 0
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

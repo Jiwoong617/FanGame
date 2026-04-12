@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: DurahanHead
   prefab: {fileID: 6107110035909089572, guid: cb36adbb88eb6ff48bce77e43a29fe17, type: 3}
-  unitSprite: {fileID: 21300000, guid: ff17adf93db251346b2bf6bb14d47f26, type: 3}
-  unitBasicAttackSprite: {fileID: 21300000, guid: ff17adf93db251346b2bf6bb14d47f26, type: 3}
-  unitDeadSprite: {fileID: 21300000, guid: ff17adf93db251346b2bf6bb14d47f26, type: 3}
+  unitSprite: {fileID: 21300000, guid: c6995c0b1ec2b60458e5be5a36178b89, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: c6995c0b1ec2b60458e5be5a36178b89, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: c6995c0b1ec2b60458e5be5a36178b89, type: 3}
   attackVFXType: 1
   hp: 100
   defense: 0
