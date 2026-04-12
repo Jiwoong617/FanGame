@@ -1,19 +1,16 @@
 fileFormatVersion: 2
-guid: e946356e2e6bce349bbace5c8b542649
+guid: 77671885a4023254d9b4d30d57907eb4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8419860799536027804
-    second: Pposinja_Attack_0
+      213: -4164359481763078826
+    second: Pposinja_Attack 1_0
   - first:
-      213: -6446677208993691808
-    second: Pposinja_Attack_1
+      213: 31074031385054634
+    second: Pposinja_Attack 1_1
   - first:
-      213: 4339678606265378313
-    second: Pposinja_Attack_2
-  - first:
-      213: -155395117524781015
-    second: Pposinja_Attack_3
+      213: 4387484727985933380
+    second: Pposinja_Attack 1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +106,57 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Pposinja_Attack_0
+      name: Pposinja_Attack 1_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 253
+        width: 360
+        height: 151
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65d5b747d193536c0800000000000000
+      internalID: -4164359481763078826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pposinja_Attack 1_1
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 97
+        width: 1475
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aad027abaa56e6000800000000000000
+      internalID: 31074031385054634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Pposinja_Attack 1_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1400
-        height: 1422
+        y: 202
+        width: 23
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,74 +165,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4672b619635a62b80800000000000000
-      internalID: -8419860799536027804
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pposinja_Attack_1
-      rect:
-        serializedVersion: 2
-        x: 311
-        y: 1263
-        width: 211
-        height: 207
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 06703500c3dc886a0800000000000000
-      internalID: -6446677208993691808
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pposinja_Attack_2
-      rect:
-        serializedVersion: 2
-        x: 1105
-        y: 0
-        width: 342
-        height: 167
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9066fc523b2a93c30800000000000000
-      internalID: 4339678606265378313
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pposinja_Attack_3
-      rect:
-        serializedVersion: 2
-        x: 1410
-        y: 119
-        width: 52
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 928fa14c6fce7ddf0800000000000000
-      internalID: -155395117524781015
+      spriteID: 44c8d0d3d1a73ec30800000000000000
+      internalID: 4387484727985933380
       vertices: []
       indices: 
       edges: []
@@ -210,10 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Pposinja_Attack_0: -8419860799536027804
-      Pposinja_Attack_1: -6446677208993691808
-      Pposinja_Attack_2: 4339678606265378313
-      Pposinja_Attack_3: -155395117524781015
+      Pposinja_Attack 1_0: -4164359481763078826
+      Pposinja_Attack 1_1: 31074031385054634
+      Pposinja_Attack 1_2: 4387484727985933380
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

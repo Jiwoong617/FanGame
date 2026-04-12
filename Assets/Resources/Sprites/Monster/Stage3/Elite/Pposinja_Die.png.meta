@@ -103,10 +103,10 @@ TextureImporter:
       name: Pposinja_Die_0
       rect:
         serializedVersion: 2
-        x: 19
-        y: 1
-        width: 1963
-        height: 1637
+        x: 515
+        y: 102
+        width: 984
+        height: 820
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

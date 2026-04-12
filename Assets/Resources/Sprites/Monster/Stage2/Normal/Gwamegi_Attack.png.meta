@@ -112,10 +112,10 @@ TextureImporter:
       name: Gwamegi_Attack_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 502
-        width: 111
-        height: 233
+        x: 135
+        y: 505
+        width: 96
+        height: 205
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -134,10 +134,10 @@ TextureImporter:
       name: Gwamegi_Attack_1
       rect:
         serializedVersion: 2
-        x: 101
-        y: 399
-        width: 862
-        height: 1093
+        x: 183
+        y: 415
+        width: 762
+        height: 965
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,10 +156,10 @@ TextureImporter:
       name: Gwamegi_Attack_2
       rect:
         serializedVersion: 2
-        x: 469
-        y: 370
-        width: 363
-        height: 155
+        x: 507
+        y: 389
+        width: 321
+        height: 134
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,10 +178,10 @@ TextureImporter:
       name: Gwamegi_Attack_3
       rect:
         serializedVersion: 2
-        x: 417
-        y: 0
-        width: 774
-        height: 295
+        x: 183
+        y: 4
+        width: 999
+        height: 372
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
