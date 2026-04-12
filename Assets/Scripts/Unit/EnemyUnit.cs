@@ -168,7 +168,11 @@ public class EnemyUnit : CombatUnit
 
         if (combatUI != null)
         {
-            Sprite patternSprite = GameManager.SpriteData.GetSprite(nextPattern.patternIcon, "Icons/EnemyPattern");
+            Sprite patternSprite = null;
+            if(nextPattern != null)
+                patternSprite = GameManager.SpriteData.GetSprite(nextPattern.patternIcon, "Icons/EnemyPattern");
+            else
+                patternSprite = GameManager.SpriteData.GetSprite(PatternIcon.Attack, "Icons/EnemyPattern");
             combatUI.SetIntentIcon(patternSprite);
         }
     }

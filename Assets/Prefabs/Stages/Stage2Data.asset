@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf5bc5e40aa4de439417b63a598dcf3, type: 3}
+  m_Name: Stage2Data
+  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  normalEnemyPool:
+  - enemies:
+    - {fileID: 11400000, guid: b5e1d4b8a62a832499ff37221c5ad3dc, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 154be1db114d38748b6211bf18ef536a, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: b5c4faad768912b43b57ba4c03c634b2, type: 2}
+    - {fileID: 11400000, guid: d6fb31ebc61a9a04ba35e92159e831c7, type: 2}
+    - {fileID: 11400000, guid: fdb508da86e541d42899b3e302fb0c5b, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: cac913b50c9b74146be5da236edaf425, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 2d983fbbbd4531546bef8a34bd9b9627, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 5f7c61a67b6a7644fb095116996042fa, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 04019e4007aabd646ad90d38002f7575, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: b8dbc45d73dabe94b850317e6b0dad8e, type: 2}
+  eliteEnemyPool:
+  - enemies:
+    - {fileID: 11400000, guid: a2411eece73601343a7180318989fa85, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 5c9cb37d470a2b643be47750cd184d07, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 8e14a6906df68534b8a7d8eb42e36901, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 8877c9baee009b54b90053876c3c0e68, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 51b324ab581a4f74ab15c6e95c91407e, type: 2}
+  bossPool:
+  - enemies:
+    - {fileID: 11400000, guid: 679475fafc57c3a46a4c3b9349c8c3e3, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: b29c9f478dcafb94ba3a2242a385bcc4, type: 2}

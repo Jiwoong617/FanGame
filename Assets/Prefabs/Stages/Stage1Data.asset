@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf5bc5e40aa4de439417b63a598dcf3, type: 3}
+  m_Name: Stage1Data
+  m_EditorClassIdentifier: Assembly-CSharp::StageData
+  normalEnemyPool:
+  - enemies:
+    - {fileID: 11400000, guid: 55cf5f821074d7b4a99395c8dc486e7c, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: dae757a8ae571484c9a68d5af3988095, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 565068e52f800684489776b50c98470b, type: 2}
+    - {fileID: 11400000, guid: 565068e52f800684489776b50c98470b, type: 2}
+    - {fileID: 11400000, guid: 565068e52f800684489776b50c98470b, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: b50e5c1ec1501b04c8ebbbd8d113ea7c, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: a0564e91ef928054999a8b2f1e57e3c6, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 0e15d2da21821b94686551366e0be602, type: 2}
+    - {fileID: 11400000, guid: 0e15d2da21821b94686551366e0be602, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 63fe05ae36f9b1b4cbf130333d2bd493, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: c046212a56beb514f9d3bb8e7de317eb, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: c576bc57ebd9ca84b8cd795035ccf24d, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 4bbd69b5c1a7d1e4db30eb71e415e638, type: 2}
+  eliteEnemyPool:
+  - enemies:
+    - {fileID: 11400000, guid: 11eabdc3f0aab04438e379451bb1d7c7, type: 2}
+    - {fileID: 11400000, guid: 11eabdc3f0aab04438e379451bb1d7c7, type: 2}
+    - {fileID: 11400000, guid: 11eabdc3f0aab04438e379451bb1d7c7, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 82d06c96bf23ef54d99680d9ddf588d5, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: c9d6269664178e04fb807bd27b40ffaa, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: 349c3abb68f16ff44afc4e8124043914, type: 2}
+  bossPool:
+  - enemies:
+    - {fileID: 11400000, guid: 433c8eb90f4531248bb7e6cf2fe5eb6d, type: 2}
+  - enemies:
+    - {fileID: 11400000, guid: a268ce95c02841e499e31deae9fd52be, type: 2}
