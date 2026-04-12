@@ -22,8 +22,8 @@ MonoBehaviour:
   defense: 0
   attackDamage: 2
   attackSpeed: 1
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 5
+  criticalDamage: 150
   unitDescription: Mole
   startingAbilities: []
   references:

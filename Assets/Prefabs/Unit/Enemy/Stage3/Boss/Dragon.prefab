@@ -192,9 +192,9 @@ MonoBehaviour:
   - rid: 1747107727857156189
   - rid: 1747107727857156192
   isUsePatternFirst: 0
-  sleepSprite: {fileID: 0}
-  fearSprite: {fileID: 0}
-  awakeSprite: {fileID: 0}
+  sleepSprite: {fileID: 21300000, guid: aaac61f951ef3ba4eb5590d77d27a7a8, type: 3}
+  fearSprite: {fileID: 21300000, guid: dd55a169145a32740af8ed5220122236, type: 3}
+  awakeSprite: {fileID: 21300000, guid: 32e29cce8be4a5443bc255620797051d, type: 3}
   references:
     version: 2
     RefIds:

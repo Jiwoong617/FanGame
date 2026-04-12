@@ -22,8 +22,8 @@ MonoBehaviour:
   defense: 2
   attackDamage: 10
   attackSpeed: 0.7
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 10
+  criticalDamage: 150
   unitDescription: 
   startingAbilities:
   - rid: 1747107561126232141
@@ -34,9 +34,10 @@ MonoBehaviour:
       type: {class: DurahanPhasePassive, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 4
-        passiveIcon: {fileID: 0}
-        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
-        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
+        passiveIcon: {fileID: 21300000, guid: fbb0ef0878e17ca43b86d517354254b3, type: 3}
+        passiveName: "\uBA38\uB9AC"
+        passiveDescription: "\uCCB4\uB825\uC774 50% \uC774\uD558\uB85C \uB0B4\uB824\uAC00\uBA74
+          \uBA38\uB9AC\uB97C \uC18C\uD658\uD55C\uB2E4."
         hpThreshold: 0.5
         headUnitData: {fileID: 11400000, guid: 0f6a7ddf0dd45c14f995f3d4030cb016, type: 2}
         invincibleBuff:

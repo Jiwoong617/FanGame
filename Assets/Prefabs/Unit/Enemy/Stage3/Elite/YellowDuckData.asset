@@ -22,7 +22,7 @@ MonoBehaviour:
   defense: 0
   attackDamage: 4
   attackSpeed: 1
-  criticalChance: 0
+  criticalChance: 20
   criticalDamage: 150
   unitDescription: 
   startingAbilities: []

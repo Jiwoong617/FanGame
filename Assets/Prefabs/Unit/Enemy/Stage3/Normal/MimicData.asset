@@ -22,8 +22,8 @@ MonoBehaviour:
   defense: 0
   attackDamage: 7
   attackSpeed: 1
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 20
+  criticalDamage: 150
   unitDescription: 
   startingAbilities:
   - rid: 1747107541381808239
@@ -34,9 +34,10 @@ MonoBehaviour:
       type: {class: TriggerEventPassive, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
-        passiveIcon: {fileID: 0}
-        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
-        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
+        passiveIcon: {fileID: 21300000, guid: 2ad38fc0a1e96c14bbd4201abc6146a4, type: 3}
+        passiveName: "\uD749\uB0B4\uB0B4\uAE30"
+        passiveDescription: "\uBC1B\uB294 \uB370\uBBF8\uC9C0 50% \uAC10\uC18C \uBC0F
+          \uD589\uB3D9 \uC608\uCE21 \uBD88\uAC00"
         useHeal: 0
         isPercentHeal: 0
         healAmount: 0

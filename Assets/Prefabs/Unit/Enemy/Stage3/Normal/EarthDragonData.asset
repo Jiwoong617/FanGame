@@ -22,8 +22,8 @@ MonoBehaviour:
   defense: 0
   attackDamage: 2
   attackSpeed: 1
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 20
+  criticalDamage: 150
   unitDescription: 
   startingAbilities:
   - rid: 1747107541381808260
@@ -34,7 +34,8 @@ MonoBehaviour:
       type: {class: MaxDamageCapPassive, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 3
-        passiveIcon: {fileID: 0}
-        passiveName: "\uD328\uC2DC\uBE0C \uB2A5\uB825"
-        passiveDescription: "\uD328\uC2DC\uBE0C \uC124\uBA85"
+        passiveIcon: {fileID: 21300000, guid: dbc34144df4ea364597af7d629aaef6d, type: 3}
+        passiveName: "\uD734\uC2DD"
+        passiveDescription: "\uD53C\uACA9 \uC2DC \uCD5C\uB300 8\uC758 \uB370\uBBF8\uC9C0\uB9CC
+          \uC785\uC74C"
         maxDamageCap: 8
