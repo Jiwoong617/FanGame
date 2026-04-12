@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e185ffe8fd835de4a996f6b3846cd97d
+guid: 34fc51c3960e5e249b3d1d810ebcd1c6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8974730349484971023
-    second: Stage2_Battle_0
+      213: 2622753758184894013
+    second: anim1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stage2_Battle_0
+      name: anim1_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 54
         y: 0
-        width: 1376
-        height: 768
+        width: 1346
+        height: 1400
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1fbe70c1c4a537380800000000000000
-      internalID: -8974730349484971023
+      spriteID: d3e6ee9a5a4e56420800000000000000
+      internalID: 2622753758184894013
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Stage2_Battle_0: -8974730349484971023
+      anim1_0: 2622753758184894013
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
