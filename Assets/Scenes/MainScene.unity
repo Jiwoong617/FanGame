@@ -471,11 +471,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 603558823}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4a689541f9e05649be410f05b0168e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4d1274792499cda42828379e135a3f25, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CharacterHorizontalWave
-  frequency: 2
-  amplitude: 0.05
+  m_EditorClassIdentifier: Assembly-CSharp::DotweenElasticUI
+  stretchMultiplier: 0.002
+  maxStretch: 2
+  returnDuration: 0.6
+  elasticity: 0.5
+  vibrato: 10
 --- !u!1 &934501389
 GameObject:
   m_ObjectHideFlags: 0
