@@ -25,6 +25,9 @@ public class EndingManager : MonoBehaviour
             return;
         }
 
+        if (GameManager.Input != null)
+            GameManager.Input.OnEndingNextCutTriggered += OnScreenClick;
+
         pageIndex = 0;
         LoadPage(pageIndex);
 
@@ -32,19 +35,12 @@ public class EndingManager : MonoBehaviour
         OnScreenClick();
     }
 
-    private void Update()
+    private void OnDestroy()
     {
-        if (Time.timeScale == 0) return;
-
-        if (Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            OnScreenClick();
-        }
-        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-        {
-            OnScreenClick();
-        }
+        if (GameManager.Instance != null && GameManager.Input != null)
+            GameManager.Input.OnEndingNextCutTriggered -= OnScreenClick;
     }
+
 
     private void LoadEndingData()
     {
@@ -87,7 +83,7 @@ public class EndingManager : MonoBehaviour
 
     private void OnScreenClick()
     {
-        if (currentPageScript == null) return;
+        if (Time.timeScale == 0 || currentPageScript == null) return;
 
         bool success = currentPageScript.ShowNextCut();
         // 컷 없으면 다음 으로

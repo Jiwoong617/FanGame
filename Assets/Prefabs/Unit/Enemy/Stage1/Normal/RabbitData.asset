@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Rabbit
   prefab: {fileID: 6107110035909089572, guid: a79db4d497fd99348aba692a1a9dcccf, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 9c9a1d4a7f7348943a4e6414b9035fa9, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 652a14b78d54866498a3e882d1a3010d, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 4510a69e769c82f45a98b71e9599ccc4, type: 3}
   attackVFXType: 1
   hp: 20
   defense: 0
   attackDamage: 1
   attackSpeed: 1
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 5
+  criticalDamage: 150
   unitDescription: adf
   startingAbilities: []
   references:

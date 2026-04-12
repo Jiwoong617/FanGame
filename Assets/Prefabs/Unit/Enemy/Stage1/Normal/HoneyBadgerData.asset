@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: HoneyBadger
   prefab: {fileID: 6107110035909089572, guid: 885aeba308bead4499ed116d53361418, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 6a7d39aacdee63f4a9ee417896b03691, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 1d78380dd72efd345bd194d4807d8c3e, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 30174d5eff11f3a4099eb04ba6e1f86f, type: 3}
   attackVFXType: 0
   hp: 20
   defense: 0
   attackDamage: 2
   attackSpeed: 1
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 5
+  criticalDamage: 150
   unitDescription: adf
   startingAbilities: []
   references:

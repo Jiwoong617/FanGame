@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
+  m_Name: BluetongueData
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  unitName: BabyDragon
+  prefab: {fileID: 6107110035909089572, guid: fc669a14f05850649b639b3ea9a8da69, type: 3}
+  unitSprite: {fileID: 21300000, guid: 4e86f610e27d4264a906034bbc96f623, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 28e234ccbed1f0649a5deaeb03344290, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 06a1f739cfabf5640b2eca0c2aea1655, type: 3}
+  attackVFXType: 0
+  hp: 60
+  defense: 0
+  attackDamage: 3
+  attackSpeed: 1
+  criticalChance: 20
+  criticalDamage: 150
+  unitDescription: 
+  startingAbilities: []
+  references:
+    version: 2
+    RefIds: []

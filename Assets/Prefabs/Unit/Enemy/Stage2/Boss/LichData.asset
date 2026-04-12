@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Lich
   prefab: {fileID: 6107110035909089572, guid: 80183dc286de5ea46be1de6cde057f68, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: f3f1bc48d5b54234ab131e1d33c20021, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 15e3a81cc13b9664fa59f851d0a14937, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: da5d19cb35ddd0844bbcdea401ba016b, type: 3}
   attackVFXType: 2
   hp: 300
   defense: 3
   attackDamage: 6
   attackSpeed: 1
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 10
+  criticalDamage: 150
   unitDescription: 
   startingAbilities:
   - rid: 1747107561126232150
@@ -34,7 +34,10 @@ MonoBehaviour:
       type: {class: TriggerEventPassive, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 10
-        passiveIcon: {fileID: 0}
+        passiveIcon: {fileID: 21300000, guid: 5db754f86877884408f154051170319d, type: 3}
+        passiveName: "\uC601\uD63C \uD761\uC218"
+        passiveDescription: "\uC544\uAD70 \uC2A4\uCF08\uB808\uD1A4 \uC0AC\uB9DD \uC2DC
+          \uCCB4\uB825 \uD68C\uBCF5"
         useHeal: 1
         isPercentHeal: 0
         healAmount: 10

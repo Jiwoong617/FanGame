@@ -17,6 +17,11 @@ public class DamageReductionEffect : StatusEffect
         this.stacks = stack;
     }
 
+    protected override void OnAdded()
+    {
+        GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Buff, 0, Color.white);
+    }
+
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
         if (eventType == combatEvent && ctx.target == owner)

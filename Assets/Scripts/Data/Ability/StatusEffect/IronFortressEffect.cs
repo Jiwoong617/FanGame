@@ -25,7 +25,8 @@ public class IronFortressEffect : StatusEffect
         {
             if (ctx.value > 0 && stacks > 0)
             {
-                Debug.Log($"[철옹성] {owner.name} 데미지 무효화! (남은 횟수: {stacks - 1})");
+                GameManager.VFX.PlayEffect(ctx.source.transform.position, owner.transform.position, AttackVFXType.IronFortress, 0f, Color.white);
+
                 ctx.value = 0;
                 if (ctx.debuffs != null && ctx.debuffs.Count > 0)
                     ctx.debuffs = null;

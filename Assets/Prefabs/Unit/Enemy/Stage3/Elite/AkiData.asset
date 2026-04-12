@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Aki
   prefab: {fileID: 6107110035909089572, guid: ac6f73c55c852ea499fb4e3d62cdb7f3, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
-  attackVFXType: 0
+  unitSprite: {fileID: 21300000, guid: f4ff30c33cd18974eb3c098bff53eb3d, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 865faae1ebc8b1140b0ddeab01cf1984, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 467eedfcab4d7504d88e80a1783820e1, type: 3}
+  attackVFXType: 2
   hp: 400
   defense: 0
   attackDamage: 5
   attackSpeed: 1
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 20
+  criticalDamage: 150
   unitDescription: 
   startingAbilities:
   - rid: 1747107561126232154
@@ -34,7 +34,10 @@ MonoBehaviour:
       type: {class: AkiPassive, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
-        passiveIcon: {fileID: 0}
+        passiveIcon: {fileID: 21300000, guid: 709f7b6c5313f9241ac9d1464339a64c, type: 3}
+        passiveName: "\uD3C9\uB4F1"
+        passiveDescription: "10\uCD08\uB9C8\uB2E4 \uBAA8\uB4E0 \uCE90\uB9AD\uD130
+          \uBC1B\uB294 \uD53C\uD574 100%\uC99D\uAC00"
         damageDebuff:
           rid: 1747107561126232155
         applyInterval: 10

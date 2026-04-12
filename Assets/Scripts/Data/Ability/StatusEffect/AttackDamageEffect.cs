@@ -26,6 +26,10 @@ public class AttackDamageEffect : StatusEffect
     protected override void OnAdded()
     {
         ApplyModifier();
+        if (effectType == EffectType.AttackUp)
+            GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Buff, 0, Color.white);
+        else
+            GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Debuff, 0, Color.white);
     }
 
     protected override void OnStackUpdated()

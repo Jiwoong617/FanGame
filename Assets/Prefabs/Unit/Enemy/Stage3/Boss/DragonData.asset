@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
+  m_Name: DragonData
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  unitName: Dragon
+  prefab: {fileID: 6107110035909089572, guid: d367b5b825071754f9c15be698e93959, type: 3}
+  unitSprite: {fileID: 21300000, guid: aaac61f951ef3ba4eb5590d77d27a7a8, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: ee2642c84f976364bb34b1e0031cfebc, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: d134644b8b85a99429be353dd8819260, type: 3}
+  attackVFXType: 1
+  hp: 400
+  defense: 5
+  attackDamage: 10
+  attackSpeed: 1
+  criticalChance: 10
+  criticalDamage: 150
+  unitDescription: 
+  startingAbilities:
+  - rid: 1747107727857156106
+  - rid: 1747107727857156179
+  - rid: 1747107727857156183
+  - rid: 1747107727857156186
+  references:
+    version: 2
+    RefIds:
+    - rid: 1747107727857156106
+      type: {class: MaxDamageCapPassive, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 3
+        passiveIcon: {fileID: 21300000, guid: 227121024238017458438e8958694ce4, type: 3}
+        passiveName: "\uB4DC\uB798\uACE4 \uBE44\uB298"
+        passiveDescription: "\uD55C \uBC88 \uACF5\uACA9\uC5D0 \uCD5C\uB300 15\uC758
+          \uB370\uBBF8\uC9C0\uB9CC \uBC1B\uC74C"
+        maxDamageCap: 15
+    - rid: 1747107727857156179
+      type: {class: DragonSleepPassive, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 4
+        passiveIcon: {fileID: 21300000, guid: c017d25630281e74e9883e8c240a0645, type: 3}
+        passiveName: "\uC7A0\uAFB8\uB7EC\uAE30"
+        passiveDescription: "\uC774 \uB4DC\uB798\uACE4\uC740 \uC790\uACE0\uC788\uC2B5\uB2C8\uB2E4."
+        wakeUpDebuffs:
+        - rid: 1747107727857156180
+        - rid: 1747107727857156181
+    - rid: 1747107727857156180
+      type: {class: DisarmEffect, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        effectType: 4
+        duration: 10
+        stacks: 1
+        effectValue: 0
+        isPermanent: 0
+    - rid: 1747107727857156181
+      type: {class: DamageAmplificationEffect, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 3
+        effectType: 11
+        duration: 10
+        stacks: 1
+        effectValue: 0.5
+        isPermanent: 0
+    - rid: 1747107727857156183
+      type: {class: DragonScalePassive, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        passiveIcon: {fileID: 21300000, guid: cab6e47c720080548909a43d6b67f788, type: 3}
+        passiveName: "\uC775\uC219\uD55C \uACE0\uD1B5"
+        passiveDescription: "5\uD68C \uD53C\uACA9 \uC2DC \uBB34\uD6A8\uD654 1\uC2A4\uD0DD
+          \uD68D\uB4DD"
+        buff:
+          rid: 1747107727857156184
+    - rid: 1747107727857156184
+      type: {class: IronFortressEffect, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 3
+        effectType: 1
+        duration: -1
+        stacks: 1
+        effectValue: 0
+        isPermanent: 0
+    - rid: 1747107727857156186
+      type: {class: PassiveAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        passiveIcon: {fileID: 21300000, guid: a1cbb2444a6b7d24ca6216e5468e3c1b, type: 3}
+        passiveName: "\uB4DC\uB798\uACE4"
+        passiveDescription: "\uB514\uBC84\uD504\uC5D0 \uBA74\uC5ED\uC785\uB2C8\uB2E4."

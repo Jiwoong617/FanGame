@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
+  m_Name: YellowDuck3Data
+  m_EditorClassIdentifier: Assembly-CSharp::UnitData
+  unitName: YellowDuck3
+  prefab: {fileID: 6107110035909089572, guid: 7d29116c54cdd314d99e7e110d9e8ea7, type: 3}
+  unitSprite: {fileID: 21300000, guid: 5590097bc4534574788af33374396416, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: f820ec2b693b87a428b55f8fc055c094, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: be80621c59229c343aee70b2076fa757, type: 3}
+  attackVFXType: 1
+  hp: 60
+  defense: 0
+  attackDamage: 4
+  attackSpeed: 1
+  criticalChance: 20
+  criticalDamage: 150
+  unitDescription: 
+  startingAbilities: []
+  references:
+    version: 2
+    RefIds: []

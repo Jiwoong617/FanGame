@@ -17,7 +17,7 @@ MonoBehaviour:
   unitSprite: {fileID: 21300000, guid: 037d4ee150dabb941a5b3deefd7eb812, type: 3}
   unitBasicAttackSprite: {fileID: 21300000, guid: a5207cc579ad3594f810fbd9acb39329, type: 3}
   unitDeadSprite: {fileID: 21300000, guid: 15774d397d60d084692fcf3b596b6376, type: 3}
-  attackVFXType: 5
+  attackVFXType: 13
   hp: 20
   defense: 0
   attackDamage: 3
@@ -35,7 +35,6 @@ MonoBehaviour:
   - rid: 8549445450257924180
   - rid: 8549445694374805577
   unitBackSprite: {fileID: 21300000, guid: 039b49f30d311434e8c2b299fea879b5, type: 3}
-  attackVFXSprite: {fileID: 21300000, guid: 25d1ac9cc59f0fa448934510723ed008, type: 3}
   unitSkillSprite: {fileID: 21300000, guid: ca427feeefe4af444bb7311a7a8f19ba, type: 3}
   unitParrySprite: {fileID: 21300000, guid: dca14ee7376e6fb4ca373a24fcdc2e96, type: 3}
   stamina: 20
@@ -72,4 +71,3 @@ MonoBehaviour:
         combatEvent: 0
         actionType: 3
         skillIcon: {fileID: -7629144010981688421, guid: 57da031f95fe2834e81ad93995bbd6fa, type: 3}
-        effectSprite: {fileID: 21300000, guid: b8910389940f282448519a7bf090e115, type: 3}

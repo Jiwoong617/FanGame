@@ -1,4 +1,6 @@
-﻿public class ReflectEffect : StatusEffect
+﻿using UnityEngine;
+
+public class ReflectEffect : StatusEffect
 {
     public ReflectEffect()
     {
@@ -31,6 +33,8 @@
             // 반사 데미지는 고정뎀/ 회피 패리 불가로
             CombatEventContext reflectCtx = new CombatEventContext(owner, ctx.source, reflectAmount, DamageType.Fixed, true);
             ctx.source.TakeDamage(reflectCtx);
+
+            GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Reflect, 0f, Color.white);
         }
     }
 }

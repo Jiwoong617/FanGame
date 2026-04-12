@@ -81,8 +81,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.49999988, b: 0.49999988, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 9c6e8b80a8acea24ba9862499e08d18b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -161,7 +161,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.68}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -171,7 +171,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.55, y: 2}
   m_EdgeRadius: 0
 --- !u!114 &6254284788820507192
 MonoBehaviour:
@@ -187,37 +187,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
   patterns:
-  - rid: 1747107541381808231
+  - rid: 7928554444680069123
   - rid: 1747107541381808232
   isUsePatternFirst: 0
   references:
     version: 2
     RefIds:
-    - rid: 1747107541381808231
-      type: {class: AttackPattern, ns: , asm: Assembly-CSharp}
-      data:
-        patternName: SpinAttack
-        cooldown: 9
-        requiredChargeTime: 2.5
-        patternIconSprite: {fileID: 0}
-        triggerChance: 30
-        lastExecutionTime: -9999
-        conditions: []
-        actionSprite: {fileID: 0}
-        damagePercent: 2
-        damageType: 0
-        useMoveAnim: 1
     - rid: 1747107541381808232
       type: {class: DebuffPattern, ns: , asm: Assembly-CSharp}
       data:
         patternName: Fuckyou
         cooldown: 10
         requiredChargeTime: 1
-        patternIconSprite: {fileID: 0}
+        patternIcon: 5
         triggerChance: 30
         lastExecutionTime: -9999
         conditions: []
-        actionSprite: {fileID: 0}
+        actionSprite: {fileID: 21300000, guid: f1bbcb9a497b4b644a184b2dc328f716, type: 3}
         debuffs:
         - rid: 1747107541381808233
         useMoveAnim: 0
@@ -230,6 +216,29 @@ MonoBehaviour:
         stacks: 1
         effectValue: 0
         isPermanent: 0
+    - rid: 7928554444680069123
+      type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
+      data:
+        patternName: Pattern
+        cooldown: 9
+        requiredChargeTime: 2.5
+        patternIcon: 9
+        triggerChance: 30
+        lastExecutionTime: -9999
+        conditions: []
+        actionSprite: {fileID: 0}
+        onHit: 1
+        onCritical: 1
+        damageType: 0
+        comboSteps:
+        - damagePercent: 1
+          delayBeforeAttack: 0
+        - damagePercent: 1.25
+          delayBeforeAttack: 0.4
+        - damagePercent: 1.5
+          delayBeforeAttack: 0.4
+        - damagePercent: 1.75
+          delayBeforeAttack: 0.4
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

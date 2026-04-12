@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 7dce25e832fa59a4d96b12a97d737eae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c423f2f7e7ad5f743b74ee7f6df36f1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -171,7 +171,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &6254284788820507192
 MonoBehaviour:
@@ -199,7 +199,7 @@ MonoBehaviour:
         patternName: Scratch
         cooldown: 4
         requiredChargeTime: 2
-        patternIconSprite: {fileID: 7465851344183582018, guid: 86493d7e8e9a4f34499b715ff1f5b601, type: 3}
+        patternIcon: 8
         triggerChance: 30
         lastExecutionTime: -9999
         conditions: []
@@ -220,11 +220,11 @@ MonoBehaviour:
         patternName: "\uB545\uAD74\uD30C\uAE30"
         cooldown: 6
         requiredChargeTime: 2
-        patternIconSprite: {fileID: 0}
+        patternIcon: 4
         triggerChance: 30
         lastExecutionTime: -9999
         conditions: []
-        actionSprite: {fileID: 0}
+        actionSprite: {fileID: 21300000, guid: e75467466c9fd3c40a72f7805fc54f6a, type: 3}
         targetType: 0
         buffEffect:
           rid: 7988895932436447309

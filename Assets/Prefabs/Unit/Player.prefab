@@ -163,6 +163,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4716646723113992549}
     m_Modifications:
+    - target: {fileID: 2361331921383849659, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3837743707018266951, guid: 57a7753f834925e42b0c5c553e274b50, type: 3}
       propertyPath: m_Name
       value: CombatUnitUI

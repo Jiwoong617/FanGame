@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: Jellyking
   prefab: {fileID: 6107110035909089572, guid: bcfe5f2cbf38da04aa7341807babf6c2, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: 1f57aba3e07916b4a8b013e87fb51a2b, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 5a96391c5a3ba494dad259cd6b798bb3, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: dcf5264dade29e44ba41c157b3550a95, type: 3}
   attackVFXType: 1
   hp: 50
   defense: 0
   attackDamage: 2
   attackSpeed: 0.5
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 10
+  criticalDamage: 150
   unitDescription: 
   startingAbilities:
   - rid: 7988895978013851719
@@ -35,7 +35,9 @@ MonoBehaviour:
       type: {class: DeathSpawnPassive, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 11
-        passiveIcon: {fileID: 0}
+        passiveIcon: {fileID: 21300000, guid: 3713de350b3f18741bc45b27242cebe5, type: 3}
+        passiveName: "\uC824\uB9AC \uBD84\uC5F4"
+        passiveDescription: "\uC0AC\uB9DD \uC2DC \uC824\uB9AC \uB458 \uC18C\uD658"
         summonList:
         - {fileID: 11400000, guid: 55cf5f821074d7b4a99395c8dc486e7c, type: 2}
         spawnCount: 2
@@ -45,6 +47,8 @@ MonoBehaviour:
       data:
         combatEvent: 0
         passiveIcon: {fileID: 0}
+        passiveName: 
+        passiveDescription: 
         useHeal: 0
         isPercentHeal: 0
         healAmount: 0

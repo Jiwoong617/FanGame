@@ -1,19 +1,38 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public enum AttackVFXType
 {
-    Slash,
-    Smash,
-    Magic,
+    //가장 평범한 공격 이펙트
+    Slash = 0,
+    Smash = 1,
+    Magic = 2,
 
-    Hasiyo,
-    Mone,
-    Rose,
-    Popo,
-    Ryusiho
+    //플레이어 공격 이펙트
+    Hasiyo = 11,
+    Mone = 12,
+    Rose= 13,
+    Popo = 14,
+    Ryusiho = 15,
+
+    //플레이어 스킬 이펙트
+    HasiyoPlant = 16,
+    HasiyoIce = 17,
+    HasiyoMeteo = 18,
+    RoseSkill = 19,
+
+    //버프 관련 이펙트
+    Buff = 30,
+    Debuff = 31,
+    Taunt = 32,
+    Heal = 33,
+    IronFortress = 34,
+    Disarm = 35,
+    Shackle = 36,
+    Reflect = 37,
 }
 
 public class VFXManager
@@ -25,19 +44,12 @@ public class VFXManager
     private float pushHeight = 0.3f;
 
     //Effect 관련
-    private GameObject effectPrefab;
-    private Queue<SimpleEffect> effectPool = new Queue<SimpleEffect>();
-    private Dictionary<AttackVFXType, Sprite> commonSprites = new Dictionary<AttackVFXType, Sprite>();
+    private Dictionary<AttackVFXType, Queue<BaseVFX>> effectPool = new Dictionary<AttackVFXType, Queue<BaseVFX>>();
+
 
     public void Init()
     {
         damageTextPrefab = Resources.Load<GameObject>("DamageText");
-
-        CreateEffectPrefab();
-
-        LoadCommonSprite(AttackVFXType.Slash, "Sprites/VFX/Slash");
-        LoadCommonSprite(AttackVFXType.Smash, "Sprites/VFX/Smash");
-        LoadCommonSprite(AttackVFXType.Magic, "Sprites/VFX/Magic");
     }
 
     #region DamageText
@@ -109,260 +121,65 @@ public class VFXManager
         activeTexts.Remove(dt);
         textPool.Enqueue(dt);
     }
+    #endregion
+
+    #region VFX
+
+    private BaseVFX GetEffect(AttackVFXType type)
+    {
+        if (effectPool.TryGetValue(type, out Queue<BaseVFX> pool) && pool.Count > 0)
+        {
+            BaseVFX eff = pool.Dequeue();
+            eff.gameObject.SetActive(true);
+            return eff;
+        }
+
+        // 풀에 없으면 Resources 폴더에서 동적 로드 
+        // Resources/VFXPrefabs/Hasiyo.prefab   enum이랑 이름 같게 해야됨
+        string path = $"VFXPrefabs/{type.ToString()}";
+        GameObject prefab = Resources.Load<GameObject>(path);
+
+        if (prefab == null)
+        {
+            Debug.LogError($"[VFXManager] {path} 프리팹을 찾을 수 없습니다!");
+            return null;
+        }
+
+        GameObject go = UnityEngine.Object.Instantiate(prefab);
+        BaseVFX vfx = go.GetComponent<BaseVFX>();
+        if (vfx == null)
+        {
+            Debug.LogError($"[VFXManager] {prefab.name} 프리팹에 BaseVFX를 상속받은 스크립트가 없습니다!");
+            return null;
+        }
+
+        vfx.vfxType = type;
+        go.SetActive(true);
+        return vfx;
+    }
+
+    public void ReturnEffect(BaseVFX effect)
+    {
+        effect.gameObject.SetActive(false);
+
+        if (!effectPool.ContainsKey(effect.vfxType))
+            effectPool[effect.vfxType] = new Queue<BaseVFX>();
+
+        effectPool[effect.vfxType].Enqueue(effect);
+    }
+
+    public void PlayEffect(Vector3 attackerPos, Vector3 targetPos, AttackVFXType type, float hitDelay, Color color, Action onHit = null, Action onComplete = null)
+    {
+        BaseVFX effect = GetEffect(type);
+        if (effect != null)
+            effect.PlayEffect(attackerPos, targetPos, hitDelay, color, onHit, onComplete);
+    }
+    #endregion
 
     public void ClearPools()
     {
         effectPool.Clear();
         textPool.Clear();
         activeTexts.Clear();
-    }
-    #endregion
-
-    private void LoadCommonSprite(AttackVFXType type, string path)
-    {
-        Sprite s = Resources.Load<Sprite>(path);
-        if (s != null)
-            commonSprites[type] = s;
-    }
-
-    private void CreateEffectPrefab()
-    {
-        effectPrefab = new GameObject("VFXPrefab");
-        effectPrefab.AddComponent<SpriteRenderer>();
-        effectPrefab.AddComponent<SimpleEffect>();
-        effectPrefab.SetActive(false);
-        UnityEngine.Object.DontDestroyOnLoad(effectPrefab);
-    }
-
-    private SimpleEffect GetEffect()
-    {
-        if (effectPool.Count > 0)
-        {
-            SimpleEffect eff = effectPool.Dequeue();
-            if (eff != null && eff.gameObject != null)
-            {
-                eff.gameObject.SetActive(true);
-                return eff;
-            }
-        }
-
-        // 풀이 비었으면 새로 생성
-        GameObject go = UnityEngine.Object.Instantiate(effectPrefab);
-        go.SetActive(true);
-        return go.GetComponent<SimpleEffect>();
-    }
-
-    public void ReturnEffect(SimpleEffect effect)
-    {
-        effect.gameObject.SetActive(false);
-        effectPool.Enqueue(effect);
-    }
-
-    public void ShowGenericEffect(Vector3 pos, AttackVFXType type, float hitDelay, Color color)
-    {
-        if (!commonSprites.TryGetValue(type, out Sprite sprite)) return;
-
-        SimpleEffect effect = GetEffect();
-
-        effect.Play(pos, sprite, (t, sr, onComplete) =>
-        {
-            sr.color = new Color(color.r, color.g, color.b, 0f);
-            Sequence seq = DOTween.Sequence();
-
-            if (hitDelay > 0)
-                seq.AppendInterval(hitDelay);
-            seq.AppendCallback(() => sr.color = color);
-
-            switch (type)
-            {
-                case AttackVFXType.Slash:
-                    float angle = UnityEngine.Random.Range(0, 360f);
-                    t.rotation = Quaternion.Euler(0, 0, angle);
-
-                    seq.Append(sr.DOFade(0f, 0.25f).SetEase(Ease.InQuad));
-                    break;
-
-                case AttackVFXType.Smash:
-                    t.localScale = Vector3.one * 0.5f;
-
-                    seq.Append(t.DOScale(1.1f, 0.15f).SetEase(Ease.OutBack));
-                    seq.Join(sr.DOFade(0f, 0.2f).SetEase(Ease.InQuad));
-                    break;
-
-                default:
-                    seq.Append(t.DOScale(1.1f, 0.3f));
-                    seq.Join(sr.DOFade(0f, 0.3f));
-                    break;
-            }
-            seq.OnComplete(() => onComplete());
-
-        }, color);
-    }
-
-    public void ShowCustomEffect(Vector3 pos, Sprite sprite, Action<Transform, SpriteRenderer, Action> customAnim)
-    {
-        if (sprite == null) return;
-        SimpleEffect effect = GetEffect();
-
-        effect.Play(pos, sprite, (t, sr, onComplete) =>
-        {
-            customAnim(t, sr, onComplete);
-        }, Color.white);
-    }
-
-    public void PlayerAttackEffect(Vector3 attackerPos, Vector3 targetPos, AttackVFXType type, Sprite sprite, float hitDelay)
-    {
-        switch(type)
-        {
-            case AttackVFXType.Hasiyo:
-                HasiyoEffect(attackerPos, targetPos, sprite, hitDelay);
-                break;
-            case AttackVFXType.Mone:
-                MoneEffect(attackerPos, targetPos, sprite, hitDelay);
-                break;
-            case AttackVFXType.Popo:
-                PopoEffect(attackerPos, targetPos, sprite, hitDelay);
-                break;
-            case AttackVFXType.Rose:
-                RoseEffect(attackerPos, targetPos, sprite, hitDelay);
-                break;
-            case AttackVFXType.Ryusiho:
-                RyusihoEffect(attackerPos, targetPos, sprite, hitDelay);
-                break;
-        }
-    }
-
-    private void HasiyoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
-    {
-        if (sprite == null) return;
-
-        hitDelay *= 2;
-
-        SimpleEffect effect = GetEffect();
-        effect.Play(targetPos, sprite, (t, sr, onComplete) =>
-        {
-            Vector3 dir = targetPos - attackerPos;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-
-            t.position = targetPos + new Vector3(0.5f, 0.5f);
-            t.rotation = Quaternion.Euler(0, 0, angle - 225f);
-
-            Sequence seq = DOTween.Sequence();
-            if (hitDelay > 0)
-                seq.Append(t.DORotate(new Vector3(0, 0, angle - 90f), hitDelay).SetEase(Ease.InExpo));
-            else
-                t.rotation = Quaternion.Euler(0, 0, angle - 90f);
-
-            seq.Append(sr.DOFade(0f, 0.5f));
-            seq.OnComplete(() => onComplete());
-        }, Color.white);
-    }
-
-    private void MoneEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
-    {
-        if (sprite == null) return;
-
-        SimpleEffect effect = GetEffect();
-        effect.Play(targetPos, sprite, (t, sr, onComplete) =>
-        {
-            t.position = targetPos;
-            t.localScale = new Vector3(1.5f, 1.5f, 1f);
-            sr.color = new Color(1, 1, 1, 0.6f);
-            t.rotation = Quaternion.Euler(0, 0, UnityEngine.Random.Range(0f, 360f));
-
-
-            Sequence seq = DOTween.Sequence();
-
-            seq.Append(t.DOScale(new Vector3(0.8f, 0.8f, 1f), 0.1f).SetEase(Ease.OutQuad));
-            seq.Join(sr.DOFade(1f, 0.1f).SetEase(Ease.OutQuad));
-            seq.Join(t.DORotate(new Vector3(0, 0, t.rotation.eulerAngles.z + 20f), 0.1f, RotateMode.FastBeyond360).SetEase(Ease.OutQuad));
-
-            seq.AppendInterval(0.05f);
-            seq.Join(sr.DOFade(0f, 0.05f).SetEase(Ease.InQuad));
-
-            seq.OnComplete(() => onComplete());
-        }, Color.white);
-    }
-
-    private void RoseEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
-    {
-        if (sprite == null) return;
-
-        SimpleEffect effect = GetEffect();
-        Vector3 randPos = new Vector3(UnityEngine.Random.Range(-0.2f, 0.2f), UnityEngine.Random.Range(-0.2f, 0.2f), 0);
-        effect.Play(targetPos + randPos, sprite, (t, sr, onComplete) =>
-        {
-            Vector3 dir = targetPos - attackerPos;
-            float angle = UnityEngine.Random.Range(0, 360f);
-            t.rotation = Quaternion.Euler(0, 0, angle);
-
-            t.position = targetPos - (dir.normalized * 0.3f);
-            sr.color = new Color(1, 1, 1, 0);
-            t.localScale = new Vector3(0.2f, 0.1f, 1f);
-
-            Sequence seq = DOTween.Sequence();
-            if (hitDelay > 0)
-                seq.AppendInterval(hitDelay);
-
-            seq.AppendCallback(() => sr.color = Color.white);
-            seq.Append(t.DOScale(new Vector3(1.2f, 0.8f, 1f), 0.05f).SetEase(Ease.OutBack));
-
-            seq.Append(t.DOScale(new Vector3(0.1f, 0.1f, 1f), 0.05f).SetEase(Ease.InQuad));
-            seq.Join(t.DOMove(targetPos - (dir.normalized * 0.2f), 0.05f).SetEase(Ease.InQuad));
-            seq.Join(sr.DOFade(0f, 0.05f).SetEase(Ease.InQuad));
-            seq.OnComplete(() => onComplete());
-        }, Color.orange);
-    }
-
-    private void PopoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
-    {
-        if (sprite == null) return;
-
-        SimpleEffect effect = GetEffect();
-        effect.Play(targetPos, sprite, (t, sr, onComplete) =>
-        {
-            sr.color = new Color(1f, 1f, 1f, 0f);
-
-            Sequence seq = DOTween.Sequence();
-            if (hitDelay > 0)
-                seq.AppendInterval(hitDelay);
-            seq.AppendCallback(() => sr.color = Color.white);
-
-            t.localScale = Vector3.one * 0.5f;
-            float angle = UnityEngine.Random.Range(0, 360f);
-            t.rotation = Quaternion.Euler(0, 0, angle);
-
-            seq.Append(t.DOScale(1.1f, 0.15f).SetEase(Ease.OutBack));
-            seq.Join(sr.DOFade(0f, 0.2f).SetEase(Ease.InQuad));
-            seq.OnComplete(() => onComplete());
-        }, Color.white);
-    }
-
-    private void RyusihoEffect(Vector3 attackerPos, Vector3 targetPos, Sprite sprite, float hitDelay)
-    {
-        if (sprite == null) return;
-
-        SimpleEffect effect = GetEffect();
-        effect.Play(targetPos, sprite, (t, sr, onComplete) =>
-        {
-            sr.color = new Color(1f, 1f, 1f, 0f);
-
-            Vector3 dir = targetPos - attackerPos;
-            float baseAngle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            float randomOffset = UnityEngine.Random.Range(-30f, 30f);
-            t.rotation = Quaternion.Euler(0, 0, baseAngle + randomOffset);
-
-            t.localScale = new Vector3(0.5f, 0.1f, 1f);
-            Sequence seq = DOTween.Sequence();
-            if (hitDelay > 0)
-                seq.AppendInterval(hitDelay);
-            seq.AppendCallback(() => sr.color = Color.white);
-
-            seq.Append(t.DOScale(new Vector3(1.5f, 0.5f, 1f), 0.15f).SetEase(Ease.OutExpo));
-
-            seq.Join(sr.DOFade(0f, 0.2f).SetEase(Ease.InQuad));
-
-            seq.OnComplete(() => onComplete());
-        }, Color.white);
     }
 }

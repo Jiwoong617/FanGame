@@ -168,8 +168,12 @@ public class EnemyUnit : CombatUnit
 
         if (combatUI != null)
         {
-            Sprite intentSprite = (nextPattern != null) ? nextPattern.patternIconSprite : null;
-            combatUI.SetIntentIcon(intentSprite);
+            Sprite patternSprite = null;
+            if(nextPattern != null)
+                patternSprite = GameManager.SpriteData.GetSprite(nextPattern.patternIcon, "Icons/EnemyPattern");
+            else
+                patternSprite = GameManager.SpriteData.GetSprite(PatternIcon.Attack, "Icons/EnemyPattern");
+            combatUI.SetIntentIcon(patternSprite);
         }
     }
 
@@ -253,19 +257,6 @@ public class EnemyUnit : CombatUnit
     }
 
     public override T GetStat<T>() => stats as T;
-
-    protected override void PlayHitVFX(Vector3 targetPos)
-    {
-        if (unitData != null)
-        {
-            GameManager.VFX.ShowGenericEffect(
-                targetPos,
-                unitData.attackVFXType,
-                0f,
-                Color.white
-            );
-        }
-    }
 
     public void SetAttackDelay(float delay)
     {

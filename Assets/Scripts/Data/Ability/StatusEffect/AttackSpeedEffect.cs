@@ -19,7 +19,11 @@ public class SlowEffect : StatusEffect
         this.effectValue = effectValue;
     }
 
-    protected override void OnAdded() { ApplyModifier(); }
+    protected override void OnAdded() 
+    { 
+        ApplyModifier();
+        GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Debuff, 0, Color.white);
+    }
 
     protected override void OnStackUpdated()
     {
@@ -64,7 +68,12 @@ public class InspireEffect : StatusEffect
         this.effectValue = effectValue;
     }
 
-    protected override void OnAdded() { ApplyModifier(); }
+    protected override void OnAdded() 
+    {
+        ApplyModifier();
+        GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Buff, 0, Color.white);
+    }
+
     protected override void OnStackUpdated()
     {
         if (currentMod != null)

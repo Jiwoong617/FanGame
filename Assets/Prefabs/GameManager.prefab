@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
   testUnitData: {fileID: 11400000, guid: 26456e26ad003824a833c7819ec472b7, type: 2}
-  currentStageData: {fileID: 11400000, guid: c5c413c7387458d4fbd4335349f7dad9, type: 2}
+  stageList:
+  - {fileID: 11400000, guid: c5c413c7387458d4fbd4335349f7dad9, type: 2}
+  - {fileID: 11400000, guid: b2b0f0448d7c41a49b33e90c7a475398, type: 2}
+  - {fileID: 11400000, guid: 99b5f45b23e62df4e9e43ca93cd7abbe, type: 2}

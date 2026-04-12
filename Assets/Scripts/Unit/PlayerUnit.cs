@@ -113,16 +113,12 @@ public class PlayerUnit : CombatUnit
     {
         if (state != PlayerState.Idle) return;
 
-        // TODO: 입력 매니저 연동
-        if (Keyboard.current != null)
-        {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-                UseAbility(ActionType.Dodge);
-            else if (Keyboard.current.qKey.wasPressedThisFrame)
-                UseAbility(ActionType.Parry);
-            else if (Keyboard.current.fKey.wasPressedThisFrame)
-                UseAbility(ActionType.Skill);
-        }
+        if (GameManager.Input.DodgePressed)
+            UseAbility(ActionType.Dodge);
+        else if (GameManager.Input.ParryPressed)
+            UseAbility(ActionType.Parry);
+        else if (GameManager.Input.SkillPressed)
+            UseAbility(ActionType.Skill);
     }
 
     private void UseAbility(ActionType type)
@@ -340,15 +336,6 @@ public class PlayerUnit : CombatUnit
         pStats.hp = pStats.maxHp.GetValue();
         pStats.stamina = pStats.maxStamina.GetValue();
         pStats.fp = pStats.maxFp.GetValue();
-    }
-
-    protected override void PlayAttackVFX(Vector3 targetPos, float hitDelay)
-    {
-        if (unitData != null)
-        {
-            GameManager.VFX.PlayerAttackEffect(transform.position, target.transform.position,
-                unitData.attackVFXType, playerData.attackVFXSprite, hitDelay);
-        }
     }
 
     public override void ChangeToIdleSprite()

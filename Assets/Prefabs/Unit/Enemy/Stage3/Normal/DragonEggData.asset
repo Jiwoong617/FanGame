@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
   unitName: DragonEgg
   prefab: {fileID: 6107110035909089572, guid: 41d5b91338d08c24c888fb12c38c52fb, type: 3}
-  unitSprite: {fileID: 0}
-  unitBasicAttackSprite: {fileID: 0}
-  unitDeadSprite: {fileID: 0}
+  unitSprite: {fileID: 21300000, guid: ac637a4025fd71447951d5dd40891e5b, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: ac637a4025fd71447951d5dd40891e5b, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 9d5251d8e54b5b141aaabf8543992a1a, type: 3}
   attackVFXType: 1
   hp: 1
   defense: 0
   attackDamage: 1
   attackSpeed: 0.5
-  criticalChance: 0
-  criticalDamage: 0
+  criticalChance: 20
+  criticalDamage: 150
   unitDescription: 
   startingAbilities:
   - rid: 1747107541381808234
@@ -34,7 +34,10 @@ MonoBehaviour:
       type: {class: TriggerEventPassive, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
-        passiveIcon: {fileID: 0}
+        passiveIcon: {fileID: 21300000, guid: 6967cbe61aeb7ac49b45d8721f8bb1d2, type: 3}
+        passiveName: "\uCDE8\uAE09 \uC8FC\uC758"
+        passiveDescription: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uBB34\uD6A8\uD654
+          30\uC2A4\uD0DD \uD68D\uB4DD"
         useHeal: 0
         isPercentHeal: 0
         healAmount: 0
