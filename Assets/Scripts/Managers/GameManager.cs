@@ -246,6 +246,7 @@ public class GameManager : MonoBehaviour
             case GameState.GameOver:
                 Debug.Log("GAME OVER");
                 break;
+
             case GameState.Ending:
                 Debug.Log("Ending");
                 break;
@@ -271,6 +272,20 @@ public class GameManager : MonoBehaviour
         Map.GenerateMap(currentStageData);
 
         Map.ShowMapUI();
+    }
+
+    public void RevivePlayer()
+    {
+        if (Player == null) return;
+
+        var gameOverUI = FindFirstObjectByType<GameOverUI>();
+        if (gameOverUI != null)
+            gameOverUI.ForceHide();
+
+        Player.Revive();
+
+        State = GameState.Battle;
+        Battle.ResumeBattle();
     }
 
     public void ResetGame()

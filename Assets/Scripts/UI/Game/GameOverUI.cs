@@ -8,6 +8,9 @@ public class GameOverUI : UI_Base
     enum Buttons { TitleButton }
     enum Images { Background }
 
+    private Tween bgFadeTween;
+    private Tween titleDelayTween;
+
     protected override void Init()
     {
         Canvas canvas = GetComponent<Canvas>();
@@ -39,12 +42,20 @@ public class GameOverUI : UI_Base
 
             Image bg = Get<Image>(Images.Background);
             bg.color = new Color(0f, 0f, 0f, 0f);
-            bg.DOFade(0.99f, 2f);
+            bgFadeTween = bg.DOFade(0.99f, 2f);
 
             Button titleBtn = Get<Button>(Buttons.TitleButton);
             titleBtn.gameObject.SetActive(false);
-            DOVirtual.DelayedCall(2.5f, () => titleBtn.gameObject.SetActive(true));
+            titleDelayTween = DOVirtual.DelayedCall(2.5f, () => titleBtn.gameObject.SetActive(true));
         }
+    }
+
+    public void ForceHide()
+    {
+        bgFadeTween?.Kill();
+        titleDelayTween?.Kill();
+        Get<Button>(Buttons.TitleButton).gameObject.SetActive(false);
+        Hide();
     }
 
     private void OnTitleClicked()
