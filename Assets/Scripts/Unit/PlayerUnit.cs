@@ -315,7 +315,8 @@ public class PlayerUnit : CombatUnit
         }
 
         base.SetTarget(finalTarget);
-        attackTimer = 0f;
+        // TODO : 타겟 변경 시 공격 타이머 초기화안되게
+        //attackTimer = 0f;
     }
 
     public IEnumerable<ActiveAbility> GetActiveAbilities()

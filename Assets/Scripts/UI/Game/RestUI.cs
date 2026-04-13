@@ -97,9 +97,13 @@ public class RestUI : UI_Base
             var stats = GameManager.Instance.Player.GetStat<PlayerStats>();
             float beforeFp = stats.fp;
             stats.fp = stats.maxFp.GetValue();
+
+            StatModifier fpmod = new StatModifier(1f, StatModType.Flat);
+            stats.maxFp.AddModifier(fpmod);
+
             Get<Image>(Images.Result).sprite = resultSpriteList[2];
 
-            return $"정신을 집중하여 FP를 모두 회복했습니다.";
+            return $"정신을 집중하여 FP를 모두 회복하고\n최대 FP가 1 증가했습니다.";
         });
     }
 

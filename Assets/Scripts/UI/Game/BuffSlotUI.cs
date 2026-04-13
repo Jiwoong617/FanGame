@@ -15,10 +15,11 @@ public class BuffSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (currentStatusEffect == null || currentStatusEffect.IsFinished) return;
 
-        if (!currentStatusEffect.isPermanent && currentStatusEffect.duration > 0)
+        if (!currentStatusEffect.isPermanent && currentStatusEffect.duration >= 0)
         {
             stackText.gameObject.SetActive(true);
-            stackText.text = currentStatusEffect.duration.ToString("F0");
+            stackText.color = Color.darkBlue;
+            stackText.text = currentStatusEffect.duration.ToString("F0") + "s";
         }
     }
 
@@ -69,8 +70,9 @@ public class BuffSlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     {
         if (currentStatusEffect == null) return;
 
-        if (currentStatusEffect.stacks > 1)
+        if (currentStatusEffect.stacks > 0)
         {
+            stackText.color = Color.black;
             stackText.text = currentStatusEffect.stacks.ToString("F0");
             stackText.gameObject.SetActive(true);
         }
