@@ -10,7 +10,11 @@ public enum AbilityTargetType
 }
 
 [System.Serializable]
-public abstract class BaseTriggerAbility : Ability
+public abstract class RewardAbility : Ability {}
+
+
+[System.Serializable]
+public abstract class BaseTriggerAbility : RewardAbility
 {
     [Header("Stack Settings")]
     [SerializeField] protected bool useStack = false;

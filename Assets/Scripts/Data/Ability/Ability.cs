@@ -24,6 +24,8 @@ public enum CombatEvent
     OnAllyDead, // 아군 사망 시
     OnBeforeDead,
     OnBeforeAttack,
+    OnHeal,
+    
     //이거 무조건 아래에다가 추가해야됨 안그럼 인스펙터에서 조정하는거 다시 해야됨
 }
 

@@ -253,7 +253,7 @@ public class PlayerUI : UI_Base
 
     private void UpdateCritChance(float value)
     {
-        CritChanceText.text = $"{value:F0}";
+        CritChanceText.text = $"{Math.Min(100, value):F0}";
     }
 
     private void UpdateCritDamage(float value)

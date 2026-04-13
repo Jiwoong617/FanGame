@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
+using DG.Tweening;
 
 [System.Serializable]
-public class Boss2 : Ability
+public class Boss2 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -14,7 +15,7 @@ public class Boss2 : Ability
 }
 
 [System.Serializable]
-public class Boss3 : Ability
+public class Boss3 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -27,7 +28,7 @@ public class Boss3 : Ability
 }
 
 [System.Serializable]
-public class Boss4 : Ability
+public class Boss4 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -40,7 +41,7 @@ public class Boss4 : Ability
 }
 
 [System.Serializable]
-public class Boss5 : Ability
+public class Boss5 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -56,7 +57,7 @@ public class Boss5 : Ability
 }
 
 [System.Serializable]
-public class Boss6 : Ability
+public class Boss6 : RewardAbility
 {
     private StatModifier damageMod;
 
@@ -114,7 +115,7 @@ public class Boss6 : Ability
 }
 
 [System.Serializable]
-public class Boss9 : Ability
+public class Boss9 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -130,7 +131,7 @@ public class Boss9 : Ability
 
 
 [System.Serializable]
-public class Boss10 : Ability
+public class Boss10 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -139,16 +140,17 @@ public class Boss10 : Ability
             var stats = owner.GetStat<UnitStats>();
             if (stats.hp <= 0 && !IsFinished)
             {
-                //TODO : 부활 사운드나 이펙트
-
-                float maxHp = stats.maxHp.GetValue();
-                stats.hp = maxHp;
-
-                GameManager.VFX.ShowHealText(owner.transform, maxHp);
                 MakeFinish();
 
                 if (GameManager.Instance != null && GameManager.Inventory != null)
                     GameManager.Inventory.RemoveArtifact<Boss10>();
+
+                float reviveDelay = 2f;
+                DOVirtual.DelayedCall(reviveDelay, () =>
+                {
+                    if (GameManager.Instance != null)
+                        GameManager.Instance.RevivePlayer();
+                });
             }
         }
     }

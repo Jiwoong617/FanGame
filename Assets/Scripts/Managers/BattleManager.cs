@@ -260,5 +260,10 @@ public class BattleManager
         enemyAnchor = eAnchorObj.transform;
     }
 
+    public void ResumeBattle()
+    {
+        state = BattleState.Processing;
+    }
+
     public void SetTargetMarker(TargetMarker targetMarker) => this.targetMarker = targetMarker;
 }

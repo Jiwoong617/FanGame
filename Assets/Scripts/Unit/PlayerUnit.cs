@@ -174,7 +174,7 @@ public class PlayerUnit : CombatUnit
 
         Sequence deadSeq = DOTween.Sequence();
 
-        deadSeq.Append(spriteRenderer.DOColor(Color.gray, 2f));
+        deadSeq.Append(spriteRenderer.DOColor(Color.gray, 1.5f));
         deadSeq.InsertCallback(1.0f, () =>
         {
             if (unitData != null && unitData.unitDeadSprite != null)
@@ -315,7 +315,8 @@ public class PlayerUnit : CombatUnit
         }
 
         base.SetTarget(finalTarget);
-        attackTimer = 0f;
+        // TODO : 타겟 변경 시 공격 타이머 초기화안되게
+        //attackTimer = 0f;
     }
 
     public IEnumerable<ActiveAbility> GetActiveAbilities()
@@ -354,5 +355,30 @@ public class PlayerUnit : CombatUnit
             CombatEventContext ctx = new CombatEventContext(this, target, 0);
             TriggerAbility(CombatEvent.OnUseSkill, ctx);
         }
+    }
+
+    public void Revive()
+    {
+        // DOTween 정리
+        transform.DOKill(true);
+        spriteRenderer.transform.DOKill(true);
+
+        // 체력 회복
+        float maxHp = playerStats.maxHp.GetValue();
+        playerStats.hp = maxHp;
+
+        // 비주얼 복구
+        spriteRenderer.color = Color.white;
+        ChangeToIdleSprite();
+        spriteRenderer.sortingOrder = 10;
+
+        // 상태 초기화
+        state = PlayerState.Idle;
+        stateTimer = 0f;
+        attackTimer = 0f;
+        isAttacking = false;
+
+        GameManager.VFX.ShowHealText(transform, maxHp);
+        // TODO : 부활 이펙트, 사운드 추가
     }
 }
