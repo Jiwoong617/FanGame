@@ -15,7 +15,8 @@ public enum EffectType
     DamageReduction, // 받는 데미지 감소
     DamageAmplification, // 받는 데미지 증가
     Shackle,      // 구속 (패리/회피 불가)
-    Taunt         // 도발 (타겟 고정)
+    Taunt,         // 도발 (타겟 고정)
+    CritUp,       // 치명타 확률 증가
 }
 
 

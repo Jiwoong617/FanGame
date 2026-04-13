@@ -299,6 +299,8 @@ public abstract class CombatUnit : MonoBehaviour
         float finalHeal = Mathf.Max(1f, amount);
         stats.hp += finalHeal;
 
+        TriggerAbility(CombatEvent.OnHeal, new CombatEventContext(this, this, finalHeal));
+
         GameManager.VFX.ShowHealText(transform, finalHeal);
         GameManager.VFX.PlayEffect(transform.position, transform.position, AttackVFXType.Heal, 0, Color.white);
     }

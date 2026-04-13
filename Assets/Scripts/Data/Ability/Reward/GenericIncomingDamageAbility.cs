@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class GenericIncomingDamageAbility : Ability
+public class GenericIncomingDamageAbility : RewardAbility
 {
     [Header("OnBeforeTakeDamage로 설정할 것")]
     [Tooltip("받는 데미지 배율 (2.0 = 2배 아픔)")]

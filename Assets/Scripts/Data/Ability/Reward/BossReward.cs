@@ -2,7 +2,7 @@
 using DG.Tweening;
 
 [System.Serializable]
-public class Boss2 : Ability
+public class Boss2 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -15,7 +15,7 @@ public class Boss2 : Ability
 }
 
 [System.Serializable]
-public class Boss3 : Ability
+public class Boss3 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -28,7 +28,7 @@ public class Boss3 : Ability
 }
 
 [System.Serializable]
-public class Boss4 : Ability
+public class Boss4 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -41,7 +41,7 @@ public class Boss4 : Ability
 }
 
 [System.Serializable]
-public class Boss5 : Ability
+public class Boss5 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -57,7 +57,7 @@ public class Boss5 : Ability
 }
 
 [System.Serializable]
-public class Boss6 : Ability
+public class Boss6 : RewardAbility
 {
     private StatModifier damageMod;
 
@@ -115,7 +115,7 @@ public class Boss6 : Ability
 }
 
 [System.Serializable]
-public class Boss9 : Ability
+public class Boss9 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
@@ -131,7 +131,7 @@ public class Boss9 : Ability
 
 
 [System.Serializable]
-public class Boss10 : Ability
+public class Boss10 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {

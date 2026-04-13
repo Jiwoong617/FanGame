@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class Elite8 : Ability
+public class Elite8 : RewardAbility
 {
     [SerializeField] private AttackDamageEffect buffTemplate;
 
@@ -43,7 +43,7 @@ public class Elite8 : Ability
 
 
 [System.Serializable]
-public class Elite9 : Ability
+public class Elite9 : RewardAbility
 {
     [Header("Buff Settings")]
     [SerializeField] private AttackDamageEffect strongTemplate; // 2배 설정
@@ -95,7 +95,7 @@ public class Elite9 : Ability
 
 
 [System.Serializable]
-public class Elite10 : Ability
+public class Elite10 : RewardAbility
 {
     [Header("Buff Setting")]
     [SerializeField] private AttackDamageEffect buffTemplate;
@@ -135,7 +135,7 @@ public class Elite10 : Ability
 }
 
 [System.Serializable]
-public class Elite14 : Ability
+public class Elite14 : RewardAbility
 {
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {

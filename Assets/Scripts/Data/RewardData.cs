@@ -33,11 +33,11 @@ public class RewardData : ScriptableObject
     [TextArea] public string FlavorText;
 
     [Header("Inventory Settings")]
-    public bool isItem; //ÀÌ°Å true¸é ÀÎº¥Åä¸® µé¾î°¡°Ô ÇÒ°ÅÀÓ
+    public bool isItem; //ï¿½Ì°ï¿½ trueï¿½ï¿½ ï¿½Îºï¿½ï¿½ä¸® ï¿½ï¿½î°¡ï¿½ï¿½ ï¿½Ò°ï¿½ï¿½ï¿½
 
     public List<StatChange> statChanges = new List<StatChange>();
     [SerializeReference, SerializeReferenceDropdown]
-    public List<Ability> abilities = new List<Ability>();
+    public List<RewardAbility> abilities = new List<RewardAbility>();
 
     public void Apply(PlayerUnit player)
     {

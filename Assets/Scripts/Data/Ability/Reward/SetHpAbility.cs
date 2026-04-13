@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [System.Serializable]
-public class SetHpAbility : Ability
+public class SetHpAbility : RewardAbility
 {
     public int value = 1;
 
