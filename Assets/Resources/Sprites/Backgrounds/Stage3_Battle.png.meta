@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 116f6d22c4dd32746aea61a033c82c83
+guid: 8ff585db055b292408fa281aee366d30
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2495927912865422042
-    second: CharacterSelectImage_0
+      213: 8036470444094466850
+    second: Stage3_Battle_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: CharacterSelectImage_0
+      name: Stage3_Battle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1376
-        height: 768
+        width: 2754
+        height: 1536
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ada5357763153a220800000000000000
-      internalID: 2495927912865422042
+      spriteID: 22b2d243a47478f60800000000000000
+      internalID: 8036470444094466850
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      CharacterSelectImage_0: 2495927912865422042
+      Stage3_Battle_0: 8036470444094466850
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

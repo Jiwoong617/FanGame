@@ -11,9 +11,7 @@ public class CharacterPop : MonoBehaviour
         Sequence introSeq = DOTween.Sequence();
         introSeq.Append(transform.DOScale(1.4f, 1f).From(0f).SetEase(Ease.OutBack))
                 .Join(transform.DORotate(new Vector3(0, 0, 10f), 0.5f).SetLoops(2, LoopType.Yoyo))
-                .OnComplete(() => Debug.Log("등장 완료!"))
-                .Append(transform.DOScale(1.0f, 1.4f).SetEase(Ease.OutBack))
-                .OnComplete(() => Debug.Log("등장 완료!"));
+                .Append(transform.DOScale(1.0f, 1.4f).SetEase(Ease.OutBack));
     }
 
     // Update is called once per frame
