@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using UnityEngine.EventSystems; // 호버 이벤트를 위해 추가
 using DG.Tweening;
 
 public class PlayerUI : UI_Base
@@ -18,7 +19,9 @@ public class PlayerUI : UI_Base
         Defense,
         StRegen,
         CritChance,
-        CritDamage
+        CritDamage,
+        SkillName,         // 추가: 스킬 이름 텍스트
+        SkillDescription   // 추가: 스킬 설명 텍스트
     }
 
     enum Sliders
@@ -33,6 +36,8 @@ public class PlayerUI : UI_Base
         Icon,
         PlayerPanel,
         InventoryPanel,
+        CharacterSkill_Info, // 추가: 스킬 정보 패널 (켜고 끌 대상)
+        SkillIcon            // 추가: 스킬 아이콘 이미지
     }
     #endregion
 
@@ -60,8 +65,8 @@ public class PlayerUI : UI_Base
     private CanvasGroup inventoryCG;
 
     private bool isShowingPlayer = true;
-    private Vector2 originalPos; 
-    private float slideOffset = 200f; 
+    private Vector2 originalPos;
+    private float slideOffset = 200f;
     private float animDuration = 0.3f; // 전환 속도
 
     protected override void Init()
@@ -98,6 +103,12 @@ public class PlayerUI : UI_Base
         inventoryCG = inventoryPanelObj.GetComponent<CanvasGroup>();
         originalPos = playerRect.anchoredPosition;
         isShowingPlayer = true;
+
+        // 시작 시 스킬 정보 창 비활성화
+        Get<Image>(Images.CharacterSkill_Info).gameObject.SetActive(false);
+
+        // Icon에 마우스 호버 이벤트 바인딩
+        SetupIconHoverEvent(Get<Image>(Images.Icon).gameObject);
     }
 
     private void Start()
@@ -109,7 +120,7 @@ public class PlayerUI : UI_Base
         stats.OnHpChanged += UpdateHp;
         stats.OnStaminaChanged += UpdateStamina;
         stats.OnFpChanged += UpdateFp;
-        
+
         stats.OnAttackDamageChanged += UpdateAttack;
         stats.OnDefenseChanged += UpdateDefense;
         stats.OnAttackSpeedChanged += UpdateAttackSpeed;
@@ -142,6 +153,47 @@ public class PlayerUI : UI_Base
 
         if (GameManager.Instance != null && GameManager.Input != null)
             GameManager.Input.OnTabTriggered -= OnTabPressed;
+    }
+
+    #region Event & UI Updates
+    private void SetupIconHoverEvent(GameObject iconObj)
+    {
+        EventTrigger trigger = iconObj.GetComponent<EventTrigger>();
+        if (trigger == null)
+            trigger = iconObj.AddComponent<EventTrigger>();
+
+        // 마우스가 아이콘 위로 올라왔을 때 (Hover Enter)
+        EventTrigger.Entry entryEnter = new EventTrigger.Entry();
+        entryEnter.eventID = EventTriggerType.PointerEnter;
+        entryEnter.callback.AddListener((data) => { OnIconHoverEnter(); });
+        trigger.triggers.Add(entryEnter);
+
+        // 마우스가 아이콘에서 벗어났을 때 (Hover Exit)
+        EventTrigger.Entry entryExit = new EventTrigger.Entry();
+        entryExit.eventID = EventTriggerType.PointerExit;
+        entryExit.callback.AddListener((data) => { OnIconHoverExit(); });
+        trigger.triggers.Add(entryExit);
+    }
+
+    private void OnIconHoverEnter()
+    {
+        var playerClass = GameManager.Instance.SelectedPlayerClass;
+        if (playerClass != null)
+        {
+            // 스킬 정보 업데이트
+            Get<Image>(Images.SkillIcon).sprite = playerClass.skillIcon;
+            Get<TMP_Text>(Texts.SkillName).text = playerClass.skillName;
+            Get<TMP_Text>(Texts.SkillDescription).text = playerClass.skillDesc;
+        }
+
+        // 스킬 정보 UI 활성화
+        Get<Image>(Images.CharacterSkill_Info).gameObject.SetActive(true);
+    }
+
+    private void OnIconHoverExit()
+    {
+        // 스킬 정보 UI 비활성화
+        Get<Image>(Images.CharacterSkill_Info).gameObject.SetActive(false);
     }
 
     private void RefreshAll()
@@ -250,4 +302,5 @@ public class PlayerUI : UI_Base
         to.DOAnchorPosX(originalPos.x, animDuration).SetEase(Ease.OutQuad);
         toCG.DOFade(1f, animDuration);
     }
+    #endregion
 }

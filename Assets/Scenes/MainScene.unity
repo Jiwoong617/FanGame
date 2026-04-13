@@ -701,6 +701,25 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 9039525507830345528, guid: 2f021a87cedf7ab45822f9ceb0ae7e67, type: 3}
   m_PrefabInstance: {fileID: 2842067187258435760}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1006466276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3497035783400087179, guid: cc5d4305793915846a087efb4b374b97, type: 3}
+  m_PrefabInstance: {fileID: 1888022297}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1006466279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006466276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4463e2aca94ec8642b4b655e62f88682, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TutorialScreenshot
+  superSize: 1
+  folderName: TutorialScreenshots
 --- !u!224 &1425392056 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6712071180245616672, guid: 08f164d21e9a1594caea0ea619f995a5, type: 3}
@@ -1206,7 +1225,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3497035783400087179, guid: cc5d4305793915846a087efb4b374b97, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1006466279}
   m_SourcePrefab: {fileID: 100100000, guid: cc5d4305793915846a087efb4b374b97, type: 3}
 --- !u!1 &2112072090 stripped
 GameObject:
