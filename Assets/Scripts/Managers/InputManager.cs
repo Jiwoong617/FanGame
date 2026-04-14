@@ -7,7 +7,7 @@ public class InputManager
 {
     public bool DodgePressed => Keyboard.current != null && Keyboard.current.spaceKey.wasPressedThisFrame;
     public bool ParryPressed => Keyboard.current != null && Keyboard.current.qKey.wasPressedThisFrame;
-    public bool SkillPressed => Keyboard.current != null && Keyboard.current.fKey.wasPressedThisFrame;
+    public bool SkillPressed => Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame;
 
     public event Action OnTabTriggered;
     public event Action OnEndingNextCutTriggered;
