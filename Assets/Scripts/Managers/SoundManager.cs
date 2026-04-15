@@ -17,6 +17,8 @@ public class SoundManager
     private readonly List<AudioSource> sfxPool = new List<AudioSource>();
     private readonly Dictionary<BGM, AudioClip> bgmClips = new Dictionary<BGM, AudioClip>();
     private readonly Dictionary<SFX, AudioClip> sfxClips = new Dictionary<SFX, AudioClip>();
+    private readonly Dictionary<GameState, BGM> stateBGMMap = new Dictionary<GameState, BGM>();
+    private BGM[] stageBGMs;
 
     public float MasterVolume { get; private set; } = 1f;
     public float BGMVolume    { get; private set; } = 1f;
@@ -50,6 +52,24 @@ public class SoundManager
         SetMasterVolume(MasterVolume);
         SetBGMVolume(BGMVolume);
         SetSFXVolume(SFXVolume);
+
+        GameManager.Instance.OnGameStateChanged -= OnStateChanged;
+        GameManager.Instance.OnGameStateChanged += OnStateChanged;
+    }
+
+    private void OnStateChanged(GameState state)
+    {
+        if (state == GameState.Battle)
+        {
+            int idx = GameManager.Instance.CurrentStageIndex;
+            BGM bgm = (stageBGMs != null && idx < stageBGMs.Length) ? stageBGMs[idx] : BGM.None;
+            if (bgm != BGM.None) PlayBGM(bgm);
+            return;
+        }
+
+        if (!stateBGMMap.TryGetValue(state, out BGM mapped)) return;
+        if (mapped == BGM.None) StopBGM();
+        else PlayBGM(mapped);
     }
 
     public void PlayBGM(BGM id, float pitch = 1.0f)
@@ -162,7 +182,10 @@ public class SoundManager
         {
             if (entry.id == BGM.None || entry.clip == null) continue;
             bgmClips[entry.id] = entry.clip;
+            stateBGMMap[entry.state] = entry.id;
         }
+
+        stageBGMs = db.stageBGMs;
 
         foreach (SoundDatabase.SFXEntry entry in db.sfxEntries)
         {

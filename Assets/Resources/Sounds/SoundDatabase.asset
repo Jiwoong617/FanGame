@@ -12,5 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 454fc22ba7a597b40b9bbb6945e4dfd6, type: 3}
   m_Name: SoundDatabase
   m_EditorClassIdentifier: Assembly-CSharp::SoundDatabase
-  bgmEntries: []
+  bgmEntries:
+  - id: 1
+    clip: {fileID: 0}
+    state: 0
+  - id: 2
+    clip: {fileID: 0}
+    state: 3
+  - id: 3
+    clip: {fileID: 0}
+    state: 3
+  - id: 4
+    clip: {fileID: 0}
+    state: 3
+  - id: 5
+    clip: {fileID: 0}
+    state: 5
+  - id: 6
+    clip: {fileID: 0}
+    state: 6
+  - id: 7
+    clip: {fileID: 0}
+    state: 7
+  stageBGMs: 020000000300000004000000
   sfxEntries: []

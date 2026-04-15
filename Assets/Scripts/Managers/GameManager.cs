@@ -286,6 +286,7 @@ public class GameManager : MonoBehaviour
         Player.Revive();
 
         State = GameState.Battle;
+        OnGameStateChanged?.Invoke(GameState.Battle);
         Battle.ResumeBattle();
     }
 
@@ -303,7 +304,7 @@ public class GameManager : MonoBehaviour
             Player = null;
         }
 
-        State = GameState.MainMenu;
+        ChangeState(GameState.MainMenu);
         Reward.Init();
     }
 }

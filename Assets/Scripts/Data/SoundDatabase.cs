@@ -9,7 +9,7 @@ public enum BGM
     Stage2,
     Stage3,
     Rest,
-    Boss,
+    Die,
     Ending,
 }
 
@@ -17,9 +17,15 @@ public enum SFX
 {
     None = 0,
 
-    UIClick,
+    //Battle
+    Hit,
+    Skill,
+    Buff,
+    Debuff,
+    Heal,
 
-    RewardGet,
+    //UI
+    UIClick,
 }
 
 
@@ -32,6 +38,7 @@ public class SoundDatabase : ScriptableObject
     {
         public BGM id;
         public AudioClip clip;
+        public GameState state; // 자동 재생될 GameState
     }
 
     [Serializable]
@@ -43,6 +50,9 @@ public class SoundDatabase : ScriptableObject
 
     [Header("BGM")]
     public BGMEntry[] bgmEntries;
+
+    [Header("스테이지 BGM (인덱스 = CurrentStageIndex)")]
+    public BGM[] stageBGMs;
 
     [Header("SFX")]
     public SFXEntry[] sfxEntries;
