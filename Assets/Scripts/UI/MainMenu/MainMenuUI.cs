@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ public class MainMenuUI : UI_Base
     private enum Buttons
     {
         StartButton,
+        TutorialButton,
         SettingButton,
         ExitButton
     }
@@ -26,8 +28,17 @@ public class MainMenuUI : UI_Base
     private void BindButtonEvent()
     {
         Get<Button>(Buttons.StartButton).onClick.AddListener(OnGameStartClicked);
+        Get<Button>(Buttons.TutorialButton).onClick.AddListener(OnTutorialClicked);
         Get<Button>(Buttons.SettingButton).onClick.AddListener(OnSettingClicked);
         Get<Button>(Buttons.ExitButton).onClick.AddListener(OnExitClicked);
+    }
+
+    private void OnTutorialClicked()
+    {
+        if (TutorialUI.Instance != null)
+        {
+            TutorialUI.Instance.Toggle();
+        }
     }
 
     private void OnGameStartClicked()
