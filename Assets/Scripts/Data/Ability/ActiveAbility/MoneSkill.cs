@@ -40,6 +40,7 @@ public class MoneSkill : ActiveAbility
                 targetSR.color = new Color(1, 1, 1, 0.3f);
             });
         }
+        GameManager.Sound.PlaySFX(SFX.MoneSkll);
 
         player.ChangeState(PlayerState.Skill, 0.2f);
 

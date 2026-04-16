@@ -236,6 +236,7 @@ public class EnemyUnit : CombatUnit
         //피격 이펙트
         hitEffect?.Flash();
         RequestDamageText(ctx);
+        GameManager.Sound.PlaySFX(SFX.Hit);
 
         if (stats.hp <= 0)
         {

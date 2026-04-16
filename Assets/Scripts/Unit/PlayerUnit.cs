@@ -197,6 +197,8 @@ public class PlayerUnit : CombatUnit
             {
                 TriggerAbility(CombatEvent.OnDodgeSuccess, ctx);
                 GameManager.VFX.ShowText(transform, "회피!", Color.cyan);
+                GameManager.Sound.PlaySFX(SFX.Dodge);
+
                 return -1;
             }
             if (state == PlayerState.Parrying && (ctx.evadeType == AttackEvadeType.Both || ctx.evadeType == AttackEvadeType.ParryOnly))
@@ -207,6 +209,8 @@ public class PlayerUnit : CombatUnit
 
                 TriggerAbility(CombatEvent.OnParrySuccess, ctx);
                 GameManager.VFX.ShowText(transform, "패링!", Color.softYellow);
+                GameManager.Sound.PlaySFX(SFX.Parry);
+                
                 return -1;
             }
         }
@@ -236,6 +240,8 @@ public class PlayerUnit : CombatUnit
         //피격 이펙트
         hitEffect?.Flash(finalDamage > 0 ? true : false);
         RequestDamageText(ctx);
+        GameManager.Sound.PlaySFX(SFX.Hit);
+
 
         if (stats.hp <= 0)
         {

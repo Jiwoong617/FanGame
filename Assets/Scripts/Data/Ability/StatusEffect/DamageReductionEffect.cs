@@ -20,6 +20,7 @@ public class DamageReductionEffect : StatusEffect
     protected override void OnAdded()
     {
         GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Buff, 0, Color.white);
+        GameManager.Sound.PlaySFX(SFX.Buff);
     }
 
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)

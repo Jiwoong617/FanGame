@@ -292,7 +292,7 @@ public abstract class CombatUnit : MonoBehaviour
             abilities[i].OnEvent(type, cec);
     }
 
-    public void Heal(float amount)
+    public void Heal(float amount, bool playSound = true)
     {
         if (IsDead || amount <= 0) return;
 
@@ -300,9 +300,10 @@ public abstract class CombatUnit : MonoBehaviour
         stats.hp += finalHeal;
 
         TriggerAbility(CombatEvent.OnHeal, new CombatEventContext(this, this, finalHeal));
-
         GameManager.VFX.ShowHealText(transform, finalHeal);
         GameManager.VFX.PlayEffect(transform.position, transform.position, AttackVFXType.Heal, 0, Color.white);
+        if (playSound)
+            GameManager.Sound.PlaySFX(SFX.Heal);
     }
 
     protected void RequestDamageText(CombatEventContext ctx)

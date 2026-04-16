@@ -36,6 +36,8 @@ public class IronFortressEffect : StatusEffect
 
                 if (stacks <= 0)
                     IsFinished = true;
+
+                GameManager.Sound.PlaySFX(SFX.IronFortress);
             }
         }
     }

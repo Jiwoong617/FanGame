@@ -20,6 +20,7 @@ public class DamageAmplificationEffect : StatusEffect
     protected override void OnAdded()
     {
         GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Debuff, 0, Color.white);
+        GameManager.Sound.PlaySFX(SFX.Debuff);
     }
 
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)

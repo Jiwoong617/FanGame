@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using DG.Tweening;
 
 public enum BattleState
 {
@@ -241,11 +242,27 @@ public class BattleManager
             if (spawnLeft) leftSummon = enemy;
             else rightSummon = enemy;
 
-            enemy.SetTarget(player);
-            enemy.OnUnitDead += HandleEnemyDead;
-            enemy.OnBattleStart();
-
             enemies.Add(enemy);
+
+            // 페이드인 완료 후 전투 참가
+            SpriteRenderer sr = enemy.GetSpriteRenderer();
+            if (sr != null)
+            {
+                Color c = sr.color;
+                sr.color = new Color(c.r, c.g, c.b, 0f);
+                sr.DOFade(1f, 0.5f).OnComplete(() =>
+                {
+                    enemy.SetTarget(player);
+                    enemy.OnUnitDead += HandleEnemyDead;
+                    enemy.OnBattleStart();
+                });
+            }
+            else
+            {
+                enemy.SetTarget(player);
+                enemy.OnUnitDead += HandleEnemyDead;
+                enemy.OnBattleStart();
+            }
         }
     }
 

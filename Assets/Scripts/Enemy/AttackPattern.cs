@@ -59,7 +59,7 @@ public class AttackHealPattern : EnemyPattern
         if (!isVampire)
         {
             unit.Attack(target, damage, true, true, null, useMoveAnim, damageType);
-            unit.Heal(healValue);
+            unit.Heal(healValue, false);
         }
         else
         {
@@ -67,7 +67,7 @@ public class AttackHealPattern : EnemyPattern
             {
                 if (actualDamage > 0)
                 {
-                    unit.Heal(actualDamage * healValue);
+                    unit.Heal(actualDamage * healValue, false);
                 }
             });
         }

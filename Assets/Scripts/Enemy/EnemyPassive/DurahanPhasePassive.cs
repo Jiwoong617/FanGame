@@ -44,7 +44,10 @@ public class DurahanPhasePassive : PassiveAbility
         if (enemyOwner == null) return;
 
         if (headUnitData != null)
+        {
             GameManager.Battle.SpawnEnemyMidBattle(headUnitData, enemyOwner);
+            GameManager.Sound.PlaySFX(SFX.Summon);
+        }
 
         if (invincibleBuff != null)
         {

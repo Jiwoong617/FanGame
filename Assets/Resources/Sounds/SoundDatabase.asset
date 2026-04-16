@@ -38,4 +38,36 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: c87a38440282a8446833d19ac4bff30c, type: 3}
     state: 1
   stageBGMs: 020000000300000004000000
-  sfxEntries: []
+  sfxEntries:
+  - id: 1
+    clip: {fileID: 8300000, guid: 33bcb949035a9ff4fb49f629fd72ae68, type: 3}
+  - id: 2
+    clip: {fileID: 8300000, guid: 8cb01029cdf7ed84eaea2ad02c7bd65b, type: 3}
+  - id: 3
+    clip: {fileID: 8300000, guid: 5dc6d3c5f9ec595429da4b3d3c1b63c2, type: 3}
+  - id: 4
+    clip: {fileID: 8300000, guid: 036cae33ba0862147afc6482940b3496, type: 3}
+  - id: 5
+    clip: {fileID: 8300000, guid: 186b2f10d8d3d6343879dbc7b1564348, type: 3}
+  - id: 6
+    clip: {fileID: 8300000, guid: c03a6385fabe232478d7be40358de225, type: 3}
+  - id: 7
+    clip: {fileID: 8300000, guid: d0539592cdc74744f910c36274d48134, type: 3}
+  - id: 8
+    clip: {fileID: 8300000, guid: 3b33c2a301d4bdb4d97997feff5b27c6, type: 3}
+  - id: 9
+    clip: {fileID: 8300000, guid: be33e0d568009a04aaa4fda1786dbaab, type: 3}
+  - id: 10
+    clip: {fileID: 8300000, guid: d154c31e2c703d142b3e8db01f379d32, type: 3}
+  - id: 11
+    clip: {fileID: 8300000, guid: 5f20ed98f3cd35443abf0d0d9b9ba921, type: 3}
+  - id: 12
+    clip: {fileID: 8300000, guid: 2e3d04fa652a82a4093b28f582634cf3, type: 3}
+  - id: 13
+    clip: {fileID: 8300000, guid: b1571229a54d73748b903d3f4844a552, type: 3}
+  - id: 14
+    clip: {fileID: 8300000, guid: a0905acf45014ff4e8e2eb61c242fc74, type: 3}
+  - id: 15
+    clip: {fileID: 8300000, guid: 00775b7d19df6274aa339b39aaabeab5, type: 3}
+  - id: 16
+    clip: {fileID: 8300000, guid: 5d5cddcfc808da440b17d6c1a196aaae, type: 3}

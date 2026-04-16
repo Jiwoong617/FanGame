@@ -95,6 +95,8 @@ public class HasiyoSkill : ActiveAbility
                     enemy.AddAbility(slow);
                 }
             });
+
+        GameManager.Sound.PlaySFX(SFX.HasiyoIce);
     }
 
     private void Disarm(PlayerUnit player, EnemyUnit enemy)
@@ -115,5 +117,7 @@ public class HasiyoSkill : ActiveAbility
                 }
             }
         );
+
+        GameManager.Sound.PlaySFX(SFX.HasiyoWood);
     }
 }

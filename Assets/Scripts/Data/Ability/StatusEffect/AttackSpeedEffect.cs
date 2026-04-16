@@ -23,6 +23,7 @@ public class SlowEffect : StatusEffect
     { 
         ApplyModifier();
         GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Debuff, 0, Color.white);
+        GameManager.Sound.PlaySFX(SFX.Debuff);
     }
 
     protected override void OnStackUpdated()
@@ -72,6 +73,7 @@ public class InspireEffect : StatusEffect
     {
         ApplyModifier();
         GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Buff, 0, Color.white);
+        GameManager.Sound.PlaySFX(SFX.Buff);
     }
 
     protected override void OnStackUpdated()

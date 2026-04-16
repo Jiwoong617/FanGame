@@ -31,6 +31,7 @@ public class SacrificeSummonPattern : EnemyPattern
                 UnitData randomMob = randomSummonPool[randomIndex];
 
                 GameManager.Battle.SpawnEnemyMidBattle(randomMob, unit);
+                GameManager.Sound.PlaySFX(SFX.Summon);
             }
         });
 

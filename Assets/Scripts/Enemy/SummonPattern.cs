@@ -52,6 +52,8 @@ public class SummonPattern : EnemyPattern
                         GameManager.Battle.SpawnEnemyMidBattle(selectedData, unit);
                     }
                 }
+
+                GameManager.Sound.PlaySFX(SFX.Summon);
             }
         });
 

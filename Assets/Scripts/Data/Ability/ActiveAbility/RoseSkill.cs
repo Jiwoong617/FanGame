@@ -48,10 +48,12 @@ public class RoseSkill : ActiveAbility
 
         if (actualDamage > 0)
         {
-            player.Heal(actualDamage * 0.5f);
+            player.Heal(actualDamage * 0.5f, false);
         }
 
         VampireEffect vampireBuff = new VampireEffect(10f, 1, false, 0.1f);
         player.AddAbility(vampireBuff);
+
+        GameManager.Sound.PlaySFX(SFX.RoseSkill);
     }
 }

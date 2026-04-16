@@ -24,6 +24,7 @@ public class CritChanceEffect : StatusEffect
     {
         ApplyModifier();
         GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Buff, 0, Color.white);
+        GameManager.Sound.PlaySFX(SFX.Buff);
     }
 
     protected override void OnStackUpdated()

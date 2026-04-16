@@ -48,5 +48,7 @@ public class DeathSpawnPassive : PassiveAbility
                 GameManager.Battle.SpawnEnemyMidBattle(selectedData, owner);
             }
         }
+
+        GameManager.Sound.PlaySFX(SFX.Summon);
     }
 }

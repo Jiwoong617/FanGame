@@ -33,6 +33,7 @@ public class EvadeAndParryPassive : PassiveAbility
             if (Random.Range(0f, 100f) < parryChance)
             {
                 GameManager.VFX.ShowText(owner.transform, "패링!", Color.softYellow);
+                GameManager.Sound.PlaySFX(SFX.Parry);
                 ExecuteParry(context);
                 return; 
             }
@@ -40,6 +41,7 @@ public class EvadeAndParryPassive : PassiveAbility
             if (Random.Range(0f, 100f) < dodgeChance)
             {
                 GameManager.VFX.ShowText(owner.transform, "회피!", Color.cyan);
+                GameManager.Sound.PlaySFX(SFX.Dodge);
                 ExecuteDodge(context);
             }
         }

@@ -20,15 +20,28 @@ public enum SFX
 
     //Battle
     Hit,
-    Skill,
-    Buff,
-    Debuff,
+    Dodge,
+    Parry,
     Heal,
     Summon,
     
+    //Player Skill
+    HasiyoIce,
+    HasiyoWood,
+    MoneSkll,
+    RoseSkill,
+
+    //Buff/Debuff
+    Buff,
+    Debuff,
+    IronFortress,
+
 
     //UI
     UIClick,
+    Rest_Sleep,
+    Rest_Train,
+    Rest_Meditate,
 }
 
 
