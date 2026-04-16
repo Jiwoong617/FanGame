@@ -16,8 +16,6 @@ public class RestUI : UI_Base
 
     enum Images
     {
-        BackGround,
-        Result,
         Fade
     }
 
@@ -28,8 +26,11 @@ public class RestUI : UI_Base
 
     private bool _isProcessing = false;
 
-    //0 - sleep, 1 - training, 2 - meditate
-    [SerializeField] private List<Sprite> resultSpriteList;
+    [Header("Target Stat UI RectTransforms")]
+    [SerializeField] private RectTransform atkTextRect;
+    [SerializeField] private RectTransform atkSpeedTextRect;
+    [SerializeField] private RectTransform staminaBarRect;
+    [SerializeField] private RectTransform defenseTextRect;
 
     protected override void Init()
     {
@@ -50,6 +51,18 @@ public class RestUI : UI_Base
         Hide();
     }
 
+    private void Start()
+    {
+        if (GameManager.Input != null)
+            GameManager.Input.OnTabTriggered += OnTabPressed;
+    }
+
+    private void OnDestroy()
+    {
+        if (GameManager.Instance != null && GameManager.Input != null)
+            GameManager.Input.OnTabTriggered -= OnTabPressed;
+    }
+
     public void ShowRest()
     {
         Show();
@@ -58,14 +71,15 @@ public class RestUI : UI_Base
         Get<Button>(Buttons.Rest).gameObject.SetActive(true);
         Get<Button>(Buttons.Meditation).gameObject.SetActive(true);
         Get<Button>(Buttons.Training).gameObject.SetActive(true);
-        
-        Get<Image>(Images.Result).gameObject.SetActive(false);
+
         Get<Button>(Buttons.Next).gameObject.SetActive(false);
+
+        Get<TMP_Text>(Texts.ResultText).gameObject.SetActive(false);
         Get<TMP_Text>(Texts.ResultText).text = "";
-        
+
         Image fadeImg = Get<Image>(Images.Fade);
         fadeImg.gameObject.SetActive(true);
-        fadeImg.color = new Color(0, 0, 0, 0); 
+        fadeImg.color = new Color(0, 0, 0, 0);
     }
 
     private void OnRestClicked()
@@ -80,12 +94,9 @@ public class RestUI : UI_Base
             float beforeHp = stats.hp;
 
             stats.hp = Mathf.Min(stats.hp + healAmount, stats.maxHp.GetValue());
-            Get<Image>(Images.Result).sprite = resultSpriteList[0];
 
             CombatEventContext ctx = new CombatEventContext(GameManager.Instance.Player, GameManager.Instance.Player, 0);
             GameManager.Instance.Player.TriggerAbility(CombatEvent.OnRest, ctx);
-
-            return $"잠을 자 체력을 회복했습니다.";
         });
     }
 
@@ -100,10 +111,6 @@ public class RestUI : UI_Base
 
             StatModifier fpmod = new StatModifier(1f, StatModType.Flat);
             stats.maxFp.AddModifier(fpmod);
-
-            Get<Image>(Images.Result).sprite = resultSpriteList[2];
-
-            return $"정신을 집중하여 FP를 모두 회복하고\n최대 FP가 1 증가했습니다.";
         });
     }
 
@@ -114,88 +121,99 @@ public class RestUI : UI_Base
         {
             var stats = GameManager.Instance.Player.GetStat<PlayerStats>();
             int rand = Random.Range(0, 4);
-            string resultMsg = "";
 
             float beforeVal = 0f;
             float afterVal = 0f;
             float diff = 0f;
+            string diffText = "";
+
+            RectTransform targetStatRect = null;
+            Color textColor = Color.black; // 기본 색상은 검정색으로 설정
 
             switch (rand)
             {
                 case 0: // 공격력
                     beforeVal = stats.attackDamage.GetValue();
-
                     float randAtk = Random.Range(1, 3);
                     StatModifier atkmod = new StatModifier(randAtk, StatModType.Flat);
                     stats.attackDamage.AddModifier(atkmod);
-
                     afterVal = stats.attackDamage.GetValue();
-                    diff = afterVal - beforeVal;
 
-                    resultMsg = $"공격 훈련을 수행했습니다.\n공격력이 {diff:F0} 상승했습니다.";
+                    diff = afterVal - beforeVal;
+                    diffText = $"+{diff:F0}";
+
+                    targetStatRect = atkTextRect;
                     break;
 
                 case 1: // 공격속도
                     beforeVal = stats.attackSpeed.GetValue();
-
                     float randAtkSpeed = Random.Range(1, 4) * 0.1f;
                     StatModifier asmod = new StatModifier(randAtkSpeed, StatModType.Flat);
                     stats.attackSpeed.AddModifier(asmod);
-
                     afterVal = stats.attackSpeed.GetValue();
-                    diff = afterVal - beforeVal;
 
-                    resultMsg = $"민첩성 훈련을 수행했습니다.\n공격 속도가 {diff:F2} 상승했습니다.";
+                    diff = afterVal - beforeVal;
+                    diffText = $"+{diff:F2}";
+
+                    targetStatRect = atkSpeedTextRect;
                     break;
 
                 case 2: // 스태미나
                     beforeVal = stats.maxStamina.GetValue();
-
                     float randSt = Random.Range(10, 16);
                     StatModifier stmod = new StatModifier(randSt, StatModType.Flat);
                     stats.maxStamina.AddModifier(stmod);
-
                     afterVal = stats.maxStamina.GetValue();
-                    diff = afterVal - beforeVal;
 
-                    resultMsg = $"지구력 훈련을 수행했습니다.\n최대 스태미나가 {diff:F0} 상승했습니다.";
+                    diff = afterVal - beforeVal;
+                    diffText = $"+{diff:F0}";
+
+                    targetStatRect = staminaBarRect;
+                    textColor = Color.white; // 스태미나일 때만 흰색으로 변경
                     break;
 
                 case 3: // 방어력
                     beforeVal = stats.defense.GetValue();
-
                     float randDf = Random.Range(1, 3);
                     StatModifier dfmod = new StatModifier(randDf, StatModType.Flat);
                     stats.defense.AddModifier(dfmod);
-
                     afterVal = stats.defense.GetValue();
-                    diff = afterVal - beforeVal;
 
-                    resultMsg = $"맷집 훈련을 수행했습니다.\n방어력이 {diff:F0} 상승했습니다.";
+                    diff = afterVal - beforeVal;
+                    diffText = $"+{diff:F0}";
+
+                    targetStatRect = defenseTextRect;
                     break;
             }
 
-            Get<Image>(Images.Result).sprite = resultSpriteList[1];
+            // 훈련 시에만 Text UI 활성화 및 값, 색상 갱신
+            TMP_Text resultTMP = Get<TMP_Text>(Texts.ResultText);
+            resultTMP.gameObject.SetActive(true);
+            resultTMP.text = diffText;
+            resultTMP.color = textColor; // 결정된 색상 적용
 
-            return resultMsg;
+            resultTMP.alignment = TextAlignmentOptions.Left;
+
+            if (targetStatRect != null)
+            {
+                AlignToTargetUI(targetStatRect);
+            }
         });
     }
 
-    private void ProcessAction(string actionName, System.Func<string> actionLogic)
+    private void ProcessAction(string actionName, System.Action actionLogic)
     {
         _isProcessing = true;
         Image fadeImg = Get<Image>(Images.Fade);
-        
+
         fadeImg.DOFade(1f, 0.5f).OnComplete(() =>
         {
-            string resultText = actionLogic.Invoke();
+            actionLogic?.Invoke();
 
             Get<Button>(Buttons.Rest).gameObject.SetActive(false);
             Get<Button>(Buttons.Meditation).gameObject.SetActive(false);
             Get<Button>(Buttons.Training).gameObject.SetActive(false);
 
-            Get<Image>(Images.Result).gameObject.SetActive(true);
-            Get<TMP_Text>(Texts.ResultText).text = resultText;
             Get<Button>(Buttons.Next).gameObject.SetActive(true);
 
             fadeImg.DOFade(0f, 0.5f).OnComplete(() =>
@@ -205,9 +223,31 @@ public class RestUI : UI_Base
         });
     }
 
+    private void AlignToTargetUI(RectTransform targetRect)
+    {
+        if (targetRect == null) return;
+
+        Canvas.ForceUpdateCanvases();
+
+        RectTransform myRect = Get<TMP_Text>(Texts.ResultText).rectTransform;
+
+        myRect.pivot = targetRect.pivot;
+        myRect.sizeDelta = targetRect.rect.size;
+        myRect.position = targetRect.position;
+    }
+
     private void OnNextClicked()
     {
         Hide();
         GameManager.Rest.CompleteRest();
+    }
+
+    private void OnTabPressed()
+    {
+        TMP_Text resultTMP = Get<TMP_Text>(Texts.ResultText);
+        if (resultTMP != null && resultTMP.gameObject.activeSelf)
+        {
+            resultTMP.gameObject.SetActive(false);
+        }
     }
 }
