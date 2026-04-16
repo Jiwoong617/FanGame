@@ -65,6 +65,12 @@ public class GameManager : MonoBehaviour
         Application.targetFrameRate = 60;
     }
 
+    private void Start()
+    {
+        // AudioMixer.SetFloat은 Awake 타이밍에 무시되는 Unity 버그가 있어 Start에서 적용
+        Sound.ApplySavedVolumes();
+    }
+
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -159,6 +165,10 @@ public class GameManager : MonoBehaviour
             }
 
             ChangeState(GameState.MapSelect);
+        }
+        else if(scene.name == "MainScene")
+        {
+            ChangeState(GameState.MainMenu);
         }
     }
 

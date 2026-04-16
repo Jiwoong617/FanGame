@@ -8,6 +8,7 @@ public enum BGM
     Stage1,
     Stage2,
     Stage3,
+    Battle,
     Rest,
     Die,
     Ending,
@@ -23,6 +24,8 @@ public enum SFX
     Buff,
     Debuff,
     Heal,
+    Summon,
+    
 
     //UI
     UIClick,

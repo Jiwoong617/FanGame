@@ -16,8 +16,6 @@ public class RestUI : UI_Base
 
     enum Images
     {
-        BackGround,
-        Result,
         Fade
     }
 
@@ -27,9 +25,6 @@ public class RestUI : UI_Base
     }
 
     private bool _isProcessing = false;
-
-    //0 - sleep, 1 - training, 2 - meditate
-    [SerializeField] private List<Sprite> resultSpriteList;
 
     protected override void Init()
     {
@@ -59,7 +54,6 @@ public class RestUI : UI_Base
         Get<Button>(Buttons.Meditation).gameObject.SetActive(true);
         Get<Button>(Buttons.Training).gameObject.SetActive(true);
         
-        Get<Image>(Images.Result).gameObject.SetActive(false);
         Get<Button>(Buttons.Next).gameObject.SetActive(false);
         Get<TMP_Text>(Texts.ResultText).text = "";
         
@@ -80,7 +74,6 @@ public class RestUI : UI_Base
             float beforeHp = stats.hp;
 
             stats.hp = Mathf.Min(stats.hp + healAmount, stats.maxHp.GetValue());
-            Get<Image>(Images.Result).sprite = resultSpriteList[0];
 
             CombatEventContext ctx = new CombatEventContext(GameManager.Instance.Player, GameManager.Instance.Player, 0);
             GameManager.Instance.Player.TriggerAbility(CombatEvent.OnRest, ctx);
@@ -100,8 +93,6 @@ public class RestUI : UI_Base
 
             StatModifier fpmod = new StatModifier(1f, StatModType.Flat);
             stats.maxFp.AddModifier(fpmod);
-
-            Get<Image>(Images.Result).sprite = resultSpriteList[2];
 
             return $"정신을 집중하여 FP를 모두 회복하고\n최대 FP가 1 증가했습니다.";
         });
@@ -175,8 +166,6 @@ public class RestUI : UI_Base
                     break;
             }
 
-            Get<Image>(Images.Result).sprite = resultSpriteList[1];
-
             return resultMsg;
         });
     }
@@ -194,7 +183,6 @@ public class RestUI : UI_Base
             Get<Button>(Buttons.Meditation).gameObject.SetActive(false);
             Get<Button>(Buttons.Training).gameObject.SetActive(false);
 
-            Get<Image>(Images.Result).gameObject.SetActive(true);
             Get<TMP_Text>(Texts.ResultText).text = resultText;
             Get<Button>(Buttons.Next).gameObject.SetActive(true);
 

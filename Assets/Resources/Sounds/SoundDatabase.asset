@@ -14,25 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundDatabase
   bgmEntries:
   - id: 1
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: ccc97714f1ff6584489902d0bb54a571, type: 3}
     state: 0
   - id: 2
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: de699f1adb0cacc45acf00bae84cd612, type: 3}
     state: 3
   - id: 3
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7f825aa53c6ba4649bbd925e5cf6935d, type: 3}
     state: 3
   - id: 4
-    clip: {fileID: 0}
+    clip: {fileID: 8300000, guid: 7cdefdeb33d7b714294d85a7b23fc756, type: 3}
     state: 3
-  - id: 5
-    clip: {fileID: 0}
-    state: 5
   - id: 6
-    clip: {fileID: 0}
-    state: 6
+    clip: {fileID: 8300000, guid: 766036fc3dc9c2b4b95c0a6c61886ee8, type: 3}
+    state: 5
   - id: 7
+    clip: {fileID: 8300000, guid: c1dca8dea15350548ae42dc761b2581e, type: 3}
+    state: 6
+  - id: 8
     clip: {fileID: 0}
     state: 7
+  - id: 5
+    clip: {fileID: 8300000, guid: c87a38440282a8446833d19ac4bff30c, type: 3}
+    state: 1
   stageBGMs: 020000000300000004000000
   sfxEntries: []

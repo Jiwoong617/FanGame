@@ -49,17 +49,20 @@ public class SoundManager
         BGMVolume    = PlayerPrefs.GetFloat("BGMVolume",    1f);
         SFXVolume    = PlayerPrefs.GetFloat("SFXVolume",    1f);
 
-        SetMasterVolume(MasterVolume);
-        SetBGMVolume(BGMVolume);
-        SetSFXVolume(SFXVolume);
-
         GameManager.Instance.OnGameStateChanged -= OnStateChanged;
         GameManager.Instance.OnGameStateChanged += OnStateChanged;
     }
 
+    public void ApplySavedVolumes()
+    {
+        SetMasterVolume(MasterVolume);
+        SetBGMVolume(BGMVolume);
+        SetSFXVolume(SFXVolume);
+    }
+
     private void OnStateChanged(GameState state)
     {
-        if (state == GameState.Battle)
+        if (state == GameState.MapSelect)
         {
             int idx = GameManager.Instance.CurrentStageIndex;
             BGM bgm = (stageBGMs != null && idx < stageBGMs.Length) ? stageBGMs[idx] : BGM.None;
