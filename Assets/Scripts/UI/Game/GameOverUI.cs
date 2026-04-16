@@ -23,7 +23,10 @@ public class GameOverUI : UI_Base
         Get<Button>(Buttons.TitleButton).onClick.AddListener(OnTitleClicked);
 
         if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnGameStateChanged -= HandleGameStateChanged;
             GameManager.Instance.OnGameStateChanged += HandleGameStateChanged;
+        }
 
         Hide();
     }

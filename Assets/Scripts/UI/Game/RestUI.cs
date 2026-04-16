@@ -97,6 +97,8 @@ public class RestUI : UI_Base
 
             CombatEventContext ctx = new CombatEventContext(GameManager.Instance.Player, GameManager.Instance.Player, 0);
             GameManager.Instance.Player.TriggerAbility(CombatEvent.OnRest, ctx);
+
+            GameManager.Sound.PlaySFX(SFX.Rest_Sleep);
         });
     }
 
@@ -109,8 +111,9 @@ public class RestUI : UI_Base
             float beforeFp = stats.fp;
             stats.fp = stats.maxFp.GetValue();
 
-            StatModifier fpmod = new StatModifier(1f, StatModType.Flat);
-            stats.maxFp.AddModifier(fpmod);
+            stats.maxFp.SetBaseValue(stats.maxFp.GetBaseValue() + 1f);
+
+            GameManager.Sound.PlaySFX(SFX.Rest_Meditate);
         });
     }
 
@@ -135,8 +138,7 @@ public class RestUI : UI_Base
                 case 0: // 공격력
                     beforeVal = stats.attackDamage.GetValue();
                     float randAtk = Random.Range(1, 3);
-                    StatModifier atkmod = new StatModifier(randAtk, StatModType.Flat);
-                    stats.attackDamage.AddModifier(atkmod);
+                    stats.attackDamage.SetBaseValue(stats.attackDamage.GetBaseValue() + randAtk);
                     afterVal = stats.attackDamage.GetValue();
 
                     diff = afterVal - beforeVal;
@@ -148,8 +150,7 @@ public class RestUI : UI_Base
                 case 1: // 공격속도
                     beforeVal = stats.attackSpeed.GetValue();
                     float randAtkSpeed = Random.Range(1, 4) * 0.1f;
-                    StatModifier asmod = new StatModifier(randAtkSpeed, StatModType.Flat);
-                    stats.attackSpeed.AddModifier(asmod);
+                    stats.attackSpeed.SetBaseValue(stats.attackSpeed.GetBaseValue() + randAtkSpeed);
                     afterVal = stats.attackSpeed.GetValue();
 
                     diff = afterVal - beforeVal;
@@ -161,8 +162,7 @@ public class RestUI : UI_Base
                 case 2: // 스태미나
                     beforeVal = stats.maxStamina.GetValue();
                     float randSt = Random.Range(10, 16);
-                    StatModifier stmod = new StatModifier(randSt, StatModType.Flat);
-                    stats.maxStamina.AddModifier(stmod);
+                    stats.maxStamina.SetBaseValue(stats.maxStamina.GetBaseValue() + randSt);
                     afterVal = stats.maxStamina.GetValue();
 
                     diff = afterVal - beforeVal;
@@ -175,8 +175,7 @@ public class RestUI : UI_Base
                 case 3: // 방어력
                     beforeVal = stats.defense.GetValue();
                     float randDf = Random.Range(1, 3);
-                    StatModifier dfmod = new StatModifier(randDf, StatModType.Flat);
-                    stats.defense.AddModifier(dfmod);
+                    stats.defense.SetBaseValue(stats.defense.GetBaseValue() + randDf);
                     afterVal = stats.defense.GetValue();
 
                     diff = afterVal - beforeVal;
@@ -198,6 +197,8 @@ public class RestUI : UI_Base
             {
                 AlignToTargetUI(targetStatRect);
             }
+
+            GameManager.Sound.PlaySFX(SFX.Rest_Train);
         });
     }
 
@@ -214,8 +215,6 @@ public class RestUI : UI_Base
             Get<Button>(Buttons.Meditation).gameObject.SetActive(false);
             Get<Button>(Buttons.Training).gameObject.SetActive(false);
 
-            Get<Image>(Images.Result).gameObject.SetActive(true);
-            Get<TMP_Text>(Texts.ResultText).text = resultText;
             Get<Button>(Buttons.Next).gameObject.SetActive(true);
 
             fadeImg.DOFade(0f, 0.5f).OnComplete(() =>

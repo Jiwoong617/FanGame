@@ -24,6 +24,10 @@ public class InputManager
         if (Keyboard.current.tabKey.wasPressedThisFrame)
             OnTabTriggered?.Invoke();
 
+        // 마우스 좌클릭 사운드
+        if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+            GameManager.Sound.PlaySFX(SFX.UIClick);
+
         // 엔딩 씬 전용 입력 (Space or 마우스 좌클릭)
         if (GameManager.Instance != null && GameManager.Instance.State == GameState.Ending)
         {

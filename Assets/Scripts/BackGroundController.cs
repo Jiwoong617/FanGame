@@ -45,7 +45,7 @@ public class BackGroundController : MonoBehaviour
 
     private void HandleStateChanged(GameState newState)
     {
-        if (newState == GameState.Reward || newState == GameState.MapSelect || newState == GameState.MainMenu || newState == GameState.GameOver)
+        if (newState == GameState.Reward || newState == GameState.MainMenu || newState == GameState.GameOver)
             return;
 
         int stageNum = GameManager.Instance.CurrentStageIndex + 1;

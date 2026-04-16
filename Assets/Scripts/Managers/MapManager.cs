@@ -167,7 +167,7 @@ public class MapManager
                 NodeType type = GetRandomNodeType(y);
                 if (type == NodeType.Event)
                 {
-                    if (parentMaxEventCount >= 3)
+                    if (parentMaxEventCount >= 2) // 부모 중 이벤트 2회 이상이면 이벤트 대신 몬스터
                         type = Random.value > 0.5f ? NodeType.Monster : NodeType.Elite;
                 }
 

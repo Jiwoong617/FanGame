@@ -136,6 +136,9 @@ public class PlayerUI : UI_Base
 
     private void OnDestroy()
     {
+        if (GameManager.Instance != null && GameManager.Input != null)
+            GameManager.Input.OnTabTriggered -= OnTabPressed;
+
         if (Player == null) return;
         var stats = Player.GetStat<PlayerStats>();
         if (stats == null) return;
@@ -150,9 +153,6 @@ public class PlayerUI : UI_Base
         stats.OnStaminaRegenChanged -= UpdateStaminaRegen;
         stats.OnCriticalChanceChanged -= UpdateCritChance;
         stats.OnCriticalDamageChanged -= UpdateCritDamage;
-
-        if (GameManager.Instance != null && GameManager.Input != null)
-            GameManager.Input.OnTabTriggered -= OnTabPressed;
     }
 
     #region Event & UI Updates
