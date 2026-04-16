@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 87fc50519b579be488756da248c61905
+guid: 32ad636e94779e942874f63737fae527
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8217670668483118963
-    second: Tutorial_AutoAttack_0
+      213: -3432651483122185156
+    second: Tutorial_InGameSkillInfo_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Tutorial_AutoAttack_0
+      name: Tutorial_InGameSkillInfo_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d88baebe018f4fd80800000000000000
-      internalID: -8217670668483118963
+      spriteID: c3cc8ceb9a5cc50d0800000000000000
+      internalID: -3432651483122185156
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Tutorial_AutoAttack_0: -8217670668483118963
+      Tutorial_InGameSkillInfo_0: -3432651483122185156
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
