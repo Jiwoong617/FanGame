@@ -50,8 +50,11 @@ MonoBehaviour:
   dodgeCoolTime: 0.7
   parrayCoolTime: 0.5
   skillIcon: {fileID: -7696602745389203012, guid: 9cd228a1440f34843a3926fa53fbc02b, type: 3}
-  skillName: 
-  skillDesc: 
+  skillName: "\uBF40\uAD50\uB2E8 \uD328\uB9C1 "
+  skillDesc: "\uC774 \uC2A4\uD0AC\uC740 \uD328\uB9C1\uC2DC \uC790\uB3D9\uC73C\uB85C
+    \uC0AC\uC6A9\uB41C\uB2E4. \uD328\uB9C1\uC2DC \uACF5\uACA9\uD55C \uC801\uC744
+    \uBC18\uACA9\uD55C\uB2E4. \uC774 \uACF5\uACA9\uC740 \uC77C\uBC18 \uACF5\uACA9\uACFC
+    \uB3D9\uC77C\uD558\uB2E4."
   references:
     version: 2
     RefIds:
