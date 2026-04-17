@@ -59,7 +59,12 @@ public class InputManager
         }
         else
         {
-            SettingUI.Instance?.Toggle();
+            // 1순위: TutorialUI가 열려있으면 닫기
+            if (TutorialUI.Instance != null && TutorialUI.Instance.IsVisible)
+                TutorialUI.Instance.Hide();
+            // 2순위: 아무것도 없으면 SettingUI 토글
+            else
+                SettingUI.Instance?.Toggle();
         }
     }
 }

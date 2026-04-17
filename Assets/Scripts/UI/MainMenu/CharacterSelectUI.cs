@@ -125,7 +125,7 @@ public class CharacterSelectUI : UI_Base
         rectTransform.anchoredPosition = new Vector2(-screenWidth, 0);
 
         rectTransform.DOKill();
-        rectTransform.DOAnchorPosX(0, 1f).SetEase(Ease.OutBounce);
+        rectTransform.DOAnchorPosX(0, 1f).SetEase(Ease.OutCirc);
     }
 
     public override void Hide()
