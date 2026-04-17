@@ -27,11 +27,18 @@ public class MapNodeUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         this.onClickCallback = onClick;
 
         // 아이콘 설정
-        Sprite loadedIcon = GameManager.SpriteData.GetSprite(node.nodeType, "Icons/MapNodes");
-        if (loadedIcon != null)
+        Sprite loadedIcon = null;
+        if (node.nodeType == NodeType.Boss)
         {
-            iconImage.sprite = loadedIcon;
+            string bossName = (node.content as BattleContent)?.enemies[0]?.unitName;
+            if (!string.IsNullOrEmpty(bossName))
+                loadedIcon = GameManager.SpriteData.GetSprite(bossName, "Icons/MapNodes");
         }
+        if (loadedIcon == null)
+            loadedIcon = GameManager.SpriteData.GetSprite(node.nodeType, "Icons/MapNodes");
+        
+        if (loadedIcon != null)
+            iconImage.sprite = loadedIcon;
 
         // 버튼 이벤트
         button.onClick.RemoveAllListeners();

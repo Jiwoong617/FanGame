@@ -113,15 +113,13 @@ public abstract class CombatUnit : MonoBehaviour
         }
     }
 
-    public virtual void OnUpdate(float delta)
+    protected void TickAbilities(float delta)
     {
-        if (IsDead) return;
-
         for (int i = abilities.Count - 1; i >= 0; i--)
         {
             var ability = abilities[i];
             ability.OnUpdate(delta);
-            
+
             if (ability.IsFinished)
             {
                 ability.OnRemoved();
@@ -131,6 +129,13 @@ public abstract class CombatUnit : MonoBehaviour
                 abilities.RemoveAt(i);
             }
         }
+    }
+
+    public virtual void OnUpdate(float delta)
+    {
+        if (IsDead) return;
+
+        TickAbilities(delta);
     }
     
     public virtual void Init(UnitData data)

@@ -22,7 +22,11 @@ public class DragonUnit : EnemyUnit
 
     public override void OnUpdate(float delta)
     {
-        if (IsSleeping) return;
+        if (IsSleeping)
+        {
+            TickAbilities(delta);
+            return;
+        }
         base.OnUpdate(delta);
     }
 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d4e5456cba949354f88644af0a27ded8
+guid: 81caca02b06ac7a4098ec1757a4e1732
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8327839568167991489
-    second: Battle_Simple_0
+      213: 1372335161102834277
+    second: Dragon_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Battle_Simple_0
+      name: Dragon_0
       rect:
         serializedVersion: 2
-        x: 418
-        y: 526
-        width: 1200
-        height: 1200
+        x: 97
+        y: 13
+        width: 329
+        height: 499
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3787e819029d6c80800000000000000
-      internalID: -8327839568167991489
+      spriteID: 56a105ede838b0310800000000000000
+      internalID: 1372335161102834277
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Battle_Simple_0: -8327839568167991489
+      Dragon_0: 1372335161102834277
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

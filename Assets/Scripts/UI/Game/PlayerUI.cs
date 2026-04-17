@@ -131,7 +131,10 @@ public class PlayerUI : UI_Base
         RefreshAll();
 
         if (GameManager.Input != null)
+        {
+            GameManager.Input.OnTabTriggered -= OnTabPressed;
             GameManager.Input.OnTabTriggered += OnTabPressed;
+        }
     }
 
     private void OnDestroy()
@@ -284,8 +287,8 @@ public class PlayerUI : UI_Base
         float exitDestX = originalPos.x + (direction == 1 ? -slideOffset : slideOffset);
 
         fromCG.blocksRaycasts = false; // 클릭 방지
-        from.DOAnchorPosX(exitDestX, animDuration).SetEase(Ease.OutQuad);
-        fromCG.DOFade(0f, animDuration).OnComplete(() =>
+        from.DOAnchorPosX(exitDestX, animDuration).SetEase(Ease.OutQuad).SetUpdate(true);
+        fromCG.DOFade(0f, animDuration).SetUpdate(true).OnComplete(() =>
         {
             from.gameObject.SetActive(false);
         });
@@ -299,8 +302,8 @@ public class PlayerUI : UI_Base
         to.anchoredPosition = new Vector2(enterStartX, originalPos.y);
         toCG.alpha = 0f;
 
-        to.DOAnchorPosX(originalPos.x, animDuration).SetEase(Ease.OutQuad);
-        toCG.DOFade(1f, animDuration);
+        to.DOAnchorPosX(originalPos.x, animDuration).SetEase(Ease.OutQuad).SetUpdate(true);
+        toCG.DOFade(1f, animDuration).SetUpdate(true);
     }
     #endregion
 }

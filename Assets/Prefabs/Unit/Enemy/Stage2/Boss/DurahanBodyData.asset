@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
   m_Name: DurahanBodyData
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  unitName: DurahanBody
+  unitName: Durahan
   prefab: {fileID: 6107110035909089572, guid: 2c7a131824ff2b5418f281222ee2a939, type: 3}
   unitSprite: {fileID: 21300000, guid: 155f932b0a466fa40a9047d8bdf6fd31, type: 3}
   unitBasicAttackSprite: {fileID: 21300000, guid: ac0c63a956e881f43879d30dcd8b6467, type: 3}

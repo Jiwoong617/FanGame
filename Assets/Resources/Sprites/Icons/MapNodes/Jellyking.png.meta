@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d4e5456cba949354f88644af0a27ded8
+guid: 29614e2f7b1aec04b925a32e1d888795
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8327839568167991489
-    second: Battle_Simple_0
+      213: -1997993856319607511
+    second: JellyKing_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,7 +72,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Battle_Simple_0
+      name: JellyKing_0
       rect:
         serializedVersion: 2
-        x: 418
-        y: 526
-        width: 1200
-        height: 1200
+        x: 0
+        y: 107
+        width: 512
+        height: 298
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f3787e819029d6c80800000000000000
-      internalID: -8327839568167991489
+      spriteID: 92d28aa6c23b544e0800000000000000
+      internalID: -1997993856319607511
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Battle_Simple_0: -8327839568167991489
+      JellyKing_0: -1997993856319607511
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
