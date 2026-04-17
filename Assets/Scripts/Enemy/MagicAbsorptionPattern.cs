@@ -38,6 +38,7 @@ public class MagicAbsorptionPattern : EnemyPattern
             }
         });
 
+        GameManager.Sound.PlaySFX(SFX.DragonMagicSteal);
         return true;
     }
 

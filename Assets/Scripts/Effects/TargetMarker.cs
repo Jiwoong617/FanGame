@@ -47,6 +47,8 @@ public class TargetMarker : MonoBehaviour
         sequence.AppendInterval(holdingDuration);
         sequence.Append(spriteRenderer.DOFade(0f, fadingDuration));
         sequence.Join(transform.DOScale(targetScale * 1.3f, 0.3f).SetEase(Ease.OutQuad));
+
+        GameManager.Sound.PlaySFX(SFX.Targeting);
     }
 
     private void OnDestroy()

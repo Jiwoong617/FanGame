@@ -24,24 +24,34 @@ public enum SFX
     Parry,
     Heal,
     Summon,
+    Targeting,
     
     //Player Skill
-    HasiyoIce,
+    HasiyoIce = 10,
     HasiyoWood,
     MoneSkll,
     RoseSkill,
 
     //Buff/Debuff
-    Buff,
+    Buff = 20,
     Debuff,
     IronFortress,
 
 
     //UI
-    UIClick,
+    UIClick = 30,
     Rest_Sleep,
     Rest_Train,
     Rest_Meditate,
+    PlayerTab,
+    SettingUI_Open,
+    ScreenTransition,
+    StartButton,
+
+
+    //Etc
+    DragonRoar = 60,
+    DragonMagicSteal,
 }
 
 

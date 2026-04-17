@@ -304,6 +304,8 @@ public class PlayerUI : UI_Base
 
         to.DOAnchorPosX(originalPos.x, animDuration).SetEase(Ease.OutQuad).SetUpdate(true);
         toCG.DOFade(1f, animDuration).SetUpdate(true);
+
+        GameManager.Sound.PlaySFX(SFX.PlayerTab);
     }
     #endregion
 }

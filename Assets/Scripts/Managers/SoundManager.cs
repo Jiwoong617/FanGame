@@ -133,6 +133,8 @@ public class SoundManager
         AudioSource source = GetAvailableSfxSource();
         source.pitch = pitch;
         source.clip  = clip;
+        // pitch가 음수면 클립 끝에서부터 역재생
+        source.time  = pitch < 0f ? clip.length - 0.01f : 0f;
         source.Play();
     }
 

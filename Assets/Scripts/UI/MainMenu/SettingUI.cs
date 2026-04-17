@@ -79,6 +79,8 @@ public class SettingUI : UI_Base
             seq.Append(BG.DOAnchorPosY(0, animDuration * 0.6f).SetEase(Ease.OutBack));
             seq.Append(BG.DOScaleX(1f, animDuration * 0.4f).SetEase(Ease.OutBack));
         }
+
+        GameManager.Sound.PlaySFX(SFX.SettingUI_Open);
     }
 
     public override void Hide()
@@ -104,6 +106,8 @@ public class SettingUI : UI_Base
             if (raycaster != null) raycaster.enabled = false;
             Time.timeScale = 1f;
         }
+
+        GameManager.Sound.PlaySFX(SFX.SettingUI_Open, -1f);
     }
 
     public void Toggle()

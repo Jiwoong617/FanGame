@@ -93,6 +93,9 @@ public class MapTransitionUI : UI_Base
                     gameObject.SetActive(false);
             });
         });
+
+        float randPitch = UnityEngine.Random.Range(0.9f, 1.2f);
+        GameManager.Sound.PlaySFX(SFX.ScreenTransition, randPitch);
     }
 
     public void PlayBattleStartEffect(Action onEffectComplete)

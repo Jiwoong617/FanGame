@@ -52,8 +52,15 @@ public class DragonUnit : EnemyUnit
     {
         if (fearSprite != null) spriteRenderer.sprite = fearSprite;
 
-        //TODO : 카메라 흔들림
-        transform.DOShakePosition(1f, 0.5f, 20, 90f);
+        // 카메라 흔들림
+        Camera mainCam = Camera.main;
+        if (mainCam != null)
+        {
+            Vector3 originalCamPos = mainCam.transform.position;
+            mainCam.transform.DOShakePosition(0.8f, 0.4f, 20, 90f)
+                .OnComplete(() => mainCam.transform.position = originalCamPos);
+        }
+        //transform.DOShakePosition(1f, 0.5f, 20, 90f);
 
         PlayerUnit player = GameManager.Instance.Player;
         if (player != null && debuffsToPlayer != null)
@@ -63,6 +70,8 @@ public class DragonUnit : EnemyUnit
                 player.AddAbility(debuff.Clone());
             }
         }
+
+        GameManager.Sound.PlaySFX(SFX.DragonRoar);
 
         yield return new WaitForSeconds(1f);
         ChangeToIdleSprite();

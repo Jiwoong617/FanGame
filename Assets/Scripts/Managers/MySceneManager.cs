@@ -34,7 +34,7 @@ public class MySceneManager
         fadeGroup.blocksRaycasts = true;
         //fadeGroup.gameObject.SetActive(true);
 
-        float fadeDuration = 0.5f;
+        float fadeDuration = 1.5f;
         float timer = 0f;
 
         //페이드 아웃

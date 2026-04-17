@@ -87,6 +87,7 @@ public class CharacterSelectUI : UI_Base
     private void OnClickStart()
     {
         Debug.Log("Start;");
+        GameManager.Sound.PlaySFX(SFX.StartButton);
         GameManager.Scene.LoadScene(SceneType.Game);
     }
 
