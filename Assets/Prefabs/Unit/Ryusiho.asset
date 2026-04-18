@@ -55,6 +55,7 @@ MonoBehaviour:
     \uC0AC\uC6A9\uB41C\uB2E4. \uD328\uB9C1\uC2DC \uACF5\uACA9\uD55C \uC801\uC744
     \uBC18\uACA9\uD55C\uB2E4. \uC774 \uACF5\uACA9\uC740 \uC77C\uBC18 \uACF5\uACA9\uACFC
     \uB3D9\uC77C\uD558\uB2E4."
+  selectSound: 42
   references:
     version: 2
     RefIds:

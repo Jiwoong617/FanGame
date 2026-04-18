@@ -45,8 +45,14 @@ public enum SFX
     Rest_Meditate,
     PlayerTab,
     SettingUI_Open,
+    SettingUI_Close,
     ScreenTransition,
     StartButton,
+    PopoSelect,
+    RoseSelect,
+    HasiyoSelect,
+    RyusihoSelect,
+    MoneSelect,
 
 
     //Etc

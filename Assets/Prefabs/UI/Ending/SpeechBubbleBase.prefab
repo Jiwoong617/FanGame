@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4525234002134691786}
   - component: {fileID: 3223984305677999837}
   - component: {fileID: 6403481159429767453}
+  - component: {fileID: -7522665418294350279}
   m_Layer: 0
   m_Name: SpeechBubbleBase
   m_TagString: Untagged
@@ -113,6 +114,22 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &-7522665418294350279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3095567325767060783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3a46da837b0e98143b059dbfb432d670, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EndingCutConfig
+  animType: 0
+  floatDistance: 50
+  animDuration: 0.5
+  ease: 27
 --- !u!1 &6712936556283244523
 GameObject:
   m_ObjectHideFlags: 0

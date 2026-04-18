@@ -30,10 +30,17 @@ public class EndingPage : MonoBehaviour
 
         foreach (var cut in cuts)
         {
-            cut.localScale = Vector3.one * 1.1f;
-
-            cut.GetComponent<CanvasGroup>().alpha = 0f;
-            cut.gameObject.SetActive(false);
+            var config = cut.GetComponent<EndingCutConfig>();
+            if (config != null)
+            {
+                config.Init();
+            }
+            else
+            {
+                cut.localScale = Vector3.one * 1.1f;
+                cut.GetComponent<CanvasGroup>().alpha = 0f;
+                cut.gameObject.SetActive(false);
+            }
         }
     }
 
@@ -45,14 +52,20 @@ public class EndingPage : MonoBehaviour
         RectTransform targetCut = cuts[currentCutIndex];
         if(targetCut != null)
         {
-            targetCut.gameObject.SetActive(true);
-
-            Vector2 destPos = targetCut.anchoredPosition;
-
-            targetCut.anchoredPosition = destPos + (Vector2.down * floatDistance);
-
-            targetCut.GetComponent<CanvasGroup>().DOFade(1f, animDuration);
-            targetCut.DOAnchorPos(destPos, animDuration).SetEase(Ease.OutBack);
+            EndingCutConfig config = targetCut.GetComponent<EndingCutConfig>();
+            if (config != null)
+            {
+                config.Play();
+            }
+            else
+            {
+                // EndingCutConfig가 없을 경우 기본 연출
+                targetCut.gameObject.SetActive(true);
+                Vector2 destPos = targetCut.anchoredPosition;
+                targetCut.anchoredPosition = destPos + Vector2.down * floatDistance;
+                targetCut.GetComponent<CanvasGroup>().DOFade(1f, animDuration);
+                targetCut.DOAnchorPos(destPos, animDuration).SetEase(Ease.OutBack);
+            }
         }
 
         currentCutIndex++;

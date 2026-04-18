@@ -107,7 +107,7 @@ public class SettingUI : UI_Base
             Time.timeScale = 1f;
         }
 
-        GameManager.Sound.PlaySFX(SFX.SettingUI_Open, -1f);
+        GameManager.Sound.PlaySFX(SFX.SettingUI_Close);
     }
 
     public void Toggle()

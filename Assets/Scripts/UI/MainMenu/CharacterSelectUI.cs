@@ -45,6 +45,7 @@ public class CharacterSelectUI : UI_Base
     private Transform slotContainer;
     private RectTransform rectTransform;
     private float screenWidth;
+    private int selectedIndex = -1;
 
     protected override void Init()
     {
@@ -81,7 +82,7 @@ public class CharacterSelectUI : UI_Base
             go.GetComponent<Button>().onClick.AddListener(() => OnClickCharacterButton(index));
         }
 
-        OnClickCharacterButton(0);
+        OnClickCharacterButton(0, false);
     }
 
     private void OnClickStart()
@@ -96,8 +97,13 @@ public class CharacterSelectUI : UI_Base
         Hide();
     }
 
-    private void OnClickCharacterButton(int idx)
+    private void OnClickCharacterButton(int idx, bool playSound = true)
     {
+        if (selectedIndex == idx) return;
+        selectedIndex = idx;
+
+        if (playSound)
+            GameManager.Sound.PlaySFX(characterDatas[idx].selectSound);
         GameManager.Instance.SetPlayerData(characterDatas[idx]);
 
         Get<Image>(Images.CharacterSprite).sprite = characterDatas[idx].unitSprite;

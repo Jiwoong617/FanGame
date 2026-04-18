@@ -29,6 +29,9 @@ public class PlayerData : UnitData
     public Sprite skillIcon;
     public string skillName;
     public string skillDesc;
+
+    [Header("Sound")]
+    public SFX selectSound = SFX.UIClick;
 }
 
 [System.Serializable]
