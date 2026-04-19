@@ -4,20 +4,31 @@ using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 
+[System.Serializable]
+public class TutorialSection
+{
+    public string sectionName;
+    public List<Sprite> sprites = new List<Sprite>();
+}
+
 public class TutorialUI : UI_Base
 {
     private static TutorialUI instance;
     public static TutorialUI Instance { get { return instance; } }
     public bool IsVisible => canvas != null && canvas.enabled;
 
-    // Ãß°¡µÈ ÄÄÆ÷³ÍÆ®µéÀ» enum¿¡ ¹İ¿µ
     enum Buttons { CloseButton, NextButton, PrevButton }
     enum Images { BlockPanel, Background, TutorialImage }
     enum Texts { TutorialPageText }
+    enum Layouts { TutorialSection }
 
     [Header("Tutorial Resources")]
-    [SerializeField] private List<Sprite> tutorialSprites = new List<Sprite>();
-    private int currentIdx = 0;
+    [SerializeField] private List<TutorialSection> sections = new List<TutorialSection>();
+    [SerializeField] private Button sectionButtonPrefab;
+
+    private int currentSectionIdx = 0;
+    private int currentSpriteIdx = 0;
+    private List<Button> sectionButtons = new List<Button>();
 
     private Canvas canvas;
     private GraphicRaycaster raycaster;
@@ -48,17 +59,29 @@ public class TutorialUI : UI_Base
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(1920, 1080);
 
-        // ¹ÙÀÎµù
+        // ë°”ì¸ë”©
         Bind<Button>(typeof(Buttons));
         Bind<Image>(typeof(Images));
         Bind<TMP_Text>(typeof(Texts));
+        Bind<VerticalLayoutGroup>(typeof(Layouts));
 
-        // ¹öÆ° ¸®½º³Ê µî·Ï
+        // ë²„íŠ¼ ë¦¬ìŠ¤ë„ˆ ë“±ë¡
         Get<Button>(Buttons.CloseButton).onClick.AddListener(Hide);
         Get<Button>(Buttons.NextButton).onClick.AddListener(OnClickNext);
         Get<Button>(Buttons.PrevButton).onClick.AddListener(OnClickPrev);
 
         BG = Get<Image>(Images.Background).rectTransform;
+
+        // ì„¹ì…˜ ë²„íŠ¼ ë™ì  ìƒì„±
+        Transform TutorialSection = Get<VerticalLayoutGroup>(Layouts.TutorialSection).transform;
+        for (int i = 0; i < sections.Count; i++)
+        {
+            int idx = i;
+            Button btn = Instantiate(sectionButtonPrefab, TutorialSection);
+            btn.GetComponentInChildren<TMP_Text>().text = sections[i].sectionName;
+            btn.onClick.AddListener(() => OnClickSection(idx));
+            sectionButtons.Add(btn);
+        }
 
         if (canvas != null) canvas.enabled = false;
         if (raycaster != null) raycaster.enabled = false;
@@ -69,9 +92,10 @@ public class TutorialUI : UI_Base
         if (canvas != null) canvas.enabled = true;
         if (raycaster != null) raycaster.enabled = true;
 
-        // ¿­¸± ¶§¸¶´Ù Ã¹ ÆäÀÌÁö·Î ÃÊ±âÈ­
-        currentIdx = 0;
+        currentSectionIdx = 0;
+        currentSpriteIdx = 0;
         UpdatePage();
+        HighlightSectionButton(0);
 
         if (BG != null)
         {
@@ -120,38 +144,57 @@ public class TutorialUI : UI_Base
             Show();
     }
 
-    #region ÆäÀÌÁö ·ÎÁ÷
+    #region ì„¹ì…˜ ì„ íƒ
+    private void OnClickSection(int idx)
+    {
+        currentSectionIdx = idx;
+        currentSpriteIdx = 0;
+        UpdatePage();
+        HighlightSectionButton(idx);
+    }
+
+    private void HighlightSectionButton(int idx)
+    {
+        for (int i = 0; i < sectionButtons.Count; i++)
+            sectionButtons[i].interactable = (i != idx);
+    }
+    #endregion
+
+    #region í˜ì´ì§€ ì¡°ì‘
     private void OnClickNext()
     {
-        if (currentIdx < tutorialSprites.Count - 1)
+        var sprites = sections[currentSectionIdx].sprites;
+        if (currentSpriteIdx < sprites.Count - 1)
         {
-            currentIdx++;
+            currentSpriteIdx++;
             UpdatePage();
         }
     }
 
     private void OnClickPrev()
     {
-        if (currentIdx > 0)
+        if (currentSpriteIdx > 0)
         {
-            currentIdx--;
+            currentSpriteIdx--;
             UpdatePage();
         }
     }
 
     private void UpdatePage()
     {
-        if (tutorialSprites.Count == 0) return;
+        if (sections.Count == 0) return;
+        var sprites = sections[currentSectionIdx].sprites;
+        if (sprites.Count == 0) return;
 
-        // ÀÌ¹ÌÁö ±³Ã¼
-        Get<Image>(Images.TutorialImage).sprite = tutorialSprites[currentIdx];
+        // ì´ë¯¸ì§€ êµì²´
+        Get<Image>(Images.TutorialImage).sprite = sprites[currentSpriteIdx];
 
-        // ÆäÀÌÁö ÅØ½ºÆ® ¾÷µ¥ÀÌÆ® (1ºÎÅÍ ½ÃÀÛ / ÀüÃ¼ ¼ö)
-        Get<TMP_Text>(Texts.TutorialPageText).text = $"{currentIdx + 1} / {tutorialSprites.Count}";
+        // í˜ì´ì§€ í…ìŠ¤íŠ¸ ì—…ë°ì´íŠ¸ (1ë¶€í„° ì‹œì‘ / ì „ì²´ ìˆ˜)
+        Get<TMP_Text>(Texts.TutorialPageText).text = $"{currentSpriteIdx + 1} / {sprites.Count}";
 
-        // ¹öÆ° È°¼º/ºñÈ°¼º Ã³¸®
-        Get<Button>(Buttons.PrevButton).interactable = (currentIdx > 0);
-        Get<Button>(Buttons.NextButton).interactable = (currentIdx < tutorialSprites.Count - 1);
+        // ë²„íŠ¼ í™œì„±/ë¹„í™œì„± ì²˜ë¦¬
+        Get<Button>(Buttons.PrevButton).interactable = (currentSpriteIdx > 0);
+        Get<Button>(Buttons.NextButton).interactable = (currentSpriteIdx < sprites.Count - 1);
     }
     #endregion
 }
