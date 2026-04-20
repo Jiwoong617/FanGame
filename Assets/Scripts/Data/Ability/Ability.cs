@@ -25,6 +25,9 @@ public enum CombatEvent
     OnBeforeDead,
     OnBeforeAttack,
     OnHeal,
+    OnReflect, // 반사 발동 시 (ctx.source = 반사한 유닛, ctx.target = 반사 대상(적), ctx.value = 반사량)
+    OnBeforeHeal, // 회복 적용 전
+    OnStaminaUsed, // 스태미나 소모 시 (ctx.source = 플레이어, ctx.value = 소모량)
     
     //이거 무조건 아래에다가 추가해야됨 안그럼 인스펙터에서 조정하는거 다시 해야됨
 }

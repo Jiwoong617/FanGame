@@ -17,7 +17,7 @@ MonoBehaviour:
   Description: "\uD68C\uD53C/\uD328\uB9C1 \uC131\uACF5 \uC2DC \uC2A4\uD0DC\uBBF8\uB098
     50% \uBC18\uD658"
   FlavorText: 
-  isItem: 0
+  isItem: 1
   statChanges: []
   abilities:
   - rid: 7928554457303351369

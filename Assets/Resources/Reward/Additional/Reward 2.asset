@@ -16,7 +16,7 @@ MonoBehaviour:
   RewardName: 
   Description: "\uC804\uD22C \uC885\uB8CC \uC2DC FP 1 \uD68C\uBCF5"
   FlavorText: 
-  isItem: 0
+  isItem: 1
   statChanges: []
   abilities:
   - rid: 7928554457303351369

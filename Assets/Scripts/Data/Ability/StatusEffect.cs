@@ -17,6 +17,7 @@ public enum EffectType
     Shackle,      // 구속 (패리/회피 불가)
     Taunt,         // 도발 (타겟 고정)
     CritUp,       // 치명타 확률 증가
+    CritDamageUp, // 치명타 피해 증가
 }
 
 

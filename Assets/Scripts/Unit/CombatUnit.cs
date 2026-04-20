@@ -301,7 +301,10 @@ public abstract class CombatUnit : MonoBehaviour
     {
         if (IsDead || amount <= 0) return;
 
-        float finalHeal = Mathf.Max(1f, amount);
+        CombatEventContext healCtx = new CombatEventContext(this, this, amount);
+        TriggerAbility(CombatEvent.OnBeforeHeal, healCtx);
+
+        float finalHeal = Mathf.Max(1f, healCtx.value);
         stats.hp += finalHeal;
 
         TriggerAbility(CombatEvent.OnHeal, new CombatEventContext(this, this, finalHeal));

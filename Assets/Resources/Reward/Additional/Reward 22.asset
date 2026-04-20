@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
-  m_Name: Reward 6
+  m_Name: Reward 22
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 0}
   RewardName: 
-  Description: "\uD55C \uBC88\uC5D0 30 \uC774\uC0C1\uC758 \uB370\uBBF8\uC9C0\uB97C
-    \uC8FC\uBA74 \uB300\uC0C1\uC774 \uBC1B\uB294\uD53C\uD574 5% \uC99D\uAC00"
+  Description: "\uC2A4\uD14C\uBBF8\uB098 50 \uC774\uC0C1 \uC18C\uBAA8 \uC2DC \uC2A4\uD14C\uBBF8\uB098
+    \uC7AC\uC0DD\uC774 0.1 \uC99D\uAC00"
   FlavorText: 
   isItem: 1
   statChanges: []
   abilities:
-  - rid: 7928554457303351373
+  - rid: 7928554618357284950
   references:
     version: 2
     RefIds:
-    - rid: 7928554457303351373
-      type: {class: HeavyStrikeAbility, ns: , asm: Assembly-CSharp}
+    - rid: 7928554618357284950
+      type: {class: StaminaRegenBonusAbility, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 2
-        damageThreshold: 30
-        amplifyValue: 0.05
+        combatEvent: 16
+        staminaThreshold: 50
+        regenBonus: 0.1

@@ -10,23 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
-  m_Name: Reward 6
+  m_Name: Reward 20
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 0}
   RewardName: 
-  Description: "\uD55C \uBC88\uC5D0 30 \uC774\uC0C1\uC758 \uB370\uBBF8\uC9C0\uB97C
-    \uC8FC\uBA74 \uB300\uC0C1\uC774 \uBC1B\uB294\uD53C\uD574 5% \uC99D\uAC00"
+  Description: "\uC804\uD22C \uC2DC\uC791 \uC2DC, \uD604\uC7AC \uCCB4\uB825\uC758
+    50%\uB97C \uC0C1\uC2E4\uD558\uB294 \uB300\uC2E0 \uD761\uD608 2\uC2A4\uD0DD \uD68D\uB4DD"
   FlavorText: 
   isItem: 1
   statChanges: []
   abilities:
-  - rid: 7928554457303351373
+  - rid: 7928554618357284947
   references:
     version: 2
     RefIds:
-    - rid: 7928554457303351373
-      type: {class: HeavyStrikeAbility, ns: , asm: Assembly-CSharp}
+    - rid: 7928554618357284947
+      type: {class: BloodPactAbility, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 2
-        damageThreshold: 30
-        amplifyValue: 0.05
+        combatEvent: 0
+        hpLossRatio: 0.5
+        vampireValue: 0.05
+        vampireStacks: 2

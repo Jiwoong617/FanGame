@@ -17,6 +17,8 @@ public static class BuffSlotTooltipDB
         { EffectType.DamageAmplification, ("피해 증가", "받는 피해량이 증가합니다.") },
         { EffectType.Taunt, ("도발", "대상이 도발 당해 타겟 변경이 불가능합니다.") },
         { EffectType.Shackle, ("구속", "패링과 회피가 불가능합니다.") },
+        { EffectType.CritUp, ("치명타 확률 증가", "치명타 확률이 증가합니다.") },
+        { EffectType.CritDamageUp, ("치명타 피해 증가", "치명타 피해량이 증가합니다.") },
     };
 
 

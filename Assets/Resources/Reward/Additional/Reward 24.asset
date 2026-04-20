@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
-  m_Name: Reward 6
+  m_Name: Reward 24
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 0}
   RewardName: 
-  Description: "\uD55C \uBC88\uC5D0 30 \uC774\uC0C1\uC758 \uB370\uBBF8\uC9C0\uB97C
-    \uC8FC\uBA74 \uB300\uC0C1\uC774 \uBC1B\uB294\uD53C\uD574 5% \uC99D\uAC00"
+  Description: "\uD53C\uACA9\uC73C\uB85C \uCCB4\uB825\uC774 1\uC774 \uB420 \uACBD\uC6B0
+    \uBAA8\uB4E0 \uC801\uC5D0\uAC8C \uACE0\uC815 \uB370\uBBF8\uC9C0 100\n(\uC804\uD22C\uB2F9
+    1\uD68C \uBC1C\uB3D9)"
   FlavorText: 
   isItem: 1
   statChanges: []
   abilities:
-  - rid: 7928554457303351373
+  - rid: 7928554618357284952
   references:
     version: 2
     RefIds:
-    - rid: 7928554457303351373
-      type: {class: HeavyStrikeAbility, ns: , asm: Assembly-CSharp}
+    - rid: 7928554618357284952
+      type: {class: LastStandAbility, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 2
-        damageThreshold: 30
-        amplifyValue: 0.05
+        combatEvent: 4
+        damage: 100

@@ -35,6 +35,9 @@ public class ReflectEffect : StatusEffect
             CombatEventContext reflectCtx = new CombatEventContext(owner, ctx.source, reflectAmount, DamageType.Fixed, true);
             ctx.source.TakeDamage(reflectCtx);
 
+            // 반사 발동 이벤트 트리거
+            owner.TriggerAbility(CombatEvent.OnReflect, reflectCtx);
+
             GameManager.VFX.PlayEffect(owner.transform.position, owner.transform.position, AttackVFXType.Reflect, 0f, Color.white);
         }
     }

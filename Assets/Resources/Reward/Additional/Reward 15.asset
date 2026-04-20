@@ -10,37 +10,36 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
-  m_Name: Reward 5
+  m_Name: Reward 15
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 0}
   RewardName: 
-  Description: "\uD68C\uD53C \uC131\uACF5 \uC2DC \uCE58\uBA85\uD0C0 \uD655\uB960
-    10% \uC99D\uAC00"
+  Description: "\uD328\uB9C1 \uC2DC \uC0C1\uB300\uC5D0\uAC8C \uB454\uD654 2% \uC801\uC6A9"
   FlavorText: 
   isItem: 1
   statChanges: []
   abilities:
-  - rid: 7928554457303351371
+  - rid: 7928554618357284941
   references:
     version: 2
     RefIds:
-    - rid: 7928554457303351371
+    - rid: 7928554618357284941
       type: {class: GenericBuffAbility, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 9
+        combatEvent: 5
         useStack: 0
         requiredStack: 1
         resetStackOnTrigger: 1
         resetStackOnBattleEnd: 1
-        targetType: 0
+        targetType: 1
         buffToApply:
-          rid: 7928554457303351372
-    - rid: 7928554457303351372
-      type: {class: CritChanceEffect, ns: , asm: Assembly-CSharp}
+          rid: 7928554618357284942
+    - rid: 7928554618357284942
+      type: {class: SlowEffect, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 0
-        effectType: 14
+        effectType: 5
         duration: -1
         stacks: 1
-        effectValue: 10
+        effectValue: 0.02
         isPermanent: 0

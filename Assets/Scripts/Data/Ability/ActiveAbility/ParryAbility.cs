@@ -17,6 +17,7 @@ public class ParryAbility : ActiveAbility
         if (stats.stamina >= cost)
         {
             stats.stamina -= cost;
+            player.TriggerAbility(CombatEvent.OnStaminaUsed, new CombatEventContext(player, player, cost));
             return true;
         }
         return false;
