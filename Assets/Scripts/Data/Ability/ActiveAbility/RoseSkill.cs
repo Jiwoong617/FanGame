@@ -21,6 +21,7 @@ public class RoseSkill : ActiveAbility
             return true;
         }
 
+        GameManager.VFX.ShowText(player.transform, "FP 부족!", Color.gray);
         return false;
     }
 

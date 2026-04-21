@@ -10,7 +10,7 @@ public class ParryAbility : ActiveAbility
 
         if (player.HasStatusEffect(EffectType.Shackle))
         {
-            // TODO: 화면에 "구속됨!" 같은 플로팅 텍스트
+            GameManager.VFX.ShowText(player.transform, "구속됨!", Color.gray);
             return false;
         }
 
@@ -20,6 +20,8 @@ public class ParryAbility : ActiveAbility
             player.TriggerAbility(CombatEvent.OnStaminaUsed, new CombatEventContext(player, player, cost));
             return true;
         }
+        
+        GameManager.VFX.ShowText(player.transform, "스태미나 부족!", Color.gray);
         return false;
     }
 

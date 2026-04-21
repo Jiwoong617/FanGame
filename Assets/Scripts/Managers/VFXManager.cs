@@ -33,6 +33,10 @@ public enum AttackVFXType
     Disarm = 35,
     Shackle = 36,
     Reflect = 37,
+
+    //어빌리티 이펙트
+    FireBaba = 50,
+    BabaExplode = 51,
 }
 
 public class VFXManager

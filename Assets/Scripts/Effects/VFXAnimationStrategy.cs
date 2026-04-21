@@ -328,3 +328,48 @@ public class ReflectVFXAnimation : VFXAnimationStrategy
         seq.OnComplete(() => onComplete?.Invoke());
     }
 }
+
+[System.Serializable]
+public class BabaFireVFXAnimation : VFXAnimationStrategy
+{
+    public override void PlaySequence(Transform t, SpriteRenderer sr,
+        Vector3 attackerPos, Vector3 targetPos, float hitDelay, Color color, Action onHit, Action onComplete)
+    {
+        t.position = attackerPos;
+        t.localScale = Vector3.one;
+        sr.color = color;
+
+        Sequence seq = DOTween.Sequence();
+
+        if (hitDelay > 0) seq.AppendInterval(hitDelay);
+
+        seq.Append(t.DOMove(targetPos, 1.5f).SetEase(Ease.InCubic));
+        seq.AppendCallback(() => onHit?.Invoke());
+        seq.Append(sr.DOFade(0f, 0.2f).SetEase(Ease.InQuad));
+
+        seq.OnComplete(() => onComplete?.Invoke());
+    }
+}
+
+[System.Serializable]
+public class BababExplodeVFXAnimation : VFXAnimationStrategy
+{
+    public override void PlaySequence(Transform t, SpriteRenderer sr,
+        Vector3 attackerPos, Vector3 targetPos, float hitDelay, Color color, Action onHit, Action onComplete)
+    {
+        t.position = targetPos;
+        t.localScale = Vector3.zero;
+        sr.color = new Color(color.r, color.g, color.b, 0.5f);
+
+        Sequence seq = DOTween.Sequence();
+
+        if (hitDelay > 0) seq.AppendInterval(hitDelay);
+
+        seq.AppendCallback(() => onHit?.Invoke());
+
+        seq.Append(t.DOScale(new Vector3(4f, 2.5f, 1f), 0.2f).SetEase(Ease.OutExpo));
+        seq.Append(sr.DOFade(0f, 0.2f).SetEase(Ease.InQuad));
+
+        seq.OnComplete(() => onComplete?.Invoke());
+    }
+}

@@ -49,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     //TEST 용
     [SerializeField] private PlayerData testUnitData;
+    [SerializeField] private List<RewardData> testInventoryItems;
 
     [Header("Stages")]
     [SerializeField] private List<StageData> stageList;
@@ -69,6 +70,18 @@ public class GameManager : MonoBehaviour
     {
         // AudioMixer.SetFloat은 Awake 타이밍에 무시되는 Unity 버그가 있어 Start에서 적용
         Sound.ApplySavedVolumes();
+        
+
+        // TODO : 지울거 - 테스트용 아이템 적용
+        if (testInventoryItems != null)
+        {
+            foreach (var item in testInventoryItems)
+            {
+                item.Apply(Player);
+                Inventory.AddItem(item);
+            }
+            testInventoryItems.Clear();
+        }
     }
 
     private void OnEnable()

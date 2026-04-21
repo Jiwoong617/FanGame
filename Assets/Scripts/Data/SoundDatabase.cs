@@ -58,6 +58,8 @@ public enum SFX
     //Etc
     DragonRoar = 60,
     DragonMagicSteal,
+    BabaFlying,
+    BabaExplode,
 }
 
 

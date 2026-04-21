@@ -29,6 +29,20 @@ public class InventoryManager
         }
     }
 
+    public bool HasAbility<T>() where T : Ability
+    {
+        foreach (var item in Items)
+        {
+            if (item.abilities == null) continue;
+            foreach (var ability in item.abilities)
+            {
+                if (ability is T)
+                    return true;
+            }
+        }
+        return false;
+    }
+
     public void RemoveArtifact<T>() where T : Ability
     {
         RewardData targetItem = null;

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Reward 24
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 0}
-  RewardName: 
+  RewardName: "\uBC14\uBC14 \uBC1C\uC0AC"
   Description: "\uD53C\uACA9\uC73C\uB85C \uCCB4\uB825\uC774 1\uC774 \uB420 \uACBD\uC6B0
     \uBAA8\uB4E0 \uC801\uC5D0\uAC8C \uACE0\uC815 \uB370\uBBF8\uC9C0 100\n(\uC804\uD22C\uB2F9
     1\uD68C \uBC1C\uB3D9)"

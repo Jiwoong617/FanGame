@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: 75449072f7b5a93479490e3cb6fb11b0
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6500167644975341284
+    second: TextBubble_0
+  - first:
+      213: 2336563320270688246
+    second: TextBubble_1
+  - first:
+      213: 1753182177219515238
+    second: TextBubble_2
+  - first:
+      213: 6454559462523034489
+    second: TextBubble_3
+  - first:
+      213: -8001463399579987833
+    second: TextBubble_4
+  - first:
+      213: -4063330857735631428
+    second: TextBubble_5
+  - first:
+      213: 6683706734166583308
+    second: TextBubble_6
+  - first:
+      213: -5911435734396418354
+    second: TextBubble_7
+  - first:
+      213: 555389293497638604
+    second: TextBubble_8
+  - first:
+      213: 231073115849434914
+    second: TextBubble_9
+  - first:
+      213: 6968664570504542336
+    second: TextBubble_10
+  - first:
+      213: 5299280673820364199
+    second: TextBubble_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 512
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TextBubble_0
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 690
+        width: 303
+        height: 219
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c11e1cc57f3cac5a0800000000000000
+      internalID: -6500167644975341284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_1
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 662
+        width: 372
+        height: 266
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ff01fbc5f32d6020800000000000000
+      internalID: 2336563320270688246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_2
+      rect:
+        serializedVersion: 2
+        x: 802
+        y: 673
+        width: 375
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66317b3c6ed845810800000000000000
+      internalID: 1753182177219515238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_3
+      rect:
+        serializedVersion: 2
+        x: 1226
+        y: 670
+        width: 351
+        height: 243
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97b525922a3339950800000000000000
+      internalID: 6454559462523034489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_4
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 345
+        width: 326
+        height: 274
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 780deb08e6715f090800000000000000
+      internalID: -8001463399579987833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_5
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 353
+        width: 356
+        height: 263
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbdc8c30d162c97c0800000000000000
+      internalID: -4063330857735631428
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_6
+      rect:
+        serializedVersion: 2
+        x: 791
+        y: 369
+        width: 385
+        height: 232
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c08a2e8ecdb41cc50800000000000000
+      internalID: 6683706734166583308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_7
+      rect:
+        serializedVersion: 2
+        x: 1209
+        y: 353
+        width: 381
+        height: 260
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec640ca058c56fda0800000000000000
+      internalID: -5911435734396418354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_8
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 35
+        width: 343
+        height: 268
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cce5bfeae9325b700800000000000000
+      internalID: 555389293497638604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_9
+      rect:
+        serializedVersion: 2
+        x: 397
+        y: 52
+        width: 341
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 227295b46cfe43300800000000000000
+      internalID: 231073115849434914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_10
+      rect:
+        serializedVersion: 2
+        x: 789
+        y: 26
+        width: 397
+        height: 298
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 088f5cb518ba5b060800000000000000
+      internalID: 6968664570504542336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubble_11
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 45
+        width: 353
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7adc72032b3da8940800000000000000
+      internalID: 5299280673820364199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: b5eb1ad76ab3ca54dbdf94a9b44e5f5e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TextBubble_0: -6500167644975341284
+      TextBubble_1: 2336563320270688246
+      TextBubble_10: 6968664570504542336
+      TextBubble_11: 5299280673820364199
+      TextBubble_2: 1753182177219515238
+      TextBubble_3: 6454559462523034489
+      TextBubble_4: -8001463399579987833
+      TextBubble_5: -4063330857735631428
+      TextBubble_6: 6683706734166583308
+      TextBubble_7: -5911435734396418354
+      TextBubble_8: 555389293497638604
+      TextBubble_9: 231073115849434914
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

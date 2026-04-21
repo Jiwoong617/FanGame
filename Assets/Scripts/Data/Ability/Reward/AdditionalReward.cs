@@ -353,7 +353,78 @@ public class SlowBonusDamageAbility : RewardAbility
     }
 }
 
-/// 피격으로 체력이 1이 될 경우 모든 적에게 고정 데미지 100
+/// LastStandAbility 보유 시 발동 - 발사된 바바
+[System.Serializable]
+public class LastStandSynergyAbility : RewardAbility
+{
+    [SerializeField] private float damage = 20f;
+    [SerializeField] private float slowValue = 0.1f;
+    [SerializeField] private float slowDuration = -1f;
+
+    private float timer = 0f;
+    private bool isActive = false;
+    private bool? hasSynergy = null; // null = 미검사, 이후 캐싱
+
+    public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
+    {
+        if (eventType == CombatEvent.OnBattleStart)
+        {
+            isActive = false;
+            hasSynergy ??= GameManager.Inventory.HasAbility<LastStandAbility>();
+            if (hasSynergy == true && Random.value < 0.7f)
+            {
+                timer = Random.Range(5f, 8f);
+                isActive = true;
+            }
+            return;
+        }
+
+        if (eventType == CombatEvent.OnBattleEnd)
+        {
+            isActive = false;
+        }
+    }
+
+    public override void OnUpdate(float delta)
+    {
+        if (!isActive) return;
+
+        timer -= delta;
+        if (timer > 0f) return;
+
+        isActive = false;
+        AbilityFunc();
+    }
+
+    private void AbilityFunc()
+    {
+        GameManager.Sound.PlaySFX(SFX.HasiyoSelect);
+
+        DG.Tweening.DOVirtual.DelayedCall(1f, () =>
+        {
+            Vector3 startPos = new Vector3(-11f, UnityEngine.Random.Range(5f, 8f));
+            Vector3 endPos = new Vector3(UnityEngine.Random.Range(2.5f, 4f), UnityEngine.Random.Range(-1f, -0.5f));
+            GameManager.VFX.PlayEffect(startPos, endPos, AttackVFXType.FireBaba, 0f, Color.white, () =>
+            {
+                GameManager.VFX.PlayEffect(endPos, endPos, AttackVFXType.BabaExplode, 0f, Color.white);
+                foreach (var enemy in GameManager.Battle.GetAliveEnemies())
+                {
+                    SlowEffect slow = new SlowEffect(slowDuration, 1, false, slowValue);
+                    enemy.AddAbility(slow);
+
+                    CombatEventContext dmgCtx = new CombatEventContext(owner, enemy, damage, DamageType.Normal);
+                    enemy.TakeDamage(dmgCtx);
+
+                    GameManager.Sound.PlaySFX(SFX.BabaExplode, Random.Range(0.9f, 1.1f));
+                }
+            });
+
+            GameManager.Sound.PlaySFX(SFX.BabaFlying);
+        });
+    }
+}
+
+/// 피격으로 체력이 1이 될 경우 모든 적에게 고정 데미지 100 - 바바 발사
 [System.Serializable]
 public class LastStandAbility : RewardAbility
 {
