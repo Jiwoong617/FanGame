@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa086fe25cba1e74cabd6b1976725679, type: 3}
   m_Name: Mone_Ending
   m_EditorClassIdentifier: Assembly-CSharp::EndingData
-  pagePrefabs: []
+  pagePrefabs:
+  - {fileID: 7128034086232717874, guid: 81ae447be89148f478f440ab384cd5df, type: 3}
+  - {fileID: 7128034086232717874, guid: 32b80af3e88d8ab429ec0ac73915855e, type: 3}
+  - {fileID: 7128034086232717874, guid: e80e6aabd2ceafa4ebd86848d9423036, type: 3}
+  - {fileID: 7128034086232717874, guid: cafb7e208bcb3604c988ec1ef41a69ec, type: 3}

@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa086fe25cba1e74cabd6b1976725679, type: 3}
   m_Name: Popo_Ending
   m_EditorClassIdentifier: Assembly-CSharp::EndingData
-  pagePrefabs: []
+  pagePrefabs:
+  - {fileID: 7128034086232717874, guid: 8ecaf797947b6f04c8965458d561ca9c, type: 3}
+  - {fileID: 7128034086232717874, guid: 08daa6a2da43a1b44a4d1a5cae290f0d, type: 3}
+  - {fileID: 7128034086232717874, guid: ccd1f25ae6949324a9ab48f765a18b4e, type: 3}
+  - {fileID: 7128034086232717874, guid: 28026ec50c7b0c045b83473b698ca471, type: 3}
