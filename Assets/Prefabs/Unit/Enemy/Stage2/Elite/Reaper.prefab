@@ -198,7 +198,7 @@ MonoBehaviour:
       data:
         patternName: Bandong
         cooldown: 8
-        requiredChargeTime: 5
+        requiredChargeTime: 2
         patternIcon: 5
         triggerChance: 30
         lastExecutionTime: -9999
@@ -221,7 +221,7 @@ MonoBehaviour:
       data:
         patternName: Pattern
         cooldown: 12
-        requiredChargeTime: 4
+        requiredChargeTime: 3
         patternIcon: 0
         triggerChance: 30
         lastExecutionTime: -9999

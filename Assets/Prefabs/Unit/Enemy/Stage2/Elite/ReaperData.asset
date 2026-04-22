@@ -21,7 +21,7 @@ MonoBehaviour:
   hp: 1000
   defense: 0
   attackDamage: 10
-  attackSpeed: 0.2
+  attackSpeed: 0.8
   criticalChance: 5
   criticalDamage: 150
   unitDescription: 

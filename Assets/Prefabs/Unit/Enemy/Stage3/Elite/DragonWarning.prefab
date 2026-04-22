@@ -197,7 +197,7 @@ MonoBehaviour:
       data:
         patternName: DragonSummon
         cooldown: 0
-        requiredChargeTime: 7
+        requiredChargeTime: 4
         patternIcon: 12
         triggerChance: 30
         lastExecutionTime: -9999
