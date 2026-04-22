@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa086fe25cba1e74cabd6b1976725679, type: 3}
   m_Name: Ryusiho_Ending
   m_EditorClassIdentifier: Assembly-CSharp::EndingData
-  pagePrefabs: []
+  pagePrefabs:
+  - {fileID: 7128034086232717874, guid: 0e7f69f5f2f688a40a87d065d77669d5, type: 3}
+  - {fileID: 7128034086232717874, guid: 331812580cc7c344b8417183f9e5085c, type: 3}
+  - {fileID: 7128034086232717874, guid: 1c0c9c71811d3d045b0ba5c25e816c2e, type: 3}
+  - {fileID: 7128034086232717874, guid: cf696753b93232c42afcd639260cc96a, type: 3}
+  - {fileID: 7128034086232717874, guid: 5286d5d28f180214d8940b1885222905, type: 3}
