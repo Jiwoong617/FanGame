@@ -62,6 +62,7 @@ public class EndingManager : MonoBehaviour
     {
         if (index >= currentEndingData.pagePrefabs.Count)
         {
+            currentPageScript = null;
             FinishEnding();
             return;
         }
@@ -85,15 +86,12 @@ public class EndingManager : MonoBehaviour
     {
         if (Time.timeScale == 0 || currentPageScript == null) return;
 
-        bool success = currentPageScript.ShowNextCut();
-        // 컷 없으면 다음 으로
-        if (!success)
+        while (!currentPageScript.ShowNextCut())
         {
             pageIndex++;
             LoadPage(pageIndex);
 
-            // 페이지 넘어가자마자 첫 컷 보여주고 싶으면 아래 주석 해제
-            OnScreenClick(); 
+            if (currentPageScript == null) return; // FinishEnding() 호출됨
         }
     }
 

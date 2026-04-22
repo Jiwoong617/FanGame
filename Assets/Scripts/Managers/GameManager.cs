@@ -183,6 +183,10 @@ public class GameManager : MonoBehaviour
         {
             ChangeState(GameState.MainMenu);
         }
+        else if(scene.name == "EndingScene")
+        {
+            ChangeState(GameState.Ending);
+        }
     }
 
     private void SpawnPlayer()
