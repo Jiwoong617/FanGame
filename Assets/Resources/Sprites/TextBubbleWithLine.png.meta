@@ -1,0 +1,429 @@
+fileFormatVersion: 2
+guid: ea89eacfd50a2ee439ac201db73e7f80
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1228499929115033898
+    second: TextBubbleWithLine_0
+  - first:
+      213: -5464530253426315608
+    second: TextBubbleWithLine_1
+  - first:
+      213: 5667640523270415379
+    second: TextBubbleWithLine_2
+  - first:
+      213: -18354248178336410
+    second: TextBubbleWithLine_3
+  - first:
+      213: -8229805863883960967
+    second: TextBubbleWithLine_4
+  - first:
+      213: 1513049299127273746
+    second: TextBubbleWithLine_5
+  - first:
+      213: -26154834064240008
+    second: TextBubbleWithLine_6
+  - first:
+      213: -2813658382033767491
+    second: TextBubbleWithLine_7
+  - first:
+      213: 7160907659479090331
+    second: TextBubbleWithLine_8
+  - first:
+      213: -4488415802758130673
+    second: TextBubbleWithLine_9
+  - first:
+      213: -5101851258402395824
+    second: TextBubbleWithLine_10
+  - first:
+      213: -1675553629598377012
+    second: TextBubbleWithLine_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TextBubbleWithLine_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 755
+        width: 298
+        height: 208
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 53, y: 50, z: 62, w: 50}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a218e793d228c0110800000000000000
+      internalID: 1228499929115033898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_1
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 728
+        width: 360
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae2624dfa61a24b0800000000000000
+      internalID: -5464530253426315608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_2
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 730
+        width: 383
+        height: 251
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3146428070187ae40800000000000000
+      internalID: 5667640523270415379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_3
+      rect:
+        serializedVersion: 2
+        x: 1211
+        y: 735
+        width: 325
+        height: 227
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66df53598eacebff0800000000000000
+      internalID: -18354248178336410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_4
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 423
+        width: 317
+        height: 253
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 97d05c09b2bd9cd80800000000000000
+      internalID: -8229805863883960967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_5
+      rect:
+        serializedVersion: 2
+        x: 344
+        y: 419
+        width: 373
+        height: 265
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2198222325e6ff410800000000000000
+      internalID: 1513049299127273746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_6
+      rect:
+        serializedVersion: 2
+        x: 744
+        y: 433
+        width: 401
+        height: 237
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8721176215413aff0800000000000000
+      internalID: -26154834064240008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_7
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 379
+        width: 361
+        height: 305
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db3b393eb90e3f8d0800000000000000
+      internalID: -2813658382033767491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_8
+      rect:
+        serializedVersion: 2
+        x: 5
+        y: 107
+        width: 330
+        height: 254
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9400a08397a06360800000000000000
+      internalID: 7160907659479090331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_9
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 115
+        width: 340
+        height: 222
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 50, y: 47, z: 52, w: 51}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f041a58ab91f5b1c0800000000000000
+      internalID: -4488415802758130673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_10
+      rect:
+        serializedVersion: 2
+        x: 754
+        y: 87
+        width: 411
+        height: 288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 059ab0eaf459239b0800000000000000
+      internalID: -5101851258402395824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TextBubbleWithLine_11
+      rect:
+        serializedVersion: 2
+        x: 1199
+        y: 109
+        width: 337
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccb1ca1f9dc3fb8e0800000000000000
+      internalID: -1675553629598377012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 50dbfd6970754c94583da8e882bfc934
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TextBubbleWithLine_0: 1228499929115033898
+      TextBubbleWithLine_1: -5464530253426315608
+      TextBubbleWithLine_10: -5101851258402395824
+      TextBubbleWithLine_11: -1675553629598377012
+      TextBubbleWithLine_2: 5667640523270415379
+      TextBubbleWithLine_3: -18354248178336410
+      TextBubbleWithLine_4: -8229805863883960967
+      TextBubbleWithLine_5: 1513049299127273746
+      TextBubbleWithLine_6: -26154834064240008
+      TextBubbleWithLine_7: -2813658382033767491
+      TextBubbleWithLine_8: 7160907659479090331
+      TextBubbleWithLine_9: -4488415802758130673
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

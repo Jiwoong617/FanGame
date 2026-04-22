@@ -64,6 +64,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpeechBubbleBase
       objectReference: {fileID: 0}
+    - target: {fileID: 5138599072917955347, guid: 2bd2434386aa550428365fd2d12a6774, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138599072917955347, guid: 2bd2434386aa550428365fd2d12a6774, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138599072917955347, guid: 2bd2434386aa550428365fd2d12a6774, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5138599072917955347, guid: 2bd2434386aa550428365fd2d12a6774, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7293493038869657899, guid: 2bd2434386aa550428365fd2d12a6774, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -90,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7293493038869657899, guid: 2bd2434386aa550428365fd2d12a6774, type: 3}
       propertyPath: m_SizeDelta.x
-      value: -1620
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7293493038869657899, guid: 2bd2434386aa550428365fd2d12a6774, type: 3}
       propertyPath: m_SizeDelta.y
-      value: -880
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7293493038869657899, guid: 2bd2434386aa550428365fd2d12a6774, type: 3}
       propertyPath: m_LocalPosition.x

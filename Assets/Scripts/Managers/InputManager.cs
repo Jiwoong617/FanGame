@@ -29,8 +29,8 @@ public class InputManager
             GameManager.Sound.PlaySFX(SFX.UIClick);
 
         // 엔딩 씬 전용 입력 (Space or 마우스 좌클릭)
-        if (GameManager.Instance != null && GameManager.Instance.State == GameState.Ending)
-        {
+        if (GameManager.Instance != null)// && GameManager.Instance.State == GameState.Ending) // 엔딩 씬에서만 작동하도록 조건 추가
+        {   
             if (Keyboard.current.spaceKey.wasPressedThisFrame ||
                (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame))
             {

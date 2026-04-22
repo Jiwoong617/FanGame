@@ -59,6 +59,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7749136270164578377}
     m_Modifications:
+    - target: {fileID: -5400432871786220749, guid: 7718a590f5bfa49489e37443540a4f79, type: 3}
+      propertyPath: animType
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3561864728387108989, guid: 7718a590f5bfa49489e37443540a4f79, type: 3}
       propertyPath: m_Name
       value: CutImageBase

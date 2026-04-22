@@ -93,7 +93,7 @@ public class EndingManager : MonoBehaviour
             LoadPage(pageIndex);
 
             // 페이지 넘어가자마자 첫 컷 보여주고 싶으면 아래 주석 해제
-            // OnScreenClick(); 
+            OnScreenClick(); 
         }
     }
 
