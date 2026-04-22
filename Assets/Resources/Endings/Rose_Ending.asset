@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa086fe25cba1e74cabd6b1976725679, type: 3}
   m_Name: Rose_Ending
   m_EditorClassIdentifier: Assembly-CSharp::EndingData
-  pagePrefabs: []
+  pagePrefabs:
+  - {fileID: 7128034086232717874, guid: 554d819ec88bfca46b52afc9effbf93d, type: 3}
+  - {fileID: 7128034086232717874, guid: f91dba123896abb4687888520a29ecd1, type: 3}
+  - {fileID: 7128034086232717874, guid: 8de6f518824daed47b793cc07f40008b, type: 3}
+  - {fileID: 7128034086232717874, guid: 876ad3ff11a26354587d9cdc4fed6973, type: 3}

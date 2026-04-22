@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: Hasiyo_Ending
   m_EditorClassIdentifier: Assembly-CSharp::EndingData
   pagePrefabs:
-  - {fileID: 7128034086232717874, guid: 8ecaf797947b6f04c8965458d561ca9c, type: 3}
+  - {fileID: 7128034086232717874, guid: f8a5562ae97387b4bb18e34bf1398e58, type: 3}
+  - {fileID: 7128034086232717874, guid: 9a1284a7299cd9646b14fff22cb65b05, type: 3}
+  - {fileID: 7128034086232717874, guid: 6c084805ecc48f44c8df9da1e1cfe7a1, type: 3}
+  - {fileID: 7128034086232717874, guid: a15cd301f06f1b545b13f35081c55848, type: 3}
