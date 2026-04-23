@@ -233,7 +233,9 @@ public abstract class CombatUnit : MonoBehaviour
         TriggerAbility(CombatEvent.OnBeforeAttack, attackCtx);
 
         float actualDamage = target.TakeDamage(attackCtx);
-        if (actualDamage >= 0)
+        // damage > 0인데 결과가 0이면 차단된 것(IronFortress 등), damage == 0은 의도적 0뎀(DebuffPattern 등)
+        bool hitLanded = actualDamage > 0 || (damage <= 0f && actualDamage == 0f);
+        if (hitLanded)
         {
             GameManager.VFX.PlayEffect(transform.position, target.transform.position, unitData.attackVFXType, hitDelay, Color.white);
 

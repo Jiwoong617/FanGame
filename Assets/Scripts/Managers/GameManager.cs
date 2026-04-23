@@ -49,7 +49,6 @@ public class GameManager : MonoBehaviour
 
     //TEST 용
     [SerializeField] private PlayerData testUnitData;
-    [SerializeField] private List<RewardData> testInventoryItems;
 
     [Header("Stages")]
     [SerializeField] private List<StageData> stageList;
@@ -73,15 +72,15 @@ public class GameManager : MonoBehaviour
         
 
         // TODO : 지울거 - 테스트용 아이템 적용
-        if (testInventoryItems != null)
-        {
-            foreach (var item in testInventoryItems)
-            {
-                item.Apply(Player);
-                Inventory.AddItem(item);
-            }
-            testInventoryItems.Clear();
-        }
+        // if (testInventoryItems != null)
+        // {
+        //     foreach (var item in testInventoryItems)
+        //     {
+        //         item.Apply(Player);
+        //         Inventory.AddItem(item);
+        //     }
+        //     testInventoryItems.Clear();
+        // }
     }
 
     private void OnEnable()

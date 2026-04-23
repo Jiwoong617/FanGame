@@ -12,6 +12,8 @@ public class SacrificeSummonPattern : EnemyPattern
     [Tooltip("여기 등록된 몹들 중 하나가 랜덤으로 소환됩니다.")]
     public List<UnitData> randomSummonPool;
 
+    public int summonCount = 2;
+
     public float castDuration = 1.0f;
 
     public override bool OnUpdate(EnemyUnit unit, float delta)
@@ -27,10 +29,13 @@ public class SacrificeSummonPattern : EnemyPattern
 
             if (randomSummonPool != null && randomSummonPool.Count > 0)
             {
-                int randomIndex = Random.Range(0, randomSummonPool.Count);
-                UnitData randomMob = randomSummonPool[randomIndex];
+                for (int i = 0; i < summonCount; i++)
+                {
+                    int randomIndex = Random.Range(0, randomSummonPool.Count);
+                    UnitData randomMob = randomSummonPool[randomIndex];
 
-                GameManager.Battle.SpawnEnemyMidBattle(randomMob, unit);
+                    GameManager.Battle.SpawnEnemyMidBattle(randomMob, unit);
+                }
                 GameManager.Sound.PlaySFX(SFX.Summon);
             }
         });

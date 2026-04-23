@@ -10,6 +10,12 @@ public class CritBuildupAbility : RewardAbility
 
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
+        if (eventType == CombatEvent.OnBattleEnd)
+        {
+            ResetBuff();
+            return;
+        }
+
         if (ctx.source != owner) return;
 
         if (eventType == CombatEvent.OnAttack && !ctx.isCritical)

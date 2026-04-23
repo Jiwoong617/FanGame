@@ -42,7 +42,7 @@ public class TargetMarker : MonoBehaviour
         c.a = 1f;
         spriteRenderer.color = c;
 
-        sequence = DOTween.Sequence();
+        sequence = DOTween.Sequence().SetUpdate(true);
         sequence.Append(transform.DOScale(targetScale, targetingDuration).SetEase(Ease.OutExpo));
         sequence.AppendInterval(holdingDuration);
         sequence.Append(spriteRenderer.DOFade(0f, fadingDuration));
