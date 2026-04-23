@@ -15,7 +15,7 @@ MonoBehaviour:
   Icon: {fileID: 21300000, guid: aed716b6847eb08478e6ac3472c0c7e1, type: 3}
   RewardName: "\uD55C\uC774 \uBB3B\uC740 \uCE74\uB4DC"
   Description: "\uACF5\uACA9\uC18D\uB3C4 0.01 \uC99D\uAC00"
-  FlavorText: "\u201C\uB098 \uC0AC\uAE30\uB2F9\uD588\uC5B4 \uACE0\uC810\uC5D0 \uBB3C\uB838\uC5B4\u201D"
+  FlavorText: "\uB098 \uC0AC\uAE30\uB2F9\uD588\uC5B4 \uACE0\uC810\uC5D0 \uBB3C\uB838\uC5B4"
   isItem: 1
   statChanges:
   - targetStat: 3

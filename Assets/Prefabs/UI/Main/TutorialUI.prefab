@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7625173115370081896}
   - component: {fileID: 992165178870925351}
   - component: {fileID: 5495172638090435784}
+  - component: {fileID: 2865253594965110223}
   m_Layer: 5
   m_Name: Scrollbar Vertical
   m_TagString: Untagged
@@ -37,7 +38,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -10}
+  m_SizeDelta: {x: 40, y: -10}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &7625173115370081896
 CanvasRenderer:
@@ -67,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: df5547c7560daf645a48225dc7560268, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -76,7 +77,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 12
 --- !u!114 &5495172638090435784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -90,7 +91,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Scrollbar
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -121,11 +122,26 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2172105440923194334}
   m_Direction: 2
   m_Value: 0
-  m_Size: 1
+  m_Size: 0.1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2865253594965110223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 927136204876051578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5da3b37c600b30649bc939d5645c6649, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FixedScrollbarController
+  scrollRect: {fileID: 9035081720419411911}
+  scrollbar: {fileID: 5495172638090435784}
+  handleSize: 0.2
 --- !u!1 &944426907709548349
 GameObject:
   m_ObjectHideFlags: 0
@@ -161,9 +177,9 @@ RectTransform:
   m_Father: {fileID: 1488454020250378438}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -37, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &6448185600944847486
 CanvasRenderer:
@@ -326,7 +342,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: 20}
+  m_SizeDelta: {x: 40, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7936830288589632052
 CanvasRenderer:
@@ -356,16 +372,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 21300000, guid: 1bb2b28d7e6e94f4298c689469d0f9cc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 1.63
 --- !u!1 &2127307478879433413
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,29 +619,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TutorialUI
   sections:
-  - sectionName: "\uC801 \uC815\uBCF4"
+  - sectionName: "\uB9F5"
     sprites:
-    - {fileID: 21300000, guid: dbcd076a2f7f4a042a4be6d209b26584, type: 3}
-    - {fileID: 21300000, guid: 4e7457f38e96e0c4eb38a2b89723c661, type: 3}
-    - {fileID: 21300000, guid: 5cfa20f5f7aff3d45bb537448b39a7ed, type: 3}
-  - sectionName: "\uD68C\uD53C/\uD328\uB9C1/\uC2A4\uD0AC"
-    sprites:
-    - {fileID: 21300000, guid: c84c6049fe8722b46ac4aa6bce35d689, type: 3}
-    - {fileID: 21300000, guid: 176ed936a6ad418468853963f9789490, type: 3}
-    - {fileID: 21300000, guid: 044e78cc18138974e94991d845664fc3, type: 3}
-    - {fileID: 21300000, guid: 7849390831a664b41bb0e587341b0fb8, type: 3}
-  - sectionName: "\uC774\uBCA4\uD2B8"
-    sprites:
-    - {fileID: 21300000, guid: e212fad54520cc344a34a601f08c709b, type: 3}
-  - sectionName: "\uD734\uC2DD"
-    sprites:
-    - {fileID: 21300000, guid: 0158b86a42553a643a5bebd2c28d2e72, type: 3}
-    - {fileID: 21300000, guid: b7f73990ce95c8646bd5133bf2c9e9e3, type: 3}
+    - {fileID: 21300000, guid: a374e0ad15a7b9442a0bc4c1d9b9d953, type: 3}
   - sectionName: "\uC2A4\uD15F"
     sprites:
     - {fileID: 21300000, guid: 14bda8daf69d12f4ba252c355a289b17, type: 3}
     - {fileID: 21300000, guid: 87b9a92c5fb012a4e83262fb2407ec70, type: 3}
+  - sectionName: "\uC77C\uC2DC \uC815\uC9C0"
+    sprites:
+    - {fileID: 21300000, guid: 1565dc7183aefae4da2129b6cb78670c, type: 3}
+  - sectionName: "\uC804\uD22C \uC815\uBCF4"
+    sprites:
+    - {fileID: 21300000, guid: dbcd076a2f7f4a042a4be6d209b26584, type: 3}
+    - {fileID: 21300000, guid: 5cfa20f5f7aff3d45bb537448b39a7ed, type: 3}
+    - {fileID: 21300000, guid: 4e7457f38e96e0c4eb38a2b89723c661, type: 3}
+  - sectionName: "\uC804\uD22C \uC2DC\uC2A4\uD15C"
+    sprites:
+    - {fileID: 21300000, guid: 7849390831a664b41bb0e587341b0fb8, type: 3}
+    - {fileID: 21300000, guid: c84c6049fe8722b46ac4aa6bce35d689, type: 3}
+    - {fileID: 21300000, guid: 176ed936a6ad418468853963f9789490, type: 3}
+    - {fileID: 21300000, guid: 044e78cc18138974e94991d845664fc3, type: 3}
+  - sectionName: "\uC2A4\uD0AC \uC815\uBCF4"
+    sprites:
+    - {fileID: 21300000, guid: 32ad636e94779e942874f63737fae527, type: 3}
+  - sectionName: "\uD0C0\uAC9F\uD305"
+    sprites:
+    - {fileID: 21300000, guid: 86e870619f01a5649a5669402be52408, type: 3}
+  - sectionName: "\uC544\uC774\uD15C \uBCF4\uC0C1"
+    sprites:
+    - {fileID: 21300000, guid: 7a6b442ea2829ea419c2e8df90a36f05, type: 3}
+  - sectionName: "\uC778\uBCA4\uD1A0\uB9AC"
+    sprites:
+    - {fileID: 21300000, guid: 55d62f91da0812e4db015843c3fc24bd, type: 3}
+  - sectionName: "\uD734\uC2DD"
+    sprites:
+    - {fileID: 21300000, guid: 0158b86a42553a643a5bebd2c28d2e72, type: 3}
+    - {fileID: 21300000, guid: b7f73990ce95c8646bd5133bf2c9e9e3, type: 3}
+  - sectionName: "\uC774\uBCA4\uD2B8"
+    sprites:
+    - {fileID: 21300000, guid: e212fad54520cc344a34a601f08c709b, type: 3}
   sectionButtonPrefab: {fileID: 3462017314266019895, guid: 4764b3498bec2c641950b6ce0a87331d, type: 3}
+  commonSectionButtonSprite: {fileID: 21300000, guid: d72abd8cfff9c7b43b721262d0683bae, type: 3}
   animDuration: 0.5
   startYOffset: -500
 --- !u!1 &3047632052095613307
@@ -758,6 +793,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3884059149160873291}
   - component: {fileID: 3803056688362966288}
+  - component: {fileID: 5749716807202149660}
   m_Layer: 5
   m_Name: TutorialSection
   m_TagString: Untagged
@@ -810,6 +846,20 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &5749716807202149660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3232178376528073925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ContentSizeFitter
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &4138703901822462299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1072,7 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.39215687}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1102,16 +1152,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ScrollRect
   m_Content: {fileID: 3884059149160873291}
-  m_Horizontal: 1
+  m_Horizontal: 0
   m_Vertical: 1
-  m_MovementType: 1
+  m_MovementType: 2
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
   m_Viewport: {fileID: 3109881417212545361}
   m_HorizontalScrollbar: {fileID: 0}
-  m_VerticalScrollbar: {fileID: 5495172638090435784}
+  m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 2
   m_VerticalScrollbarVisibility: 2
   m_HorizontalScrollbarSpacing: -3

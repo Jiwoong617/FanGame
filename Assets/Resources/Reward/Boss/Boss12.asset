@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Boss12
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 21300000, guid: cb9a7f4a874aa954c9b3654409a2601d, type: 3}
-  RewardName: "\uD3EC\uB9AC\uC758 \uC138 \uBC88\uC9F8 \uCD09\uC218"
+  RewardName: "\uD3EC\uB9AC\uC758 \uB2E4\uC12F \uBC88\uC9F8 \uCD09\uC218"
   Description: "\uCCB4\uB825\uC774 50% \uC774\uC0C1\uC77C \uACBD\uC6B0 \uBC18\uC0AC
     20% \uBC84\uD504 \uD68D\uB4DD, 50% \uC774\uD558\uC77C \uACBD\uC6B0 \uBC1B\uB294
     \uD53C\uD574 20% \uAC10\uC18C \uBC84\uD504 \uD68D\uB4DD"
-  FlavorText: "\uD3EC\uB9AC\uB294 \uC800\uD55C\uD14C\uB9CC \uBC18\uC751\uD574\uC694"
+  FlavorText: "\uD3EC\uB9AC \uB098\uD55C\uD14C\uB9CC \uBC18\uC751\uD574"
   isItem: 1
   statChanges: []
   abilities:

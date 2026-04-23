@@ -16,7 +16,7 @@ MonoBehaviour:
   RewardName: "\uB3CC\uCAC0\uCFE0"
   Description: "\uD68D\uB4DD \uC2DC \uACF5\uACA9\uB825 1.5\uBC30 \uC99D\uAC00, \uACF5\uACA9\uC18D\uB3C4
     \uC808\uBC18\uC73C\uB85C \uAC10\uC18C"
-  FlavorText: "\uC2DC\uC2DC\uD3EC\uC2A4 27\uC2DC\uAC04"
+  FlavorText: "\uC2B5\uBC15 \uB3CC \uAD74\uB824"
   isItem: 1
   statChanges:
   - targetStat: 2

@@ -16,7 +16,7 @@ MonoBehaviour:
   RewardName: "\uB7ED\uC154\uB9AC"
   Description: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uC774\uBC88 \uC804\uD22C \uB3D9\uC548
     \uC790\uC2E0\uC5D0\uAC8C \uBC18\uC0AC \uBC84\uD504 2\uC2A4\uD0DD \uBD80\uC5EC"
-  FlavorText: "\u201CLuxury\u201D"
+  FlavorText: "\uD558\uC640\uC640 \uBBFC\uB098 \uACE0\uD0A4\uACA1\uC694~ Luxury~"
   isItem: 1
   statChanges: []
   abilities:

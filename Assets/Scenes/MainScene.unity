@@ -570,6 +570,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 927136204876051578, guid: faf58a4a37a8de14396777c770648838, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2172105440923194334, guid: faf58a4a37a8de14396777c770648838, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -582,16 +586,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialUI
       objectReference: {fileID: 0}
-    - target: {fileID: 3109881417212545361, guid: faf58a4a37a8de14396777c770648838, type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3109881417212545361, guid: faf58a4a37a8de14396777c770648838, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3109881417212545361, guid: faf58a4a37a8de14396777c770648838, type: 3}
-      propertyPath: m_SizeDelta.x
+    - target: {fileID: 3884059149160873291, guid: faf58a4a37a8de14396777c770648838, type: 3}
+      propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6600146569793446653, guid: faf58a4a37a8de14396777c770648838, type: 3}

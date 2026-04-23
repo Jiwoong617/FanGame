@@ -16,8 +16,8 @@ MonoBehaviour:
   RewardName: 2 + 1
   Description: "\uC2A4\uD0AC\uC744 2\uBC88 \uC0AC\uC6A9\uD560 \uB54C \uB9C8\uB2E4
     FP 1 \uD68C\uBCF5"
-  FlavorText: "\u201C\uD3B8\uC758\uC810\uC5D0\uC11C 2+1 \uD589\uC0AC \uC548\uD558\uBA74
-    \uC548\uC0AC\uBA39\uC5B4\uC694\u201D"
+  FlavorText: "\uC800\uB294 \uD3B8\uC758\uC810\uC5D0\uC11C 2+1 \uD589\uC0AC \uC548\uD558\uBA74
+    \uC548\uC0AC\uBA39\uC5B4\uC694"
   isItem: 1
   statChanges: []
   abilities:
