@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
+  m_Name: Normal36
+  m_EditorClassIdentifier: Assembly-CSharp::RewardData
+  Icon: {fileID: 21300000, guid: 61337a35a681b9a43938c2edc506bd43, type: 3}
+  RewardName: "\uC218\uB140\uBCF5"
+  Description: "\uCCB4\uB825\uC744 10\uD68C\uBCF5 \uD560 \uB54C\uB9C8\uB2E4 \uCD5C\uB300\uCCB4\uB825
+    1 \uC99D\uAC00 "
+  FlavorText: "\uC2ED\uC790\uAC00 \uB204\uB974\uC9C0 \uB9D0\uB77C\uAD6C\uC5EC~"
+  isItem: 1
+  statChanges: []
+  abilities:
+  - rid: 7928554596713889863
+  references:
+    version: 2
+    RefIds:
+    - rid: 7928554596713889863
+      type: {class: HealToMaxHpAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 13
+        healThreshold: 10

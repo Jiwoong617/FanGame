@@ -14,17 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 21300000, guid: 15f3e042d63a70045b4517ad96860de4, type: 3}
   RewardName: DuckMeat
-  Description: "\uC804\uD22C \uC885\uB8CC \uC2DC \uACF5\uACA9\uB825 1 \uC601\uAD6C
+  Description: "\uC804\uD22C 3\uD68C \uC885\uB8CC \uC2DC \uACF5\uACA9\uB825 1 \uC601\uAD6C
     \uC0C1\uC2B9"
   FlavorText: "\uACE0\uAE30 \uC0C9\uC774 \uB178\uB780\uC0C9\uC774\uB124..?"
   isItem: 1
   statChanges: []
   abilities:
-  - rid: 7988895476758347858
+  - rid: 7928554684031959112
   references:
     version: 2
     RefIds:
-    - rid: 7988895476758347858
-      type: {class: Boss3, ns: , asm: Assembly-CSharp}
+    - rid: 7928554684031959112
+      type: {class: GenericStatAbility, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 1
+        useStack: 1
+        requiredStack: 3
+        resetStackOnTrigger: 1
+        resetStackOnBattleEnd: 0
+        targetType: 0
+        statTarget: 2
+        modifierValue: 1

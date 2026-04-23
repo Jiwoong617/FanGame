@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 21300000, guid: c338362774f0c6442aaa062a9f094418, type: 3}
   RewardName: "\uC2DC\uBC14\uACAC"
-  Description: "\uC804\uD22C \uC885\uB8CC \uC2DC \uC9C0\uC18D\uB418\uB294 \uD761\uD608
-    1\uC2A4\uD0DD \uD68D\uB4DD"
+  Description: "\uC804\uD22C 2\uD68C \uC885\uB8CC \uC2DC \uC9C0\uC18D\uB418\uB294
+    \uD761\uD608 1\uC2A4\uD0DD \uD68D\uB4DD"
   FlavorText: "\uC2DC\uBC14..\uB828\u2026?"
   isItem: 1
   statChanges: []
@@ -28,10 +28,10 @@ MonoBehaviour:
       type: {class: GenericBuffAbility, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 1
-        useStack: 0
-        requiredStack: 1
+        useStack: 1
+        requiredStack: 2
         resetStackOnTrigger: 1
-        resetStackOnBattleEnd: 1
+        resetStackOnBattleEnd: 0
         targetType: 0
         buffToApply:
           rid: 7988895476758347856

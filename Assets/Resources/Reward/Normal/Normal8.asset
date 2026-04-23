@@ -17,7 +17,7 @@ MonoBehaviour:
   Description: "\uBC29\uC5B4\uB825 1 \uC99D\uAC00"
   FlavorText: "\uB2E8\uB2E8\uD574\uC9C0\uB294 \uB290\uB08C\uC774 \uB4DC\uB294 \uC774\uB984\uC758
     \uC870\uAC01\uC0C1\uC774\uB2E4."
-  isItem: 0
+  isItem: 1
   statChanges:
   - targetStat: 1
     modType: 0

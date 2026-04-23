@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 21300000, guid: b90f85da03622714da355808f2a410d5, type: 3}
   RewardName: "\uC798 \uB053\uC778 \uB77C\uBA74"
-  Description: "\uACF5\uACA9\uC18D\uB3C4 0.2\uC99D\uAC00"
+  Description: "\uACF5\uACA9\uC18D\uB3C4 0.1\uC99D\uAC00"
   FlavorText: "\uBA74 \uC0C1 \uD601"
   isItem: 0
   statChanges:
   - targetStat: 3
     modType: 0
-    amount: 0.2
+    amount: 0.1
   abilities: []
   references:
     version: 2

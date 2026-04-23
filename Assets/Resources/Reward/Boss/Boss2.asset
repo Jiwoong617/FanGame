@@ -14,17 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 21300000, guid: dd2bf5bcddcce8c4f9beaab8882df964, type: 3}
   RewardName: "\uAC74\uAC15\uAE30\uC6D0 \uBD80\uC801"
-  Description: "\uC804\uD22C \uC885\uB8CC \uC2DC \uCD5C\uB300 \uCCB4\uB825 5 \uC601\uAD6C
+  Description: "\uC804\uD22C \uC885\uB8CC \uC2DC \uCD5C\uB300 \uCCB4\uB825 2 \uC601\uAD6C
     \uC0C1\uC2B9"
   FlavorText: "\uAC74\uAC15\uB9CC \uD574\uB2E4\uC624.."
   isItem: 1
   statChanges: []
   abilities:
-  - rid: 7988895476758347857
+  - rid: 7928554684031959111
   references:
     version: 2
     RefIds:
-    - rid: 7988895476758347857
-      type: {class: Boss2, ns: , asm: Assembly-CSharp}
+    - rid: 7928554684031959111
+      type: {class: GenericStatAbility, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 1
+        useStack: 0
+        requiredStack: 1
+        resetStackOnTrigger: 1
+        resetStackOnBattleEnd: 1
+        targetType: 0
+        statTarget: 0
+        modifierValue: 2
