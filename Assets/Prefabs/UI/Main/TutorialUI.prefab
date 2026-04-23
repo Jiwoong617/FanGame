@@ -629,6 +629,9 @@ MonoBehaviour:
   - sectionName: "\uC77C\uC2DC \uC815\uC9C0"
     sprites:
     - {fileID: 21300000, guid: 1565dc7183aefae4da2129b6cb78670c, type: 3}
+  - sectionName: "\uC124\uC815"
+    sprites:
+    - {fileID: 21300000, guid: 6660b7e9eef839d44aa52fd08d40021e, type: 3}
   - sectionName: "\uC804\uD22C \uC815\uBCF4"
     sprites:
     - {fileID: 21300000, guid: dbcd076a2f7f4a042a4be6d209b26584, type: 3}
@@ -640,6 +643,9 @@ MonoBehaviour:
     - {fileID: 21300000, guid: c84c6049fe8722b46ac4aa6bce35d689, type: 3}
     - {fileID: 21300000, guid: 176ed936a6ad418468853963f9789490, type: 3}
     - {fileID: 21300000, guid: 044e78cc18138974e94991d845664fc3, type: 3}
+  - sectionName: "\uB514/\uBC84\uD504 \uBAA9\uB85D"
+    sprites:
+    - {fileID: 21300000, guid: 5621e9ac9d435f44096925c9ede62068, type: 3}
   - sectionName: "\uC2A4\uD0AC \uC815\uBCF4"
     sprites:
     - {fileID: 21300000, guid: 32ad636e94779e942874f63737fae527, type: 3}
