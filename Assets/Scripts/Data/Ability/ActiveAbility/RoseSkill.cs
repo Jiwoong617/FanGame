@@ -45,7 +45,7 @@ public class RoseSkill : ActiveAbility
         CombatEventContext ctx = new CombatEventContext(player, target, totalDmg, DamageType.Normal, false);
         float actualDamage = target.TakeDamage(ctx);
 
-        GameManager.VFX.PlayEffect(player.transform.position, target.transform.position, AttackVFXType.RoseSkill, 0f, Color.white);
+        GameManager.VFX.PlayEffect(player.transform.position, target.RestPosition, AttackVFXType.RoseSkill, 0f, Color.white);
 
         if (actualDamage > 0)
         {

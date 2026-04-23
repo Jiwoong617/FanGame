@@ -14,6 +14,8 @@ public class ModularAttackVFX : BaseVFX
     public override void PlayEffect(Vector3 attackerPos, Vector3 targetPos, float hitDelay, Color color, Action onHit, Action onComplete)
     {
         transform.localScale = Vector3.one;
+        transform.DOKill();
+        spriteRenderer.DOKill();
 
         if (isRandPos)
         {

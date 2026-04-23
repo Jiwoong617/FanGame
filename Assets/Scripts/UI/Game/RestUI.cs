@@ -90,7 +90,7 @@ public class RestUI : UI_Base
         ProcessAction("휴식", () =>
         {
             var stats = GameManager.Instance.Player.GetStat<PlayerStats>();
-            float healAmount = stats.maxHp.GetValue() * 0.3f;
+            float healAmount = stats.maxHp.GetValue() * 0.5f;
             float beforeHp = stats.hp;
 
             stats.hp = Mathf.Min(stats.hp + healAmount, stats.maxHp.GetValue());

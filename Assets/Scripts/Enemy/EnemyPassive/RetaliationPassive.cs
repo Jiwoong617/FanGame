@@ -19,7 +19,7 @@ public class RetaliationPassive : PassiveAbility
 
     public override void OnEvent(CombatEvent eventType, CombatEventContext context)
     {
-        if (eventType == combatEvent && context.target == owner && owner != null && !owner.IsDead)
+        if (eventType == combatEvent && owner != null && context.target == owner && !owner.IsDead)
         {
             if (context.isReflectDamage) return;
 
@@ -41,7 +41,7 @@ public class RetaliationPassive : PassiveAbility
             owner,
             attacker,
             retaliationDamage,
-            DamageType.Normal,
+            DamageType.Fixed,
             true,
             false,
             null

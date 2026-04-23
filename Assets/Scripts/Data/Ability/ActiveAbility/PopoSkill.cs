@@ -70,7 +70,7 @@ public class PopoSkill : ActiveAbility
                 CombatEventContext ctx = new CombatEventContext(player, target, finalDmg, DamageType.Normal, false, isCrit);
                 float actualDamage = target.TakeDamage(ctx);
 
-                GameManager.VFX.PlayEffect(player.transform.position, target.transform.position, AttackVFXType.Popo, 0f,
+                GameManager.VFX.PlayEffect(player.transform.position, target.RestPosition, AttackVFXType.Popo, 0f,
                     Color.white);
 
                 if (actualDamage > 0)

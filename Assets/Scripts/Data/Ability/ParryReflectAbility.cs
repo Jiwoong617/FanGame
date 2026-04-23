@@ -15,7 +15,7 @@ public class ParryReflectAbility : Ability
             if (stats == null)
                 return;
 
-            float dmg = stats.attackDamage.GetValue();
+            float dmg = stats.attackDamage.GetValue() * 0.5f;
             bool isCritical = false;
             if (Random.Range(0f, 100f) < stats.criticalChance.GetValue())
             {

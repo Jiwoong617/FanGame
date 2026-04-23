@@ -38,9 +38,9 @@ MonoBehaviour:
   unitBackSprite: {fileID: 21300000, guid: 0bf10843b84cdae449005b7746d81edc, type: 3}
   unitSkillSprite: {fileID: 21300000, guid: d9fad81a9088bad48833d292198613a5, type: 3}
   unitParrySprite: {fileID: 21300000, guid: ad9db37416b9669488152d888b816918, type: 3}
-  stamina: 30
+  stamina: 45
   staminaRegen: 1
-  fp: 3
+  fp: 4
   skillCoolTime: 0
   dodgeCost: 10
   parryCost: 7

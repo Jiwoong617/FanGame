@@ -13,14 +13,16 @@ public class SettingUI : UI_Base
 
     enum Sliders { MasterVolumeSlider, BGMVolumeSlider, SFXVolumeSlider }
     enum Dropdowns { WindowModeDropdown }
-    enum Buttons { CloseButton }
+    enum Buttons { CloseButton, ExitOrMainButton }
     enum Images { BlockPanel, Background }
+    enum Texts {ExitOrMainText}
 
     private Canvas canvas;
     private GraphicRaycaster raycaster;
     private RectTransform BG;
     [SerializeField] private float animDuration = 0.5f;
     [SerializeField] private float startYOffset = -500f;
+    [SerializeField] private ConfirmPopupUI confirmPopup;
 
     protected override void Init()
     {
@@ -47,8 +49,10 @@ public class SettingUI : UI_Base
         Bind<TMP_Dropdown>(typeof(Dropdowns));
         Bind<Button>(typeof(Buttons));
         Bind<Image>(typeof(Images));
+        Bind<TMP_Text>(typeof(Texts));
 
         Get<Button>(Buttons.CloseButton).onClick.AddListener(Hide);
+        Get<Button>(Buttons.ExitOrMainButton).onClick.AddListener(OnExitOrMainClicked);
         Get<Slider>(Sliders.MasterVolumeSlider).onValueChanged.AddListener(OnMasterChanged);
         Get<Slider>(Sliders.BGMVolumeSlider).onValueChanged.AddListener(OnBGMChanged);
         Get<Slider>(Sliders.SFXVolumeSlider).onValueChanged.AddListener(OnSFXChanged);
@@ -65,6 +69,8 @@ public class SettingUI : UI_Base
     {
         if (canvas != null) canvas.enabled = true;
         if (raycaster != null) raycaster.enabled = true;
+
+        RefreshUI();
 
         if (BG != null)
         {
@@ -85,6 +91,11 @@ public class SettingUI : UI_Base
 
     public override void Hide()
     {
+        if (confirmPopup != null && confirmPopup.IsVisible)
+        {
+            confirmPopup.Hide();
+            return;
+        }
         if (BG != null)
         {
             BG.DOKill();
@@ -113,7 +124,12 @@ public class SettingUI : UI_Base
     public void Toggle()
     {
         if (canvas.enabled)
-            Hide();
+        {
+            if (confirmPopup != null && confirmPopup.IsVisible)
+                confirmPopup.Hide();
+            else
+                Hide();
+        }
         else
         {
             Show();
@@ -131,6 +147,12 @@ public class SettingUI : UI_Base
         }
         int modeIndex = PlayerPrefs.GetInt("WindowMode", 0);
         Get<TMP_Dropdown>(Dropdowns.WindowModeDropdown).value = modeIndex;
+
+        // 게임 상태에 따라 버튼 텍스트 변경
+        bool isMainMenu = GameManager.Instance != null && GameManager.Instance.State == GameState.MainMenu;
+        var btnText = Get<TMP_Text>(Texts.ExitOrMainText);
+        if (btnText != null)
+            btnText.text = isMainMenu ? "게임 종료" : "메인화면으로";
     }
 
     private void InitWindowModeDropdown()
@@ -144,6 +166,36 @@ public class SettingUI : UI_Base
     private void OnMasterChanged(float val) => GameManager.Sound?.SetMasterVolume(val);
     private void OnBGMChanged(float val) => GameManager.Sound?.SetBGMVolume(val);
     private void OnSFXChanged(float val) => GameManager.Sound?.SetSFXVolume(val);
+
+    private void OnExitOrMainClicked()
+    {
+        bool isMainMenu = GameManager.Instance != null && GameManager.Instance.State == GameState.MainMenu;
+        if (isMainMenu)
+        {
+            confirmPopup.Show("게임을 종료할까요?", QuitGame);
+        }
+        else
+        {
+            confirmPopup.Show("메인 화면으로 돌아갈까요?", ReturnToMain);
+        }
+    }
+
+    private void QuitGame()
+    {
+    #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+    #else
+        Application.Quit();
+    #endif
+    }
+
+    private void ReturnToMain()
+    {
+        Time.timeScale = 1f;
+        Hide();
+        GameManager.Instance.ResetGame();
+        GameManager.Scene.LoadScene(SceneType.MainMenu);
+    }
     private void OnWindowModeChanged(int index)
     {
         FullScreenMode mode = FullScreenMode.ExclusiveFullScreen;

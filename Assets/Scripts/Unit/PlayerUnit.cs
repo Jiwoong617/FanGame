@@ -261,15 +261,15 @@ public class PlayerUnit : CombatUnit
         {
             spriteRenderer.transform.DOKill(true);
 
-            float originalX = spriteRenderer.transform.position.x;
+            float originalLocalX = spriteRenderer.transform.localPosition.x;
             float dodgeDistance = 1.5f;
 
             Sequence dodgeSeq = DOTween.Sequence();
 
             //일단 구르기 0.3, 제자리 0.2, 복귀 0.5로 했음
-            dodgeSeq.Append(spriteRenderer.transform.DOMoveX(originalX - dodgeDistance, duration * 0.3f).SetEase(Ease.OutCubic));
+            dodgeSeq.Append(spriteRenderer.transform.DOLocalMoveX(originalLocalX - dodgeDistance, duration * 0.3f).SetEase(Ease.OutCubic));
             dodgeSeq.AppendInterval(duration * 0.2f);
-            dodgeSeq.Append(spriteRenderer.transform.DOMoveX(originalX, duration * 0.5f).SetEase(Ease.InOutSine));
+            dodgeSeq.Append(spriteRenderer.transform.DOLocalMoveX(originalLocalX, duration * 0.5f).SetEase(Ease.InOutSine));
         }
         else if (newState == PlayerState.Parrying)
         {
@@ -288,6 +288,11 @@ public class PlayerUnit : CombatUnit
         }
         else if (newState == PlayerState.Skill)
         {
+            // 회피/패링 tween이 남아있을 경우 정리하고 X 위치 복원
+            spriteRenderer.transform.DOKill(true);
+            var lp = spriteRenderer.transform.localPosition;
+            spriteRenderer.transform.localPosition = new Vector3(0f, lp.y, lp.z);
+
             if (playerData.unitSkillSprite != null)
                 spriteRenderer.sprite = playerData.unitSkillSprite;
 

@@ -41,7 +41,7 @@ MonoBehaviour:
   unitParrySprite: {fileID: 21300000, guid: a8bc5a516232f67448d067ea17a59ec6, type: 3}
   stamina: 50
   staminaRegen: 1
-  fp: 2
+  fp: 3
   skillCoolTime: 0
   dodgeCost: 10
   parryCost: 7
