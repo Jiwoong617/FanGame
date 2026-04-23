@@ -1,22 +1,10 @@
 fileFormatVersion: 2
-guid: 9873ef70a5203674bb4aaefb3f8c52eb
+guid: 73fe27536f17b034f824ad45115459bf
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2023510093174123122
-    second: Normal19_0
-  - first:
-      213: 1870585125844621102
-    second: Normal19_1
-  - first:
-      213: 8426224559617358284
-    second: Normal19_2
-  - first:
-      213: 6436128238219908479
-    second: Normal19_3
-  - first:
-      213: -5023729141130700146
-    second: Normal19_4
+      213: 1208040086343421634
+    second: image_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -112,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Normal19_0
+      name: image_0
       rect:
         serializedVersion: 2
-        x: 194
-        y: 448
-        width: 221
-        height: 193
+        x: 0
+        y: 0
+        width: 500
+        height: 500
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,96 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e8550f09a4c0be3e0800000000000000
-      internalID: -2023510093174123122
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal19_1
-      rect:
-        serializedVersion: 2
-        x: 457
-        y: 478
-        width: 241
-        height: 171
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e27191cd247a5f910800000000000000
-      internalID: 1870585125844621102
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal19_2
-      rect:
-        serializedVersion: 2
-        x: 746
-        y: 465
-        width: 211
-        height: 176
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: cc93aa9c796ffe470800000000000000
-      internalID: 8426224559617358284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal19_3
-      rect:
-        serializedVersion: 2
-        x: 998
-        y: 450
-        width: 174
-        height: 192
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f7555f75888b15950800000000000000
-      internalID: 6436128238219908479
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Normal19_4
-      rect:
-        serializedVersion: 2
-        x: 1215
-        y: 460
-        width: 146
-        height: 180
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e8a502786f0284ab0800000000000000
-      internalID: -5023729141130700146
+      spriteID: 2ce8eecde02d3c010800000000000000
+      internalID: 1208040086343421634
       vertices: []
       indices: 
       edges: []
@@ -235,11 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Normal19_0: -2023510093174123122
-      Normal19_1: 1870585125844621102
-      Normal19_2: 8426224559617358284
-      Normal19_3: 6436128238219908479
-      Normal19_4: -5023729141130700146
+      image_0: 1208040086343421634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

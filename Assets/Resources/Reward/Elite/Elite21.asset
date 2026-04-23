@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
+  m_Name: Elite21
+  m_EditorClassIdentifier: Assembly-CSharp::RewardData
+  Icon: {fileID: 21300000, guid: 2b55b45aa82ba364a970dbffd3057ddb, type: 3}
+  RewardName: "\uB9CC\uB450\uB9D0\uB791\uC774"
+  Description: "\uC804\uD22C \uC2DC\uC791 \uC2DC 1\uCD08\uB9C8\uB2E4 \uCE58\uBA85\uD0C0
+    \uD53C\uD574 10% \uC99D\uAC00, \uC804\uD22C \uC885\uB8CC \uD6C4 \uCD08\uAE30\uD654"
+  FlavorText: 
+  isItem: 1
+  statChanges: []
+  abilities:
+  - rid: 7928554618357284939
+  references:
+    version: 2
+    RefIds:
+    - rid: 7928554618357284939
+      type: {class: CritDamageRampAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 0
+        interval: 1
+        bonusPerTick: 10

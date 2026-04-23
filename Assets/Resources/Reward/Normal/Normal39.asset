@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d851ab8d4953ea4f97af327d4d97ac2, type: 3}
+  m_Name: Normal39
+  m_EditorClassIdentifier: Assembly-CSharp::RewardData
+  Icon: {fileID: 21300000, guid: 35e5850efebf4ca409ba3987603c6021, type: 3}
+  RewardName: "\uC8FC\uD669\uBC84\uC12F \uBAA8\uC790"
+  Description: "\uCE58\uBA85\uD0C0 3\uBC88 \uC801\uC911 \uC2DC fp \uD68C\uBCF5"
+  FlavorText: "\uB86F\uB370\uC6D4\uB4DC\uB97C \uAC00\uACE0 \uC2F6\uC740\uB370 \uC544\uBB34\uB3C4
+    \uB098\uC640 \uAC00\uC8FC\uC9C0\uB97C \uC54A\uC544\uC694.."
+  isItem: 1
+  statChanges: []
+  abilities:
+  - rid: 7928554618357284867
+  references:
+    version: 2
+    RefIds:
+    - rid: 7928554618357284867
+      type: {class: GenericHealAbility, ns: , asm: Assembly-CSharp}
+      data:
+        combatEvent: 6
+        useStack: 1
+        requiredStack: 3
+        resetStackOnTrigger: 1
+        resetStackOnBattleEnd: 1
+        targetType: 0
+        healHpAmount: 0
+        recoverStaminaAmount: 0
+        recoverFpAmount: 1
