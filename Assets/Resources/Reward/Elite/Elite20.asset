@@ -26,7 +26,7 @@ MonoBehaviour:
     - rid: 7928554618357284867
       type: {class: GenericHealAbility, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 0
+        combatEvent: 2
         useStack: 1
         requiredStack: 5
         resetStackOnTrigger: 1
