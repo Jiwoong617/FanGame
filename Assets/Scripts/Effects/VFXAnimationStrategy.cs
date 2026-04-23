@@ -156,7 +156,6 @@ public class HasiyoSkillAnimation : VFXAnimationStrategy
                 t.position = startPos;
                 t.localScale = Vector3.one;
                 sr.color = color;
-                if (hitDelay > 0) seq.AppendInterval(hitDelay);
                 seq.Append(t.DOMove(targetPos, 0.5f).SetEase(Ease.InExpo));
                 seq.AppendCallback(() => onHit?.Invoke());
 

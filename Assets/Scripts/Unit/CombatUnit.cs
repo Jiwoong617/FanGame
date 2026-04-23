@@ -32,6 +32,9 @@ public abstract class CombatUnit : MonoBehaviour
     public bool IsAttacking => isAttacking;
     public bool IsDead => stats.hp <= 0;
 
+    // 공격 애니메이션과 무관한 유닛의 실제 대기 위치 (VFX 타겟용)
+    public Vector3 RestPosition { get; private set; }
+
 
     // 런타임 능력 리스트
     protected List<Ability> abilities = new List<Ability>();
@@ -141,7 +144,8 @@ public abstract class CombatUnit : MonoBehaviour
     public virtual void Init(UnitData data)
     {
         this.unitData = data;
-    
+        RestPosition = transform.position;
+        
         // 초기 스프라이트 설정
         if (spriteRenderer != null && unitData != null && unitData.unitSprite != null)
         {
@@ -189,7 +193,7 @@ public abstract class CombatUnit : MonoBehaviour
 
         Sequence attackSeq = DOTween.Sequence();
         attackSeq.Append(transform.DOMove(attackPos, forwardTime).SetEase(Ease.OutExpo));
-        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, forwardTime, onDamageDealt));
+        attackSeq.AppendCallback(() => ExecuteHit(target, damage, onHit, onCritical, debuffs, damageType, 0f, onDamageDealt));
         attackSeq.AppendInterval(pauseTime);
         attackSeq.Append(transform.DOMove(originalPos, returnTime).SetEase(Ease.OutCirc));
         attackSeq.OnComplete(() =>

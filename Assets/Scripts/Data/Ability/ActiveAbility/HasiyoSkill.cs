@@ -63,7 +63,7 @@ public class HasiyoSkill : ActiveAbility
     {
         GameManager.VFX.PlayEffect(
             player.transform.position,
-            enemy.transform.position,
+            enemy.RestPosition,
             AttackVFXType.HasiyoMeteo,
             0f,
             Color.white,
@@ -83,7 +83,7 @@ public class HasiyoSkill : ActiveAbility
     {
         GameManager.VFX.PlayEffect(
             player.transform.position,
-            enemy.transform.position,
+            enemy.RestPosition,
             AttackVFXType.HasiyoIce,
             0f,
             Color.white,
@@ -104,7 +104,7 @@ public class HasiyoSkill : ActiveAbility
     {
         GameManager.VFX.PlayEffect(
             player.transform.position,
-            enemy.transform.position,
+            enemy.RestPosition,
             AttackVFXType.HasiyoPlant,
             0f,
             Color.white,

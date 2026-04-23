@@ -430,7 +430,11 @@ PrefabInstance:
     - target: {fileID: 1848039824922184660, guid: cc5d4305793915846a087efb4b374b97, type: 3}
       propertyPath: testUnitData
       value: 
-      objectReference: {fileID: 11400000, guid: 85cd6a6bb49ebed4b93289e09225ae33, type: 2}
+      objectReference: {fileID: 11400000, guid: 26456e26ad003824a833c7819ec472b7, type: 2}
+    - target: {fileID: 1848039824922184660, guid: cc5d4305793915846a087efb4b374b97, type: 3}
+      propertyPath: 'stageList.Array.data[0]'
+      value: 
+      objectReference: {fileID: 11400000, guid: c5c413c7387458d4fbd4335349f7dad9, type: 2}
     - target: {fileID: 1848039824922184660, guid: cc5d4305793915846a087efb4b374b97, type: 3}
       propertyPath: testInventoryItems.Array.size
       value: 0
