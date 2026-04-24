@@ -17,6 +17,16 @@ public class TauntEffect : StatusEffect
         this.taunter = taunter;
     }
 
+    public override void OnUpdate(float delta)
+    {
+        base.OnUpdate(delta);
+
+        if (taunter == null || taunter.IsDead)
+        {
+            IsFinished = true;
+        }
+    }
+
     protected override void OnAdded()
     {
         base.OnAdded();

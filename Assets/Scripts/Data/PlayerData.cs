@@ -28,6 +28,7 @@ public class PlayerData : UnitData
     [Header("Skill")]
     public Sprite skillIcon;
     public string skillName;
+    [TextArea]
     public string skillDesc;
 
     [Header("Sound")]
