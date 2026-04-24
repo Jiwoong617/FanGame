@@ -14,19 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 21300000, guid: cb305f86c02509746891155965de5f01, type: 3}
   RewardName: "\uCE68\uB300"
-  Description: "\uD734\uC2DD \uC2DC \uC7A0\uC744 \uC798 \uACBD\uC6B0 \uCCB4\uB825
-    10 \uCD94\uAC00 \uD68C\uBCF5"
+  Description: "\uD734\uC2DD \uC2DC \uC7A0\uC744 \uC798 \uACBD\uC6B0 \uCD5C\uB300
+    \uCCB4\uB825 5 \uC99D\uAC00"
   FlavorText: "\uC194\uC9C1\uD788 \uC598\uAE30\uD574 \uADF8\uB0E5! \uB108 \uB098\uB791
     \uC790\uACE0 \uC2F6\uC796\uC544!!"
   isItem: 1
   statChanges: []
   abilities:
-  - rid: 7988895456875511898
+  - rid: 4726928578713485465
   references:
     version: 2
     RefIds:
-    - rid: 7988895456875511898
-      type: {class: GenericHealAbility, ns: , asm: Assembly-CSharp}
+    - rid: 4726928578713485465
+      type: {class: GenericStatAbility, ns: , asm: Assembly-CSharp}
       data:
         combatEvent: 7
         useStack: 0
@@ -34,6 +34,5 @@ MonoBehaviour:
         resetStackOnTrigger: 1
         resetStackOnBattleEnd: 1
         targetType: 0
-        healHpAmount: 10
-        recoverStaminaAmount: 0
-        recoverFpAmount: 0
+        statTarget: 0
+        modifierValue: 5

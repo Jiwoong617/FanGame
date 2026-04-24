@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RewardData
   Icon: {fileID: 21300000, guid: 39fc9c3ed2775bd41844488035c1ab4c, type: 3}
   RewardName: "\uBD81\uADF9\uACF0 \uB2E4\uC774\uC5B4\uD2B8"
-  Description: "\uCD5C\uB300\uCCB4\uB825 90%\uAC10\uC18C, \uACF5\uACA9\uB825 2\uBC30
+  Description: "\uCD5C\uB300 \uCCB4\uB825 90% \uAC10\uC18C, \uACF5\uACA9\uB825 2\uBC30
     \uC99D\uAC00"
   FlavorText: "\uC800 \uBC30\uACE0\uD504\uBA74 \uBD81\uADF9\uACF0 \uB3FC\uC694"
   isItem: 1
