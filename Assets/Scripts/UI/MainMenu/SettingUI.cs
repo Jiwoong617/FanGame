@@ -159,7 +159,7 @@ public class SettingUI : UI_Base
     {
         var dropdown = Get<TMP_Dropdown>(Dropdowns.WindowModeDropdown);
         dropdown.ClearOptions();
-        List<string> options = new List<string> { "전체 화면", "창 모드", "전체 창 모드" };
+        List<string> options = new List<string> { "전체 화면", "창 모드" };
         dropdown.AddOptions(options);
     }
 
@@ -203,7 +203,6 @@ public class SettingUI : UI_Base
         {
             case 0: mode = FullScreenMode.ExclusiveFullScreen; break;
             case 1: mode = FullScreenMode.Windowed; break;
-            case 2: mode = FullScreenMode.FullScreenWindow; break;
         }
         Screen.SetResolution(1920, 1080, mode);
         PlayerPrefs.SetInt("WindowMode", index);

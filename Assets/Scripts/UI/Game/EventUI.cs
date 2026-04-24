@@ -101,7 +101,7 @@ public class EventUI : UI_Base
     {
         Get<VerticalLayoutGroup>(Verticals.Vertical).gameObject.SetActive(false);
 
-        string finalResultText = option.resultText + "\n\n";
+        string finalResultText = option.resultText + "\n";
         foreach(var outcome in option.outcomes)
         {
             if (outcome != null)

@@ -138,8 +138,21 @@ public class GameManager : MonoBehaviour
         Sound.Init();
 
 
-        // 전투 -> (승리) -> 보상
-        Battle.OnBattleWon += () => ChangeState(GameState.Reward);
+        // 전투 -> (승리) -> 보상 (마지막 스테이지 보스면 바로 엔딩)
+        Battle.OnBattleWon += () =>
+        {
+            bool isLastStage = CurrentStageIndex >= stageList.Count - 1;
+            bool isBoss = CurrentBattleType == NodeType.Boss;
+            if (isLastStage && isBoss)
+            {
+                ChangeState(GameState.Ending);
+                Scene.LoadScene(SceneType.Ending);
+            }
+            else
+            {
+                ChangeState(GameState.Reward);
+            }
+        };
         // 전투 -> (패배) -> 게임오버
         Battle.OnPlayerDead += () => ChangeState(GameState.GameOver);
 
@@ -283,14 +296,6 @@ public class GameManager : MonoBehaviour
     private void NextStage()
     {
         CurrentStageIndex++;
-
-        if (CurrentStageIndex >= stageList.Count)
-        {
-            // TODO : 일단 클리어 하면 엔딩 바로 보게
-            ChangeState(GameState.Ending);
-            Scene.LoadScene(SceneType.Ending);
-            return;
-        }
 
         OnGameStateChanged?.Invoke(GameState.MapSelect);
         // 플레이어 상태 회복

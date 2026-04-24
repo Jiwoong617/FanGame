@@ -363,14 +363,16 @@ public class LastStandSynergyAbility : RewardAbility
 
     private float timer = 0f;
     private bool isActive = false;
-    private bool? hasSynergy = null; // null = 미검사, 이후 캐싱
+    private bool hasSynergy = false; // null = 미검사, 이후 캐싱
 
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
         if (eventType == CombatEvent.OnBattleStart)
         {
             isActive = false;
-            hasSynergy ??= GameManager.Inventory.HasAbility<LastStandAbility>();
+            if(hasSynergy == false)
+                hasSynergy = GameManager.Inventory.HasAbility<LastStandAbility>();
+            
             if (hasSynergy == true && Random.value < 0.7f)
             {
                 timer = Random.Range(5f, 8f);

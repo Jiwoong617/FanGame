@@ -26,29 +26,16 @@ MonoBehaviour:
   criticalDamage: 150
   unitDescription: 
   startingAbilities:
-  - rid: 1747107541381808239
+  - rid: 7928554706103435335
   references:
     version: 2
     RefIds:
-    - rid: 1747107541381808239
-      type: {class: TriggerEventPassive, ns: , asm: Assembly-CSharp}
+    - rid: 7928554706103435335
+      type: {class: MimicPassive, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 0
+        combatEvent: 3
         passiveIcon: {fileID: 21300000, guid: 2ad38fc0a1e96c14bbd4201abc6146a4, type: 3}
         passiveName: "\uD749\uB0B4\uB0B4\uAE30"
         passiveDescription: "\uBC1B\uB294 \uB370\uBBF8\uC9C0 50% \uAC10\uC18C \uBC0F
           \uD589\uB3D9 \uC608\uCE21 \uBD88\uAC00"
-        useHeal: 0
-        isPercentHeal: 0
-        healAmount: 0
-        grantEffects:
-        - rid: 1747107541381808240
-    - rid: 1747107541381808240
-      type: {class: DamageReductionEffect, ns: , asm: Assembly-CSharp}
-      data:
-        combatEvent: 3
-        effectType: 10
-        duration: -1
-        stacks: 1
-        effectValue: 0.5
-        isPermanent: 0
+        reductionRate: 0.5

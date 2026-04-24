@@ -3,40 +3,45 @@
 [System.Serializable]
 public class Elite8 : RewardAbility
 {
-    [SerializeField] private AttackDamageEffect buffTemplate;
+    [Tooltip("곱연산 배율 (예: 1.2 = 공격력 1.2배)")]
+    [SerializeField] private float multValue = 1.2f;
 
-    private AttackDamageEffect activeBuff;
+    private StatModifier activeMod;
 
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
-        if (buffTemplate == null) return;
-
         if (eventType == CombatEvent.OnBattleStart)
         {
-            RemoveActiveBuff();
-
-            activeBuff = buffTemplate.Clone() as AttackDamageEffect;
-            owner.AddAbility(activeBuff);
+            RemoveActiveMod();
+            AddActiveMod();
         }
         else if (eventType == CombatEvent.OnTakeDamage && ctx.value > 0)
         {
-            if (activeBuff != null && !activeBuff.IsFinished)
-            {
-                RemoveActiveBuff();
-            }
+            RemoveActiveMod();
         }
         else if (eventType == CombatEvent.OnBattleEnd)
         {
-            RemoveActiveBuff();
+            RemoveActiveMod();
         }
     }
 
-    private void RemoveActiveBuff()
+    private void AddActiveMod()
     {
-        if (activeBuff != null)
+        var stats = owner.GetStat<UnitStats>();
+        if (stats != null)
         {
-            activeBuff.MakeFinish();
-            activeBuff = null;
+            activeMod = new StatModifier(multValue, StatModType.PercentMult);
+            stats.attackDamage.AddModifier(activeMod);
+        }
+    }
+
+    private void RemoveActiveMod()
+    {
+        if (activeMod != null)
+        {
+            var stats = owner.GetStat<UnitStats>();
+            stats?.attackDamage.RemoveModifier(activeMod);
+            activeMod = null;
         }
     }
 }
