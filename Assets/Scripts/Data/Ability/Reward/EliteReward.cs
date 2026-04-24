@@ -51,49 +51,54 @@ public class Elite8 : RewardAbility
 public class Elite9 : RewardAbility
 {
     [Header("Buff Settings")]
-    [SerializeField] private AttackDamageEffect strongTemplate; // 2배 설정
-    [SerializeField] private AttackDamageEffect weakTemplate;   // 0.7배 설정
+    [Tooltip("강화 상태 곱연산 배율 (예: 2.0 = 공격력 2배)")]
+    [SerializeField] private float strongMultValue = 2.0f;
+    [Tooltip("피격 후 약화 상태 곱연산 배율 (예: 0.7 = 공격력 0.7배)")]
+    [SerializeField] private float weakMultValue = 0.7f;
 
-    private AttackDamageEffect activeBuff;
+    private StatModifier activeMod;
     private bool isBroken = false;
 
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
-        if (strongTemplate == null || weakTemplate == null) return;
-
         if (eventType == CombatEvent.OnBattleStart)
         {
             isBroken = false;
-            ChangeBuff(strongTemplate);
+            RemoveActiveMod();
+            AddActiveMod(strongMultValue);
         }
         else if (eventType == CombatEvent.OnTakeDamage && ctx.value > 0)
         {
             if (!isBroken)
             {
                 isBroken = true;
-                ChangeBuff(weakTemplate);
+                RemoveActiveMod();
+                AddActiveMod(weakMultValue);
             }
         }
         else if (eventType == CombatEvent.OnBattleEnd)
         {
-            RemoveActiveBuff();
+            RemoveActiveMod();
         }
     }
 
-    private void ChangeBuff(AttackDamageEffect template)
+    private void AddActiveMod(float multValue)
     {
-        RemoveActiveBuff();
-
-        activeBuff = template.Clone() as AttackDamageEffect;
-        owner.AddAbility(activeBuff);
+        var stats = owner.GetStat<UnitStats>();
+        if (stats != null)
+        {
+            activeMod = new StatModifier(multValue, StatModType.PercentMult);
+            stats.attackDamage.AddModifier(activeMod);
+        }
     }
 
-    private void RemoveActiveBuff()
+    private void RemoveActiveMod()
     {
-        if (activeBuff != null)
+        if (activeMod != null)
         {
-            activeBuff.MakeFinish();
-            activeBuff = null;
+            var stats = owner.GetStat<UnitStats>();
+            stats?.attackDamage.RemoveModifier(activeMod);
+            activeMod = null;
         }
     }
 }

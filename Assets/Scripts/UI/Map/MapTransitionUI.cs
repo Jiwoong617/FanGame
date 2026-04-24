@@ -59,6 +59,7 @@ public class MapTransitionUI : UI_Base
 
     public void PlayTransition(Action onScreenCovered)
     {
+        if (gameObject.activeSelf) return;
         gameObject.SetActive(true);
         foreach (var bar in bars)
         {

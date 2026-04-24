@@ -27,6 +27,7 @@ public class MapUI : UI_Base
     private List<MapNodeUI> nodeUIs = new List<MapNodeUI>();
     private List<MapLineUI> lines = new List<MapLineUI>();
     private Dictionary<MapNode, MapNodeUI> nodeUiMap = new Dictionary<MapNode, MapNodeUI>();
+    private bool isTransitioning = false;
 
     private void OnEnable()
     {
@@ -173,6 +174,9 @@ public class MapUI : UI_Base
 
     private void OnNodeClicked(MapNode node)
     {
+        if (isTransitioning) return;
+        isTransitioning = true;
+
         Debug.Log($"Node Selected: {node.nodeType} at ({node.x}, {node.y})");
 
         if (GameManager.Map.GetMapTransitionUI() != null)
@@ -181,6 +185,7 @@ public class MapUI : UI_Base
             {
                 GameManager.Map.SelectNode(node);
                 UpdateMapUI();
+                isTransitioning = false;
                 Hide();
             });
         }
@@ -188,6 +193,7 @@ public class MapUI : UI_Base
         {
             GameManager.Map.SelectNode(node);
             UpdateMapUI();
+            isTransitioning = false;
             Hide();
         }
     }
@@ -200,6 +206,7 @@ public class MapUI : UI_Base
         nodeUIs.Clear();
         lines.Clear();
         nodeUiMap.Clear();
+        isTransitioning = false;
     }
 
     public override void Show()
