@@ -54,11 +54,27 @@ public class SimpleTooltipUI : UI_Base
 
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
             myCanvas.transform as RectTransform,
-            screenPosition, // 변경된 부분
+            screenPosition,
             eventCamera,
             out localPoint);
 
-        bgRect.localPosition = localPoint + new Vector2(15f, -15f);
+        Vector2 offset = new Vector2(5f, -5f);
+        Vector2 tooltipPos = localPoint + offset;
+
+        // 캔버스 RectTransform 기준으로 툴팁이 화면 밖으로 나가지 않도록 클램프
+        RectTransform canvasRect = myCanvas.transform as RectTransform;
+        Vector2 half = canvasRect.rect.size * 0.5f;
+        Vector2 tooltipSize = bgRect.rect.size;
+
+        float minX = -half.x;
+        float maxX =  half.x - tooltipSize.x;
+        float minY = -half.y + tooltipSize.y;
+        float maxY =  half.y;
+
+        tooltipPos.x = Mathf.Clamp(tooltipPos.x, minX, maxX);
+        tooltipPos.y = Mathf.Clamp(tooltipPos.y, minY, maxY);
+
+        bgRect.localPosition = tooltipPos;
     }
 
     public void ShowTooltip(string title, string description)
