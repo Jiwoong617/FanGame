@@ -33,10 +33,16 @@ MonoBehaviour:
       \uB204\uAC00 \uAD6C\uC6E0\uC5B4 \uC774\uAC70.. \uC800\uBC88 \uBAA8\uC784\uC5D0\uC11C
       \uACE0\uAE30\uB97C \uD0DC\uC6E0\uB2E4\uB294 \uB204\uAD70\uAC00\uAC00 \uC0DD\uAC01\uB09C\uB2E4."
     outcomes:
-    - rid: 7988895521758773249
+    - rid: 4726928578713485466
   references:
     version: 2
     RefIds:
+    - rid: 4726928578713485466
+      type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
+      data:
+        targetStat: 3
+        modType: 0
+        amount: 0.1
     - rid: 7988895500292063322
       type: {class: RecoveryOutcome, ns: , asm: Assembly-CSharp}
       data:
@@ -49,7 +55,3 @@ MonoBehaviour:
         targetStat: 5
         modType: 1
         amount: 0.5
-    - rid: 7988895521758773249
-      type: {class: ItemOutcome, ns: , asm: Assembly-CSharp}
-      data:
-        itemReward: {fileID: 11400000, guid: b26e8dabfe6fd424c97cec0ffe5265ef, type: 2}
