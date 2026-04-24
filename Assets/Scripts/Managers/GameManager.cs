@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
 
 public enum GameState
 {
@@ -55,7 +56,13 @@ public class GameManager : MonoBehaviour
     public int CurrentStageIndex { get; private set; } = 0;
     public StageData currentStageData => stageList[CurrentStageIndex];
 
+#if UNITY_STANDALONE_WIN
+    [DllImport("AspectWindow")]
+    static extern void HookUnityWindow();
 
+    [DllImport("AspectWindow")]
+    static extern void SetAspectRatio(float ratio);
+#endif
 
     private void Awake()
     {
@@ -67,6 +74,11 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+#if UNITY_STANDALONE_WIN
+        SetAspectRatio(16f / 9f);
+        HookUnityWindow();
+#endif
+
         // AudioMixer.SetFloat은 Awake 타이밍에 무시되는 Unity 버그가 있어 Start에서 적용
         Sound.ApplySavedVolumes();
         

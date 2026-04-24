@@ -45,9 +45,9 @@ public class SoundManager
         for (int i = 0; i < SFX_POOL_INITIAL_SIZE; i++)
             AddSfxSourceToPool();
 
-        MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 1f);
-        BGMVolume    = PlayerPrefs.GetFloat("BGMVolume",    1f);
-        SFXVolume    = PlayerPrefs.GetFloat("SFXVolume",    1f);
+        MasterVolume = PlayerPrefs.GetFloat("MasterVolume", 0.3f);
+        BGMVolume    = PlayerPrefs.GetFloat("BGMVolume",    0.3f);
+        SFXVolume    = PlayerPrefs.GetFloat("SFXVolume",    0.3f);
 
         GameManager.Instance.OnGameStateChanged -= OnStateChanged;
         GameManager.Instance.OnGameStateChanged += OnStateChanged;
