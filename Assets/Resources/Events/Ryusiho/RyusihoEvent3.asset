@@ -40,7 +40,7 @@ MonoBehaviour:
     - rid: 7988895521758773335
       type: {class: HpLoseOutCome, ns: , asm: Assembly-CSharp}
       data:
-        amount: 50
+        amount: 30
         isPercentage: 1
     - rid: 7988895521758773336
       type: {class: StatOutcome, ns: , asm: Assembly-CSharp}
