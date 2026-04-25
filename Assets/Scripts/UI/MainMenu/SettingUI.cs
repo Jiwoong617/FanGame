@@ -146,7 +146,10 @@ public class SettingUI : UI_Base
             Get<Slider>(Sliders.SFXVolumeSlider).value = GameManager.Sound.SFXVolume;
         }
         int modeIndex = PlayerPrefs.GetInt("WindowMode", 0);
-        Get<TMP_Dropdown>(Dropdowns.WindowModeDropdown).value = modeIndex;
+        var windowDropdown = Get<TMP_Dropdown>(Dropdowns.WindowModeDropdown);
+        windowDropdown.onValueChanged.RemoveListener(OnWindowModeChanged);
+        windowDropdown.value = modeIndex;
+        windowDropdown.onValueChanged.AddListener(OnWindowModeChanged);
 
         // 게임 상태에 따라 버튼 텍스트 변경
         bool isMainMenu = GameManager.Instance != null && GameManager.Instance.State == GameState.MainMenu;

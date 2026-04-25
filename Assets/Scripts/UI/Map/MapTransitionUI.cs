@@ -23,6 +23,7 @@ public class MapTransitionUI : UI_Base
 
     private List<RectTransform> bars = new List<RectTransform>();
     private TMP_Text battleStartText;
+    private RectTransform rectTransform;
 
     [Header("Settings")]
     [SerializeField] private float moveDuration = 0.4f;
@@ -51,7 +52,8 @@ public class MapTransitionUI : UI_Base
 
         GameManager.Map.SetMapTransitionUI(this);
 
-        screenHeight = GetComponent<RectTransform>().rect.height;
+        rectTransform = GetComponent<RectTransform>();
+        screenHeight = rectTransform.rect.height;
         battleStartText = Get<TMP_Text>(Texts.BattleStartText);
         battleStartText.gameObject.SetActive(false);
         gameObject.SetActive(false);
@@ -61,6 +63,7 @@ public class MapTransitionUI : UI_Base
     {
         if (gameObject.activeSelf) return;
         gameObject.SetActive(true);
+        screenHeight = rectTransform.rect.height;
         foreach (var bar in bars)
         {
             bar.anchoredPosition = new Vector2(bar.anchoredPosition.x, -screenHeight);

@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ccce163cd8c0634daff0f5e6abd37df, type: 3}
-  m_Name: ChurosData
+  m_Name: MilkData
   m_EditorClassIdentifier: Assembly-CSharp::UnitData
-  unitName: Churos
-  prefab: {fileID: 6107110035909089572, guid: e94441cc6e547734bbc3c9dc3dc465ed, type: 3}
-  unitSprite: {fileID: 21300000, guid: 1a92a5aaff013bf408547d4d96cd5806, type: 3}
-  unitBasicAttackSprite: {fileID: 21300000, guid: 1a92a5aaff013bf408547d4d96cd5806, type: 3}
-  unitDeadSprite: {fileID: 21300000, guid: 4378b6b5c523c414691a907b2c69a8ea, type: 3}
+  unitName: Zombie
+  prefab: {fileID: 6107110035909089572, guid: df3bf971b1ed9594c90a810b34439f40, type: 3}
+  unitSprite: {fileID: 21300000, guid: 8886d5417d6f79b48b091da149189d8c, type: 3}
+  unitBasicAttackSprite: {fileID: 21300000, guid: 17788569cd79cdf489e3aa36d4f83ee0, type: 3}
+  unitDeadSprite: {fileID: 21300000, guid: 0eefc3797506bef40888929ebac77baa, type: 3}
   attackVFXType: 1
-  hp: 70
-  defense: 0
-  attackDamage: 5
+  hp: 55
+  defense: 1
+  attackDamage: 3
   attackSpeed: 1
-  criticalChance: 20
+  criticalChance: 5
   criticalDamage: 150
   unitDescription: 
   startingAbilities: []

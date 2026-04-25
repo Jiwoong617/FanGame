@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: 9c6e8b80a8acea24ba9862499e08d18b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8886d5417d6f79b48b091da149189d8c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 6254284788820507192}
   - component: {fileID: -6547912909177896719}
   m_Layer: 0
-  m_Name: GGomang
+  m_Name: Milk
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.68}
+  m_Offset: {x: 0, y: 1}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -171,7 +171,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.55, y: 2}
+  m_Size: {x: 2, y: 3}
   m_EdgeRadius: 0
 --- !u!114 &6254284788820507192
 MonoBehaviour:
@@ -187,85 +187,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyUnit
   combatUI: {fileID: 6162710147832715274}
   patterns:
-  - rid: 7928554444680069123
-  - rid: 1747107541381808232
-  - rid: 7928554731534286922
-  isUsePatternFirst: 0
+  - rid: 7928554731534286848
+  - rid: 7928554731534286849
+  isUsePatternFirst: 1
   references:
     version: 2
     RefIds:
-    - rid: 1747107541381808232
-      type: {class: DebuffPattern, ns: , asm: Assembly-CSharp}
-      data:
-        patternName: Fuckyou
-        cooldown: 10
-        requiredChargeTime: 1
-        patternIcon: 5
-        triggerChance: 30
-        lastExecutionTime: -9999
-        conditions: []
-        actionSprite: {fileID: 21300000, guid: f1bbcb9a497b4b644a184b2dc328f716, type: 3}
-        debuffs:
-        - rid: 1747107541381808233
-        useMoveAnim: 0
-    - rid: 1747107541381808233
-      type: {class: TauntEffect, ns: , asm: Assembly-CSharp}
-      data:
-        combatEvent: 0
-        effectType: 13
-        duration: 3
-        stacks: 1
-        effectValue: 0
-        isPermanent: 0
-    - rid: 7928554444680069123
+    - rid: 7928554731534286848
       type: {class: SequentialAttackPattern, ns: , asm: Assembly-CSharp}
       data:
-        patternName: Pattern
-        cooldown: 9
+        patternName: "\uC5F0\uC18D \uBC15\uCE58\uAE30"
+        cooldown: 4
         requiredChargeTime: 2.5
         patternIcon: 9
-        triggerChance: 30
+        triggerChance: 5
         lastExecutionTime: -9999
         conditions: []
         actionSprite: {fileID: 0}
         onHit: 1
         onCritical: 1
-        damageType: 0
+        damageType: 1
         comboSteps:
         - damagePercent: 1
           delayBeforeAttack: 0
-        - damagePercent: 1.25
-          delayBeforeAttack: 0.4
-        - damagePercent: 1.5
-          delayBeforeAttack: 0.4
-        - damagePercent: 1.75
-          delayBeforeAttack: 0.4
-    - rid: 7928554731534286922
-      type: {class: AttackBuffPattern, ns: , asm: Assembly-CSharp}
+        - damagePercent: 1
+          delayBeforeAttack: 0.7
+        - damagePercent: 1
+          delayBeforeAttack: 0.6
+        - damagePercent: 1
+          delayBeforeAttack: 0.5
+    - rid: 7928554731534286849
+      type: {class: BuffPattern, ns: , asm: Assembly-CSharp}
       data:
-        patternName: BoonTang
-        cooldown: 7
-        requiredChargeTime: 1.25
-        patternIcon: 1
-        triggerChance: 30
+        patternName: Buff
+        cooldown: 8
+        requiredChargeTime: 2
+        patternIcon: 4
+        triggerChance: 100
         lastExecutionTime: -9999
         conditions: []
-        actionSprite: {fileID: 21300000, guid: 45282ad4dd8539243b8e9088a17ff410, type: 3}
-        damagePercent: 1.5
-        damageType: 1
-        useMoveAnim: 1
+        actionSprite: {fileID: 21300000, guid: e3801801a4953574f9f059baa20fffe0, type: 3}
         targetType: 0
         buffEffect:
-          rid: 7928554731534286923
-    - rid: 7928554731534286923
-      type: {class: DamageReductionEffect, ns: , asm: Assembly-CSharp}
+          rid: 7928554731534286850
+        castDuration: 0.5
+    - rid: 7928554731534286850
+      type: {class: AttackDamageEffect, ns: , asm: Assembly-CSharp}
       data:
-        combatEvent: 3
-        effectType: 10
-        duration: 7
+        combatEvent: 0
+        effectType: 8
+        duration: -1
         stacks: 1
-        effectValue: 0.3
+        effectValue: 1
         isPermanent: 0
+        modType: 0
 --- !u!114 &-6547912909177896719
 MonoBehaviour:
   m_ObjectHideFlags: 0

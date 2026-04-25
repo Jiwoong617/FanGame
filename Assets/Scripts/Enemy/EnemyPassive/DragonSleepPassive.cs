@@ -20,9 +20,10 @@ public class DragonSleepPassive : PassiveAbility
                 float maxHp = stats.maxHp.GetValue();
 
                 if (currentHp <= maxHp * 0.7f)
+                {
                     dragon.WakeUp(wakeUpDebuffs);
-
-                passiveDescription = "이 드래곤은 깨어났습니다.";
+                    passiveDescription = "이 드래곤은 깨어났습니다.";
+                }
             }
         }
     }

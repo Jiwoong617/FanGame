@@ -20,7 +20,7 @@ MonoBehaviour:
   attackVFXType: 1
   hp: 20
   defense: 0
-  attackDamage: 1
+  attackDamage: 3
   attackSpeed: 0.5
   criticalChance: 20
   criticalDamage: 150
@@ -37,7 +37,7 @@ MonoBehaviour:
         passiveIcon: {fileID: 21300000, guid: 6967cbe61aeb7ac49b45d8721f8bb1d2, type: 3}
         passiveName: "\uCDE8\uAE09 \uC8FC\uC758"
         passiveDescription: "\uC804\uD22C \uC2DC\uC791 \uC2DC \uBB34\uD6A8\uD654
-          30\uC2A4\uD0DD \uD68D\uB4DD"
+          20\uC2A4\uD0DD \uD68D\uB4DD"
         useHeal: 0
         isPercentHeal: 0
         healAmount: 0
@@ -49,6 +49,6 @@ MonoBehaviour:
         combatEvent: 3
         effectType: 1
         duration: -1
-        stacks: 30
+        stacks: 20
         effectValue: 0
         isPermanent: 0

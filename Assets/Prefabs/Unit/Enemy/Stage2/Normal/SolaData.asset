@@ -20,7 +20,7 @@ MonoBehaviour:
   attackVFXType: 0
   hp: 80
   defense: 1
-  attackDamage: 2
+  attackDamage: 3
   attackSpeed: 1
   criticalChance: 5
   criticalDamage: 150
