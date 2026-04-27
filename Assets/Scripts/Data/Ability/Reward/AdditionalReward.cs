@@ -241,8 +241,6 @@ public class BloodPactAbility : RewardAbility
     [SerializeField] private float vampireValue = 0.05f;      // 흡혈 1스택당 비율
     [SerializeField] private int vampireStacks = 2;           // 획득 스택 수
 
-    private VampireEffect activeVampire;
-
     public override void OnEvent(CombatEvent eventType, CombatEventContext ctx)
     {
         if (eventType != CombatEvent.OnBattleStart) return;
@@ -253,25 +251,7 @@ public class BloodPactAbility : RewardAbility
         float loss = stats.hp * hpLossRatio;
         stats.hp = Mathf.Max(1f, stats.hp - loss);
 
-        if (activeVampire == null || activeVampire.IsFinished)
-        {
-            activeVampire = new VampireEffect(-1, vampireStacks, false, vampireValue);
-            owner.AddAbility(activeVampire);
-        }
-        else
-        {
-            activeVampire.AddStack(vampireStacks, -1);
-            owner.UpdateBuffUI(activeVampire);
-        }
-    }
-
-    public override void OnRemoved()
-    {
-        if (activeVampire != null && !activeVampire.IsFinished)
-        {
-            activeVampire.MakeFinish();
-        }
-        activeVampire = null;
+        owner.AddAbility(new VampireEffect(-1, vampireStacks, false, vampireValue));
     }
 }
 
