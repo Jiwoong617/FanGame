@@ -564,6 +564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialUI
       objectReference: {fileID: 0}
+    - target: {fileID: 2290780163472851209, guid: faf58a4a37a8de14396777c770648838, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3884059149160873291, guid: faf58a4a37a8de14396777c770648838, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -696,6 +700,10 @@ PrefabInstance:
     - target: {fileID: 1442009419943168323, guid: 4bcbdc08bfc156b42b9f5bc469a8f9c7, type: 3}
       propertyPath: m_Name
       value: SettingUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442009419943168323, guid: 4bcbdc08bfc156b42b9f5bc469a8f9c7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1510219167450017586, guid: 4bcbdc08bfc156b42b9f5bc469a8f9c7, type: 3}
       propertyPath: m_AnchorMax.y
